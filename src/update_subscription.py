@@ -57,7 +57,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_content = fetcher.fetch_subscription_content(clash_url)
 
         clash_file = output_path / 'clash.yaml'
-        clash_file.write_text(clash_content, encoding='utf-8')
+        # 为避免部分客户端默认非 UTF-8 解码，这里写入带 BOM 的 UTF-8
+        clash_file.write_bytes(clash_content.encode('utf-8-sig'))
         print(f"✓ clash 订阅文件已保存: {clash_file}")
         
         # 保存订阅元数据
