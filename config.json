@@ -1,0 +1,33 @@
+{
+  "app_name": "V2ray 自动订阅服务",
+  "description": "每天自动从 aggregator 项目获取最新代理节点，并生成固定链接供 v2ray 客户端使用",
+  "version": "1.0.0",
+  "update_schedule": {
+    "cron": "0 3 * * *",
+    "timezone": "UTC",
+    "description": "每天 UTC 3点运行 (北京时间下午3点)"
+  },
+  "github_pages": {
+    "enabled": true,
+    "branch": "gh-pages",
+    "url": "https://c1a200.github.io/wv2ray/",
+    "subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt"
+  },
+  "aggregator": {
+    "issue_url": "https://github.com/wzdnzd/aggregator/issues/91",
+    "description": "从此页面自动提取 token 和 API 地址"
+  },
+  "subscription": {
+    "format": "v2ray",
+    "encoding": "base64",
+    "target": "v2ray",
+    "auto_update": true
+  },
+  "v2ray_client_setup": [
+    "1. 打开 V2ray 客户端（Clash, V2rayN, V2rayA 等）",
+    "2. 找到订阅管理或远程订阅选项",
+    "3. 添加新的订阅，粘贴: https://c1a200.github.io/wv2ray/subscribe.txt",
+    "4. 设置自动更新间隔（建议 1-6 小时）",
+    "5. 导入订阅，选择节点并测试连接"
+  ]
+}
