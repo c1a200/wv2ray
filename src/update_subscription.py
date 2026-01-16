@@ -57,8 +57,9 @@ def save_subscription_files(output_dir: str = '.'):
         clash_content = fetcher.fetch_subscription_content(clash_url)
 
         clash_file = output_path / 'clash.yaml'
-        # 为避免部分客户端默认非 UTF-8 解码，这里写入带 BOM 的 UTF-8
-        clash_file.write_bytes(clash_content.encode('utf-8-sig'))
+        # 为了确保客户端正确识别为 UTF-8（特别是在某些系统上默认为 ANSI），
+        # 添加 UTF-8 BOM (byte order mark)
+        clash_file.write_bytes(b'\xef\xbb\xbf' + clash_content.encode('utf-8'))
         print(f"✓ clash 订阅文件已保存: {clash_file}")
         
         # 保存订阅元数据
@@ -109,7 +110,14 @@ def save_subscription_files(output_dir: str = '.'):
 
 
 if __name__ == '__main__':
-    # 输出目录为当前目录
-    output_dir = os.path.dirname(os.path.abspath(__file__))
+    # 优先输出到 docs 目录（GitHub Pages），其次为当前目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # 检查是否在 GitHub Actions 中运行
+    if os.path.exists(os.path.join(script_dir, '..', 'docs')):
+        output_dir = os.path.join(script_dir, '..', 'docs')
+    else:
+        output_dir = script_dir
+    
     success = save_subscription_files(output_dir)
     sys.exit(0 if success else 1)

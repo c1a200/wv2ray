@@ -34,21 +34,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
       
-      - name: Create docs directory
-        run: mkdir -p docs
-      
       - name: Update subscription
         run: python src/update_subscription.py
         env:
           PYTHONPATH: ${{ github.workspace }}/src
-      
-      - name: Move files to docs
-        run: |
-          cp src/subscribe.txt docs/subscribe.txt 2>/dev/null || echo "subscribe.txt not found in src"
-                    cp src/clash.yaml docs/clash.yaml 2>/dev/null || echo "clash.yaml not found in src"
-          cp src/metadata.json docs/metadata.json 2>/dev/null || echo "metadata.json not found in src"
-          cp src/summary.json docs/summary.json 2>/dev/null || echo "summary.json not found in src"
-          ls -la docs/
       
       - name: Create index page
         run: |

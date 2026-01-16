@@ -85,6 +85,8 @@ class AggregatorFetcher:
         try:
             response = self.session.get(url, timeout=self.timeout)
             response.raise_for_status()
+            # 显式指定 UTF-8 编码，确保正确处理中文字符
+            response.encoding = 'utf-8'
             return response.text
         except requests.RequestException as e:
             raise Exception(f"获取订阅内容失败: {e}")
