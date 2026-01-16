@@ -1,11 +1,14 @@
 {
-  "updated_at": "2026-01-16T03:21:32.995340Z",
-  "subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt",
-  "subscription_size_kb": 56.0,
-  "format": "v2ray (base64, upstream original)",
+  "updated_at": "2026-01-16T03:31:24.511410Z",
+  "v2ray_subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt",
+  "clash_subscription_url": "https://c1a200.github.io/wv2ray/clash.yaml",
+  "v2ray_size_kb": 21.05,
+  "clash_size_kb": 476.45,
+  "format": "v2ray (base64, upstream original) + clash (yaml)",
   "instructions": [
     "1. 在 v2ray 客户端中添加远程订阅",
     "2. 订阅地址: https://c1a200.github.io/wv2ray/subscribe.txt",
-    "3. 订阅每天自动更新（北京时间每天下午3点）"
+    "3. 在 clash/Clash Meta 中添加远程订阅: https://c1a200.github.io/wv2ray/clash.yaml",
+    "4. 订阅每天自动更新（北京时间每天下午3点）"
   ]
 }

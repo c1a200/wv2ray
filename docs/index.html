@@ -152,18 +152,25 @@
         </div>
         
         <div class="link-box">
-            <div style="font-size: 14px; color: #666; margin-bottom: 10px;">复制下面的链接到 V2ray 客户端</div>
+            <div style="font-size: 14px; color: #666; margin-bottom: 10px;">V2ray 订阅链接</div>
             <code id="subscribeUrl">https://c1a200.github.io/wv2ray/subscribe.txt</code>
             <br>
-            <button class="copy-btn" onclick="copyToClipboard()">📋 复制链接</button>
+            <button class="copy-btn" onclick="copyToClipboard('subscribeUrl')">📋 复制 V2ray 链接</button>
+        </div>
+
+        <div class="link-box">
+            <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Clash / Clash Meta 订阅链接</div>
+            <code id="clashUrl">https://c1a200.github.io/wv2ray/clash.yaml</code>
+            <br>
+            <button class="copy-btn" onclick="copyToClipboard('clashUrl')">📋 复制 Clash 链接</button>
         </div>
         
         <div class="steps">
             <h3>📖 使用步骤</h3>
             <ol>
-                <li>打开您的 V2ray 客户端（如 Clash、V2rayN 等）</li>
+                <li>V2ray 客户端：使用上面的 V2ray 链接</li>
+                <li>Clash / Clash Meta：使用上面的 Clash 链接</li>
                 <li>在订阅设置中添加远程订阅</li>
-                <li>粘贴上面的固定订阅链接</li>
                 <li>设置自动更新间隔（建议 1-6 小时）</li>
                 <li>客户端将在设定时间自动获取最新节点</li>
             </ol>
@@ -219,8 +226,8 @@
         }
         
         // 复制链接到剪贴板
-        function copyToClipboard() {
-            const url = document.getElementById('subscribeUrl').textContent;
+        function copyToClipboard(id) {
+            const url = document.getElementById(id).textContent;
             navigator.clipboard.writeText(url).then(() => {
                 const btn = event.target;
                 const originalText = btn.textContent;
