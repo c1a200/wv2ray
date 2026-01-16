@@ -12,7 +12,7 @@ from pathlib import Path
 # 添加 src 目录到路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from fetcher import AggregatorFetcher, V2rayFormatter
+from fetcher import AggregatorFetcher
 
 
 def save_subscription_files(output_dir: str = '.'):
@@ -36,20 +36,13 @@ def save_subscription_files(output_dir: str = '.'):
             api_url=info['api_url']
         )
         
-        # 获取订阅内容
+        # 获取订阅内容（保留上游原始内容，确保与直接访问一致）
         print("📥 正在获取订阅内容...")
         subscription_content = fetcher.fetch_subscription_content(subscribe_url)
-        
-        # 转换为 v2ray 格式
-        formatter = V2rayFormatter()
-        v2ray_subscription = formatter.format_to_v2ray_subscription(
-            subscription_content,
-            fetch_time=info['fetched_at']
-        )
-        
-        # 保存订阅文件（base64 格式）
+
+        # 直接保存原始内容，避免二次解码/编码导致与上游差异
         subscribe_file = output_path / 'subscribe.txt'
-        subscribe_file.write_text(v2ray_subscription, encoding='utf-8')
+        subscribe_file.write_text(subscription_content, encoding='utf-8')
         print(f"✓ 订阅文件已保存: {subscribe_file}")
         
         # 保存订阅元数据
@@ -70,8 +63,8 @@ def save_subscription_files(output_dir: str = '.'):
         summary = {
             'updated_at': info['fetched_at'],
             'subscription_url': 'https://c1a200.github.io/wv2ray/subscribe.txt',
-            'subscription_size_kb': round(len(v2ray_subscription) / 1024, 2),
-            'format': 'v2ray (base64)',
+            'subscription_size_kb': round(len(subscription_content) / 1024, 2),
+            'format': 'v2ray (base64, upstream original)',
             'instructions': [
                 '1. 在 v2ray 客户端中添加远程订阅',
                 '2. 订阅地址: https://c1a200.github.io/wv2ray/subscribe.txt',
