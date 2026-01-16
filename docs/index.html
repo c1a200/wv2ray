@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2ray 自动订阅服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .info-box p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        .link-box {
+            background: #f0f7ff;
+            border: 2px dashed #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .link-box code {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+            font-size: 14px;
+            word-break: break-all;
+            margin: 10px 0;
+        }
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+        .steps {
+            background: #fffbea;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .steps h3 {
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        .steps ol {
+            margin-left: 20px;
+            line-height: 2;
+            color: #666;
+        }
+        .status {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .status-item {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .status-item .label {
+            color: #7f8c8d;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .status-item .value {
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+        .badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 V2ray 自动订阅服务</h1>
+        <p class="subtitle">每天自动更新的代理节点订阅 <span class="badge">✓ 自动化</span></p>
+        
+        <div class="info-box">
+            <h3>📌 订阅地址（固定链接）</h3>
+            <p>在您的 V2ray 客户端中使用此链接，客户端将自动定期更新节点。</p>
+        </div>
+        
+        <div class="link-box">
+            <div style="font-size: 14px; color: #666; margin-bottom: 10px;">复制下面的链接到 V2ray 客户端</div>
+            <code id="subscribeUrl">https://c1a200.github.io/wv2ray/subscribe.txt</code>
+            <br>
+            <button class="copy-btn" onclick="copyToClipboard()">📋 复制链接</button>
+        </div>
+        
+        <div class="steps">
+            <h3>📖 使用步骤</h3>
+            <ol>
+                <li>打开您的 V2ray 客户端（如 Clash、V2rayN 等）</li>
+                <li>在订阅设置中添加远程订阅</li>
+                <li>粘贴上面的固定订阅链接</li>
+                <li>设置自动更新间隔（建议 1-6 小时）</li>
+                <li>客户端将在设定时间自动获取最新节点</li>
+            </ol>
+        </div>
+        
+        <div class="info-box">
+            <h3>⚙️ 更新信息</h3>
+            <div id="metadata">
+                <p>加载中...</p>
+            </div>
+        </div>
+        
+        <div class="status">
+            <div class="status-item">
+                <div class="label">更新频率</div>
+                <div class="value">每天一次</div>
+            </div>
+            <div class="status-item">
+                <div class="label">更新时间</div>
+                <div class="value">北京 15:00</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>✨ 由 GitHub Actions 自动维护 | 最后更新: <span id="updateTime">加载中...</span></p>
+            <p style="margin-top: 10px;">⚠️ 仅供学习和研究使用，请遵守相关法律法规</p>
+        </div>
+    </div>
+    
+    <script>
+        // 从 metadata.json 加载信息
+        async function loadMetadata() {
+            try {
+                const response = await fetch('/wv2ray/metadata.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // 更新时间
+                    const time = new Date(data.fetched_at);
+                    document.getElementById('updateTime').textContent = time.toLocaleString('zh-CN');
+                    
+                    // 更新元数据信息
+                    const metadataHtml = `
+                        <p><strong>获取时间：</strong> ${time.toLocaleString('zh-CN')}</p>
+                        <p><strong>数据源：</strong> aggregator 项目聚合</p>
+                        <p><strong>更新周期：</strong> 每 4 小时更新一次节点</p>
+                    `;
+                    document.getElementById('metadata').innerHTML = metadataHtml;
+                }
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+            }
+        }
+        
+        // 复制链接到剪贴板
+        function copyToClipboard() {
+            const url = document.getElementById('subscribeUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = '✅ 已复制';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // 页面加载时获取元数据
+        document.addEventListener('DOMContentLoaded', loadMetadata);
+    </script>
+</body>
+</html>

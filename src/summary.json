@@ -1,0 +1,11 @@
+{
+  "updated_at": "2026-01-16T03:06:44.964619Z",
+  "subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt",
+  "subscription_size_kb": 42.46,
+  "format": "v2ray (base64)",
+  "instructions": [
+    "1. 在 v2ray 客户端中添加远程订阅",
+    "2. 订阅地址: https://c1a200.github.io/wv2ray/subscribe.txt",
+    "3. 订阅每天自动更新（北京时间每天下午3点）"
+  ]
+}
