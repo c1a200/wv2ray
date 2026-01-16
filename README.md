@@ -4,11 +4,17 @@
 
 ## 📌 固定订阅链接
 
+V2ray（base64）：
 ```
 https://c1a200.github.io/wv2ray/subscribe.txt
 ```
 
-在您的 V2ray 客户端中使用此链接，客户端将自动定期获取最新节点。
+Clash / Clash Meta（YAML）：
+```
+https://c1a200.github.io/wv2ray/clash.yaml
+```
+
+在对应客户端使用相应链接，客户端将自动定期获取最新节点。
 
 ## 🚀 快速开始
 

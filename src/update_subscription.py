@@ -16,7 +16,7 @@ from fetcher import AggregatorFetcher
 
 
 def save_subscription_files(output_dir: str = '.'):
-    """获取并保存订阅文件"""
+    """获取并保存订阅文件（v2ray 与 clash）"""
     
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -30,29 +30,47 @@ def save_subscription_files(output_dir: str = '.'):
         print(f"✓ Token: {info['token'][:10]}...{info['token'][-5:]}")
         print(f"✓ API URL: {info['api_url']}")
         
-        # 构建订阅 URL
-        subscribe_url = fetcher.build_subscribe_url(
+        # 构建订阅 URL (v2ray)
+        v2ray_url = fetcher.build_subscribe_url(
             token=info['token'],
-            api_url=info['api_url']
+            api_url=info['api_url'],
+            target='v2ray'
         )
-        
-        # 获取订阅内容（保留上游原始内容，确保与直接访问一致）
-        print("📥 正在获取订阅内容...")
-        subscription_content = fetcher.fetch_subscription_content(subscribe_url)
 
-        # 直接保存原始内容，避免二次解码/编码导致与上游差异
-        subscribe_file = output_path / 'subscribe.txt'
-        subscribe_file.write_text(subscription_content, encoding='utf-8')
-        print(f"✓ 订阅文件已保存: {subscribe_file}")
+        # 获取 v2ray 订阅内容（原始）
+        print("📥 正在获取 v2ray 订阅内容...")
+        v2ray_content = fetcher.fetch_subscription_content(v2ray_url)
+
+        v2_file = output_path / 'subscribe.txt'
+        v2_file.write_text(v2ray_content, encoding='utf-8')
+        print(f"✓ v2ray 订阅文件已保存: {v2_file}")
+
+        # 构建订阅 URL (clash)
+        clash_url = fetcher.build_subscribe_url(
+            token=info['token'],
+            api_url=info['api_url'],
+            target='clash'
+        )
+
+        # 获取 clash 订阅内容（原始 YAML）
+        print("📥 正在获取 clash 订阅内容...")
+        clash_content = fetcher.fetch_subscription_content(clash_url)
+
+        clash_file = output_path / 'clash.yaml'
+        clash_file.write_text(clash_content, encoding='utf-8')
+        print(f"✓ clash 订阅文件已保存: {clash_file}")
         
         # 保存订阅元数据
         metadata = {
             'token': info['token'],
             'api_url': info['api_url'],
-            'subscribe_url': subscribe_url,
+            'v2ray_subscribe_url': v2ray_url,
+            'clash_subscribe_url': clash_url,
             'fetched_at': info['fetched_at'],
-            'subscription_file': 'subscribe.txt',
-            'github_pages_url': 'https://c1a200.github.io/wv2ray/subscribe.txt'
+            'v2ray_subscription_file': 'subscribe.txt',
+            'clash_subscription_file': 'clash.yaml',
+            'github_pages_v2ray': 'https://c1a200.github.io/wv2ray/subscribe.txt',
+            'github_pages_clash': 'https://c1a200.github.io/wv2ray/clash.yaml'
         }
         
         metadata_file = output_path / 'metadata.json'
@@ -62,13 +80,16 @@ def save_subscription_files(output_dir: str = '.'):
         # 保存信息摘要
         summary = {
             'updated_at': info['fetched_at'],
-            'subscription_url': 'https://c1a200.github.io/wv2ray/subscribe.txt',
-            'subscription_size_kb': round(len(subscription_content) / 1024, 2),
-            'format': 'v2ray (base64, upstream original)',
+            'v2ray_subscription_url': 'https://c1a200.github.io/wv2ray/subscribe.txt',
+            'clash_subscription_url': 'https://c1a200.github.io/wv2ray/clash.yaml',
+            'v2ray_size_kb': round(len(v2ray_content) / 1024, 2),
+            'clash_size_kb': round(len(clash_content) / 1024, 2),
+            'format': 'v2ray (base64, upstream original) + clash (yaml)',
             'instructions': [
                 '1. 在 v2ray 客户端中添加远程订阅',
                 '2. 订阅地址: https://c1a200.github.io/wv2ray/subscribe.txt',
-                '3. 订阅每天自动更新（北京时间每天下午3点）'
+                '3. 在 clash/Clash Meta 中添加远程订阅: https://c1a200.github.io/wv2ray/clash.yaml',
+                '4. 订阅每天自动更新（北京时间每天下午3点）'
             ]
         }
         
