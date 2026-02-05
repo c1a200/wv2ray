@@ -13,10 +13,9 @@ from datetime import datetime
 
 
 class AggregatorFetcher:
-    """从 GitHub Issue 获取 aggregator 订阅信息"""
+    """从 GitHub Issue 获取 aggregator 订阅信息（动态抓取，无默认值）"""
     
     ISSUE_URL = "https://github.com/wzdnzd/aggregator/issues/91"
-    API_BASE = "https://qybndbviblvt.us-west-1.clawcloudrun.com/api/v1/subscribe"
     
     def __init__(self, timeout: int = 30):
         self.timeout = timeout
@@ -27,6 +26,34 @@ class AggregatorFetcher:
     
     def fetch_issue_content(self) -> str:
         """获取 GitHub Issue 页面内容"""
+        issue_api_url = "https://api.github.com/repos/wzdnzd/aggregator/issues/91"
+        try:
+            # 优先使用 GitHub API 获取 Issue 与评论内容（避免 HTML 中信息被脚本渲染）
+            api_headers = {
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            }
+            issue_resp = self.session.get(issue_api_url, headers=api_headers, timeout=self.timeout)
+            issue_resp.raise_for_status()
+            issue_data = issue_resp.json()
+
+            parts = [issue_data.get("body") or ""]
+
+            comments_url = issue_data.get("comments_url")
+            if comments_url:
+                comments_resp = self.session.get(comments_url, headers=api_headers, timeout=self.timeout)
+                comments_resp.raise_for_status()
+                for item in comments_resp.json() or []:
+                    parts.append(item.get("body") or "")
+
+            combined = "\n".join(parts).strip()
+            if combined:
+                return combined
+
+        except requests.RequestException:
+            # API 失败则回退到 HTML 抓取
+            pass
+
         try:
             response = self.session.get(self.ISSUE_URL, timeout=self.timeout)
             response.raise_for_status()
@@ -36,35 +63,64 @@ class AggregatorFetcher:
     
     def extract_token(self, content: str) -> Optional[str]:
         """从页面内容中提取 token"""
-        # 查找 token 字段，支持多种格式
+        # 优先从表格行提取（HTML 格式）
+        table_pattern = r'<td>token</td>.*?<code[^>]*>([a-z0-9]+)</code>'
+        match = re.search(table_pattern, content, re.IGNORECASE | re.DOTALL)
+        if match:
+            return match.group(1)
+        
+        # Markdown 格式兜底（如评论或 issue body）
+        md_pattern = r'\|\s*token\s*\|.*?\|\s*`?([a-z0-9]{16,64})`?\s*\|'
+        match = re.search(md_pattern, content, re.IGNORECASE | re.DOTALL)
+        if match:
+            return match.group(1)
+        
+        # 通用格式兜底
         patterns = [
-            r'5[xwthvdjbvm1sbrwomlpcralcs5km568]{31}',  # 当前格式
-            r'token["\s:=]+([a-z0-9]{32})',              # 通用格式
+            r'token=([a-zA-Z0-9]{16,64})',
+            r'token["\s:=]+([a-z0-9]{16,64})',
         ]
         
         for pattern in patterns:
             match = re.search(pattern, content, re.IGNORECASE)
             if match:
-                return match.group(1) if match.lastindex else match.group(0)
+                return match.group(1)
         
         return None
     
     def extract_api_url(self, content: str) -> Optional[str]:
         """从页面内容中提取 API 地址"""
-        # 查找 API URL
+        # 优先从"在线服务接口地址"后提取完整 URL
+        context_pattern = r'在线服务接口地址.*?(https://[^\s<>"]+/api/v1/subscribe[^\s<>"]*)'
+        match = re.search(context_pattern, content, re.DOTALL)
+        if match:
+            url = match.group(1)
+            # 移除示例参数（如 ?token=xxx&target=xxx）
+            base_url = url.split('?')[0]
+            return base_url
+        
+        # 通用格式兜底
         pattern = r'https://[^\s\"<>]+/api/v1/subscribe'
         match = re.search(pattern, content)
-        return match.group(0) if match else None
+        if match:
+            url = match.group(0)
+            return url.split('?')[0]
+        
+        return None
     
     def get_subscription_info(self) -> Dict:
-        """获取订阅信息"""
+        """获取订阅信息（每次实时从 Issue 页面动态抓取）"""
         content = self.fetch_issue_content()
         
         token = self.extract_token(content)
         api_url = self.extract_api_url(content)
+
+        # 必须从页面抓取到 token 和 API URL，不使用任何默认值或缓存
+        if not token:
+            raise Exception("无法从 Issue 页面提取 token，请检查页面格式是否变化")
         
-        if not token or not api_url:
-            raise Exception("无法从 Issue 页面提取 token 或 API URL")
+        if not api_url:
+            raise Exception("无法从 Issue 页面提取 API URL，请检查页面格式是否变化")
         
         return {
             'token': token,
@@ -72,11 +128,10 @@ class AggregatorFetcher:
             'fetched_at': datetime.utcnow().isoformat() + 'Z'
         }
     
-    def build_subscribe_url(self, token: str, target: str = 'v2ray', 
-                           api_url: str = None) -> str:
-        """构建订阅 URL"""
-        if api_url is None:
-            api_url = self.API_BASE
+    def build_subscribe_url(self, token: str, api_url: str, target: str = 'v2ray') -> str:
+        """构建订阅 URL（必须提供 api_url，不使用默认值）"""
+        if not api_url:
+            raise ValueError("api_url 不能为空，必须从 Issue 页面动态获取")
         
         return f"{api_url}?token={token}&target={target}&list=false"
     
