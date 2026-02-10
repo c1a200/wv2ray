@@ -68,6 +68,18 @@ class AggregatorFetcher:
         match = re.search(table_pattern, content, re.IGNORECASE | re.DOTALL)
         if match:
             return match.group(1)
+
+        # Issue body 中的 details/summary 结构（Markdown 或渲染后的 HTML）
+        details_patterns = [
+            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
+            r'<details>\s*<summary>\s*.*?密钥.*?\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
+            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})',
+            r'点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
+        ]
+        for pattern in details_patterns:
+            match = re.search(pattern, content, re.IGNORECASE | re.DOTALL)
+            if match:
+                return match.group(1)
         
         # Markdown 格式兜底（如评论或 issue body）
         md_pattern = r'\|\s*token\s*\|.*?\|\s*`?([a-z0-9]{16,64})`?\s*\|'
