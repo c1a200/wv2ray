@@ -1,11 +1,11 @@
-name: V2ray Subscription
+﻿name: Update V2ray Subscription
 
 on:
   schedule:
-    # 每天 UTC 3点 (北京时间下午3点) 运行
+    # 姣忓ぉ UTC 3鐐?(鍖椾含鏃堕棿涓嬪崍3鐐? 杩愯
     - cron: '0 3 * * *'
   
-  # 允许手动触发
+  # 鍏佽鎵嬪姩瑙﹀彂
   workflow_dispatch:
 
 jobs:
@@ -35,11 +35,10 @@ jobs:
           pip install requests
       
       - name: Update subscription
-                run: python src/update_subscription.py
-                env:
-                    PYTHONPATH: ${{ github.workspace }}/src
-                    # 临时启用非敏感诊断输出以帮助定位 token 提取问题
-                    DEBUG_FETCH: 'true'
+        run: python src/update_subscription.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+          DEBUG_FETCH: 'true'
       
       - name: Create index page
         run: |
@@ -49,7 +48,7 @@ jobs:
           <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>V2ray 自动订阅服务</title>
+              <title>V2ray 鑷姩璁㈤槄鏈嶅姟</title>
               <style>
                   * {
                       margin: 0;
@@ -189,80 +188,79 @@ jobs:
           </head>
           <body>
               <div class="container">
-                  <h1>🚀 V2ray 自动订阅服务</h1>
-                  <p class="subtitle">每天自动更新的代理节点订阅 <span class="badge">✓ 自动化</span></p>
+                  <h1>馃殌 V2ray 鑷姩璁㈤槄鏈嶅姟</h1>
+                  <p class="subtitle">姣忓ぉ鑷姩鏇存柊鐨勪唬鐞嗚妭鐐硅闃?<span class="badge">鉁?鑷姩鍖?/span></p>
                   
                   <div class="info-box">
-                      <h3>📌 订阅地址（固定链接）</h3>
-                      <p>在您的 V2ray 客户端中使用此链接，客户端将自动定期更新节点。</p>
+                      <h3>馃搶 璁㈤槄鍦板潃锛堝浐瀹氶摼鎺ワ級</h3>
+                      <p>鍦ㄦ偍鐨?V2ray 瀹㈡埛绔腑浣跨敤姝ら摼鎺ワ紝瀹㈡埛绔皢鑷姩瀹氭湡鏇存柊鑺傜偣銆?/p>
                   </div>
                   
                   <div class="link-box">
-                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">V2ray 订阅链接</div>
+                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">V2ray 璁㈤槄閾炬帴</div>
                       <code id="subscribeUrl">https://c1a200.github.io/wv2ray/subscribe.txt</code>
                       <br>
-                      <button class="copy-btn" onclick="copyToClipboard('subscribeUrl')">📋 复制 V2ray 链接</button>
+                      <button class="copy-btn" onclick="copyToClipboard('subscribeUrl')">馃搵 澶嶅埗 V2ray 閾炬帴</button>
                   </div>
 
                   <div class="link-box">
-                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Clash / Clash Meta 订阅链接</div>
+                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Clash / Clash Meta 璁㈤槄閾炬帴</div>
                       <code id="clashUrl">https://c1a200.github.io/wv2ray/clash.yaml</code>
                       <br>
-                      <button class="copy-btn" onclick="copyToClipboard('clashUrl')">📋 复制 Clash 链接</button>
+                      <button class="copy-btn" onclick="copyToClipboard('clashUrl')">馃搵 澶嶅埗 Clash 閾炬帴</button>
                   </div>
                   
                   <div class="steps">
-                      <h3>📖 使用步骤</h3>
+                      <h3>馃摉 浣跨敤姝ラ</h3>
                       <ol>
-                          <li>V2ray 客户端：使用上面的 V2ray 链接</li>
-                          <li>Clash / Clash Meta：使用上面的 Clash 链接</li>
-                          <li>在订阅设置中添加远程订阅</li>
-                          <li>设置自动更新间隔（建议 1-6 小时）</li>
-                          <li>客户端将在设定时间自动获取最新节点</li>
+                          <li>V2ray 瀹㈡埛绔細浣跨敤涓婇潰鐨?V2ray 閾炬帴</li>
+                          <li>Clash / Clash Meta锛氫娇鐢ㄤ笂闈㈢殑 Clash 閾炬帴</li>
+                          <li>鍦ㄨ闃呰缃腑娣诲姞杩滅▼璁㈤槄</li>
+                          <li>璁剧疆鑷姩鏇存柊闂撮殧锛堝缓璁?1-6 灏忔椂锛?/li>
+                          <li>瀹㈡埛绔皢鍦ㄨ瀹氭椂闂磋嚜鍔ㄨ幏鍙栨渶鏂拌妭鐐?/li>
                       </ol>
                   </div>
                   
                   <div class="info-box">
-                      <h3>⚙️ 更新信息</h3>
+                      <h3>鈿欙笍 鏇存柊淇℃伅</h3>
                       <div id="metadata">
-                          <p>加载中...</p>
+                          <p>鍔犺浇涓?..</p>
                       </div>
                   </div>
                   
                   <div class="status">
                       <div class="status-item">
-                          <div class="label">更新频率</div>
-                          <div class="value">每天一次</div>
+                          <div class="label">鏇存柊棰戠巼</div>
+                          <div class="value">姣忓ぉ涓€娆?/div>
                       </div>
                       <div class="status-item">
-                          <div class="label">更新时间</div>
-                          <div class="value">北京 15:00</div>
+                          <div class="label">鏇存柊鏃堕棿</div>
+                          <div class="value">鍖椾含 15:00</div>
                       </div>
                   </div>
                   
                   <div class="footer">
-                      <p>✨ 由 GitHub Actions 自动维护 | 最后更新: <span id="updateTime">加载中...</span></p>
-                      <p style="margin-top: 10px;">⚠️ 仅供学习和研究使用，请遵守相关法律法规</p>
+                      <p>鉁?鐢?GitHub Actions 鑷姩缁存姢 | 鏈€鍚庢洿鏂? <span id="updateTime">鍔犺浇涓?..</span></p>
+                      <p style="margin-top: 10px;">鈿狅笍 浠呬緵瀛︿範鍜岀爺绌朵娇鐢紝璇烽伒瀹堢浉鍏虫硶寰嬫硶瑙?/p>
                   </div>
               </div>
               
               <script>
-                  // 从 metadata.json 加载信息
+                  // 浠?metadata.json 鍔犺浇淇℃伅
                   async function loadMetadata() {
                       try {
                           const response = await fetch('/wv2ray/metadata.json');
                           if (response.ok) {
                               const data = await response.json();
                               
-                              // 更新时间
+                              // 鏇存柊鏃堕棿
                               const time = new Date(data.fetched_at);
                               document.getElementById('updateTime').textContent = time.toLocaleString('zh-CN');
                               
-                              // 更新元数据信息
-                              const metadataHtml = `
-                                  <p><strong>获取时间：</strong> ${time.toLocaleString('zh-CN')}</p>
-                                  <p><strong>数据源：</strong> aggregator 项目聚合</p>
-                                  <p><strong>更新周期：</strong> 每 4 小时更新一次节点</p>
+                              // 鏇存柊鍏冩暟鎹俊鎭?                              const metadataHtml = `
+                                  <p><strong>鑾峰彇鏃堕棿锛?/strong> ${time.toLocaleString('zh-CN')}</p>
+                                  <p><strong>鏁版嵁婧愶細</strong> aggregator 椤圭洰鑱氬悎</p>
+                                  <p><strong>鏇存柊鍛ㄦ湡锛?/strong> 姣?4 灏忔椂鏇存柊涓€娆¤妭鐐?/p>
                               `;
                               document.getElementById('metadata').innerHTML = metadataHtml;
                           }
@@ -271,33 +269,33 @@ jobs:
                       }
                   }
                   
-                  // 复制链接到剪贴板
+                  // 澶嶅埗閾炬帴鍒板壀璐存澘
                   function copyToClipboard(id) {
                       const url = document.getElementById(id).textContent;
                       navigator.clipboard.writeText(url).then(() => {
                           const btn = event.target;
                           const originalText = btn.textContent;
-                          btn.textContent = '✅ 已复制';
+                          btn.textContent = '鉁?宸插鍒?;
                           setTimeout(() => {
                               btn.textContent = originalText;
                           }, 2000);
                       });
                   }
                   
-                  // 页面加载时获取元数据
+                  // 椤甸潰鍔犺浇鏃惰幏鍙栧厓鏁版嵁
                   document.addEventListener('DOMContentLoaded', loadMetadata);
               </script>
           </body>
           </html>
           EOF
-          echo "✓ index.html 已创建"
+          echo "鉁?index.html 宸插垱寤?
       
       - name: Check files
         run: |
-          echo "📂 docs 目录内容:"
+          echo "馃搨 docs 鐩綍鍐呭:"
           ls -lah docs/
           echo ""
-          echo "📝 文件大小:"
+          echo "馃摑 鏂囦欢澶у皬:"
           du -sh docs/*
       
       - name: Commit and push changes
@@ -305,14 +303,14 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 检查是否有变化
+          # 妫€鏌ユ槸鍚︽湁鍙樺寲
           if [ -n "$(git status --porcelain)" ]; then
               git add docs/
               git add src/
-              git commit -m "⚡ 自动更新订阅文件 - $(date +'%Y-%m-%d %H:%M:%S')" || true
+              git commit -m "鈿?鑷姩鏇存柊璁㈤槄鏂囦欢 - $(date +'%Y-%m-%d %H:%M:%S')" || true
               git push origin main || git push origin master || echo "Push failed, might be first run"
           else
-              echo "✓ 没有变化，跳过提交"
+              echo "鉁?娌℃湁鍙樺寲锛岃烦杩囨彁浜?
           fi
       
       - name: Deploy to GitHub Pages
@@ -326,10 +324,10 @@ jobs:
 
       - name: Summary
         run: |
-          echo "✅ 更新完成！"
+          echo "鉁?鏇存柊瀹屾垚锛?
           echo ""
-          echo "📌 固定订阅链接:"
+          echo "馃搶 鍥哄畾璁㈤槄閾炬帴:"
           echo "   https://c1a200.github.io/wv2ray/subscribe.txt"
           echo ""
-          echo "📚 详细信息:"
+          echo "馃摎 璇︾粏淇℃伅:"
           echo "   https://c1a200.github.io/wv2ray/"
