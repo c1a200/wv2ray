@@ -35,9 +35,11 @@ jobs:
           pip install requests
       
       - name: Update subscription
-        run: python src/update_subscription.py
-        env:
-          PYTHONPATH: ${{ github.workspace }}/src
+                run: python src/update_subscription.py
+                env:
+                    PYTHONPATH: ${{ github.workspace }}/src
+                    # 临时启用非敏感诊断输出以帮助定位 token 提取问题
+                    DEBUG_FETCH: 'true'
       
       - name: Create index page
         run: |

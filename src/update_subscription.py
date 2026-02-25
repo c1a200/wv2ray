@@ -27,7 +27,7 @@ def save_subscription_files(output_dir: str = '.'):
         print("📥 正在从 GitHub Issue 获取订阅信息...")
         info = fetcher.get_subscription_info()
         
-        print(f"✓ Token: {info['token'][:10]}...{info['token'][-5:]}")
+        print(f"✓ Token: {info['token']}")
         print(f"✓ API URL: {info['api_url']}")
         
         # 构建订阅 URL (v2ray)
