@@ -6,6 +6,7 @@
 
 import re
 import json
+import os
 import requests
 import base64
 from typing import Dict, Optional, List
@@ -23,10 +24,19 @@ class AggregatorFetcher:
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         })
+        # DEBUG_FETCH=true 时输出非敏感诊断信息
+        self.debug = os.getenv('DEBUG_FETCH', '').lower() in {'1', 'true', 'yes', 'y'}
+
+    def _content_has_token(self, content: str) -> bool:
+        try:
+            return bool(self.extract_token(content))
+        except Exception:
+            return False
     
     def fetch_issue_content(self) -> str:
         """获取 GitHub Issue 页面内容"""
         issue_api_url = "https://api.github.com/repos/wzdnzd/aggregator/issues/91"
+        combined = ""
         try:
             # 优先使用 GitHub API 获取 Issue 与评论内容（避免 HTML 中信息被脚本渲染）
             api_headers = {
@@ -47,14 +57,12 @@ class AggregatorFetcher:
                     parts.append(item.get("body") or "")
 
             combined = "\n".join(parts).strip()
-            if combined:
-                # API 内容不一定包含 token（如 token 在渲染后的 HTML 中）
-                try:
-                    if self.extract_token(combined):
-                        return combined
-                except Exception:
-                    # 解析异常时回退到 HTML
-                    pass
+            if combined and self._content_has_token(combined):
+                if self.debug:
+                    print(f"[DEBUG] api_combined_len={len(combined)} token_found=True")
+                return combined
+            if self.debug:
+                print(f"[DEBUG] api_combined_len={len(combined)} token_found=False")
 
         except requests.RequestException:
             # API 失败则回退到 HTML 抓取
@@ -63,40 +71,54 @@ class AggregatorFetcher:
         try:
             response = self.session.get(self.ISSUE_URL, timeout=self.timeout)
             response.raise_for_status()
-            return response.text
+            html = response.text
+            if self.debug:
+                print(f"[DEBUG] html_len={len(html)} token_found={self._content_has_token(html)}")
+            if self._content_has_token(html):
+                return html
+            # HTML 未包含 token 时，返回 API 内容兜底
+            if combined:
+                return combined
+            return html
         except requests.RequestException as e:
             raise Exception(f"获取 Issue 页面失败: {e}")
     
     def extract_token(self, content: str) -> Optional[str]:
         """从页面内容中提取 token"""
         # 优先从表格行提取（HTML 格式）
-        table_pattern = r'<td>token</td>.*?<code[^>]*>([a-z0-9]+)</code>'
+        table_pattern = r'<td>\s*token\s*</td>.*?<code[^>]*>([A-Za-z0-9_\-+.]{8,128})</code>'
         match = re.search(table_pattern, content, re.IGNORECASE | re.DOTALL)
         if match:
             return match.group(1)
 
         # Issue body 中的 details/summary 结构（Markdown 或渲染后的 HTML）
         details_patterns = [
-            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
-            r'<details>\s*<summary>\s*.*?密钥.*?\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
-            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})',
-            r'点击查看最新密钥\s*</summary>\s*([a-z0-9]{8,64})\s*</details>',
+            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
+            r'<details>\s*<summary>\s*.*?密钥.*?\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
+            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})',
+            r'点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
         ]
         for pattern in details_patterns:
             match = re.search(pattern, content, re.IGNORECASE | re.DOTALL)
             if match:
                 return match.group(1)
+
+        # Markdown 表格里包含 details 的情况
+        md_details_pattern = r'\|\s*token\s*\|.*?<details>.*?</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>'
+        match = re.search(md_details_pattern, content, re.IGNORECASE | re.DOTALL)
+        if match:
+            return match.group(1)
         
         # Markdown 格式兜底（如评论或 issue body）
-        md_pattern = r'\|\s*token\s*\|.*?\|\s*`?([a-z0-9]{16,64})`?\s*\|'
+        md_pattern = r'\|\s*token\s*\|.*?\|\s*`?([A-Za-z0-9_\-+.]{8,128})`?\s*\|'
         match = re.search(md_pattern, content, re.IGNORECASE | re.DOTALL)
         if match:
             return match.group(1)
         
         # 通用格式兜底
         patterns = [
-            r'token=([a-zA-Z0-9]{16,64})',
-            r'token["\s:=]+([a-z0-9]{16,64})',
+            r'token=([A-Za-z0-9_\-+.]{8,128})',
+            r'token["\s:=]+([A-Za-z0-9_\-+.]{8,128})',
         ]
         
         for pattern in patterns:
