@@ -48,7 +48,13 @@ class AggregatorFetcher:
 
             combined = "\n".join(parts).strip()
             if combined:
-                return combined
+                # API 内容不一定包含 token（如 token 在渲染后的 HTML 中）
+                try:
+                    if self.extract_token(combined):
+                        return combined
+                except Exception:
+                    # 解析异常时回退到 HTML
+                    pass
 
         except requests.RequestException:
             # API 失败则回退到 HTML 抓取
