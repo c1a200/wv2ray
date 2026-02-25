@@ -1,333 +1,106 @@
-﻿name: Update V2ray Subscription
+name: Update V2ray Subscription
 
 on:
   schedule:
-    # 姣忓ぉ UTC 3鐐?(鍖椾含鏃堕棿涓嬪崍3鐐? 杩愯
     - cron: '0 3 * * *'
-  
-  # 鍏佽鎵嬪姩瑙﹀彂
   workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: write
       pages: write
       id-token: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
           cache: 'pip'
-      
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
-      
+
       - name: Update subscription
         run: python src/update_subscription.py
         env:
           PYTHONPATH: ${{ github.workspace }}/src
           DEBUG_FETCH: 'true'
-      
+
       - name: Create index page
         run: |
           cat > docs/index.html << 'EOF'
           <!DOCTYPE html>
-          <html lang="zh-CN">
+          <html lang="en">
           <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>V2ray 鑷姩璁㈤槄鏈嶅姟</title>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>V2ray Subscription</title>
               <style>
-                  * {
-                      margin: 0;
-                      padding: 0;
-                      box-sizing: border-box;
-                  }
-                  body {
-                      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                      min-height: 100vh;
-                      padding: 20px;
-                  }
-                  .container {
-                      max-width: 800px;
-                      margin: 0 auto;
-                      background: white;
-                      border-radius: 12px;
-                      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-                      padding: 40px;
-                  }
-                  h1 {
-                      color: #333;
-                      margin-bottom: 10px;
-                      font-size: 32px;
-                  }
-                  .subtitle {
-                      color: #666;
-                      margin-bottom: 30px;
-                      font-size: 16px;
-                  }
-                  .info-box {
-                      background: #f5f5f5;
-                      border-left: 4px solid #667eea;
-                      padding: 20px;
-                      margin: 20px 0;
-                      border-radius: 4px;
-                  }
-                  .info-box h3 {
-                      color: #667eea;
-                      margin-bottom: 10px;
-                      font-size: 16px;
-                  }
-                  .info-box p {
-                      color: #666;
-                      line-height: 1.6;
-                      margin-bottom: 8px;
-                  }
-                  .link-box {
-                      background: #f0f7ff;
-                      border: 2px dashed #667eea;
-                      padding: 20px;
-                      margin: 20px 0;
-                      border-radius: 6px;
-                      text-align: center;
-                  }
-                  .link-box code {
-                      background: white;
-                      padding: 10px 15px;
-                      border-radius: 4px;
-                      display: inline-block;
-                      font-family: 'Courier New', monospace;
-                      color: #e74c3c;
-                      font-size: 14px;
-                      word-break: break-all;
-                      margin: 10px 0;
-                  }
-                  .copy-btn {
-                      background: #667eea;
-                      color: white;
-                      border: none;
-                      padding: 10px 20px;
-                      border-radius: 4px;
-                      cursor: pointer;
-                      font-size: 14px;
-                      margin-top: 10px;
-                      transition: background 0.3s;
-                  }
-                  .copy-btn:hover {
-                      background: #764ba2;
-                  }
-                  .steps {
-                      background: #fffbea;
-                      border-left: 4px solid #f39c12;
-                      padding: 20px;
-                      margin: 20px 0;
-                      border-radius: 4px;
-                  }
-                  .steps h3 {
-                      color: #f39c12;
-                      margin-bottom: 15px;
-                  }
-                  .steps ol {
-                      margin-left: 20px;
-                      line-height: 2;
-                      color: #666;
-                  }
-                  .status {
-                      display: grid;
-                      grid-template-columns: 1fr 1fr;
-                      gap: 15px;
-                      margin: 20px 0;
-                  }
-                  .status-item {
-                      background: #ecf0f1;
-                      padding: 15px;
-                      border-radius: 6px;
-                      text-align: center;
-                  }
-                  .status-item .label {
-                      color: #7f8c8d;
-                      font-size: 12px;
-                      margin-bottom: 5px;
-                  }
-                  .status-item .value {
-                      color: #2c3e50;
-                      font-size: 18px;
-                      font-weight: bold;
-                  }
-                  .footer {
-                      text-align: center;
-                      margin-top: 30px;
-                      padding-top: 20px;
-                      border-top: 1px solid #eee;
-                      color: #999;
-                      font-size: 12px;
-                  }
-                  .badge {
-                      display: inline-block;
-                      background: #27ae60;
-                      color: white;
-                      padding: 4px 12px;
-                      border-radius: 20px;
-                      font-size: 12px;
-                      margin-left: 10px;
-                  }
+                  body { font-family: Arial, sans-serif; margin: 32px; color: #222; }
+                  code { background: #f3f3f3; padding: 4px 8px; border-radius: 4px; }
+                  .box { margin: 16px 0; padding: 16px; border: 1px solid #ddd; border-radius: 6px; }
               </style>
           </head>
           <body>
-              <div class="container">
-                  <h1>馃殌 V2ray 鑷姩璁㈤槄鏈嶅姟</h1>
-                  <p class="subtitle">姣忓ぉ鑷姩鏇存柊鐨勪唬鐞嗚妭鐐硅闃?<span class="badge">鉁?鑷姩鍖?/span></p>
-                  
-                  <div class="info-box">
-                      <h3>馃搶 璁㈤槄鍦板潃锛堝浐瀹氶摼鎺ワ級</h3>
-                      <p>鍦ㄦ偍鐨?V2ray 瀹㈡埛绔腑浣跨敤姝ら摼鎺ワ紝瀹㈡埛绔皢鑷姩瀹氭湡鏇存柊鑺傜偣銆?/p>
-                  </div>
-                  
-                  <div class="link-box">
-                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">V2ray 璁㈤槄閾炬帴</div>
-                      <code id="subscribeUrl">https://c1a200.github.io/wv2ray/subscribe.txt</code>
-                      <br>
-                      <button class="copy-btn" onclick="copyToClipboard('subscribeUrl')">馃搵 澶嶅埗 V2ray 閾炬帴</button>
-                  </div>
-
-                  <div class="link-box">
-                      <div style="font-size: 14px; color: #666; margin-bottom: 10px;">Clash / Clash Meta 璁㈤槄閾炬帴</div>
-                      <code id="clashUrl">https://c1a200.github.io/wv2ray/clash.yaml</code>
-                      <br>
-                      <button class="copy-btn" onclick="copyToClipboard('clashUrl')">馃搵 澶嶅埗 Clash 閾炬帴</button>
-                  </div>
-                  
-                  <div class="steps">
-                      <h3>馃摉 浣跨敤姝ラ</h3>
-                      <ol>
-                          <li>V2ray 瀹㈡埛绔細浣跨敤涓婇潰鐨?V2ray 閾炬帴</li>
-                          <li>Clash / Clash Meta锛氫娇鐢ㄤ笂闈㈢殑 Clash 閾炬帴</li>
-                          <li>鍦ㄨ闃呰缃腑娣诲姞杩滅▼璁㈤槄</li>
-                          <li>璁剧疆鑷姩鏇存柊闂撮殧锛堝缓璁?1-6 灏忔椂锛?/li>
-                          <li>瀹㈡埛绔皢鍦ㄨ瀹氭椂闂磋嚜鍔ㄨ幏鍙栨渶鏂拌妭鐐?/li>
-                      </ol>
-                  </div>
-                  
-                  <div class="info-box">
-                      <h3>鈿欙笍 鏇存柊淇℃伅</h3>
-                      <div id="metadata">
-                          <p>鍔犺浇涓?..</p>
-                      </div>
-                  </div>
-                  
-                  <div class="status">
-                      <div class="status-item">
-                          <div class="label">鏇存柊棰戠巼</div>
-                          <div class="value">姣忓ぉ涓€娆?/div>
-                      </div>
-                      <div class="status-item">
-                          <div class="label">鏇存柊鏃堕棿</div>
-                          <div class="value">鍖椾含 15:00</div>
-                      </div>
-                  </div>
-                  
-                  <div class="footer">
-                      <p>鉁?鐢?GitHub Actions 鑷姩缁存姢 | 鏈€鍚庢洿鏂? <span id="updateTime">鍔犺浇涓?..</span></p>
-                      <p style="margin-top: 10px;">鈿狅笍 浠呬緵瀛︿範鍜岀爺绌朵娇鐢紝璇烽伒瀹堢浉鍏虫硶寰嬫硶瑙?/p>
-                  </div>
+              <h1>V2ray Subscription</h1>
+              <div class="box">
+                  <div>V2ray:</div>
+                  <code>https://c1a200.github.io/wv2ray/subscribe.txt</code>
               </div>
-              
-              <script>
-                  // 浠?metadata.json 鍔犺浇淇℃伅
-                  async function loadMetadata() {
-                      try {
-                          const response = await fetch('/wv2ray/metadata.json');
-                          if (response.ok) {
-                              const data = await response.json();
-                              
-                              // 鏇存柊鏃堕棿
-                              const time = new Date(data.fetched_at);
-                              document.getElementById('updateTime').textContent = time.toLocaleString('zh-CN');
-                              
-                              // 鏇存柊鍏冩暟鎹俊鎭?                              const metadataHtml = `
-                                  <p><strong>鑾峰彇鏃堕棿锛?/strong> ${time.toLocaleString('zh-CN')}</p>
-                                  <p><strong>鏁版嵁婧愶細</strong> aggregator 椤圭洰鑱氬悎</p>
-                                  <p><strong>鏇存柊鍛ㄦ湡锛?/strong> 姣?4 灏忔椂鏇存柊涓€娆¤妭鐐?/p>
-                              `;
-                              document.getElementById('metadata').innerHTML = metadataHtml;
-                          }
-                      } catch (error) {
-                          console.error('Error loading metadata:', error);
-                      }
-                  }
-                  
-                  // 澶嶅埗閾炬帴鍒板壀璐存澘
-                  function copyToClipboard(id) {
-                      const url = document.getElementById(id).textContent;
-                      navigator.clipboard.writeText(url).then(() => {
-                          const btn = event.target;
-                          const originalText = btn.textContent;
-                          btn.textContent = '鉁?宸插鍒?;
-                          setTimeout(() => {
-                              btn.textContent = originalText;
-                          }, 2000);
-                      });
-                  }
-                  
-                  // 椤甸潰鍔犺浇鏃惰幏鍙栧厓鏁版嵁
-                  document.addEventListener('DOMContentLoaded', loadMetadata);
-              </script>
+              <div class="box">
+                  <div>Clash:</div>
+                  <code>https://c1a200.github.io/wv2ray/clash.yaml</code>
+              </div>
           </body>
           </html>
           EOF
-          echo "鉁?index.html 宸插垱寤?
-      
+          echo "index.html generated"
+
       - name: Check files
         run: |
-          echo "馃搨 docs 鐩綍鍐呭:"
+          echo "docs directory:"
           ls -lah docs/
           echo ""
-          echo "馃摑 鏂囦欢澶у皬:"
+          echo "file sizes:"
           du -sh docs/*
-      
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # 妫€鏌ユ槸鍚︽湁鍙樺寲
+
           if [ -n "$(git status --porcelain)" ]; then
               git add docs/
               git add src/
-              git commit -m "鈿?鑷姩鏇存柊璁㈤槄鏂囦欢 - $(date +'%Y-%m-%d %H:%M:%S')" || true
-              git push origin main || git push origin master || echo "Push failed, might be first run"
+              git commit -m "auto update subscription - $(date +'%Y-%m-%d %H:%M:%S')" || true
+              git push origin main || git push origin master || echo "Push failed"
           else
-              echo "鉁?娌℃湁鍙樺寲锛岃烦杩囨彁浜?
+              echo "No changes, skipping commit"
           fi
-      
+
       - name: Deploy to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs'
-      
+
       - name: Publish to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
 
       - name: Summary
         run: |
-          echo "鉁?鏇存柊瀹屾垚锛?
+          echo "Update complete"
           echo ""
-          echo "馃搶 鍥哄畾璁㈤槄閾炬帴:"
-          echo "   https://c1a200.github.io/wv2ray/subscribe.txt"
-          echo ""
-          echo "馃摎 璇︾粏淇℃伅:"
-          echo "   https://c1a200.github.io/wv2ray/"
+          echo "Subscribe URL:"
+          echo "https://c1a200.github.io/wv2ray/subscribe.txt"
