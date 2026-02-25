@@ -27,6 +27,8 @@ class AggregatorFetcher:
         })
         # DEBUG_FETCH=true 时输出非敏感诊断信息
         self.debug = os.getenv('DEBUG_FETCH', '').lower() in {'1', 'true', 'yes', 'y'}
+        self.last_source = ""
+        self.last_url = ""
 
     def _content_has_token(self, content: str) -> bool:
         try:
@@ -69,6 +71,8 @@ class AggregatorFetcher:
             if combined and self._content_has_token(combined):
                 if self.debug:
                     print(f"[DEBUG] api_combined_len={len(combined)} token_found=True")
+                self.last_source = "api"
+                self.last_url = self.ISSUE_API_URL
                 return combined
             if self.debug:
                 print(f"[DEBUG] api_combined_len={len(combined)} token_found=False")
@@ -84,10 +88,27 @@ class AggregatorFetcher:
             if self.debug:
                 print(f"[DEBUG] html_len={len(html)} token_found={self._content_has_token(html)}")
             if self._content_has_token(html):
+                self.last_source = "html"
+                self.last_url = self.ISSUE_URL
                 return html
+            # 尝试 plain=1 版本（某些场景下更易包含明文）
+            plain_url = f"{self.ISSUE_URL}?plain=1"
+            plain_resp = self.session.get(plain_url, timeout=self.timeout)
+            if plain_resp.ok:
+                plain_html = plain_resp.text
+                if self.debug:
+                    print(f"[DEBUG] html_plain_len={len(plain_html)} token_found={self._content_has_token(plain_html)}")
+                if self._content_has_token(plain_html):
+                    self.last_source = "html_plain"
+                    self.last_url = plain_url
+                    return plain_html
             # HTML 未包含 token 时，返回 API 内容兜底
             if combined:
+                self.last_source = "api_fallback"
+                self.last_url = self.ISSUE_API_URL
                 return combined
+            self.last_source = "html_fallback"
+            self.last_url = self.ISSUE_URL
             return html
         except requests.RequestException as e:
             raise Exception(f"获取 Issue 页面失败: {e}")
@@ -166,9 +187,8 @@ class AggregatorFetcher:
 
         # 必须从页面抓取到 token 和 API URL，不使用任何默认值或缓存
         if not token:
-            if self.debug:
-                preview = content[:500].replace('\n', ' ')
-                print(f"[DEBUG] token_not_found_preview={preview}")
+            preview = content[:500].replace('\n', ' ')
+            print(f"[DEBUG] token_not_found source={self.last_source} url={self.last_url} len={len(content)} preview={preview}")
             raise Exception("无法从 Issue 页面提取 token，请检查页面格式是否变化")
         
         if not api_url:
