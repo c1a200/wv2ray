@@ -17,6 +17,7 @@ class AggregatorFetcher:
     """从 GitHub Issue 获取 aggregator 订阅信息（动态抓取，无默认值）"""
     
     ISSUE_URL = "https://github.com/wzdnzd/aggregator/issues/91"
+    ISSUE_API_URL = "https://api.github.com/repos/wzdnzd/aggregator/issues/91"
     
     def __init__(self, timeout: int = 30):
         self.timeout = timeout
@@ -35,7 +36,6 @@ class AggregatorFetcher:
     
     def fetch_issue_content(self) -> str:
         """获取 GitHub Issue 页面内容"""
-        issue_api_url = "https://api.github.com/repos/wzdnzd/aggregator/issues/91"
         combined = ""
         try:
             # 优先使用 GitHub API 获取 Issue 与评论内容（避免 HTML 中信息被脚本渲染）
@@ -43,7 +43,7 @@ class AggregatorFetcher:
                 "Accept": "application/vnd.github+json",
                 "X-GitHub-Api-Version": "2022-11-28",
             }
-            issue_resp = self.session.get(issue_api_url, headers=api_headers, timeout=self.timeout)
+            issue_resp = self.session.get(self.ISSUE_API_URL, headers=api_headers, timeout=self.timeout)
             issue_resp.raise_for_status()
             issue_data = issue_resp.json()
 
@@ -51,10 +51,19 @@ class AggregatorFetcher:
 
             comments_url = issue_data.get("comments_url")
             if comments_url:
-                comments_resp = self.session.get(comments_url, headers=api_headers, timeout=self.timeout)
-                comments_resp.raise_for_status()
-                for item in comments_resp.json() or []:
-                    parts.append(item.get("body") or "")
+                # 处理评论分页，避免 token 出现在后续页面时漏抓
+                page = 1
+                while True:
+                    paged_url = f"{comments_url}?per_page=100&page={page}"
+                    comments_resp = self.session.get(paged_url, headers=api_headers, timeout=self.timeout)
+                    comments_resp.raise_for_status()
+                    items = comments_resp.json() or []
+                    for item in items:
+                        parts.append(item.get("body") or "")
+                    # 没有更多评论时退出
+                    if len(items) < 100:
+                        break
+                    page += 1
 
             combined = "\n".join(parts).strip()
             if combined and self._content_has_token(combined):
@@ -157,6 +166,9 @@ class AggregatorFetcher:
 
         # 必须从页面抓取到 token 和 API URL，不使用任何默认值或缓存
         if not token:
+            if self.debug:
+                preview = content[:500].replace('\n', ' ')
+                print(f"[DEBUG] token_not_found_preview={preview}")
             raise Exception("无法从 Issue 页面提取 token，请检查页面格式是否变化")
         
         if not api_url:
