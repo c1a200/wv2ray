@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-02-28T02:37:20.793030Z",
+  "updated_at": "2026-02-28T06:50:30.186252Z",
   "v2ray_subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt",
   "clash_subscription_url": "https://c1a200.github.io/wv2ray/clash.yaml",
   "v2ray_size_kb": 22.64,
-  "clash_size_kb": 446.72,
+  "clash_size_kb": 447.77,
   "format": "v2ray (base64, upstream original) + clash (yaml)",
   "instructions": [
     "1. 在 v2ray 客户端中添加远程订阅",
