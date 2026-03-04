@@ -3,7 +3,7 @@
   "api_url": "https://qybndbviblvt.us-west-1.clawcloudrun.com/api/v1/subscribe",
   "v2ray_subscribe_url": "https://qybndbviblvt.us-west-1.clawcloudrun.com/api/v1/subscribe?token=m4neyksfl4ms8y0b616&target=v2ray&list=false",
   "clash_subscribe_url": "https://qybndbviblvt.us-west-1.clawcloudrun.com/api/v1/subscribe?token=m4neyksfl4ms8y0b616&target=clash&list=false",
-  "fetched_at": "2026-03-04T06:58:57.607287Z",
+  "fetched_at": "2026-03-04T23:37:10.169557Z",
   "v2ray_subscription_file": "subscribe.txt",
   "clash_subscription_file": "clash.yaml",
   "github_pages_v2ray": "https://c1a200.github.io/wv2ray/subscribe.txt",
