@@ -1,13 +1,35 @@
 name: Update V2ray Subscription
 
+concurrency:
+  group: update-subscription
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
+  HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
+  ALL_PROXY: ${{ secrets.ALL_PROXY }}
+  SUBCONVERTER_URL: 'https://subconverter-jboo.onrender.com/'
+  SUBCONVERTER_TARGET_V2RAY: 'v2ray'
+  SUBCONVERTER_TARGET_CLASH: 'clash'
+  SUBCONVERTER_INSERT: 'false'
+  SUBCONVERTER_EMOJI: 'true'
+  SUBCONVERTER_LIST: 'false'
+
 on:
   schedule:
     - cron: '0 23,6 * * *'
   workflow_dispatch:
+    inputs:
+      deploy_only:
+        description: 'Skip fetching upstream and deploy the current docs directory only'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON(vars.FETCH_RUNNER_LABELS || '["ubuntu-latest"]') }}
 
     permissions:
       contents: write
@@ -16,22 +38,31 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
           cache: 'pip'
 
+      - name: Show runner context
+        run: |
+          echo "runner_name=${{ runner.name }}"
+          echo "runner_os=${{ runner.os }}"
+          echo "runner_arch=${{ runner.arch }}"
+          echo "FETCH_RUNNER_LABELS=${{ vars.FETCH_RUNNER_LABELS || '[\"ubuntu-latest\"]' }}"
+
       - name: Install dependencies
+        if: ${{ !inputs.deploy_only }}
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install -r requirements.txt
 
       - name: Update subscription
+        if: ${{ !inputs.deploy_only }}
         run: python src/update_subscription.py
         env:
           PYTHONPATH: ${{ github.workspace }}/src
@@ -90,7 +121,7 @@ jobs:
           fi
 
       - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: 'docs'
 
@@ -100,8 +131,10 @@ jobs:
 
       - name: Summary
         run: |
-          echo "workflow version: 2026-02-25-1"
+          echo "workflow version: 2026-03-15-1"
           echo "Update complete"
+          echo ""
+          echo "Fetch runner labels: ${{ vars.FETCH_RUNNER_LABELS || '[\"ubuntu-latest\"]' }}"
           echo ""
           echo "Subscribe URL:"
           echo "https://c1a200.github.io/wv2ray/subscribe.txt"

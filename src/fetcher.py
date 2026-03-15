@@ -9,6 +9,7 @@ import json
 import os
 import requests
 import base64
+from urllib.parse import urlencode, quote
 from typing import Dict, Optional, List
 from datetime import datetime
 
@@ -206,15 +207,103 @@ class AggregatorFetcher:
             raise ValueError("api_url 不能为空，必须从 Issue 页面动态获取")
         
         return f"{api_url}?token={token}&target={target}&list=false"
+
+    def _build_converted_url(self, source_url: str, target: str) -> Optional[str]:
+        """根据环境变量构建 subconverter 转换 URL。未配置时返回 None。"""
+        converter_base = (os.getenv('SUBCONVERTER_URL') or '').strip()
+        if not converter_base:
+            return None
+
+        # 支持把根地址自动补全为 /sub，也支持用户自行填写完整 /sub 路径
+        base = converter_base.rstrip('/')
+        if base.endswith('/sub'):
+            sub_url = base
+        else:
+            sub_url = f"{base}/sub"
+
+        target_v2ray = (os.getenv('SUBCONVERTER_TARGET_V2RAY') or 'v2ray').strip()
+        target_clash = (os.getenv('SUBCONVERTER_TARGET_CLASH') or 'clash').strip()
+        insert = (os.getenv('SUBCONVERTER_INSERT') or 'false').strip()
+        emoji = (os.getenv('SUBCONVERTER_EMOJI') or 'true').strip()
+        list_value = (os.getenv('SUBCONVERTER_LIST') or 'false').strip()
+
+        convert_target = target_v2ray if target == 'v2ray' else target_clash
+
+        query = {
+            'target': convert_target,
+            'url': source_url,
+            'insert': insert,
+            'emoji': emoji,
+            'list': list_value,
+        }
+        # 让 URL 参数编码行为与 subconverter 文档约定保持一致。
+        return f"{sub_url}?{urlencode(query, quote_via=quote, safe='')}"
+
+    def _raise_if_error_payload(self, content: str, url: str) -> None:
+        """识别上游返回的 JSON 错误，避免把错误信息发布成订阅文件。"""
+        stripped = content.strip()
+        if not stripped.startswith('{'):
+            return
+
+        try:
+            payload = json.loads(stripped)
+        except json.JSONDecodeError:
+            return
+
+        if isinstance(payload, dict) and (payload.get('success') is False or payload.get('code')):
+            code = payload.get('code', 'unknown')
+            message = payload.get('message', 'unknown error')
+            raise Exception(
+                f"上游接口返回错误 payload，未生成订阅文件: code={code}, message={message}, url={url}"
+            )
+
+    def _validate_subscription_content(self, content: str, target: str, url: str) -> str:
+        """校验返回内容是否看起来像真实订阅，而不是错误页或空数据。"""
+        stripped = content.strip()
+        if not stripped:
+            raise Exception(f"上游接口返回空内容: {url}")
+
+        self._raise_if_error_payload(stripped, url)
+
+        if target == 'v2ray':
+            try:
+                decoded = base64.b64decode(stripped, validate=True).decode('utf-8', errors='ignore')
+            except Exception as exc:
+                preview = stripped[:160].replace('\n', ' ')
+                raise Exception(
+                    f"v2ray 订阅内容不是合法 base64，疑似被风控或返回了错误页: {preview}"
+                ) from exc
+
+            nodes = [line.strip() for line in decoded.splitlines() if line.strip() and not line.startswith('#')]
+            supported_prefixes = ('vmess://', 'vless://', 'trojan://', 'ss://', 'ssr://', 'hysteria://', 'hysteria2://', 'tuic://')
+            if not nodes or not any(line.startswith(supported_prefixes) for line in nodes):
+                preview = decoded[:200].replace('\n', ' ')
+                raise Exception(f"v2ray 订阅内容校验失败，未发现有效节点: {preview}")
+            return stripped
+
+        if target == 'clash':
+            markers = ('proxies:', 'proxy-groups:', 'mixed-port:', 'port:')
+            if not any(marker in stripped for marker in markers):
+                preview = stripped[:200].replace('\n', ' ')
+                raise Exception(f"clash 订阅内容校验失败，未发现 YAML 关键字段: {preview}")
+            return content
+
+        return content
     
-    def fetch_subscription_content(self, url: str) -> str:
+    def fetch_subscription_content(self, url: str, target: str = 'v2ray') -> str:
         """获取订阅内容"""
         try:
-            response = self.session.get(url, timeout=self.timeout)
+            request_url = self._build_converted_url(url, target) or url
+            if self.debug and request_url != url:
+                print(f"[DEBUG] converter_enabled target={target}")
+                print(f"[DEBUG] source_url={url}")
+                print(f"[DEBUG] converted_url={request_url}")
+
+            response = self.session.get(request_url, timeout=self.timeout)
             response.raise_for_status()
             # 显式指定 UTF-8 编码，确保正确处理中文字符
             response.encoding = 'utf-8'
-            return response.text
+            return self._validate_subscription_content(response.text, target=target, url=request_url)
         except requests.RequestException as e:
             raise Exception(f"获取订阅内容失败: {e}")
 
