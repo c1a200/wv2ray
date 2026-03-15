@@ -10,6 +10,7 @@ import os
 import requests
 import base64
 import urllib.request
+import time
 from urllib.parse import urlencode, quote, urlsplit, urlunsplit, parse_qsl
 from typing import Dict, Optional, List
 from datetime import datetime
@@ -324,6 +325,8 @@ class AggregatorFetcher:
         """获取订阅内容"""
         request_url = self._build_converted_url(url, target) or url
         minimal_url = self._build_converted_url(url, target, minimal=True)
+        retry_attempts = max(1, int(os.getenv('SUBCONVERTER_RETRY_ATTEMPTS', '3')))
+        retry_wait_seconds = max(1, int(os.getenv('SUBCONVERTER_RETRY_WAIT_SECONDS', '60')))
 
         def _try_minimal_once() -> Optional[str]:
             if not (request_url != url and minimal_url and minimal_url != request_url):
@@ -342,83 +345,103 @@ class AggregatorFetcher:
                 url=minimal_url,
             )
 
-        try:
-            if self.debug and request_url != url:
-                print(f"[DEBUG] converter_enabled target={target}")
-                print(f"[DEBUG] source_url={self._build_converter_source_url(url)}")
-                print(f"[DEBUG] converted_url={request_url}")
-
-            response = self.session.get(request_url, timeout=self.timeout)
-            response.raise_for_status()
-            # 显式指定 UTF-8 编码，确保正确处理中文字符
-            response.encoding = 'utf-8'
-            response_text = response.text
-            if request_url != url and not (response_text or '').strip():
-                if self.debug:
-                    print('[DEBUG] converter_empty_response_retry_via_urllib=true')
-                response_text = self._fetch_text_via_urllib(request_url)
-
+        def _attempt_fetch_once() -> str:
             try:
-                return self._validate_subscription_content(
-                    response_text,
-                    target=target,
-                    url=request_url,
-                )
-            except Exception:
-                minimal_result = _try_minimal_once()
-                if minimal_result is not None:
-                    return minimal_result
-                raise
+                if self.debug and request_url != url:
+                    print(f"[DEBUG] converter_enabled target={target}")
+                    print(f"[DEBUG] source_url={self._build_converter_source_url(url)}")
+                    print(f"[DEBUG] converted_url={request_url}")
 
-        except requests.HTTPError as e:
-            status_code = e.response.status_code if e.response is not None else None
-            should_retry_minimal = status_code == 400
+                response = self.session.get(request_url, timeout=self.timeout)
+                response.raise_for_status()
+                # 显式指定 UTF-8 编码，确保正确处理中文字符
+                response.encoding = 'utf-8'
+                response_text = response.text
+                if request_url != url and not (response_text or '').strip():
+                    if self.debug:
+                        print('[DEBUG] converter_empty_response_retry_via_urllib=true')
+                    response_text = self._fetch_text_via_urllib(request_url)
 
-            if should_retry_minimal:
                 try:
+                    return self._validate_subscription_content(
+                        response_text,
+                        target=target,
+                        url=request_url,
+                    )
+                except Exception:
                     minimal_result = _try_minimal_once()
                     if minimal_result is not None:
                         return minimal_result
-                except requests.RequestException:
-                    pass
+                    raise
 
-            if request_url != url:
-                try:
-                    if self.debug:
-                        print('[DEBUG] converter_http_error_retry_via_urllib=true')
-                    fallback_text = self._fetch_text_via_urllib(request_url)
-                    return self._validate_subscription_content(
-                        fallback_text,
-                        target=target,
-                        url=request_url,
+            except requests.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else None
+                should_retry_minimal = status_code == 400
+
+                if should_retry_minimal:
+                    try:
+                        minimal_result = _try_minimal_once()
+                        if minimal_result is not None:
+                            return minimal_result
+                    except requests.RequestException:
+                        pass
+
+                if request_url != url:
+                    try:
+                        if self.debug:
+                            print('[DEBUG] converter_http_error_retry_via_urllib=true')
+                        fallback_text = self._fetch_text_via_urllib(request_url)
+                        return self._validate_subscription_content(
+                            fallback_text,
+                            target=target,
+                            url=request_url,
+                        )
+                    except Exception:
+                        pass
+
+                body_preview = ''
+                if e.response is not None and e.response.text:
+                    body_preview = e.response.text[:300].replace('\n', ' ')
+
+                detail = f"获取订阅内容失败: HTTP {status_code}"
+                if body_preview:
+                    detail += f", body={body_preview}"
+                detail += f", url={request_url}"
+                raise Exception(detail) from e
+
+            except requests.RequestException as e:
+                if request_url != url:
+                    try:
+                        if self.debug:
+                            print('[DEBUG] converter_request_exception_retry_via_urllib=true')
+                        fallback_text = self._fetch_text_via_urllib(request_url)
+                        return self._validate_subscription_content(
+                            fallback_text,
+                            target=target,
+                            url=request_url,
+                        )
+                    except Exception:
+                        pass
+                raise Exception(f"获取订阅内容失败: {e}")
+
+        last_error = None
+        for attempt in range(1, retry_attempts + 1):
+            try:
+                return _attempt_fetch_once()
+            except Exception as e:
+                last_error = e
+                if request_url == url or attempt >= retry_attempts:
+                    raise
+                if self.debug:
+                    print(
+                        f"[DEBUG] converter_wait_before_retry={retry_wait_seconds}s"
+                        f" attempt={attempt}/{retry_attempts}"
                     )
-                except Exception:
-                    pass
+                time.sleep(retry_wait_seconds)
 
-            body_preview = ''
-            if e.response is not None and e.response.text:
-                body_preview = e.response.text[:300].replace('\n', ' ')
-
-            detail = f"获取订阅内容失败: HTTP {status_code}"
-            if body_preview:
-                detail += f", body={body_preview}"
-            detail += f", url={request_url}"
-            raise Exception(detail) from e
-
-        except requests.RequestException as e:
-            if request_url != url:
-                try:
-                    if self.debug:
-                        print('[DEBUG] converter_request_exception_retry_via_urllib=true')
-                    fallback_text = self._fetch_text_via_urllib(request_url)
-                    return self._validate_subscription_content(
-                        fallback_text,
-                        target=target,
-                        url=request_url,
-                    )
-                except Exception:
-                    pass
-            raise Exception(f"获取订阅内容失败: {e}")
+        if last_error:
+            raise last_error
+        raise Exception("获取订阅内容失败: 未知错误")
 
 
 class V2rayFormatter:
