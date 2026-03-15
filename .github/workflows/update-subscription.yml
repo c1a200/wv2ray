@@ -9,6 +9,7 @@ env:
   HTTP_PROXY: ${{ secrets.HTTP_PROXY }}
   HTTPS_PROXY: ${{ secrets.HTTPS_PROXY }}
   ALL_PROXY: ${{ secrets.ALL_PROXY }}
+  NO_PROXY: 'subconverter-jboo.onrender.com,proxy-manager-ggeu.onrender.com,api.github.com,github.com'
   SUBCONVERTER_URL: 'https://subconverter-jboo.onrender.com/'
   SUBCONVERTER_TARGET_V2RAY: 'v2ray'
   SUBCONVERTER_TARGET_CLASH: 'clash'

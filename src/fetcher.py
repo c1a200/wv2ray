@@ -9,6 +9,7 @@ import json
 import os
 import requests
 import base64
+import urllib.request
 from urllib.parse import urlencode, quote
 from typing import Dict, Optional, List
 from datetime import datetime
@@ -36,6 +37,16 @@ class AggregatorFetcher:
             return bool(self.extract_token(content))
         except Exception:
             return False
+
+    def _fetch_text_via_urllib(self, url: str) -> str:
+        """当 requests 在特定环境返回空响应时，使用 urllib 兜底。"""
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': self.session.headers.get('User-Agent', 'Mozilla/5.0')},
+        )
+        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            data = resp.read()
+        return data.decode('utf-8', errors='ignore')
     
     def fetch_issue_content(self) -> str:
         """获取 GitHub Issue 页面内容"""
@@ -208,7 +219,8 @@ class AggregatorFetcher:
         
         return f"{api_url}?token={token}&target={target}&list=false"
 
-    def _build_converted_url(self, source_url: str, target: str) -> Optional[str]:
+    def _build_converted_url(self, source_url: str, target: str,
+                             minimal: bool = False) -> Optional[str]:
         """根据环境变量构建 subconverter 转换 URL。未配置时返回 None。"""
         converter_base = (os.getenv('SUBCONVERTER_URL') or '').strip()
         if not converter_base:
@@ -223,19 +235,21 @@ class AggregatorFetcher:
 
         target_v2ray = (os.getenv('SUBCONVERTER_TARGET_V2RAY') or 'v2ray').strip()
         target_clash = (os.getenv('SUBCONVERTER_TARGET_CLASH') or 'clash').strip()
-        insert = (os.getenv('SUBCONVERTER_INSERT') or 'false').strip()
-        emoji = (os.getenv('SUBCONVERTER_EMOJI') or 'true').strip()
-        list_value = (os.getenv('SUBCONVERTER_LIST') or 'false').strip()
-
         convert_target = target_v2ray if target == 'v2ray' else target_clash
 
         query = {
             'target': convert_target,
             'url': source_url,
-            'insert': insert,
-            'emoji': emoji,
-            'list': list_value,
         }
+        if not minimal:
+            insert = (os.getenv('SUBCONVERTER_INSERT') or 'false').strip()
+            emoji = (os.getenv('SUBCONVERTER_EMOJI') or 'true').strip()
+            list_value = (os.getenv('SUBCONVERTER_LIST') or 'false').strip()
+            query.update({
+                'insert': insert,
+                'emoji': emoji,
+                'list': list_value,
+            })
         # 让 URL 参数编码行为与 subconverter 文档约定保持一致。
         return f"{sub_url}?{urlencode(query, quote_via=quote, safe='')}"
 
@@ -292,8 +306,27 @@ class AggregatorFetcher:
     
     def fetch_subscription_content(self, url: str, target: str = 'v2ray') -> str:
         """获取订阅内容"""
+        request_url = self._build_converted_url(url, target) or url
+        minimal_url = self._build_converted_url(url, target, minimal=True)
+
+        def _try_minimal_once() -> Optional[str]:
+            if not (request_url != url and minimal_url and minimal_url != request_url):
+                return None
+
+            if self.debug:
+                print('[DEBUG] converter_retry_with_minimal_query=true')
+                print(f"[DEBUG] converted_url_minimal={minimal_url}")
+
+            retry_resp = self.session.get(minimal_url, timeout=self.timeout)
+            retry_resp.raise_for_status()
+            retry_resp.encoding = 'utf-8'
+            return self._validate_subscription_content(
+                retry_resp.text,
+                target=target,
+                url=minimal_url,
+            )
+
         try:
-            request_url = self._build_converted_url(url, target) or url
             if self.debug and request_url != url:
                 print(f"[DEBUG] converter_enabled target={target}")
                 print(f"[DEBUG] source_url={url}")
@@ -303,8 +336,72 @@ class AggregatorFetcher:
             response.raise_for_status()
             # 显式指定 UTF-8 编码，确保正确处理中文字符
             response.encoding = 'utf-8'
-            return self._validate_subscription_content(response.text, target=target, url=request_url)
+            response_text = response.text
+            if request_url != url and not (response_text or '').strip():
+                if self.debug:
+                    print('[DEBUG] converter_empty_response_retry_via_urllib=true')
+                response_text = self._fetch_text_via_urllib(request_url)
+
+            try:
+                return self._validate_subscription_content(
+                    response_text,
+                    target=target,
+                    url=request_url,
+                )
+            except Exception:
+                minimal_result = _try_minimal_once()
+                if minimal_result is not None:
+                    return minimal_result
+                raise
+
+        except requests.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else None
+            should_retry_minimal = status_code == 400
+
+            if should_retry_minimal:
+                try:
+                    minimal_result = _try_minimal_once()
+                    if minimal_result is not None:
+                        return minimal_result
+                except requests.RequestException:
+                    pass
+
+            if request_url != url:
+                try:
+                    if self.debug:
+                        print('[DEBUG] converter_http_error_retry_via_urllib=true')
+                    fallback_text = self._fetch_text_via_urllib(request_url)
+                    return self._validate_subscription_content(
+                        fallback_text,
+                        target=target,
+                        url=request_url,
+                    )
+                except Exception:
+                    pass
+
+            body_preview = ''
+            if e.response is not None and e.response.text:
+                body_preview = e.response.text[:300].replace('\n', ' ')
+
+            detail = f"获取订阅内容失败: HTTP {status_code}"
+            if body_preview:
+                detail += f", body={body_preview}"
+            detail += f", url={request_url}"
+            raise Exception(detail) from e
+
         except requests.RequestException as e:
+            if request_url != url:
+                try:
+                    if self.debug:
+                        print('[DEBUG] converter_request_exception_retry_via_urllib=true')
+                    fallback_text = self._fetch_text_via_urllib(request_url)
+                    return self._validate_subscription_content(
+                        fallback_text,
+                        target=target,
+                        url=request_url,
+                    )
+                except Exception:
+                    pass
             raise Exception(f"获取订阅内容失败: {e}")
 
 
