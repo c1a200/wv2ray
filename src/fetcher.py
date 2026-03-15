@@ -26,8 +26,21 @@ class AggregatorFetcher:
         self.timeout = timeout
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            'User-Agent': (
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                'AppleWebKit/537.36 (KHTML, like Gecko) '
+                'Chrome/123.0.0.0 Safari/537.36'
+            ),
+            'Accept': (
+                'text/html,application/xhtml+xml,application/xml;q=0.9,'
+                'application/json;q=0.8,*/*;q=0.7'
+            ),
+            'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+            'Referer': 'https://github.com/wzdnzd/aggregator/issues/91',
         })
+        self._apply_custom_headers()
         # DEBUG_FETCH=true 时输出非敏感诊断信息
         self.debug = os.getenv('DEBUG_FETCH', '').lower() in {'1', 'true', 'yes', 'y'}
         self.last_source = ""
@@ -38,6 +51,26 @@ class AggregatorFetcher:
             return bool(self.extract_token(content))
         except Exception:
             return False
+
+    def _apply_custom_headers(self) -> None:
+        """允许通过环境变量覆盖/追加请求头，便于规避上游风控策略变更。"""
+        # 格式示例: {"User-Agent":"...","Accept-Language":"..."}
+        raw = (os.getenv('FETCH_EXTRA_HEADERS_JSON') or '').strip()
+        if not raw:
+            return
+        try:
+            parsed = json.loads(raw)
+            if not isinstance(parsed, dict):
+                return
+            normalized = {
+                str(k): str(v)
+                for k, v in parsed.items()
+                if k and v is not None
+            }
+            self.session.headers.update(normalized)
+        except Exception:
+            if self.debug:
+                print('[DEBUG] invalid FETCH_EXTRA_HEADERS_JSON ignored')
 
     def _fetch_text_via_urllib(self, url: str) -> str:
         """当 requests 在特定环境返回空响应时，使用 urllib 兜底。"""
