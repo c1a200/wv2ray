@@ -13,6 +13,8 @@ env:
   SUBCONVERTER_URL: 'https://subconverter-jboo.onrender.com/'
   SUBCONVERTER_TARGET_V2RAY: 'mixed'
   SUBCONVERTER_TARGET_CLASH: 'clash'
+  SUBCONVERTER_SOURCE_TARGET: 'clash'
+  SUBCONVERTER_SOURCE_LIST: 'true'
   SUBCONVERTER_INSERT: 'false'
   SUBCONVERTER_EMOJI: 'true'
   SUBCONVERTER_LIST: 'false'

@@ -10,7 +10,7 @@ import os
 import requests
 import base64
 import urllib.request
-from urllib.parse import urlencode, quote
+from urllib.parse import urlencode, quote, urlsplit, urlunsplit, parse_qsl
 from typing import Dict, Optional, List
 from datetime import datetime
 
@@ -226,6 +226,8 @@ class AggregatorFetcher:
         if not converter_base:
             return None
 
+        source_url = self._build_converter_source_url(source_url)
+
         # 支持把根地址自动补全为 /sub，也支持用户自行填写完整 /sub 路径
         base = converter_base.rstrip('/')
         if base.endswith('/sub'):
@@ -252,6 +254,20 @@ class AggregatorFetcher:
             })
         # 让 URL 参数编码行为与 subconverter 文档约定保持一致。
         return f"{sub_url}?{urlencode(query, quote_via=quote, safe='')}"
+
+    def _build_converter_source_url(self, source_url: str) -> str:
+        """为转换器准备更稳定的上游源 URL（默认使用 clash + list=true）。"""
+        source_target = (os.getenv('SUBCONVERTER_SOURCE_TARGET') or 'clash').strip()
+        source_list = (os.getenv('SUBCONVERTER_SOURCE_LIST') or 'true').strip()
+
+        parts = urlsplit(source_url)
+        query_pairs = parse_qsl(parts.query, keep_blank_values=True)
+        query = dict(query_pairs)
+        query['target'] = source_target
+        query['list'] = source_list
+
+        new_query = urlencode(query, quote_via=quote, safe='')
+        return urlunsplit((parts.scheme, parts.netloc, parts.path, new_query, parts.fragment))
 
     def _raise_if_error_payload(self, content: str, url: str) -> None:
         """识别上游返回的 JSON 错误，避免把错误信息发布成订阅文件。"""
@@ -329,7 +345,7 @@ class AggregatorFetcher:
         try:
             if self.debug and request_url != url:
                 print(f"[DEBUG] converter_enabled target={target}")
-                print(f"[DEBUG] source_url={url}")
+                print(f"[DEBUG] source_url={self._build_converter_source_url(url)}")
                 print(f"[DEBUG] converted_url={request_url}")
 
             response = self.session.get(request_url, timeout=self.timeout)
