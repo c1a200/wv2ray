@@ -1,0 +1,19 @@
+name = "wv2ray-forwarder"
+main = "src/index.js"
+compatibility_date = "2026-03-15"
+workers_dev = true
+
+[vars]
+UPSTREAM_CACHE_TTL = "120"
+SUBCONVERTER_URL = "https://subconverter-jboo.onrender.com/"
+SUBCONVERTER_TARGET_V2RAY = "v2ray"
+SUBCONVERTER_TARGET_CLASH = "clash"
+SUBCONVERTER_INSERT = "false"
+SUBCONVERTER_EMOJI = "true"
+SUBCONVERTER_LIST = "false"
+USE_DIRECT_SOURCE = "true"
+DIRECT_V2RAY_URL = "https://node.zyfx6.xyz/v2rayNG/"
+DIRECT_CLASH_URL = "https://node.zyfx6.xyz/clash"
+
+[triggers]
+crons = ["*/15 * * * *"]

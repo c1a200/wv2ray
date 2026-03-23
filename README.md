@@ -46,13 +46,11 @@ https://c1a200.github.io/wv2ray/clash.yaml
 ## ⚙️ 工作原理
 
 ```
-GitHub Actions 定时任务 (每天 UTC 3点)
+GitHub Actions 定时任务 / self-hosted runner (每天 UTC 3点)
          ↓
-从 GitHub Issue #91 抓取 token 和 API 地址
+直接抓取 https://node.zyfx6.xyz/v2rayNG/ 与 https://node.zyfx6.xyz/clash
          ↓
-调用 aggregator API 获取最新代理节点
-         ↓
-转换为标准 v2ray base64 格式
+分别生成 subscribe.txt 与 clash.yaml
          ↓
 上传到 GitHub Pages
          ↓
@@ -82,11 +80,49 @@ GitHub Actions 定时任务 (每天 UTC 3点)
 这个项目使用 GitHub Actions 自动化以下流程：
 
 1. **定时触发**：每天 UTC 3点自动运行
-2. **爬取信息**：从 GitHub Issue 页面获取最新的 aggregator token 和 API 地址
-3. **获取订阅**：调用 aggregator API 获取代理节点
-4. **转换格式**：将节点转换为标准 v2ray 订阅格式
+2. **爬取信息**：直接抓取 v2ray 与 clash 两个订阅页面
+3. **生成文件**：分别输出 `subscribe.txt` 与 `clash.yaml`
+4. **保存元数据**：生成 `metadata.json` 与 `summary.json`
 5. **上传部署**：将文件上传到 GitHub Pages
 6. **自动更新**：您的 V2ray 客户端定期自动获取新版本
+
+当前默认启用直链模式（`USE_DIRECT_SOURCE=true`）。
+如需恢复旧模式（从 `issues/91` 动态提取 token），将 `USE_DIRECT_SOURCE` 设置为 `false` 即可。
+
+## ☁️ Worker 转发模式（可选）
+
+如果你不想依赖 GitHub-hosted runner 抓取，可以直接用 Cloudflare Worker 做实时转发，客户端地址保持固定。
+
+- Worker 代码与部署说明见 `worker/README.md`
+- 典型固定地址：`/subscribe.txt` 与 `/clash.yaml`
+
+## 🌐 线上运行
+
+如果上游拦截 GitHub-hosted runner，正确做法不是回到本地手工跑，而是把抓取作业切到你自己的线上机器。
+
+推荐方案：`GitHub Actions + self-hosted runner + VPS`
+
+1. 准备一台长期在线的 Linux VPS。
+2. 进入仓库 Settings → Actions → Runners，添加一个 self-hosted runner。
+3. 按 GitHub 给出的命令把 runner 安装到 VPS，并保持服务常驻。
+4. 在仓库 Settings → Secrets and variables → Actions → Variables 中新增变量 `FETCH_RUNNER_LABELS`。
+5. 变量值填写为 JSON 数组，例如：
+
+```json
+["self-hosted", "linux", "x64"]
+```
+
+6. 保存后，这个工作流的定时抓取和手动抓取都会优先跑到你的 VPS，而不是 `ubuntu-latest`。
+
+可选：如果你的 VPS 出口同样受限，可以再配置以下 Actions Secrets：
+
+- `HTTP_PROXY`
+- `HTTPS_PROXY`
+- `ALL_PROXY`
+
+脚本和 `git` 命令会自动继承这些代理环境变量。
+
+这样处理后，整个流程仍然是“在线自动运行”，只是执行出口从 GitHub 公共 runner 改成了你自己的服务器。
 
 ## 🛠️ 本地测试
 
@@ -105,7 +141,7 @@ python src/update_subscription.py
 ## ⚠️ 注意事项
 
 1. **仅供学习使用**：请遵守相关法律法规
-2. **Token 更新**：如果 aggregator 项目更新了 token，脚本会自动检测并使用新 token
+2. **模式切换**：默认是直链模式；若上游恢复，可随时切回 Issue 抓取模式
 3. **隐私保护**：不建议将此链接公开分享
 4. **定期检查**：如果发现节点不可用，可手动触发工作流更新
 
@@ -127,27 +163,36 @@ Cron 格式：`分 小时 日 月 星期`
 - `0 */6 * * *` - 每 6 小时
 - `0 9,15,21 * * *` - 每天 9、15、21 点
 
-### 修改目标客户端
+### 修改直链源地址
 
-编辑 `src/fetcher.py` 中的 `target` 参数：
+编辑 `.github/workflows/update-subscription.yml` 中以下环境变量：
 
-```python
-subscribe_url = fetcher.build_subscribe_url(
-    token=info['token'],
-    api_url=info['api_url'],
-    target='v2ray'  # 修改为: clash, singbox, surge 等
-)
+```yaml
+env:
+   USE_DIRECT_SOURCE: 'true'
+   DIRECT_V2RAY_URL: 'https://node.zyfx6.xyz/v2rayNG/'
+   DIRECT_CLASH_URL: 'https://node.zyfx6.xyz/clash'
 ```
 
-## 📊 API 参数说明
+如果要恢复旧模式：
 
-该项目调用的 aggregator API 支持以下参数：
+```yaml
+env:
+   USE_DIRECT_SOURCE: 'false'
+```
 
-| 参数 | 说明 | 必填 | 可选值 |
-|------|------|------|--------|
-| `token` | 鉴权 token | ✓ | - |
-| `target` | 客户端类型 | ✗ | clash, v2ray, singbox, surge, loon, quanx, surfboard |
-| `list` | 是否仅返回节点 | ✗ | true/false 或 1/0 |
+## 📊 当前数据源说明
+
+默认数据源：
+
+| 文件          | 来源                                              |
+| ------------- | ------------------------------------------------- |
+| `subscribe.txt` | [https://node.zyfx6.xyz/v2rayNG/](https://node.zyfx6.xyz/v2rayNG/) |
+| `clash.yaml`    | [https://node.zyfx6.xyz/clash](https://node.zyfx6.xyz/clash)       |
+
+兼容模式：
+
+- 当 `USE_DIRECT_SOURCE=false` 时，脚本会回退到 Issue/API 动态抓取流程。
 
 ## 🎯 项目结构
 
@@ -183,7 +228,16 @@ https://github.com/c1a200/wv2ray/actions
 A: 进入 GitHub Actions 页面，选择工作流，点击 "Run workflow" 按钮。
 
 **Q: 节点不可用怎么办？**  
-A: 首先检查 aggregator 项目是否在线，可以手动访问源 API 地址测试。
+A: 先检查 `https://node.zyfx6.xyz/v2rayNG/` 和 `https://node.zyfx6.xyz/clash` 是否可访问；若直链故障，可临时切回 `USE_DIRECT_SOURCE=false` 使用旧模式。
+
+**Q: 订阅链接打开后直接显示 `{"code":403,"message":"Forbidden: GitHub Actions crawler is not allowed","success":false}` 怎么办？**  
+A: 这不是 GitHub Pages 自己报错，而是上游 aggregator 接口识别到请求来自 GitHub Actions 运行环境后，直接返回了一个 JSON 错误。之前脚本没有校验返回内容，错误 JSON 被当成正常订阅发布到了 Pages。现在应这样处理：
+   1. 先在非 GitHub Actions 环境手动执行更新，恢复一份可用的 `docs/subscribe.txt` 与 `docs/clash.yaml`。
+   2. 再重新部署 GitHub Pages。
+   3. 后续如果继续用 GitHub-hosted runner，上游仍可能拦截，建议改成 self-hosted runner、VPS、代理出口，或其他不被上游封禁的执行环境。
+
+**Q: 我需要在线自动跑，不想本地手动更新，怎么办？**  
+A: 现在工作流已经支持通过变量切换运行器。最稳妥的方式是在 VPS 上部署 GitHub self-hosted runner，然后把仓库变量 `FETCH_RUNNER_LABELS` 设为对应标签，例如 `["self-hosted", "linux", "x64"]`。这样定时任务还是 GitHub Actions 触发，但真正抓取会在你的线上机器执行。
 
 **Q: 可以修改更新频率吗？**  
 A: 可以，编辑工作流文件中的 cron 表达式。

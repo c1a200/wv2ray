@@ -21,6 +21,9 @@ env:
   SUBCONVERTER_EMOJI: 'true'
   SUBCONVERTER_LIST: 'false'
   FETCH_EXTRA_HEADERS_JSON: ${{ vars.FETCH_EXTRA_HEADERS_JSON || '' }}
+  USE_DIRECT_SOURCE: ${{ vars.USE_DIRECT_SOURCE || 'true' }}
+  DIRECT_V2RAY_URL: ${{ vars.DIRECT_V2RAY_URL || 'https://node.zyfx6.xyz/v2rayNG/' }}
+  DIRECT_CLASH_URL: ${{ vars.DIRECT_CLASH_URL || 'https://node.zyfx6.xyz/clash' }}
 
 on:
   push:
