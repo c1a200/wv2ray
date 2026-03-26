@@ -5415,1127 +5415,1244 @@
       short-id: 9f3a7c6d2e8b41af
     network: tcp
     servername: deepl.com
-  - name: "\U0001F3F4‍☠️ Fast-B1-1 -470"
+  - name: "[IPv6] \U0001F1ED\U0001F1F0 香港-Gemini-IEPL -470"
     type: ss
-    server: 403880e.r4.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36602
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.de:164892'
-  - name: "\U0001F3F4‍☠️ Fast-B1-2 -471"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1ED\U0001F1F0 香港2-IEPL -471"
     type: ss
-    server: 403880e.r4.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36602
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nvidia.com:164892'
-  - name: "\U0001F3F4‍☠️ Fast-B1-3 -472"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "[IPv6] \U0001F1F9\U0001F1FC 台湾-IEPL -472"
     type: ss
-    server: 403880e.r6.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36603
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.net:164892'
-  - name: "\U0001F3F4‍☠️ Fast-B1-4 -473"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1F9\U0001F1FC 台湾2-IEPL -473"
     type: ss
-    server: 403880e.r8.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36603
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lu:164892'
-  - name: "\U0001F3F4‍☠️ Balancer-B1-1 -474"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "[IPv6] \U0001F1F8\U0001F1EC 新加坡-Gemini-IEPL -474"
     type: ss
-    server: 403880e.b4.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36604
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.cl:164892'
-  - name: "\U0001F3F4‍☠️ Balancer-B1-2 -475"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1F8\U0001F1EC 新加坡2-Gemini-IEPL -475"
     type: ss
-    server: 403880e.b4.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36604
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.com:164892'
-  - name: "\U0001F3F4‍☠️ Balancer-B1-3 -476"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "[IPv6] \U0001F1EF\U0001F1F5 日本-IEPL-GPT -476"
     type: ss
-    server: 403880e.b6.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36609
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.epicgames.com:164892'
-  - name: "\U0001F3F4‍☠️ Balancer-B1-4 -477"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1EF\U0001F1F5 日本2-IEPL-GPT -477"
     type: ss
-    server: 403880e.b8.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36609
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D1-1 -478"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1EF\U0001F1F5 日本3-IEPL-家宽 -478"
     type: ss
-    server: 403880e.dd.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36610
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.xboxlive.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D1-2 -479"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国-IEPL-GPT -479"
     type: ss
-    server: 403880e.dd.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36608
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.epicgames.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D1-3 -480"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1FA\U0001F1F8 美国2-IEPL-GPT -480"
     type: ss
-    server: 403880e.df.gladns.com
-    port: 2377
+    server: gd2.bjnet2.com
+    port: 36608
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.eu:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D1-4 -481"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "[IPv6] \U0001F1E9\U0001F1EA 德国-IEPL -481"
     type: ss
-    server: 403880e.dh.gladns.com
-    port: 2377
+    server: gd.bjnet2.com
+    port: 36611
+    cipher: aes-128-gcm
+    password: 20e4ac25-b3cf-45b2-82ba-64c2dd274157
     udp: true
-    udp-over-tcp: true
-    cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
     plugin: obfs
     plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.jp:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D2-1 -482"
+      mode: http
+      host: 7d2ea92dfe84bc248aa35e8cd94f8266.baidu.com
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-02 -482"
     type: ss
-    server: 403880e.e4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 36989
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lu:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D2-2 -483"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-03 -483"
     type: ss
-    server: 403880e.e4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37003
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.eu:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D2-3 -484"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-04 -484"
     type: ss
-    server: 403880e.e6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37004
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.net:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-D2-4 -485"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-05 -485"
     type: ss
-    server: 403880e.e8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37001
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.de:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-IPv6-P1-1 -486"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-06 -486"
     type: ss
-    server: 403880e.m4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 36989
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.jp:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-IPv6-P1-2 -487"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-07 -487"
     type: ss
-    server: 403880e.m4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37003
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.net:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-IPv6-P1-3 -488"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-08 -488"
     type: ss
-    server: 403880e.m6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37004
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.be:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-IPv6-P1-4 -489"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-01 -489"
     type: ss
-    server: 403880e.m8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28011
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.jp:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Balancer-N1-1 -490"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-02 -490"
     type: ss
-    server: 403880e.d4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28017
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.cat:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Balancer-N1-2 -491"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-03 -491"
     type: ss
-    server: 403880e.d4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28018
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.fastly.net:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Balancer-N1-3 -492"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-04 -492"
     type: ss
-    server: 403880e.d6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28019
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.dk:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Balancer-N1-4 -493"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-05 -493"
     type: ss
-    server: 403880e.d8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28011
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.dk:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Netflix-N2-1 -494"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-06 -494"
     type: ss
-    server: 403880e.f4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28017
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.io:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Netflix-N2-2 -495"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-07 -495"
     type: ss
-    server: 403880e.f4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28018
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.eu:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Netflix-N2-3 -496"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-08 -496"
     type: ss
-    server: 403880e.f6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28019
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.de:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Netflix-N2-4 -497"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-01 -497"
     type: ss
-    server: 403880e.f8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37007
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.de:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F1-1 -498"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-02 -498"
     type: ss
-    server: 403880e.q4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 37008
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.jp:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F1-2 -499"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore-01 -499"
     type: ss
-    server: 403880e.q4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28031
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.epicgames.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F1-3 -500"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore 02 -500"
     type: ss
-    server: 403880e.q6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28033
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.xboxlive.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F1-4 -501"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 「美国」United States-01 -501"
     type: ss
-    server: 403880e.q8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28051
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.cl:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F2-1 -502"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 「美国」United States-02 -502"
     type: ss
-    server: 403880e.h4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: >-
+      462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
+    port: 28053
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.jp:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F2-2 -503"
+    password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-01 -503"
     type: ss
-    server: 403880e.h4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk1.network-cdn-gw-yd.net
+    port: 32060
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F2-3 -504"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-02 -504"
     type: ss
-    server: 403880e.h6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk2.network-cdn-gw-yd.net
+    port: 32063
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.es:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-Dedicated-F2-4 -505"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-03 -505"
     type: ss
-    server: 403880e.h8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk13.network-cdn-gw-yd.net
+    port: 32061
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lv:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-X1-1 -506"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-04 -506"
     type: ss
-    server: 403880e.u4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk14.network-cdn-gw-yd.net
+    port: 32062
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nvidia.com:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-X1-2 -507"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-05 -507"
     type: ss
-    server: 403880e.u4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk15.network-cdn-gw-yd.net
+    port: 47705
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lv:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-X1-3 -508"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-06 -508"
     type: ss
-    server: 403880e.u6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk16.network-cdn-gw-yd.net
+    port: 47706
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lu:164892'
-  - name: "\U0001F1FA\U0001F1F8 US-X1-4 -509"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-07 -509"
     type: ss
-    server: 403880e.u8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk17.network-cdn-gw-yd.net
+    port: 47707
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.jp:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-X1-1 -510"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-08 -510"
     type: ss
-    server: 403880e.t4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk18.network-cdn-gw-yd.net
+    port: 47708
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.com:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-X1-2 -511"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-09 -511"
     type: ss
-    server: 403880e.t4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk09.network-cdn-gw-yd.net
+    port: 47709
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lt:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-X1-3 -512"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-10 -512"
     type: ss
-    server: 403880e.t6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hk11.network-cdn-gw-yd.net
+    port: 47711
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.es:164892'
-  - name: "\U0001F1F9\U0001F1FC TW-X1-4 -513"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-01 -513"
     type: ss
-    server: 403880e.t8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hkp1.network-cdn-gw-yd.net
+    port: 49901
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.nintendo.jp:164892'
-  - name: "\U0001F1F8\U0001F1EC SG-X2-1 -514"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-02 -514"
     type: ss
-    server: 403880e.s4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hkp2.network-cdn-gw-yd.net
+    port: 49902
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lt:164892'
-  - name: "\U0001F1F8\U0001F1EC SG-X2-2 -515"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-03 -515"
     type: ss
-    server: 403880e.s4.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hkp3.network-cdn-gw-yd.net
+    port: 49903
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.com:164892'
-  - name: "\U0001F1F8\U0001F1EC SG-X2-3 -516"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-04 -516"
     type: ss
-    server: 403880e.s6.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hkp4.network-cdn-gw-yd.net
+    port: 49904
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.lv:164892'
-  - name: "\U0001F1F8\U0001F1EC SG-X2-4 -517"
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-05 -517"
     type: ss
-    server: 403880e.s8.gladns.com
-    port: 2377
-    udp: true
-    udp-over-tcp: true
+    server: hkp5.network-cdn-gw-yd.net
+    port: 49905
     cipher: chacha20-ietf-poly1305
-    password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-    plugin: obfs
-    plugin-opts:
-      mode: tls
-      host: '403880e.default.microsoft.ee:164892'
-  - name: "\U0001F1EC\U0001F1E7 GB-ISP-1 -518"
-    type: hysteria2
-    server: 160.16.148.90
-    port: 50221
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EC\U0001F1E7 GB-ISP-2 -519"
-    type: hysteria2
-    server: 160.16.148.90
-    port: 50222
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-06 -518"
+    type: ss
+    server: hkp6.network-cdn-gw-yd.net
+    port: 48816
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EC\U0001F1E7 GB-ISP-3 -520"
-    type: hysteria2
-    server: 160.16.148.90
-    port: 50223
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-07 -519"
+    type: ss
+    server: hkp7.network-cdn-gw-yd.net
+    port: 48817
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EC\U0001F1E7 GB-ISP-4 -521"
-    type: hysteria2
-    server: 160.16.148.90
-    port: 50224
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-08 -520"
+    type: ss
+    server: hkp8.network-cdn-gw-yd.net
+    port: 48818
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EC\U0001F1E7 GB-ISP-5 -522"
-    type: hysteria2
-    server: 160.16.148.90
-    port: 50225
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-09 -521"
+    type: ss
+    server: hkp9.network-cdn-gw-yd.net
+    port: 48819
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-16 -523"
-    type: vless
-    server: 49.212.174.16
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-10 -522"
+    type: ss
+    server: hkp11.network-cdn-gw-yd.net
+    port: 48820
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-77 -524"
-    type: vless
-    server: 160.16.104.77
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-01|gpt|专用线路 -523"
+    type: ss
+    server: us06.network-cdn-gw-yd.net
+    port: 43111
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-94 -525"
-    type: vless
-    server: 153.121.33.94
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-02|gpt|专用线路 -524"
+    type: ss
+    server: us07.network-cdn-gw-yd.net
+    port: 43211
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-114 -526"
-    type: vless
-    server: 160.16.111.114
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-03|gpt|专用线路 -525"
+    type: ss
+    server: us08.network-cdn-gw-yd.net
+    port: 43212
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-122 -527"
-    type: vless
-    server: 160.16.208.122
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-04|gpt|专用线路 -526"
+    type: ss
+    server: us9.network-cdn-gw-yd.net
+    port: 43213
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-152 -528"
-    type: vless
-    server: 160.16.143.152
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-05|gpt|专用线路 -527"
+    type: ss
+    server: us10.network-cdn-gw-yd.net
+    port: 43215
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-159 -529"
-    type: vless
-    server: 160.16.228.159
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Basic专线-01|gpt|专用线路 -528"
+    type: ss
+    server: jp01.network-cdn-gw-yd.net
+    port: 48801
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-199 -530"
-    type: vless
-    server: 160.16.62.199
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Basic专线-02|gpt|专用线路 -529"
+    type: ss
+    server: jp2.network-cdn-gw-yd.net
+    port: 48802
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-202 -531"
-    type: vless
-    server: 133.167.72.202
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-01|gpt|专用线路 -530"
+    type: ss
+    server: jp3.network-cdn-gw-yd.net
+    port: 48803
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-216 -532"
-    type: vless
-    server: 49.212.133.216
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-02|gpt|专用线路 -531"
+    type: ss
+    server: jp04.network-cdn-gw-yd.net
+    port: 48804
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-217 -533"
-    type: vless
-    server: 153.121.39.217
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-03|gpt|专用线路 -532"
+    type: ss
+    server: jp05.network-cdn-gw-yd.net
+    port: 48805
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-218 -534"
-    type: vless
-    server: 49.212.165.218
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Basic专线-01 -533"
+    type: ss
+    server: tw1.network-cdn-gw-yd.net
+    port: 46601
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-219 -535"
-    type: vless
-    server: 160.16.210.219
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-01 -534"
+    type: ss
+    server: tw02.network-cdn-gw-yd.net
+    port: 46602
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-242 -536"
-    type: vless
-    server: 49.212.134.242
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-02 -535"
+    type: ss
+    server: tw03.network-cdn-gw-yd.net
+    port: 46603
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-TCP-248 -537"
-    type: vless
-    server: 153.121.40.248
-    port: 8080
-    uuid: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-03 -536"
+    type: ss
+    server: tw04.network-cdn-gw-yd.net
+    port: 46604
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    packet-encoding: xudp
-    cipher: auto
-    client-fingerprint: chrome
-    tls: true
-    skip-cert-verify: false
-    reality-opts:
-      public-key: wOu-BMrXvk9KX23JZrlpUlF4SMjDcejm0vNECdhy5xE
-      short-id: 686c0ef0
-    network: grpc
-    grpc-opts:
-      grpc-service-name: update
-    servername: s0.awsstatic.com
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-16 -538"
-    type: hysteria2
-    server: 49.212.174.16
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-04 -537"
+    type: ss
+    server: tw05.network-cdn-gw-yd.net
+    port: 46605
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-77 -539"
-    type: hysteria2
-    server: 160.16.104.77
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Basic专线-01 -538"
+    type: ss
+    server: sgp01.network-cdn-gw-yd.net
+    port: 45506
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-94 -540"
-    type: hysteria2
-    server: 153.121.33.94
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-01|gpt|线路 -539"
+    type: ss
+    server: sgp02.network-cdn-gw-yd.net
+    port: 45507
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-114 -541"
-    type: hysteria2
-    server: 160.16.111.114
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-02|gpt|线路 -540"
+    type: ss
+    server: sgp3.network-cdn-gw-yd.net
+    port: 45508
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-122 -542"
-    type: hysteria2
-    server: 160.16.208.122
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-03|gpt|线路 -541"
+    type: ss
+    server: sgp4.network-cdn-gw-yd.net
+    port: 45509
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-152 -543"
-    type: hysteria2
-    server: 160.16.143.152
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-04|gpt|线路 -542"
+    type: ss
+    server: sgp05.network-cdn-gw-yd.net
+    port: 45510
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-159 -544"
-    type: hysteria2
-    server: 160.16.228.159
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-01|gpt|专用线路 -543"
+    type: ss
+    server: us01.network-cdn-gw-yd.net
+    port: 44401
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-199 -545"
-    type: hysteria2
-    server: 160.16.62.199
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-02|gpt|专用线路 -544"
+    type: ss
+    server: us02.network-cdn-gw-yd.net
+    port: 44402
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-202 -546"
-    type: hysteria2
-    server: 133.167.72.202
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-03|gpt|专用线路 -545"
+    type: ss
+    server: us03.network-cdn-gw-yd.net
+    port: 44403
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-216 -547"
-    type: hysteria2
-    server: 49.212.133.216
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-04|gpt|专用线路 -546"
+    type: ss
+    server: us04.network-cdn-gw-yd.net
+    port: 44404
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-217 -548"
-    type: hysteria2
-    server: 153.121.39.217
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-05|gpt|专用线路 -547"
+    type: ss
+    server: us05.network-cdn-gw-yd.net
+    port: 44405
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-218 -549"
-    type: hysteria2
-    server: 49.212.165.218
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F9\U0001F1ED 泰国-IEPL-Pro专线-01 -548"
+    type: ss
+    server: tk.network-cdn-gw-yd.net
+    port: 41116
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-219 -550"
-    type: hysteria2
-    server: 160.16.210.219
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F0\U0001F1F7 韩国-IEPL-Basic专线-|X2| -549"
+    type: ss
+    server: kr03.network-cdn-gw-yd.net
+    port: 36220
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-242 -551"
-    type: hysteria2
-    server: 49.212.134.242
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1F0\U0001F1F7 韩国-EIPL-Pro专线-|X2| -550"
+    type: ss
+    server: kr01.network-cdn-gw-yd.net
+    port: 41117
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1EF\U0001F1F5 JP-UDP-248 -552"
-    type: hysteria2
-    server: 153.121.40.248
-    port: 443
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1E9\U0001F1EA 德国-IEPL-Pro专线-1 -551"
+    type: ss
+    server: brd.network-cdn-gw-yd.net
+    port: 41118
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1FA\U0001F1F8 US-ISP-1 -553"
-    type: hysteria2
-    server: 160.16.144.253
-    port: 50216
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FB\U0001F1F3 越南-IEPL-Basic专线-01 -552"
+    type: ss
+    server: vn01.network-cdn-gw-yd.net
+    port: 20001
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1FA\U0001F1F8 US-ISP-2 -554"
-    type: hysteria2
-    server: 160.16.144.253
-    port: 50217
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1FB\U0001F1F3 越南-IEPL-Pro专线-02 -553"
+    type: ss
+    server: vn02.network-cdn-gw-yd.net
+    port: 20002
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1FA\U0001F1F8 US-ISP-3 -555"
-    type: hysteria2
-    server: 160.16.144.253
-    port: 50218
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EC\U0001F1E7 英国-IEPL-Basic专线-01 -554"
+    type: ss
+    server: uks1.network-cdn-gw-yd.net
+    port: 10014
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1FA\U0001F1F8 US-ISP-4 -556"
-    type: hysteria2
-    server: 160.16.144.253
-    port: 50219
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1EC\U0001F1E7 英国-IEPL-Pro专线-02 -555"
+    type: ss
+    server: uks1.network-cdn-gw-yd.net
+    port: 10015
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
-  - name: "\U0001F1FA\U0001F1F8 US-ISP-5 -557"
-    type: hysteria2
-    server: 160.16.144.253
-    port: 50220
-    password: F4D70FD5-DB39-440F-9A8D-AC2D3F8D56C7
+  - name: "\U0001F1E6\U0001F1FA 澳大利亚-IEPL-Pro专线-01 -556"
+    type: ss
+    server: au.network-cdn-gw-yd.net
+    port: 20003
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
     udp: true
-    skip-cert-verify: false
-    sni: ops-tyo.dexlos.com
-    obfs: salamander
-    obfs-password: 2g7feub2
-    client-fingerprint: chrome
+  - name: "\U0001F1EB\U0001F1F7 法国-IEPL-Pro专线-01 -557"
+    type: ss
+    server: fr.network-cdn-gw-yd.net
+    port: 20004
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F5\U0001F1ED 菲律宾-IEPL-Pro专线-01 -558"
+    type: ss
+    server: ph.network-cdn-gw-yd.net
+    port: 20005
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1E7\U0001F1F7 巴西-IEPL-Pro专线-01 -559"
+    type: ss
+    server: fl.network-cdn-gw-yd.net
+    port: 43302
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F2\U0001F1FE 马来西亚-IEPL-Pro专线-01 -560"
+    type: ss
+    server: mas.network-cdn-gw-yd.net
+    port: 43305
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F2\U0001F1FE 马来西亚-IEPL-Pro专线-02 -561"
+    type: ss
+    server: mas1.network-cdn-gw-yd.net
+    port: 43307
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1EE\U0001F1F3 印度-IEPL-Pro专线-01|x2| -562"
+    type: ss
+    server: in01.network-cdn-gw-yd.net
+    port: 43304
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F9\U0001F1F7 土耳其-IEPL-Pro专线-01 -563"
+    type: ss
+    server: tr03.network-cdn-gw-yd.net
+    port: 36221
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F7\U0001F1FA 俄罗斯-IEPL-Pro专线-01 -564"
+    type: ss
+    server: es01.network-cdn-gw-yd.net
+    port: 50001
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1E6\U0001F1F7 阿根廷-IEPL-Pro专线-01 -565"
+    type: ss
+    server: at01.network-cdn-gw-yd.net
+    port: 50004
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1E6\U0001F1EA 迪拜-IEPL-Pro-01专线 -566"
+    type: ss
+    server: db.network-cdn-gw-yd.net
+    port: 50011
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1E8\U0001F1E6 加拿大-IEPL-Pro专线-01 -567"
+    type: ss
+    server: ca.network-cdn-gw-yd.net
+    port: 20007
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1F7\U0001F1F8 塞尔维亚-IEPL-Pro专线-01 -568"
+    type: ss
+    server: dk.network-cdn-gw-yd.net
+    port: 20008
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1EE\U0001F1F9 意大利-IEPL-Pro专线01 -569"
+    type: ss
+    server: it.network-cdn-gw-yd.net
+    port: 20006
+    cipher: chacha20-ietf-poly1305
+    password: b235696d-7873-4b15-9b22-7dae3a0b6747
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-01 -570"
+    type: ss
+    server: hk1.network-cdn-gw-yd.net
+    port: 32060
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-02 -571"
+    type: ss
+    server: hk2.network-cdn-gw-yd.net
+    port: 32063
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-03 -572"
+    type: ss
+    server: hk13.network-cdn-gw-yd.net
+    port: 32061
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-04 -573"
+    type: ss
+    server: hk14.network-cdn-gw-yd.net
+    port: 32062
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-05 -574"
+    type: ss
+    server: hk15.network-cdn-gw-yd.net
+    port: 47705
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-06 -575"
+    type: ss
+    server: hk16.network-cdn-gw-yd.net
+    port: 47706
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-07 -576"
+    type: ss
+    server: hk17.network-cdn-gw-yd.net
+    port: 47707
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-08 -577"
+    type: ss
+    server: hk18.network-cdn-gw-yd.net
+    port: 47708
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-09 -578"
+    type: ss
+    server: hk09.network-cdn-gw-yd.net
+    port: 47709
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Basic专线-10 -579"
+    type: ss
+    server: hk11.network-cdn-gw-yd.net
+    port: 47711
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-01 -580"
+    type: ss
+    server: hkp1.network-cdn-gw-yd.net
+    port: 49901
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-02 -581"
+    type: ss
+    server: hkp2.network-cdn-gw-yd.net
+    port: 49902
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-03 -582"
+    type: ss
+    server: hkp3.network-cdn-gw-yd.net
+    port: 49903
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-04 -583"
+    type: ss
+    server: hkp4.network-cdn-gw-yd.net
+    port: 49904
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-05 -584"
+    type: ss
+    server: hkp5.network-cdn-gw-yd.net
+    port: 49905
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-06 -585"
+    type: ss
+    server: hkp6.network-cdn-gw-yd.net
+    port: 48816
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-07 -586"
+    type: ss
+    server: hkp7.network-cdn-gw-yd.net
+    port: 48817
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-08 -587"
+    type: ss
+    server: hkp8.network-cdn-gw-yd.net
+    port: 48818
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-09 -588"
+    type: ss
+    server: hkp9.network-cdn-gw-yd.net
+    port: 48819
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港-IEPL-Pro专线-10 -589"
+    type: ss
+    server: hkp11.network-cdn-gw-yd.net
+    port: 48820
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-01|gpt|专用线路 -590"
+    type: ss
+    server: us06.network-cdn-gw-yd.net
+    port: 43111
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-02|gpt|专用线路 -591"
+    type: ss
+    server: us07.network-cdn-gw-yd.net
+    port: 43211
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-03|gpt|专用线路 -592"
+    type: ss
+    server: us08.network-cdn-gw-yd.net
+    port: 43212
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-04|gpt|专用线路 -593"
+    type: ss
+    server: us9.network-cdn-gw-yd.net
+    port: 43213
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Basic-05|gpt|专用线路 -594"
+    type: ss
+    server: us10.network-cdn-gw-yd.net
+    port: 43215
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Basic专线-01|gpt|专用线路 -595"
+    type: ss
+    server: jp01.network-cdn-gw-yd.net
+    port: 48801
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Basic专线-02|gpt|专用线路 -596"
+    type: ss
+    server: jp2.network-cdn-gw-yd.net
+    port: 48802
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-01|gpt|专用线路 -597"
+    type: ss
+    server: jp3.network-cdn-gw-yd.net
+    port: 48803
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-02|gpt|专用线路 -598"
+    type: ss
+    server: jp04.network-cdn-gw-yd.net
+    port: 48804
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本-IEPL-Pro专线-03|gpt|专用线路 -599"
+    type: ss
+    server: jp05.network-cdn-gw-yd.net
+    port: 48805
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Basic专线-01 -600"
+    type: ss
+    server: tw1.network-cdn-gw-yd.net
+    port: 46601
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-01 -601"
+    type: ss
+    server: tw02.network-cdn-gw-yd.net
+    port: 46602
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-02 -602"
+    type: ss
+    server: tw03.network-cdn-gw-yd.net
+    port: 46603
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-03 -603"
+    type: ss
+    server: tw04.network-cdn-gw-yd.net
+    port: 46604
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾-IEPL-Pro专线-04 -604"
+    type: ss
+    server: tw05.network-cdn-gw-yd.net
+    port: 46605
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Basic专线-01 -605"
+    type: ss
+    server: sgp01.network-cdn-gw-yd.net
+    port: 45506
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-01|gpt|线路 -606"
+    type: ss
+    server: sgp02.network-cdn-gw-yd.net
+    port: 45507
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-02|gpt|线路 -607"
+    type: ss
+    server: sgp3.network-cdn-gw-yd.net
+    port: 45508
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-03|gpt|线路 -608"
+    type: ss
+    server: sgp4.network-cdn-gw-yd.net
+    port: 45509
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡-IEPL-Pro专线-04|gpt|线路 -609"
+    type: ss
+    server: sgp05.network-cdn-gw-yd.net
+    port: 45510
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-01|gpt|专用线路 -610"
+    type: ss
+    server: us01.network-cdn-gw-yd.net
+    port: 44401
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-02|gpt|专用线路 -611"
+    type: ss
+    server: us02.network-cdn-gw-yd.net
+    port: 44402
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-03|gpt|专用线路 -612"
+    type: ss
+    server: us03.network-cdn-gw-yd.net
+    port: 44403
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-04|gpt|专用线路 -613"
+    type: ss
+    server: us04.network-cdn-gw-yd.net
+    port: 44404
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国-IEPL-Pro专线-05|gpt|专用线路 -614"
+    type: ss
+    server: us05.network-cdn-gw-yd.net
+    port: 44405
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1ED 泰国-IEPL-Pro专线-01 -615"
+    type: ss
+    server: tk.network-cdn-gw-yd.net
+    port: 41116
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F0\U0001F1F7 韩国-IEPL-Basic专线-|X2| -616"
+    type: ss
+    server: kr03.network-cdn-gw-yd.net
+    port: 36220
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F0\U0001F1F7 韩国-EIPL-Pro专线-|X2| -617"
+    type: ss
+    server: kr01.network-cdn-gw-yd.net
+    port: 41117
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E9\U0001F1EA 德国-IEPL-Pro专线-1 -618"
+    type: ss
+    server: brd.network-cdn-gw-yd.net
+    port: 41118
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FB\U0001F1F3 越南-IEPL-Basic专线-01 -619"
+    type: ss
+    server: vn01.network-cdn-gw-yd.net
+    port: 20001
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1FB\U0001F1F3 越南-IEPL-Pro专线-02 -620"
+    type: ss
+    server: vn02.network-cdn-gw-yd.net
+    port: 20002
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EC\U0001F1E7 英国-IEPL-Basic专线-01 -621"
+    type: ss
+    server: uks1.network-cdn-gw-yd.net
+    port: 10014
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EC\U0001F1E7 英国-IEPL-Pro专线-02 -622"
+    type: ss
+    server: uks1.network-cdn-gw-yd.net
+    port: 10015
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E6\U0001F1FA 澳大利亚-IEPL-Pro专线-01 -623"
+    type: ss
+    server: au.network-cdn-gw-yd.net
+    port: 20003
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EB\U0001F1F7 法国-IEPL-Pro专线-01 -624"
+    type: ss
+    server: fr.network-cdn-gw-yd.net
+    port: 20004
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F5\U0001F1ED 菲律宾-IEPL-Pro专线-01 -625"
+    type: ss
+    server: ph.network-cdn-gw-yd.net
+    port: 20005
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E7\U0001F1F7 巴西-IEPL-Pro专线-01 -626"
+    type: ss
+    server: fl.network-cdn-gw-yd.net
+    port: 43302
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F2\U0001F1FE 马来西亚-IEPL-Pro专线-01 -627"
+    type: ss
+    server: mas.network-cdn-gw-yd.net
+    port: 43305
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F2\U0001F1FE 马来西亚-IEPL-Pro专线-02 -628"
+    type: ss
+    server: mas1.network-cdn-gw-yd.net
+    port: 43307
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EE\U0001F1F3 印度-IEPL-Pro专线-01|x2| -629"
+    type: ss
+    server: in01.network-cdn-gw-yd.net
+    port: 43304
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F9\U0001F1F7 土耳其-IEPL-Pro专线-01 -630"
+    type: ss
+    server: tr03.network-cdn-gw-yd.net
+    port: 36221
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F7\U0001F1FA 俄罗斯-IEPL-Pro专线-01 -631"
+    type: ss
+    server: es01.network-cdn-gw-yd.net
+    port: 50001
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E6\U0001F1F7 阿根廷-IEPL-Pro专线-01 -632"
+    type: ss
+    server: at01.network-cdn-gw-yd.net
+    port: 50004
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E6\U0001F1EA 迪拜-IEPL-Pro-01专线 -633"
+    type: ss
+    server: db.network-cdn-gw-yd.net
+    port: 50011
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1E8\U0001F1E6 加拿大-IEPL-Pro专线-01 -634"
+    type: ss
+    server: ca.network-cdn-gw-yd.net
+    port: 20007
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1F7\U0001F1F8 塞尔维亚-IEPL-Pro专线-01 -635"
+    type: ss
+    server: dk.network-cdn-gw-yd.net
+    port: 20008
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
+  - name: "\U0001F1EE\U0001F1F9 意大利-IEPL-Pro专线01 -636"
+    type: ss
+    server: it.network-cdn-gw-yd.net
+    port: 20006
+    cipher: chacha20-ietf-poly1305
+    password: d4665d23-c0a2-454e-ba62-c276ed189a70
+    udp: true
 proxy-groups:
   - name: "\U0001F680 节点选择"
     type: select
