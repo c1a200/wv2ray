@@ -2531,7 +2531,7 @@
       sni: woshinidie-et3.pages.dev
       skip-cert-verify: true
       mux: false
-    name: "[IPv6] \U0001F1EF\U0001F1F5 日本JP 020 15.4MB/s -300"
+    name: "\U0001F1EF\U0001F1F5 日本JP 020 15.4MB/s -300"
   - name: "\U0001F1F0\U0001F1F7 韩国KR 007 4.9MB/s -301"
     server: b835807a-tco4g0-te4mw1-1mqag.kr.oshuawei.com
     port: 31433
@@ -4463,173 +4463,7 @@
           Mozilla/5.0 (Windows; U; Windows NT 6.1; de-DE) AppleWebKit/534.17
           (KHTML, like Gecko) Chrome/10.0.649.0 Safari/534.17
       path: /
-  - name: "\U0001F1F9\U0001F1F7 土耳其 06 -469"
-    server: tur.fastsoonlink.com
-    port: 40019
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 9e3f538f-491b-4134-b95c-fae779a534b2
-    udp: true
-  - name: "\U0001F1E7\U0001F1F7 巴西 02 -470"
-    server: 167.234.251.78
-    port: 35000
-    type: hysteria2
-    password: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
-    auth: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
-    sni: www.apple.com
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1F9\U0001F1FC 台湾 01 -471"
-    server: tw.fastsoonlink.com
-    port: 40020
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ce3c0943-cd7d-458b-bc96-bef1aeee2a18
-    udp: true
-  - name: "\U0001F1EE\U0001F1F1 以色列 02 -472"
-    server: yiselie.iptk123.com
-    port: 443
-    type: hysteria2
-    password: 3e813e48-d0f2-43bb-9e26-45d41382a99e
-    auth: 3e813e48-d0f2-43bb-9e26-45d41382a99e
-    sni: yiselie.iptk123.com
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国 29 -473"
-    server: 1a5c1501-tcpz40-te4mw1-1mqag.se.oshuawei.com
-    port: 443
-    type: http
-    username: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    password: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    tls: true
-    sni: 1a5c1501-tcpz40-te4mw1-1mqag.se.oshuawei.com
-  - name: "[IPv6] \U0001F1E6\U0001F1F9 奥地利 01 -474"
-    server: betty.ns.cloudflare.com
-    port: 443
-    type: vless
-    uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
-    tls: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /tsghdws
-      headers:
-        Host: octopusss4.com
-    udp: true
-    servername: octopusss4.com
-  - name: "\U0001F1EE\U0001F1F1 以色列 04 -475"
-    server: yiselie.iptk123.com
-    port: 443
-    type: hysteria2
-    password: a9afdde6-752c-41ca-8533-09a5fe39296d
-    auth: a9afdde6-752c-41ca-8533-09a5fe39296d
-    sni: yiselie.iptk123.com
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1F9\U0001F1FC 台湾家宽 20 -476"
-    server: n8mrcg00602689c.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 76fd2910-8f2d-4f0f-883a-8da226f52000
-    udp: true
-  - name: "\U0001F1E8\U0001F1E6 加拿大 02 -477"
-    server: 88.99.60.34
-    port: 2053
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    network: ws
-    ws-opts:
-      path: "/?ed=2560&telegram\U0001F1E8\U0001F1F3 @wangcai2"
-      headers:
-        Host: sni.111000.v6.navy
-    udp: true
-    servername: sni.111000.v6.navy
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 30 -478"
-    server: 103.186.155.153
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1EF\U0001F1F5 日本 11 -479"
-    server: jp.co2.vn
-    port: 443
-    type: trojan
-    password: c1111cfb-fcde-40ff-828b-f423b0cb4a08
-    sni: www.linemo.jp
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1EE\U0001F1E9 印度尼西亚 10 -480"
-    server: 171463e2-tco4g0-te4mw1-1mqag.id.oshuawei.com
-    port: 32233
-    type: http
-    username: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    password: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    tls: true
-    skip-cert-verify: true
-    sni: 171463e2-tco4g0-te4mw1-1mqag.id.oshuawei.com
-  - name: "\U0001F1EB\U0001F1F7 法国 01 -481"
-    server: 88927b84-tcpz40-te4mw1-1mqag.fr.oshuawei.com
-    port: 443
-    type: http
-    username: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    password: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    tls: true
-    sni: 88927b84-tcpz40-te4mw1-1mqag.fr.oshuawei.com
-  - name: "\U0001F1ED\U0001F1F0 香港 01 -482"
-    server: hk1.network-cdn-gw-yd.net
-    port: 32060
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: d4665d23-c0a2-454e-ba62-c276ed189a70
-    udp: true
-  - name: "\U0001F1F2\U0001F1FE 马来西亚 06 -483"
-    server: ml.fastsoonlink.com
-    port: 40006
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: b55f6886-1277-45f4-8dcd-ee842885490a
-    udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国家宽 22 -484"
-    server: 8.34.146.140
-    port: 2053
-    type: vless
-    uuid: 69c70236-6d7f-a785-2d3a-5332b1c91e99
-    tls: true
-    alpn:
-      - h3
-    client-fingerprint: random
-    network: ws
-    ws-opts:
-      path: '/socks5=4b2c7676:6f0f4cbba5bb@38.111.30.111:26433'
-      headers:
-        Host: bab1c79b.soos.bbroot.com
-    udp: true
-    servername: bab1c79b.soos.bbroot.com
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 16 -485"
-    server: 103.186.154.202
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1F7\U0001F1FA 俄罗斯 03 -486"
-    server: ru.fastsoonlink.com
-    port: 40031
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: b55f6886-1277-45f4-8dcd-ee842885490a
-    udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 02 -487"
-    server: 103.186.154.201
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1F1\U0001F1FB 拉脱维亚 01 -488"
+  - name: "\U0001F1F1\U0001F1FB 拉脱维亚 02 -469"
     server: 94.131.104.67
     port: 443
     type: vless
@@ -4643,289 +4477,57 @@
     network: tcp
     udp: true
     servername: peer.pan.baidu.com
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 03 -489"
-    server: 103.186.155.28
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  - name: "\U0001F1EF\U0001F1F5 日本 07 -470"
+    server: freea.glyphara.com
+    port: 30301
+    type: vless
+    uuid: 32c27a03-9a8f-4c59-95a1-5138b12dc363
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: IoW1RqD-BzW9oxaM4KtHx5ap6haIENhYyZt_oMZqlCM
+      short-id: 950cee8a
+    client-fingerprint: firefox
+    network: tcp
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港 04 -490"
-    server: 31.192.233.38
-    port: 8443
-    type: trojan
-    password: nodes-d2ac438d
-    sni: node-hk-1.v2sv.top
-    skip-cert-verify: true
+    servername: lol.secure.dyn.riotcdn.net
+  - name: "\U0001F1F8\U0001F1EC 新加坡 21 -471"
+    server: freea.glyphara.com
+    port: 30402
+    type: vless
+    uuid: 32c27a03-9a8f-4c59-95a1-5138b12dc363
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: uTOYAGREMpfEr3cQFcLwgMAWwwxjS3e2Yw32kCdN3Ew
+      short-id: f5f6e6f4
+    client-fingerprint: firefox
+    network: tcp
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港 19 -491"
-    server: jry.izenny.com
-    port: 26535
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 730021b0-01cb-40d2-a962-ec9f1634489f
-    udp: true
-  - name: "\U0001F1F8\U0001F1EC 新加坡 02 -492"
-    server: 103.15.90.134
-    port: 49678
-    type: ss
-    cipher: none
-    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-    plugin: v2ray-plugin
-    plugin-opts:
-      mode: websocket
-      host: ylnhh.us.ci
-      path: /14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed\
-      tls: true
-      mux: false
-    udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港家宽 01 -493"
-    server: 65f4a677-tcpz40-te4mw1-1mqag.hkt.gotochinatown.net
-    port: 80
-    type: vmess
-    uuid: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    alterId: 2
-    cipher: auto
-    tls: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: broadcastlv.chat.bilibili.com
-    udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 14 -494"
-    server: 103.186.155.145
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1F9\U0001F1FC 台湾家宽 05 -495"
-    server: nbmrcg003505rnd.cybervena.com
+    servername: itunes.apple.com
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 12 -472"
+    server: r3mrcg0011499tl.cybervena.com
     port: 50099
     type: ss
     cipher: chacha20-ietf-poly1305
     password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
     udp: true
-  - name: "[IPv6] \U0001F1ED\U0001F1F0 香港 06 -496"
-    server: m.cnmjin.net
-    port: 16622
-    type: vmess
-    uuid: 080897a1-d79d-4090-9afd-9f1709f7731e
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: bd0c7cf1b44bac8ff56dc5e78c843642.mobgslb.tbcache.com
-    udp: true
-  - name: "\U0001F1EE\U0001F1F1 以色列 07 -497"
-    server: yiselie.iptk123.com
-    port: 443
-    type: hysteria2
-    password: 9cfd3d46-6d4c-48c8-8a60-046a9e615abb
-    auth: 9cfd3d46-6d4c-48c8-8a60-046a9e615abb
-    sni: yiselie.iptk123.com
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1F7\U0001F1FA 俄罗斯 04 -498"
-    server: ru.fastsoonlink.com
-    port: 40031
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 18 -473"
+    server: n8mrcg00602689c.cybervena.com
+    port: 50099
     type: ss
     cipher: chacha20-ietf-poly1305
-    password: ff13c246-78b5-4c69-bf50-29dbaeb56c5b
+    password: 76fd2910-8f2d-4f0f-883a-8da226f52000
     udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 10 -499"
-    server: 103.186.155.137
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港家宽 03 -500"
-    server: freea.glyphara.com
-    port: 30103
-    type: vless
-    uuid: ae6ac3b3-0bc3-44f0-8233-7a699640435c
-    tls: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: 8M0-R5F627Hnwb-hiS0VMSm-q3NPmriztJSU9FfvTB4
-      short-id: 435e2af5
-    client-fingerprint: firefox
-    network: tcp
-    udp: true
-    servername: learn.microsoft.com
-  - name: "\U0001F1FF\U0001F1E6 南非 01 -501"
-    server: 45.221.98.14
-    port: 59901
-    type: anytls
-    password: dongtaiwang.com
-    udp: true
-    skip-cert-verify: true
-    alpn:
-      - h2
-  - name: "\U0001F1FA\U0001F1F8 美国 23 -502"
-    server: d595db7c-tcpz40-te4dj8-1m0fq.sjc.oshuawei.com
-    port: 443
-    type: http
-    username: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    password: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    tls: true
-    sni: d595db7c-tcpz40-te4dj8-1m0fq.sjc.oshuawei.com
-  - name: "\U0001F1F2\U0001F1FE 马来西亚 12 -503"
-    server: ml.fastsoonlink.com
-    port: 40006
+  - name: "\U0001F1ED\U0001F1F0 香港 10 -474"
+    server: slur.izenny.com
+    port: 55407
     type: ss
     cipher: chacha20-ietf-poly1305
-    password: a9da05c4-4d07-4b41-84d0-87b484bc4102
+    password: ac92d437-7bcc-4aa7-8e6f-9fed0a4df439
     udp: true
-  - name: "\U0001F1F9\U0001F1ED 泰国 08 -504"
-    server: th.fastsoonlink.com
-    port: 40009
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: b55f6886-1277-45f4-8dcd-ee842885490a
-    udp: true
-  - name: "\U0001F1EE\U0001F1F9 意大利 03 -505"
-    server: itsea.osaip.net
-    port: 443
-    type: vless
-    uuid: 4f4a8ac0-e88c-4db4-a2e0-59cb31ed57d7
-    tls: true
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-mode: gun
-      grpc-service-name: violet
-    udp: true
-    servername: itsea.osaip.net
-  - name: "\U0001F1F9\U0001F1ED 泰国 06 -506"
-    server: f4e0be7e-tcpz40-te4dj8-1m0fq.id.oshuawei.com
-    port: 32232
-    type: http
-    username: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    password: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    tls: true
-    sni: f4e0be7e-tcpz40-te4dj8-1m0fq.id.oshuawei.com
-  - name: "\U0001F1E9\U0001F1EA 德国 12 -507"
-    server: ip1.758733.xyz
-    port: 10088
-    type: tuic
-    password: dongtaiwang.com
-    uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    disable-sni: false
-    reduce-rtt: false
-    request-timeout: 0
-    udp-relay-mode: native
-    congestion-controller: bbr
-    version: 5
-  - name: "\U0001F1F5\U0001F1F1 波兰 04 -508"
-    server: pr.fastsoonlink.com
-    port: 40030
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 9e3f538f-491b-4134-b95c-fae779a534b2
-    udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国家宽 12 -509"
-    server: us.fastsoonlink.com
-    port: 40001
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ce3c0943-cd7d-458b-bc96-bef1aeee2a18
-    udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国家宽 16 -510"
-    server: mfa.gov.ua
-    port: 443
-    type: vless
-    uuid: 69c70236-6d7f-a785-2d3a-5332b1c91e99
-    tls: true
-    alpn:
-      - h3
-    client-fingerprint: random
-    network: ws
-    ws-opts:
-      path: '/socks5=4b2c7676:6f0f4cbba5bb@38.111.30.111:26433'
-      headers:
-        Host: bab1c79b.soos.bbroot.com
-    udp: true
-    servername: bab1c79b.soos.bbroot.com
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 26 -511"
-    server: 103.186.154.226
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "[IPv6] \U0001F1F8\U0001F1EC 新加坡 19 -512"
-    server: china.embassy.gov.au
-    port: 2053
-    type: vless
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
-    tls: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /danfeng
-      headers:
-        Host: okbhq9o4867.gfw.hidns.co
-      early-data-header-name: Sec-WebSocket-Protocol
-      max-early-data: 2560
-    udp: true
-    servername: okbhq9o4867.gfw.hidns.co
-  - name: "[IPv6] \U0001F1F8\U0001F1EC 新加坡 13 -513"
-    server: www.caritas.org.hk
-    port: 443
-    type: vless
-    uuid: 26524cce-d514-4014-a426-365fb266a14d
-    tls: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /danfeng
-      headers:
-        Host: okbhq9o4867.gfw.hidns.co
-      early-data-header-name: Sec-WebSocket-Protocol
-      max-early-data: 2560
-    udp: true
-    servername: okbhq9o4867.gfw.hidns.co
-  - name: "\U0001F1F9\U0001F1FC 台湾家宽 26 -514"
-    server: 220.130.75.217
-    port: 443
-    type: vless
-    uuid: 45838e8e58c44a21b229c2e43347934a
-    tls: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: QbZBeFzqbP3XfrldMaIkdu-tr91zqBUIQ-WIkXM2p14
-      short-id: 96e03e0f184639ef
-    client-fingerprint: chrome
-    network: tcp
-    udp: true
-    servername: peer.pan.baidu.com
-  - name: "\U0001F1F0\U0001F1F7 韩国家宽 01 -515"
-    server: kr.fastsoonlink.com
-    port: 40032
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: a9da05c4-4d07-4b41-84d0-87b484bc4102
-    udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港 22 -516"
-    server: hk.fastsoonlink.com
-    port: 40000
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ff13c246-78b5-4c69-bf50-29dbaeb56c5b
-    udp: true
-  - name: "\U0001F1E8\U0001F1E6 加拿大 12 -517"
-    server: 45.43.76.184
+  - name: "\U0001F1E8\U0001F1E6 加拿大 06 -475"
+    server: 167.71.60.191
     port: 2053
     type: vless
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -4937,29 +4539,49 @@
         Host: sni.111000.v6.navy
     udp: true
     servername: sni.111000.v6.navy
-  - name: "\U0001F1F9\U0001F1F7 土耳其 02 -518"
-    server: tur.fastsoonlink.com
-    port: 40019
+  - name: "\U0001F1FB\U0001F1F3 越南家宽 20 -476"
+    server: 103.186.154.201
+    port: 38388
     type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ce3c0943-cd7d-458b-bc96-bef1aeee2a18
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
     udp: true
-  - name: "\U0001F1F0\U0001F1F7 韩国家宽 05 -519"
-    server: kr.fastsoonlink.com
-    port: 40032
+  - name: "\U0001F1FB\U0001F1F3 越南家宽 10 -477"
+    server: 103.186.154.202
+    port: 38388
     type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ff13c246-78b5-4c69-bf50-29dbaeb56c5b
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港家宽 04 -520"
-    server: toy4lkdzy0c.22b74943-12ad-47f4-b705-f2defb6ffea0.org
-    port: 12361
-    type: ss
-    cipher: 2022-blake3-aes-256-gcm
-    password: >-
-      mtMkp+1FttkSLmDOF9blnNMLigcCRacprQS3ry0nf3o=:AAvo+BsgpvvR5lJsdQU32vrMXL7ZAbZJZfETB7bddhQ=
+  - name: "\U0001F1EF\U0001F1F5 日本 01 -478"
+    server: kb.vmjp2.yydjc.top
+    port: 443
+    type: vless
+    uuid: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: yzIdIf5RpR-rTzlULRjJoCgcQdx3-yXKl7eT7IuThn4
+      short-id: bb9ab0d5242d53e9
+    client-fingerprint: safari
+    network: tcp
     udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国家宽 01 -521"
+    servername: iosapps.itunes.apple.com
+  - name: "\U0001F1ED\U0001F1F0 香港 12 -479"
+    server: freea.glyphara.com
+    port: 30101
+    type: vless
+    uuid: f5e5ac7a-7d40-4099-a497-05675d336555
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: egnl0iFXY3IZYfvHwoNd72sCaULkoFRoL78wQiFwcDU
+      short-id: 176d4445
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: itunes.apple.com
+  - name: "\U0001F1FA\U0001F1F8 美国家宽 08 -480"
     server: 43.167.157.65
     port: 12345
     type: vless
@@ -4975,35 +4597,22 @@
         Host: bab1c79b.soos.bbroot.com
     udp: true
     servername: bab1c79b.soos.bbroot.com
-  - name: "\U0001F1E6\U0001F1FA 澳大利亚 04 -522"
-    server: frk.fastsoonlink.com
-    port: 40011
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: a9da05c4-4d07-4b41-84d0-87b484bc4102
-    udp: true
-  - name: "\U0001F1EB\U0001F1F7 法国 08 -523"
-    server: fr.fastsoonlink.com
-    port: 40034
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: b55f6886-1277-45f4-8dcd-ee842885490a
-    udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国 14 -524"
-    server: 104.19.58.118
-    port: 443
-    type: vless
-    uuid: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
-    tls: true
-    client-fingerprint: chrome
+  - name: "\U0001F1ED\U0001F1F0 香港家宽 03 -481"
+    server: hkt.gotochinatown.net
+    port: 80
+    type: vmess
+    uuid: 384d1b42-655f-11ed-a8bf-f23c91cfbbc9
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /kbjc/us1
+      path: /
       headers:
-        Host: us1-us1.aiopen.sbs
+        Host: hkt.gotochinatown.net
     udp: true
-    servername: us1-us1.aiopen.sbs
-  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国家宽 04 -525"
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国家宽 01 -482"
     server: cf.cloudflare.182682.xyz
     port: 443
     type: vless
@@ -5019,26 +4628,259 @@
         Host: bab1c79b.soos.bbroot.com
     udp: true
     servername: bab1c79b.soos.bbroot.com
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 18 -526"
-    server: vn.fastsoonlink.com
-    port: 40021
-    type: ss
-    cipher: 2022-blake3-aes-256-gcm
-    password: >-
-      NzllYjlkOGE2MWMxY2EwZWUwNmNkZjMwNjEyZGJjMjY=:OWUzZjUzOGYtNDkxYi00MTM0LWI5NWMtZmFlNzc5YTU=
+  - name: "\U0001F1FA\U0001F1F8 美国 23 -483"
+    server: freea.glyphara.com
+    port: 30701
+    type: vless
+    uuid: aa9554e4-52d5-4a1c-b777-5a46718f0cb2
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: cgGav3P_PeaM4grdSECGj4Tt9IsCmSqhGo_EJ0_KdWY
+      short-id: e62db878
+    client-fingerprint: firefox
+    network: tcp
     udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 12 -527"
-    server: 103.186.154.231
+    servername: www.amd.com
+  - name: "\U0001F1F3\U0001F1F1 荷兰 04 -484"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    udp: true
+    servername: img14.360buyimg.com
+  - name: "\U0001F1ED\U0001F1F0 香港 19 -485"
+    server: 154.3.33.43
+    port: 443
+    type: ss
+    cipher: none
+    password: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+    plugin: v2ray-plugin
+    plugin-opts:
+      mode: websocket
+      host: ylnhh.us.ci
+      path: 14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed\
+      tls: true
+      mux: false
+    udp: true
+  - name: "\U0001F1F9\U0001F1F7 土耳其 01 -486"
+    server: tur.fastsoonlink.com
+    port: 40019
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 86c64b5a-d879-42cd-bdb8-a193efb09b68
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡 20 -487"
+    server: freea.glyphara.com
+    port: 30401
+    type: vless
+    uuid: 32c27a03-9a8f-4c59-95a1-5138b12dc363
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: ZeXA8rcM3TV466jK83J157gY7U2JTI9KP9nmn_Nbawk
+      short-id: 105a652c
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: learn.microsoft.com
+  - name: "\U0001F1FA\U0001F1F8 美国 13 -488"
+    server: 208.87.242.77
+    port: 35000
+    type: hysteria2
+    password: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    auth: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    sni: www.apple.com
+    skip-cert-verify: true
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡 23 -489"
+    server: freea.glyphara.com
+    port: 30403
+    type: vless
+    uuid: 32c27a03-9a8f-4c59-95a1-5138b12dc363
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: avy1Z524LLGhXuHyCYV_k_hqi_fnHPCNSdNE85Z4qDo
+      short-id: 1b3f5a2e
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: www.samsung.com
+  - name: "\U0001F1FA\U0001F1F8 美国 20 -490"
+    server: 104.19.58.118
+    port: 443
+    type: vless
+    uuid: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /kbjc/us1
+      headers:
+        Host: us1-us1.aiopen.sbs
+    udp: true
+    servername: us1-us1.aiopen.sbs
+  - name: "\U0001F1FA\U0001F1F8 美国 03 -491"
+    server: 150.241.83.152
+    port: 10121
+    type: vless
+    uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: 4DdA8dBVn5zB_UTbgBY45YqM0HU8zrjXYdzg3-wz5Rg
+      short-id: 9c2a7d4e5f18b6a3
+    client-fingerprint: qq
+    network: tcp
+    udp: true
+    servername: apple.com
+  - name: "\U0001F1EC\U0001F1E7 英国 06 -492"
+    server: uk.fastsoonlink.com
+    port: 40008
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 86c64b5a-d879-42cd-bdb8-a193efb09b68
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本 14 -493"
+    server: jp.fastsoonlink.com
+    port: 40003
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 86c64b5a-d879-42cd-bdb8-a193efb09b68
+    udp: true
+  - name: "\U0001F1FB\U0001F1F3 越南家宽 08 -494"
+    server: 103.186.155.20
     port: 38388
     type: ss
     cipher: aes-256-cfb
     password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港家宽 08 -528"
+  - name: "\U0001F1E9\U0001F1EA 德国 08 -495"
+    server: 130.162.220.137
+    port: 443
+    type: vless
+    uuid: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: UV34T0S_VyVcChA2Tb9MIbg4tr1mHGMr_Lw5Gvb17F8
+      short-id: 66ed2fdd
+    client-fingerprint: safari
+    network: tcp
+    udp: true
+    servername: www.lamer.com
+  - name: "\U0001F1F7\U0001F1FA 俄罗斯 03 -496"
+    server: ru.fastsoonlink.com
+    port: 40031
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 91da62b6-879c-4641-bd12-b62b2384ef31
+    udp: true
+  - name: "[IPv6] \U0001F1F3\U0001F1F1 荷兰 06 -497"
+    server: www.multiplydose.com
+    port: 443
+    type: trojan
+    password: humanity
+    sni: www.multiplydose.com
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /assignment
+      headers:
+        Host: www.multiplydose.com
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港 08 -498"
+    server: jry.izenny.com
+    port: 26535
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 58f49e40-84f9-48ac-8a42-62781e845210
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国家宽 16 -499"
+    server: us.fastsoonlink.com
+    port: 40001
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 91da62b6-879c-4641-bd12-b62b2384ef31
+    udp: true
+  - name: "\U0001F1EB\U0001F1F7 法国 05 -500"
+    server: 94.183.186.27
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    network: ws
+    ws-opts:
+      path: "/?ed=2560&telegram\U0001F1E8\U0001F1F3@wangcai2"
+      headers:
+        Host: sni.111000.v6.navy
+    udp: true
+    servername: sni.111000.v6.navy
+  - name: "\U0001F1FA\U0001F1F8 美国 01 -501"
+    server: freea.glyphara.com
+    port: 30703
+    type: vless
+    uuid: 32c27a03-9a8f-4c59-95a1-5138b12dc363
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: Fpcp8ed_KjL5rnn0gstMa0AQPL8GcYMtArb--r1AhnI
+      short-id: 845532fa
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: mensura.cdn-apple.com
+  - name: "\U0001F1EE\U0001F1F3 印度 01 -502"
+    server: toy4lkdzy0c.22b74943-12ad-47f4-b705-f2defb6ffea0.org
+    port: 13155
+    type: ss
+    cipher: 2022-blake3-aes-256-gcm
+    password: >-
+      mtMkp+1FttkSLmDOF9blnNMLigcCRacprQS3ry0nf3o=:AAvo+BsgpvvR5lJsdQU32vrMXL7ZAbZJZfETB7bddhQ=
+    udp: true
+  - name: "\U0001F1E9\U0001F1EA 德国 01 -503"
+    server: toy4lkdzy0c.22b74943-12ad-47f4-b705-f2defb6ffea0.org
+    port: 13152
+    type: ss
+    cipher: 2022-blake3-aes-256-gcm
+    password: >-
+      mtMkp+1FttkSLmDOF9blnNMLigcCRacprQS3ry0nf3o=:AAvo+BsgpvvR5lJsdQU32vrMXL7ZAbZJZfETB7bddhQ=
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国 04 -504"
+    server: 104.17.152.254
+    port: 80
+    type: vless
+    uuid: 388a6c57-87e7-420b-afe2-b3eb670fd7da
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: vip.yaml7.ggff.net
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港家宽 07 -505"
+    server: 7c67744a-tcpz40-te6ggw-11p9g.hkt.gotochinatown.net
+    port: 80
+    type: vmess
+    uuid: 384d1b42-655f-11ed-a8bf-f23c91cfbbc9
+    alterId: 2
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港家宽 11 -506"
     server: 183.179.43.254
     port: 443
     type: vless
-    uuid: 4c1778f3965c48af9529c11ce054b9c2
+    uuid: 45838e8e58c44a21b229c2e43347934a
     tls: true
     flow: xtls-rprx-vision
     reality-opts:
@@ -5048,23 +4890,145 @@
     network: tcp
     udp: true
     servername: peer.pan.baidu.com
-  - name: "\U0001F1F9\U0001F1ED 泰国 01 -529"
-    server: th.fastsoonlink.com
-    port: 40009
+  - name: "\U0001F1FA\U0001F1F8 美国家宽 14 -507"
+    server: us.fastsoonlink.com
+    port: 40001
     type: ss
     cipher: chacha20-ietf-poly1305
-    password: ff13c246-78b5-4c69-bf50-29dbaeb56c5b
+    password: 86c64b5a-d879-42cd-bdb8-a193efb09b68
     udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 19 -530"
-    server: 103.186.155.119
+  - name: "\U0001F1E9\U0001F1EA 德国 06 -508"
+    server: 82.117.245.58
+    port: 2053
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    network: ws
+    ws-opts:
+      path: "/?ed=2560&telegram\U0001F1E8\U0001F1F3 @wangcai2"
+      headers:
+        Host: sni.111000.v6.navy
+    udp: true
+    servername: sni.111000.v6.navy
+  - name: "\U0001F1FA\U0001F1F8 美国 29 -509"
+    server: v29.hdacd.com
+    port: 30829
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: "\U0001F1ED\U0001F1F0 香港 18 -510"
+    server: 103.181.164.145
+    port: 54022
+    type: vmess
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 64
+    cipher: auto
+    tls: false
+    udp: true
+  - name: "\U0001F1F8\U0001F1EC 新加坡 13 -511"
+    server: freea.glyphara.com
+    port: 30401
+    type: vless
+    uuid: 6ce8f857-3956-4f66-a4a7-2e55960cea77
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: ZeXA8rcM3TV466jK83J157gY7U2JTI9KP9nmn_Nbawk
+      short-id: 105a652c
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: learn.microsoft.com
+  - name: "\U0001F1EE\U0001F1F3 印度 03 -512"
+    server: slur.izenny.com
+    port: 17254
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: ac92d437-7bcc-4aa7-8e6f-9fed0a4df439
+    udp: true
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 16 -513"
+    server: namrcg002771r35.cybervena.com
+    port: 50099
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+    udp: true
+  - name: "\U0001F1F0\U0001F1F7 韩国 01 -514"
+    server: toy4lkdzy0c.22b74943-12ad-47f4-b705-f2defb6ffea0.org
+    port: 14630
+    type: ss
+    cipher: 2022-blake3-aes-256-gcm
+    password: >-
+      mtMkp+1FttkSLmDOF9blnNMLigcCRacprQS3ry0nf3o=:AAvo+BsgpvvR5lJsdQU32vrMXL7ZAbZJZfETB7bddhQ=
+    udp: true
+  - name: "\U0001F1FB\U0001F1F3 越南家宽 07 -515"
+    server: 103.186.154.207
     port: 38388
     type: ss
     cipher: aes-256-cfb
     password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
     udp: true
-  - name: "\U0001F1FA\U0001F1F8 美国家宽 08 -531"
-    server: 60.248.139.106
-    port: 10428
+  - name: "\U0001F1E7\U0001F1F7 巴西 01 -516"
+    server: 167.234.251.78
+    port: 35000
+    type: hysteria2
+    password: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    auth: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    sni: www.apple.com
+    skip-cert-verify: true
+    udp: true
+  - name: "\U0001F1FB\U0001F1F3 越南家宽 14 -517"
+    server: 103.186.154.239
+    port: 38388
+    type: ss
+    cipher: aes-256-cfb
+    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+    udp: true
+  - name: "\U0001F1E6\U0001F1FA 澳大利亚 02 -518"
+    server: frk.fastsoonlink.com
+    port: 40011
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 91da62b6-879c-4641-bd12-b62b2384ef31
+    udp: true
+  - name: "\U0001F1EF\U0001F1F5 日本 09 -519"
+    server: 103.62.49.76
+    port: 35000
+    type: hysteria2
+    password: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    auth: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    sni: www.apple.com
+    skip-cert-verify: true
+    ports: 35000-39000
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国 27 -520"
+    server: jry.izenny.com
+    port: 47831
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 58f49e40-84f9-48ac-8a42-62781e845210
+    udp: true
+  - name: "\U0001F1EA\U0001F1F8 西班牙 01 -521"
+    server: 5.188.181.201
+    port: 9014
+    type: ss
+    cipher: aes-256-cfb
+    password: KnJGad3FqTvjqbaX
+    udp: true
+  - name: "\U0001F1F5\U0001F1F1 波兰 04 -522"
+    server: pr.fastsoonlink.com
+    port: 40030
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 772e78e3-7a16-4ef2-bd79-2129e3748378
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国家宽 06 -523"
+    server: 203.69.248.40
+    port: 14147
     type: vless
     uuid: 69c70236-6d7f-a785-2d3a-5332b1c91e99
     tls: true
@@ -5078,112 +5042,32 @@
         Host: bab1c79b.soos.bbroot.com
     udp: true
     servername: bab1c79b.soos.bbroot.com
-  - name: "\U0001F1E9\U0001F1EA 德国 07 -532"
-    server: 51.89.11.94
-    port: 443
+  - name: "\U0001F1F9\U0001F1FC 台湾 09 -524"
+    server: zz3.jishuyun.top
+    port: 10502
     type: vmess
-    uuid: e5408561-3874-4d41-a744-0cd0dfdb86c8
+    uuid: 957d12d8-048d-4b57-b09c-f19d027484a0
     alterId: 0
     cipher: auto
     tls: false
-    network: http
-    http-opts:
-      method: GET
-      path:
-        - /
-      headers:
-        Host:
-          - 51.89.11.94
-    udp: true
-  - name: "\U0001F1F9\U0001F1FC 台湾家宽 06 -533"
-    server: r3mrcg007150y7y.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-    udp: true
-  - name: "\U0001F1EF\U0001F1F5 日本 15 -534"
-    server: 443e4a67-tcpz40-te4mw1-1mqag.jp.oshuawei.com
-    port: 443
-    type: http
-    username: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    password: b585dac6-dc69-11ef-9f1c-f23c913c8d2b
-    tls: true
-    sni: 443e4a67-tcpz40-te4mw1-1mqag.jp.oshuawei.com
-  - name: "\U0001F1F8\U0001F1EC 新加坡 23 -535"
-    server: a50bc53b-t9zts0-tairte-1m0fq.cm4.oshuawei.com
-    port: 17235
-    type: http
-    username: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    password: a698c4a6-c3c9-11ee-9693-f23c91cfbbc9
-    tls: true
-    sni: a50bc53b-t9zts0-tairte-1m0fq.cm4.oshuawei.com
-  - name: "[IPv6] \U0001F1ED\U0001F1F0 香港 07 -536"
-    server: fe2f8edda7.i9ejdnmas6.ddnsflip.top
-    port: 13479
-    type: vless
-    uuid: ef2f9a6f-c5c7-40dd-8400-525ec0dd4e92
-    tls: true
-    reality-opts:
-      public-key: HUkKuC26xPdY6wVXRB_KxaJ68H4KaWjLR2F-zyJqbFk
-      short-id: 0123456789abcdef
-    client-fingerprint: chrome
-    network: tcp
-    udp: true
-    servername: www.microsoft.com
-  - name: "\U0001F1EE\U0001F1F1 以色列 06 -537"
-    server: yiselie.iptk123.com
-    port: 443
-    type: hysteria2
-    password: 465a6bab-dcc5-49f3-9fa5-9a91960ac599
-    auth: 465a6bab-dcc5-49f3-9fa5-9a91960ac599
-    sni: yiselie.iptk123.com
     skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1F9\U0001F1FC 台湾家宽 07 -538"
-    server: r3mrcg001121x36.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-    udp: true
-  - name: "\U0001F1FB\U0001F1F3 越南家宽 21 -539"
-    server: 103.186.155.17
-    port: 38388
-    type: ss
-    cipher: aes-256-cfb
-    password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-    udp: true
-  - name: "\U0001F1ED\U0001F1F0 香港 08 -540"
-    server: iplc-ef15-hk-2.tr202507.com
-    port: 8001
-    type: trojan
-    password: yyACp4syprMnJaB3bn
-    sni: iplc-ef15-hk-2.tr202507.com
-    skip-cert-verify: true
-    udp: true
-  - name: "\U0001F1E8\U0001F1E6 加拿大 17 -541"
-    server: 134.209.246.179
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
     network: ws
     ws-opts:
-      path: "/?ed=2560&telegram\U0001F1E8\U0001F1F3 @wangcai2"
+      path: /
       headers:
-        Host: sni.111000.v6.navy
+        Host: www.baidu.com
     udp: true
-    servername: sni.111000.v6.navy
-  - name: "\U0001F1EE\U0001F1E9 印度尼西亚 03 -542"
-    server: idn.fastsoonlink.com
-    port: 40033
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ce3c0943-cd7d-458b-bc96-bef1aeee2a18
+  - name: "\U0001F1ED\U0001F1F0 香港 11 -525"
+    server: 103.197.71.118
+    port: 35000
+    type: hysteria2
+    password: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    auth: dc6a6c45-b13c-4f1d-8729-19b4d8bba4aa
+    sni: www.lamer.com.hk
+    skip-cert-verify: true
     udp: true
-  - name: "\U0001F1E8\U0001F1E6 加拿大 18 -543"
-    server: 34.155.19.30
+  - name: "\U0001F1E8\U0001F1E6 加拿大 09 -526"
+    server: 188.130.207.158
     port: 2053
     type: vless
     uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -5195,6 +5079,202 @@
         Host: sni.111000.v6.navy
     udp: true
     servername: sni.111000.v6.navy
+  - name: "\U0001F1ED\U0001F1F0 香港 03 -527"
+    server: hk.fastsoonlink.com
+    port: 40000
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 86c64b5a-d879-42cd-bdb8-a193efb09b68
+    udp: true
+  - name: "\U0001F1EB\U0001F1F7 法国 04 -528"
+    server: fr.fastsoonlink.com
+    port: 40034
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 772e78e3-7a16-4ef2-bd79-2129e3748378
+    udp: true
+  - name: "\U0001F1E9\U0001F1EA 德国 05 -529"
+    server: 172.66.44.230
+    port: 8443
+    type: trojan
+    password: '8r<[9''l6hAO#8ZQi'
+    sni: Koma-YT.PAGeS.Dev
+    network: ws
+    ws-opts:
+      path: /tro8sFW1S91B6sZrM1
+      headers:
+        Host: Koma-YT.PAGeS.Dev
+      early-data-header-name: Sec-WebSocket-Protocol
+      max-early-data: 2560
+    udp: true
+  - name: "\U0001F1F2\U0001F1FE 马来西亚 01 -530"
+    server: ml.fastsoonlink.com
+    port: 40006
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 91da62b6-879c-4641-bd12-b62b2384ef31
+    udp: true
+  - name: "\U0001F1FF\U0001F1E6 南非 01 -531"
+    server: 45.221.98.14
+    port: 59901
+    type: anytls
+    password: dongtaiwang.com
+    udp: true
+    skip-cert-verify: true
+    alpn:
+      - h2
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 20 -532"
+    server: freea.glyphara.com
+    port: 30201
+    type: vless
+    uuid: f5e5ac7a-7d40-4099-a497-05675d336555
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: kb5IP7-mBUXwW7zszu-grmOgNEWmqDiCvf1NRfbF3AQ
+      short-id: c1e12817
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: lol.secure.dyn.riotcdn.net
+  - name: "\U0001F1F9\U0001F1FC 台湾 06 -533"
+    server: freea.glyphara.com
+    port: 30202
+    type: vless
+    uuid: b3fa5788-f6f1-42a6-84ee-3a2f2eddd36b
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: 9ahErgB4NKffqiZe3HHRx7Wb5br086fhnI75YuCdN0U
+      short-id: 10fa499e
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: www.samsung.com
+  - name: "\U0001F1F8\U0001F1EC 新加坡 22 -534"
+    server: freea.glyphara.com
+    port: 30402
+    type: vless
+    uuid: 6ce8f857-3956-4f66-a4a7-2e55960cea77
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: uTOYAGREMpfEr3cQFcLwgMAWwwxjS3e2Yw32kCdN3Ew
+      short-id: f5f6e6f4
+    client-fingerprint: firefox
+    network: tcp
+    udp: true
+    servername: itunes.apple.com
+  - name: "\U0001F1F7\U0001F1FA 俄罗斯 01 -535"
+    server: toy4lkdzy0c.22b74943-12ad-47f4-b705-f2defb6ffea0.org
+    port: 13153
+    type: ss
+    cipher: 2022-blake3-aes-256-gcm
+    password: >-
+      mtMkp+1FttkSLmDOF9blnNMLigcCRacprQS3ry0nf3o=:AAvo+BsgpvvR5lJsdQU32vrMXL7ZAbZJZfETB7bddhQ=
+    udp: true
+  - name: "\U0001F1F3\U0001F1F1 荷兰 02 -536"
+    server: 138.226.240.199
+    port: 4433
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000000
+    tls: true
+    packet-encoding: xudp
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sub.mot.ip-ddns.com
+    udp: true
+    servername: sub.mot.ip-ddns.com
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 02 -537"
+    server: n8mrcg0060292s3.cybervena.com
+    port: 50099
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+    udp: true
+  - name: "\U0001F1E9\U0001F1EA 德国 13 -538"
+    server: 94.159.101.193
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560&Telegram\U0001F1E8\U0001F1F3 @WangCai2"
+      headers:
+        Host: sni.111000.dynv6.net
+    udp: true
+    servername: sni.111000.dynv6.net
+  - name: "\U0001F1ED\U0001F1F0 香港 13 -539"
+    server: static.ubejiasu.top
+    port: 31520
+    type: vmess
+    uuid: 957d12d8-048d-4b57-b09c-f19d027484a0
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: www.baidu.com
+    udp: true
+  - name: "\U0001F1FA\U0001F1F8 美国 24 -540"
+    server: 60.248.139.106
+    port: 32770
+    type: vless
+    uuid: 69c70236-6d7f-a785-2d3a-5332b1c91e99
+    tls: true
+    alpn:
+      - h3
+    client-fingerprint: random
+    network: ws
+    ws-opts:
+      path: '/socks5=4b2c7676:6f0f4cbba5bb@38.111.30.111:26433'
+      headers:
+        Host: bab1c79b.soos.bbroot.com
+    udp: true
+    servername: bab1c79b.soos.bbroot.com
+  - name: "\U0001F1ED\U0001F1F0 香港 09 -541"
+    server: 209.248.4.3
+    port: 443
+    type: vless
+    uuid: 45838e8e58c44a21b229c2e43347934a
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: QbZBeFzqbP3XfrldMaIkdu-tr91zqBUIQ-WIkXM2p14
+      short-id: 96e03e0f184639ef
+    client-fingerprint: chrome
+    network: tcp
+    udp: true
+    servername: peer.pan.baidu.com
+  - name: "\U0001F1F9\U0001F1FC 台湾家宽 04 -542"
+    server: r3mrcg007134n4g.cybervena.com
+    port: 50099
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+    udp: true
+  - name: "\U0001F1E9\U0001F1EA 德国 11 -543"
+    server: 94.156.179.208
+    port: 64000
+    type: vless
+    uuid: 916de9ac-1fe3-4c93-887a-ce4285d0bb9b
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: dlBsx7pNsGbUWcVaeIiXqPs4s8sENsJRzPGnsZ8CH0Q
+      short-id: cbfdda0fad80decc
+    client-fingerprint: edge
+    network: tcp
+    udp: true
+    servername: notion.so
   - name: "\U0001F1E6\U0001F1FA 澳大利亚 01 -544"
     server: evolving-kangaroo.rooster465.autos
     port: 443
@@ -6667,7 +6747,7 @@
     sni: www.cloudflare.com
     skip-cert-verify: true
   - name: "\U0001F3F4‍☠️ 其他 01 3 -742"
-    server: 173.245.59.109
+    server: 8.35.211.214
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6682,7 +6762,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 02 3 -743"
-    server: 198.41.223.33
+    server: 162.159.44.237
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6697,7 +6777,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 03 3 -744"
-    server: 8.35.211.100
+    server: 162.159.44.62
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6712,7 +6792,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 04 2 -745"
-    server: 8.35.211.244
+    server: 8.39.125.224
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6727,7 +6807,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 05 2 -746"
-    server: 104.26.13.195
+    server: 172.67.70.38
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6742,7 +6822,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 06 -747"
-    server: 172.67.69.230
+    server: 104.26.15.76
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6757,7 +6837,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 07 -748"
-    server: 172.67.69.173
+    server: 104.26.5.74
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6772,7 +6852,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 08 -749"
-    server: 172.67.71.238
+    server: 104.26.14.234
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6787,7 +6867,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 09 -750"
-    server: 104.19.57.55
+    server: 104.19.39.157
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6802,7 +6882,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 10 -751"
-    server: 162.159.152.196
+    server: 104.19.49.133
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6817,7 +6897,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 11 -752"
-    server: 162.159.153.36
+    server: 104.19.38.108
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6832,7 +6912,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 12 -753"
-    server: 104.19.62.5
+    server: 162.159.152.114
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -6997,7 +7077,7 @@
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
   - name: "\U0001F3F4‍☠️ 其他 13 -764"
-    server: 104.18.186.196
+    server: 104.17.47.65
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7011,8 +7091,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F1FA\U0001F1F8 美国 11 -765"
-    server: 162.159.246.166
+  - name: "\U0001F3F4‍☠️ 其他 14 -765"
+    server: 104.19.108.193
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7026,8 +7106,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F1F8\U0001F1EC 新加坡 07 -766"
-    server: 198.41.222.147
+  - name: "\U0001F3F4‍☠️ 其他 15 -766"
+    server: 104.16.103.29
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7041,8 +7121,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 14 -767"
-    server: 104.16.235.220
+  - name: "\U0001F3F4‍☠️ 其他 16 -767"
+    server: 104.17.166.145
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7056,8 +7136,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 15 -768"
-    server: 104.16.3.106
+  - name: "\U0001F3F4‍☠️ 其他 17 -768"
+    server: 104.17.68.119
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7071,8 +7151,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 16 -769"
-    server: 172.64.53.195
+  - name: "\U0001F3F4‍☠️ 其他 18 -769"
+    server: 108.162.198.110
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7086,8 +7166,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 17 -770"
-    server: 172.64.52.147
+  - name: "\U0001F3F4‍☠️ 其他 19 -770"
+    server: 162.159.39.75
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7101,8 +7181,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 18 -771"
-    server: 162.159.39.27
+  - name: "\U0001F3F4‍☠️ 其他 20 -771"
+    server: 162.159.44.157
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7116,8 +7196,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 19 -772"
-    server: 162.159.45.131
+  - name: "\U0001F3F4‍☠️ 其他 21 -772"
+    server: 172.64.157.95
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7131,8 +7211,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 20 -773"
-    server: 162.159.44.125
+  - name: "\U0001F3F4‍☠️ 其他 22 -773"
+    server: 172.64.53.95
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7146,8 +7226,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 21 -774"
-    server: 108.162.198.193
+  - name: "\U0001F3F4‍☠️ 其他 23 -774"
+    server: 162.159.43.235
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7161,8 +7241,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 22 -775"
-    server: 162.159.23.56
+  - name: "\U0001F3F4‍☠️ 其他 24 -775"
+    server: 172.64.52.69
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7176,8 +7256,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 23 -776"
-    server: 104.18.33.222
+  - name: "\U0001F3F4‍☠️ 其他 25 -776"
+    server: 162.159.40.89
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7191,8 +7271,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 24 -777"
-    server: 162.159.38.26
+  - name: "\U0001F3F4‍☠️ 其他 26 -777"
+    server: 162.159.38.60
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7206,8 +7286,8 @@
       headers:
         Host: 0857fd70.ba73fe85.netlib.re
     servername: 0857fd70.ba73fe85.netlib.re
-  - name: "\U0001F3F4‍☠️ 其他 25 -778"
-    server: 162.159.2.104
+  - name: "\U0001F3F4‍☠️ 其他 27 -778"
+    server: 162.159.22.97
     port: 443
     type: vless
     uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
@@ -7317,17 +7397,57 @@
     auth: fGIvSUXOYn7WYPNAc2PmjYuIKbw
     sni: bing.com
     skip-cert-verify: true
-  - name: "\U0001F1FA\U0001F1F8 美国 10 2 -793"
-    server: gby5e0a.accccggggdns.top
-    port: 41234
-    type: hysteria2
-    password: cc601892-caf7-4068-bbcf-60191e1d12f2
-    auth: cc601892-caf7-4068-bbcf-60191e1d12f2
-    sni: bing.com
-    skip-cert-verify: true
-  - name: "\U0001F1F0\U0001F1F7 韩国 01 3 -794"
-    server: 114.207.99.233
-    port: 11434
+  - name: "\U0001F1ED\U0001F1F0 香港 09 2 -793"
+    server: hke01.jumperservice.com
+    port: 19001
+    type: vless
+    uuid: 5ab22628-9dc7-48c4-c56e-f129da583baa
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: rYH4wPTVzSwtpXgI3U7YxppIP6oudD-425vT7pyhj1w
+    client-fingerprint: random
+    network: tcp
+    servername: www.speedtest.org
+  - name: "\U0001F1ED\U0001F1F0 香港 10 -794"
+    server: hke01.jumperservice.com
+    port: 19001
+    type: vless
+    uuid: 1a8c4353-8aa9-4038-99a8-b613ad47000e
+    tls: true
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: rYH4wPTVzSwtpXgI3U7YxppIP6oudD-425vT7pyhj1w
+    client-fingerprint: chrome
+    network: tcp
+    servername: www.speedtest.org
+  - name: "\U0001F1FA\U0001F1F8 美国 11 -795"
+    server: 135.84.74.43
+    port: 443
+    type: vless
+    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+    tls: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sni.111000.v6.navy
+    servername: sni.111000.v6.navy
+  - name: "\U0001F3F4‍☠️ 其他 28 -796"
+    server: 104.26.5.6
+    port: 443
+    type: vless
+    uuid: 8d2aeab8-ce98-47a6-84ec-d5b45d060b66
+    tls: true
+    network: ws
+    ws-opts:
+      path: /version
+      headers:
+        Host: edt2.btxst.eu.cc
+    servername: edt2.btxst.eu.cc
+  - name: "\U0001F1E9\U0001F1EA 德国 03 -797"
+    server: 38.180.48.182
+    port: 8444
     type: trojan
     password: trojan
     sni: jflsjlaf.pages.dev
@@ -7337,76 +7457,114 @@
       path: /
       headers:
         Host: jflsjlaf.pages.dev
-  - name: "\U0001F1F2\U0001F1E9 摩尔多瓦 01 2 -795"
-    server: 192.200.160.20
-    port: 443
-    type: vless
-    uuid: 92b82d0f-d2f8-4f6f-b177-08f681a337e6
-    tls: true
-    network: ws
-    ws-opts:
-      path: /njvqoews
-      headers:
-        Host: 639073677243791121.camry-perma.info
-      early-data-header-name: Sec-WebSocket-Protocol
-      max-early-data: 2560
-    servername: 639073677243791121.camry-perma.info
-  - name: "\U0001F1F0\U0001F1F7 韩国 03 -796"
-    server: chuncheon03.zgjok.com
-    port: 443
+  - name: "\U0001F1FF\U0001F1E6 南非 01 3 -798"
+    server: 45.221.98.14
+    port: 59901
+    type: anytls
+    password: dongtaiwang.com
+    skip-cert-verify: true
+    alpn:
+      - h2
+  - name: "\U0001F1E6\U0001F1FA 澳大利亚 01 3 -799"
+    server: hk03.stimaysmhy8.com
+    port: 44552
     type: vmess
-    uuid: 81d5cac4-d039-4874-9a20-c391f580012d
+    uuid: 71165393-5252-4fea-ac96-c36b508720c8
     alterId: 0
     cipher: auto
-    tls: true
+    tls: false
     network: ws
     ws-opts:
       path: /
       headers:
-        Host: chuncheon03.zgjok.com
-    servername: chuncheon03.zgjok.com
-  - name: "\U0001F1F2\U0001F1E9 摩尔多瓦 02 2 -797"
-    server: 192.200.160.20
-    port: 443
-    type: vless
-    uuid: c1a5ecfa-8a01-4070-91e0-0328b82388ad
-    tls: true
-    network: ws
-    ws-opts:
-      path: /phnkfhws
-      headers:
-        Host: 639073677243396643.camry-perma.info
-      early-data-header-name: Sec-WebSocket-Protocol
-      max-early-data: 2560
-    servername: 639073677243396643.camry-perma.info
-  - name: "\U0001F1FA\U0001F1F8 美国 14 -798"
-    server: 150.241.83.152
-    port: 10121
-    type: vless
-    uuid: d1209ffb-c159-48d5-b40d-542ce11fc768
-    tls: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: 4DdA8dBVn5zB_UTbgBY45YqM0HU8zrjXYdzg3-wz5Rg
-      short-id: 9c2a7d4e5f18b6a3
-    client-fingerprint: qq
-    network: tcp
-    servername: apple.com
-  - name: "\U0001F1FA\U0001F1F8 美国 06 2 -799"
-    server: v29.hdacd.com
-    port: 30829
+        Host: hk03.stimaysmhy8.com
+  - name: "\U0001F1ED\U0001F1F0 香港 01 5 -800"
+    server: 96078085-t9l0g0-tcj7b6-d70y.hkt.east.wctype.com
+    port: 8300
+    type: anytls
+    password: 537d7098-fdbe-11ef-8ebc-f23c93141fad
+    sni: 96078085-t9l0g0-tcj7b6-d70y.hkt.east.wctype.com
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 06 2 -801"
+    server: 82.198.246.97
+    port: 180
     type: vmess
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
     cipher: auto
     tls: false
-  - name: "\U0001F1F3\U0001F1F1 荷兰 01 2 -800"
-    server: 82.38.31.189
-    port: 8080
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: k1dBOmOB4oqi7Ump37a1bQ
-  - name: "\U0001F1F8\U0001F1EC 新加坡 03 3 -801"
+  - name: "\U0001F1FA\U0001F1F8 美国 07 2 -802"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 08 2 -803"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F3F4‍☠️ 其他 06 2 -804"
+    server: 172.66.44.230
+    port: 8443
+    type: trojan
+    password: '8r<[9''l6hAO#8ZQi'
+    sni: Koma-YT.PAGeS.Dev
+  - name: "\U0001F1FA\U0001F1F8 美国 09 3 -805"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 01 5 -806"
+    server: abe6142c-tb71c0-tgprfk-ddgs.los.west.wctype.com
+    port: 8300
+    type: anytls
+    password: c870fe5a-0729-11f0-8cf9-f23c93136cb3
+    sni: abe6142c-tb71c0-tgprfk-ddgs.los.west.wctype.com
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 02 4 -807"
+    server: 76842b4a-tb71c0-tgprfk-ddgs.losjan20.west.wctype.com
+    port: 8300
+    type: anytls
+    password: c870fe5a-0729-11f0-8cf9-f23c93136cb3
+    sni: 76842b4a-tb71c0-tgprfk-ddgs.losjan20.west.wctype.com
+    skip-cert-verify: true
+  - name: "\U0001F1E9\U0001F1EA 德国 03 2 -808"
+    server: 185.94.29.156
+    port: 4001
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000000
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sub.mot.ip-ddns.com
+    servername: sub.mot.ip-ddns.com
+  - name: "\U0001F1FA\U0001F1F8 美国 03 4 -809"
+    server: c5e8d568-ta5ds0-tesmjk-ddgs.los.west.wctype.com
+    port: 8300
+    type: anytls
+    password: c870fe5a-0729-11f0-8cf9-f23c93136cb3
+    sni: c5e8d568-ta5ds0-tesmjk-ddgs.los.west.wctype.com
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 04 3 -810"
+    server: a2c1c42c-tb71c0-tee5aa-1glq.losjan20.west.wctype.com
+    port: 8300
+    type: anytls
+    password: df7bed3c-06eb-11f0-8ebc-f23c93141fad
+    sni: a2c1c42c-tb71c0-tee5aa-1glq.losjan20.west.wctype.com
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 10 2 -811"
     server: v12.hdacd.com
     port: 30812
     type: vmess
@@ -7414,7 +7572,281 @@
     alterId: 0
     cipher: auto
     tls: false
-  - name: "\U0001F1FA\U0001F1F8 美国 07 2 -802"
+  - name: "\U0001F3F4‍☠️ 其他 07 2 -812"
+    server: 152.53.200.167
+    port: 8444
+    type: trojan
+    password: trojan
+    sni: jflsjlaf.pages.dev
+  - name: "\U0001F1FA\U0001F1F8 美国 11 2 -813"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 12 -814"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 13 -815"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1F8\U0001F1EC 新加坡 03 3 -816"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F3F4‍☠️ 其他 29 -817"
+    server: 192.200.160.20
+    port: 443
+    type: vless
+    uuid: ee248e40-9468-4ef6-81b7-707a1e47c54a
+    tls: true
+    network: ws
+    ws-opts:
+      path: /yaeungws
+      headers:
+        Host: 639073677243557970.camry-perma.info
+      early-data-header-name: Sec-WebSocket-Protocol
+      max-early-data: 2560
+    servername: 639073677243557970.camry-perma.info
+  - name: "\U0001F1FA\U0001F1F8 美国 12 2 -818"
+    server: 192.200.160.20
+    port: 443
+    type: vless
+    uuid: ee248e40-9468-4ef6-81b7-707a1e47c54a
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /yaeungws
+      headers:
+        Host: 639073677243557970.camry-perma.info
+    servername: 639073677243557970.camry-perma.info
+  - name: "\U0001F1FA\U0001F1F8 美国 14 -819"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1F0\U0001F1F7 韩国 01 3 -820"
+    server: 58.152.25.253
+    port: 443
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 15 -821"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1F8\U0001F1EC 新加坡 04 3 -822"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 04 4 -823"
+    server: tinkered-pennies-puppies.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: hbGrpfvNrJsUmKmPbR3iY2
+  - name: "\U0001F1FA\U0001F1F8 美国 16 -824"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 02 5 -825"
+    server: 118.34.36.61
+    port: 10003
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 17 -826"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 18 -827"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 05 3 -828"
+    server: tinkered-pennies-puppies.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: hbGrpfvNrJsUmKmPbR3iY2
+  - name: "\U0001F1EC\U0001F1E7 英国 03 -829"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 19 -830"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 20 -831"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 21 -832"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 04 -833"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 22 -834"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 05 -835"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 06 -836"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 23 -837"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 07 -838"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 24 -839"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 08 -840"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 25 -841"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 09 -842"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 10 -843"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 26 -844"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 27 -845"
+    server: v9.hdacd.com
+    port: 30809
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 28 -846"
     server: v29.hdacd.com
     port: 30829
     type: vmess
@@ -7422,156 +7854,1052 @@
     alterId: 2
     cipher: auto
     tls: false
-  - name: "\U0001F1E6\U0001F1F9 奥地利 02 -803"
-    server: 152.53.45.251
-    port: 8888
-    type: trojan
-    password: trojan
-    sni: jflsjlaf.pages.dev
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: jflsjlaf.pages.dev
-  - name: "\U0001F1F3\U0001F1F1 荷兰 07 -804"
-    server: 152.53.200.98
-    port: 8444
-    type: trojan
-    password: trojan
-    sni: jflsjlaf.pages.dev
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: jflsjlaf.pages.dev
-  - name: "\U0001F1E8\U0001F1FE 塞浦路斯 01 -805"
-    server: 45.15.152.226
-    port: 443
-    type: vless
-    uuid: fd37be2f-f8d1-47de-97e8-13c28107d31e
-    tls: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: iCY6H8CpnIfqmIkEABduJEAeJrnYS089R1-jKEyVp3w
-      short-id: be91008fd0a4
-    client-fingerprint: chrome
-    network: tcp
-    servername: fin2.frostbot.ru
-  - name: "\U0001F1F9\U0001F1FC 台湾 20 -806"
-    server: n8mrcg005977h4d.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  - name: "\U0001F1EC\U0001F1E7 英国 02 3 -807"
-    server: sgskb.osaip.net
-    port: 25055
-    type: vless
-    uuid: 4f4a8ac0-e88c-4db4-a2e0-59cb31ed57d7
-    tls: true
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-mode: gun
-      grpc-service-name: /
-    servername: sgskb.osaip.net
-  - name: "\U0001F1EC\U0001F1E7 英国 03 -808"
-    server: sgskb.osaip.net
-    port: 25055
-    type: vless
-    uuid: fab8ca81-80ea-445e-ba31-f900007c2e4e
-    tls: true
-    client-fingerprint: chrome
-    network: grpc
-    grpc-opts:
-      grpc-mode: gun
-      grpc-service-name: /
-    servername: sgskb.osaip.net
-  - name: "\U0001F1E8\U0001F1E6 加拿大 01 4 -809"
-    server: 209.102.207.120
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: sni.111000.v6.navy
-    servername: sni.111000.v6.navy
-  - name: "\U0001F1EC\U0001F1E7 英国 04 -810"
-    server: 45.150.65.43
-    port: 443
-    type: vless
-    uuid: fd37be2f-f8d1-47de-97e8-13c28107d31e
-    tls: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: iCY6H8CpnIfqmIkEABduJEAeJrnYS089R1-jKEyVp3w
-      short-id: 5589c1
-    client-fingerprint: chrome
-    network: tcp
-    servername: us1.frostbot.ru
-  - name: "\U0001F1FA\U0001F1F8 美国 15 -811"
-    server: 135.84.74.155
-    port: 443
-    type: vless
-    uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-    tls: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: "/?Telegram\U0001F1E8\U0001F1F3+@WangCai2="
-      headers:
-        Host: sni.111000.v6.navy
-    servername: sni.111000.v6.navy
-  - name: "\U0001F1F9\U0001F1FC 台湾 21 -812"
-    server: n8mrcg005961xa6.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  - name: "\U0001F1F9\U0001F1FC 台湾 22 -813"
-    server: r3mrcg007153btm.cybervena.com
-    port: 50099
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  - name: "[IPv6] \U0001F1EF\U0001F1F5 日本 01 2 -814"
-    server: aflzzul.meiquankongjian.com
-    port: 52512
+  - name: "\U0001F1FA\U0001F1F8 美国 29 -847"
+    server: v12.hdacd.com
+    port: 30812
     type: vmess
-    uuid: 342bacfd-2b8f-3f49-a16e-439db5b0b9d5
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1ED\U0001F1F0 香港 01 6 -848"
+    server: chengbai02.ascwt179.com
+    port: 13223
+    type: ss
+    cipher: aes-128-gcm
+    password: JVrsLLN1tkN8oXZO
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 30 -849"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
     alterId: 0
     cipher: auto
     tls: false
     network: ws
     ws-opts:
-      path: /564dfa20/
-      headers:
-        Host: aflzzul.meiquankongjian.com
-  - name: "\U0001F1FA\U0001F1F8 美国 02 4 -815"
-    server: 154.17.234.78
-    port: 7071
+      path: /
+  - name: "\U0001F1FA\U0001F1F8 美国 31 -850"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 03 5 -851"
+    server: 38.60.89.136
+    port: 50000
     type: trojan
     password: trojan
-    sni: jflsjlaf.pages.dev
     skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 32 -852"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 33 -853"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1F0\U0001F1F7 韩国 02 3 -854"
+    server: fun-seagull.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: fun-seagull.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1EB\U0001F1F7 法国 01 2 -855"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 06 3 -856"
+    server: hk14.network-cdn-gw-yd.net
+    port: 32062
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: eb9aff96-654d-4b84-bfbd-30d57a927e4d
+  - name: "\U0001F1ED\U0001F1F0 香港 02 4 -857"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 34 -858"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 35 -859"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 36 -860"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 37 -861"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1EC\U0001F1E7 英国 03 2 -862"
+    server: model-stingray.crayfish192.xyz
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: model-stingray.crayfish192.xyz
+    skip-cert-verify: true
+  - name: "\U0001F1ED\U0001F1F0 香港 02 5 -863"
+    server: hk14.network-cdn-gw-yd.net
+    port: 32062
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: eb9aff96-654d-4b84-bfbd-30d57a927e4d
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 38 -864"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1ED\U0001F1F0 香港 03 4 -865"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 39 -866"
+    server: '2a14:7584:d0a2::a'
+    port: 23456
+    type: vmess
+    uuid: bd48e0ac-e90e-4451-a4f2-abf061cfb890
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1F0\U0001F1F7 韩国 03 -867"
+    server: fun-seagull.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: fun-seagull.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 40 -868"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 41 -869"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1ED\U0001F1F0 香港 10 2 -870"
+    server: top-goshawk.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: top-goshawk.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1EB\U0001F1F7 法国 02 2 -871"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 04 5 -872"
+    server: 118.34.36.61
+    port: 10003
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 03 -873"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 01 3 -874"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: RFK38Cg7APneSB5cWDcpbm
+  - name: "\U0001F1ED\U0001F1F0 香港 04 3 -875"
+    server: v30.hdacd.com
+    port: 30830
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1ED\U0001F1F0 香港 03 5 -876"
+    server: chengbai02.ascwt179.com
+    port: 13223
+    type: ss
+    cipher: aes-128-gcm
+    password: JVrsLLN1tkN8oXZO
+  - name: "\U0001F1F0\U0001F1F7 韩国 04 -877"
+    server: premium-lab.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: premium-lab.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1ED\U0001F1F0 香港 11 -878"
+    server: funky-platypus.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: funky-platypus.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1ED\U0001F1F0 香港 12 -879"
+    server: funky-platypus.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: funky-platypus.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 42 -880"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 04 2 -881"
+    server: 152.53.45.251
+    port: 8888
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 43 -882"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 44 -883"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 45 -884"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 46 -885"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1E6 乌克兰 01 2 -886"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: wwzVn2ZnHfqYa6l8EWh3eY
+  - name: "\U0001F1FA\U0001F1F8 美国 47 -887"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 05 2 -888"
+    server: 152.53.200.98
+    port: 8444
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 48 -889"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 05 4 -890"
+    server: 152.53.200.167
+    port: 8444
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 49 -891"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 50 -892"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 51 -893"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 06 2 -894"
+    server: 152.53.60.198
+    port: 8444
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 52 -895"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 53 -896"
+    server: '2001:bc8:32d7:302::16'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1EC\U0001F1E7 英国 11 -897"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 06 4 -898"
+    server: 152.53.200.167
+    port: 8444
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 54 -899"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 07 3 -900"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: wwzVn2ZnHfqYa6l8EWh3eY
+  - name: "\U0001F1FA\U0001F1F8 美国 55 -901"
+    server: v36.hdacd.com
+    port: 30836
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 56 -902"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 57 -903"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 58 -904"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 07 4 -905"
+    server: 221.146.116.77
+    port: 10003
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 59 -906"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 60 -907"
+    server: '2001:bc8:32d7:302::11'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 61 -908"
+    server: '2001:bc8:32d7:302::17'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 62 -909"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 08 3 -910"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 9tqhMdIrTkgQ46PvhyAtMH
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 09 4 -911"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: RFK38Cg7APneSB5cWDcpbm
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 63 -912"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 04 -913"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1FA\U0001F1F8 美国 64 -914"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 05 -915"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 10 3 -916"
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: 9tqhMdIrTkgQ46PvhyAtMH
+  - name: "\U0001F1EC\U0001F1E7 英国 12 -917"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 13 -918"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 65 -919"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1F0\U0001F1F7 韩国 05 -920"
+    server: 211.106.184.129
+    port: 11310
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1EC\U0001F1E7 英国 14 -921"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 66 -922"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 67 -923"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 15 -924"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 68 -925"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1EC\U0001F1E7 英国 16 -926"
+    server: 82.198.246.97
+    port: 180
+    type: vmess
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 69 -927"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 11 3 -928"
+    server: ru.n.belka.network
+    port: 1080
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: Mk_NNq9VBQHMhcRexcpCsExnadd0DeJK
+  - name: "\U0001F1FA\U0001F1F8 美国 12 3 -929"
+    server: fi.n.belka.network
+    port: 1080
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: Mk_NNq9VBQHMhcRexcpCsExnadd0DeJK
+  - name: "\U0001F1FA\U0001F1F8 美国 08 4 -930"
+    server: 59.20.121.139
+    port: 29999
+    type: trojan
+    password: trojan
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 70 -931"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1F8\U0001F1EC 新加坡 05 3 -932"
+    server: vc.fly.dev
+    port: 443
+    type: vmess
+    uuid: 35379219-6535-4f2e-a4fe-3e44f61e0eee
+    alterId: 32
+    cipher: auto
+    tls: true
     network: ws
     ws-opts:
       path: /
       headers:
-        Host: jflsjlaf.pages.dev
-  - name: "\U0001F1F3\U0001F1F1 荷兰 01 3 -816"
-    server: 195.181.173.199
-    port: 8443
+        Host: vc.fly.dev
+    servername: vc.fly.dev
+  - name: "\U0001F1ED\U0001F1F0 香港 13 -933"
+    server: top-goshawk.rooster465.autos
+    port: 443
+    type: trojan
+    password: WF42809561
+    sni: top-goshawk.rooster465.autos
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 71 -934"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "\U0001F1FA\U0001F1F8 美国 72 -935"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 06 -936"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 07 -937"
+    server: '2001:bc8:32d7:302::15'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1F8\U0001F1EC 新加坡 06 3 -938"
+    server: v12.hdacd.com
+    port: 30812
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 08 -939"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 09 -940"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 73 -941"
+    server: '2001:bc8:32d7:302::11'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 74 -942"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 10 -943"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 11 -944"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 12 -945"
+    server: '2001:bc8:32d7:302::14'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 13 -946"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 14 -947"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1EB\U0001F1F7 法国 15 -948"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "[IPv6] \U0001F1FA\U0001F1F8 美国 75 -949"
+    server: '2001:bc8:32d7:302::10'
+    port: 44579
+    type: vmess
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: ws
+    ws-opts:
+      path: /
+  - name: "\U0001F1ED\U0001F1F0 香港 05 3 -950"
+    server: v10.hdacd.com
+    port: 30807
+    type: vmess
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+  - name: "\U0001F1ED\U0001F1F0 香港 14 -951"
+    server: 18.183.73.66
+    port: 921
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1ED\U0001F1F0 香港 15 -952"
+    server: 54.95.21.63
+    port: 36854
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1ED\U0001F1F0 香港 16 -953"
+    server: 54.95.21.63
+    port: 6313
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1EF\U0001F1F5 日本 01 2 -954"
+    server: 13.113.229.223
+    port: 3022
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%25252Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1EF\U0001F1F5 日本 02 2 -955"
+    server: 52.195.4.144
+    port: 2001
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1EF\U0001F1F5 日本 03 2 -956"
+    server: 160.16.106.99
+    port: 4937
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1F8\U0001F1EC 新加坡 07 -957"
+    server: 52.195.4.144
+    port: 4674
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1F8\U0001F1EC 新加坡 08 -958"
+    server: 52.192.225.14
+    port: 1524
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1F8\U0001F1EC 新加坡 09 -959"
+    server: 95.40.2.4
+    port: 22045
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%25252Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 09 5 -960"
+    server: 13.230.200.237
+    port: 3057
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1FA\U0001F1F8 美国 10 4 -961"
+    server: 52.192.225.14
+    port: 4019
+    type: trojan
+    password: 6d29eb2f74293cb01a19b32cf08ad2e9
+    sni: www.nintendogames.net
+  - name: "\U0001F1FA\U0001F1F8 美国 11 4 -962"
+    server: 18.166.177.165
+    port: 49534
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 13 2 -963"
+    server: 139.196.41.153
+    port: 443
     type: vless
-    uuid: 394f6981-a782-4779-9a85-e6cf22935d93
+    uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
     tls: true
-    network: tcp
-    servername: ams1.fromblancwithlove.com
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-02 -817"
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: '/gs5=6666:6666@47.239.178.125:6666'
+      headers:
+        Host: ylnhh.cc.cd
+    servername: ylnhh.cc.cd
+  - name: "\U0001F1E9\U0001F1EA 德国 04 -964"
+    server: 185.94.29.156
+    port: 4001
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000000
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sub.mot.ip-ddns.com
+    servername: sub.mot.ip-ddns.com
+  - name: "\U0001F1E7\U0001F1EC 保加利亚 03 -965"
+    server: steady-lemming.rooster465.autos
+    port: 443
+    type: trojan
+    password: IL37892054
+    sni: steady-lemming.rooster465.autos
+  - name: "\U0001F1FA\U0001F1F8 美国 14 2 -966"
+    server: vip1.kaixincloud.top
+    port: 443
+    type: vless
+    uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: r.icy.de5.net
+      early-data-header-name: Sec-WebSocket-Protocol
+      max-early-data: 2560
+    servername: r.icy.de5.net
+  - name: "\U0001F1FA\U0001F1F8 美国 15 2 -967"
+    server: 192.200.160.20
+    port: 443
+    type: vless
+    uuid: ee248e40-9468-4ef6-81b7-707a1e47c54a
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /yaeungws
+      headers:
+        Host: 639073677243557970.camry-perma.info
+    servername: 639073677243557970.camry-perma.info
+  - name: "\U0001F3F4‍☠️ 其他 08 2 -968"
+    server: 58.152.25.253
+    port: 443
+    type: trojan
+    password: BxceQaOe
+    skip-cert-verify: true
+  - name: "\U0001F1FA\U0001F1F8 美国 18 2 -969"
+    server: 64.120.89.69
+    port: 20231
+    type: vless
+    uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: r.icy.de5.net
+      early-data-header-name: Sec-WebSocket-Protocol
+      max-early-data: 2560
+    servername: r.icy.de5.net
+  - name: "\U0001F1FA\U0001F1F8 美国 20 2 -970"
+    server: 45.145.42.170
+    port: 8005
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000000
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sub.mot.ip-ddns.com
+    servername: sub.mot.ip-ddns.com
+  - name: "\U0001F1F8\U0001F1EC 新加坡 07 2 -971"
+    server: 47.245.99.66
+    port: 11001
+    type: vless
+    uuid: 00000000-0000-4000-8000-000000000000
+    tls: true
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: sub.mot.ip-ddns.com
+    servername: sub.mot.ip-ddns.com
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-02 -972"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7579,7 +8907,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-03 -818"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-03 -973"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7587,7 +8915,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-04 -819"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-04 -974"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7595,7 +8923,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-05 -820"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-05 -975"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7603,7 +8931,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-06 -821"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-06 -976"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7611,7 +8939,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-07 -822"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-07 -977"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7619,7 +8947,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-08 -823"
+  - name: "\U0001F1ED\U0001F1F0 「香港」Hong Kong-08 -978"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7627,7 +8955,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-01 -824"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-01 -979"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7635,7 +8963,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-02 -825"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-02 -980"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7643,7 +8971,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-03 -826"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-03 -981"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7651,7 +8979,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-04 -827"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-04 -982"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7659,7 +8987,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-05 -828"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-05 -983"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7667,7 +8995,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-06 -829"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-06 -984"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7675,7 +9003,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-07 -830"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-07 -985"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7683,7 +9011,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-08 -831"
+  - name: "\U0001F1EF\U0001F1F5 「日本」Japan-08 -986"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7691,7 +9019,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-01 -832"
+  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-01 -987"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7699,7 +9027,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-02 -833"
+  - name: "\U0001F1F9\U0001F1FC 「台湾」TaiWan-02 -988"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7707,7 +9035,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore-01 -834"
+  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore-01 -989"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7715,7 +9043,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore 02 -835"
+  - name: "\U0001F1F8\U0001F1EC 「新加坡」Singapore 02 -990"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7723,7 +9051,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1FA\U0001F1F8 「美国」United States-01 -836"
+  - name: "\U0001F1FA\U0001F1F8 「美国」United States-01 -991"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7731,7 +9059,7 @@
     cipher: chacha20-ietf-poly1305
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
-  - name: "\U0001F1FA\U0001F1F8 「美国」United States-02 -837"
+  - name: "\U0001F1FA\U0001F1F8 「美国」United States-02 -992"
     type: ss
     server: >-
       462763ae-7d5e-412a-9a08-13fd09411fd7.84f72fc7-05a1-4544-8548-a7325443452f.com
@@ -7740,7 +9068,7 @@
     password: 07c680be-b04a-4d05-9098-5bf3dffba3a5
     udp: true
   - type: vless
-    name: "\U0001F3F4‍☠️ sh-vless-reality-27985 -838"
+    name: "\U0001F3F4‍☠️ sh-vless-reality-27985 -993"
     server: 192.3.0.21
     port: 27985
     uuid: 7f041ba4-4d80-4b9d-80b5-65d7ef08a494
