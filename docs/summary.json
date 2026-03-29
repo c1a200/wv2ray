@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-03-28T23:38:20.656545Z",
+  "updated_at": "2026-03-29T07:14:09.758296Z",
   "v2ray_subscription_url": "https://c1a200.github.io/wv2ray/subscribe.txt",
   "clash_subscription_url": "https://c1a200.github.io/wv2ray/clash.yaml",
-  "v2ray_size_kb": 259.21,
-  "clash_size_kb": 261.0,
+  "v2ray_size_kb": 245.96,
+  "clash_size_kb": 237.97,
   "format": "v2ray (base64, upstream original) + clash (yaml)",
   "source_mode": "direct",
   "instructions": [
