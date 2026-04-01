@@ -64,17 +64,11 @@ def _fetch_issue_variant() -> dict:
         target='clash',
     )
 
-    print('📥 正在获取 subscribe1 (issue/v2ray) 内容...')
-    v2ray_content = fetcher.fetch_subscription_content(
-        v2ray_url,
-        target='v2ray',
-    )
+    print('📥 正在直接获取 subscribe1 (issue/v2ray) 内容...')
+    v2ray_content = _fetch_direct_content(v2ray_url)
 
-    print('📥 正在获取 clash1 (issue/clash) 内容...')
-    clash_content = fetcher.fetch_subscription_content(
-        clash_url,
-        target='clash',
-    )
+    print('📥 正在直接获取 clash1 (issue/clash) 内容...')
+    clash_content = _fetch_direct_content(clash_url)
 
     return {
         'token': info['token'],
