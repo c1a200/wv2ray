@@ -45,6 +45,48 @@ def _fetch_direct_content(url: str) -> str:
     return content
 
 
+def _fetch_issue_variant() -> dict:
+    """从 Issue #91 获取 v2ray/clash 内容，返回用于 subscribe1/clash1 的数据。"""
+    from fetcher import AggregatorFetcher
+
+    fetcher = AggregatorFetcher()
+    print('📥 正在从 GitHub Issue 获取 subscribe1/clash1 数据...')
+    info = fetcher.get_subscription_info()
+
+    v2ray_url = fetcher.build_subscribe_url(
+        token=info['token'],
+        api_url=info['api_url'],
+        target='v2ray',
+    )
+    clash_url = fetcher.build_subscribe_url(
+        token=info['token'],
+        api_url=info['api_url'],
+        target='clash',
+    )
+
+    print('📥 正在获取 subscribe1 (issue/v2ray) 内容...')
+    v2ray_content = fetcher.fetch_subscription_content(
+        v2ray_url,
+        target='v2ray',
+    )
+
+    print('📥 正在获取 clash1 (issue/clash) 内容...')
+    clash_content = fetcher.fetch_subscription_content(
+        clash_url,
+        target='clash',
+    )
+
+    return {
+        'token': info['token'],
+        'api_url': info['api_url'],
+        'fetched_at': info['fetched_at'],
+        'v2ray_url': v2ray_url,
+        'clash_url': clash_url,
+        'v2ray_content': v2ray_content,
+        'clash_content': clash_content,
+    }
+
+
 def save_subscription_files(output_dir: str = '.'):
     """获取并保存订阅文件（v2ray 与 clash）"""
 
@@ -123,6 +165,36 @@ def save_subscription_files(output_dir: str = '.'):
         clash_file.write_bytes(b'\xef\xbb\xbf' + clash_content.encode('utf-8'))
         print(f"✓ clash 订阅文件已保存: {clash_file}")
 
+        # 额外生成 issue 版本：subscribe1.txt / clash1.yaml
+        issue_variant_enabled = _env_to_bool(
+            os.getenv('GENERATE_ISSUE_VARIANTS'),
+            default=True,
+        )
+        issue_variant_status = 'disabled'
+        issue_variant = None
+
+        if issue_variant_enabled:
+            try:
+                issue_variant = _fetch_issue_variant()
+
+                v2_file_issue = output_path / 'subscribe1.txt'
+                v2_file_issue.write_text(
+                    issue_variant['v2ray_content'],
+                    encoding='utf-8',
+                )
+                print(f"✓ issue v2ray 订阅文件已保存: {v2_file_issue}")
+
+                clash_file_issue = output_path / 'clash1.yaml'
+                clash_file_issue.write_bytes(
+                    b'\xef\xbb\xbf'
+                    + issue_variant['clash_content'].encode('utf-8')
+                )
+                print(f"✓ issue clash 订阅文件已保存: {clash_file_issue}")
+                issue_variant_status = 'ok'
+            except Exception as issue_err:
+                issue_variant_status = f'failed: {issue_err}'
+                print(f"⚠️ issue 增量产物生成失败，已跳过: {issue_err}")
+
         # 保存订阅元数据
         metadata = {
             'source_mode': 'direct' if use_direct_source else 'issue',
@@ -130,13 +202,33 @@ def save_subscription_files(output_dir: str = '.'):
             'api_url': None if use_direct_source else info['api_url'],
             'v2ray_subscribe_url': v2ray_url,
             'clash_subscribe_url': clash_url,
+            'issue_variant_enabled': issue_variant_enabled,
+            'issue_variant_status': issue_variant_status,
+            'issue_token': issue_variant['token'] if issue_variant else None,
+            'issue_api_url': (
+                issue_variant['api_url'] if issue_variant else None
+            ),
+            'v2ray_subscribe_url_issue': (
+                issue_variant['v2ray_url'] if issue_variant else None
+            ),
+            'clash_subscribe_url_issue': (
+                issue_variant['clash_url'] if issue_variant else None
+            ),
             'fetched_at': fetched_at,
             'v2ray_subscription_file': 'subscribe.txt',
             'clash_subscription_file': 'clash.yaml',
+            'v2ray_subscription_file_issue': 'subscribe1.txt',
+            'clash_subscription_file_issue': 'clash1.yaml',
             'github_pages_v2ray': (
                 'https://c1a200.github.io/wv2ray/subscribe.txt'
             ),
             'github_pages_clash': 'https://c1a200.github.io/wv2ray/clash.yaml',
+            'github_pages_v2ray_issue': (
+                'https://c1a200.github.io/wv2ray/subscribe1.txt'
+            ),
+            'github_pages_clash_issue': (
+                'https://c1a200.github.io/wv2ray/clash1.yaml'
+            ),
         }
 
         metadata_file = output_path / 'metadata.json'
@@ -155,10 +247,25 @@ def save_subscription_files(output_dir: str = '.'):
             'clash_subscription_url': (
                 'https://c1a200.github.io/wv2ray/clash.yaml'
             ),
+            'v2ray_subscription_url_issue': (
+                'https://c1a200.github.io/wv2ray/subscribe1.txt'
+            ),
+            'clash_subscription_url_issue': (
+                'https://c1a200.github.io/wv2ray/clash1.yaml'
+            ),
             'v2ray_size_kb': round(len(v2ray_content) / 1024, 2),
             'clash_size_kb': round(len(clash_content) / 1024, 2),
+            'v2ray_size_kb_issue': (
+                round(len(issue_variant['v2ray_content']) / 1024, 2)
+                if issue_variant else None
+            ),
+            'clash_size_kb_issue': (
+                round(len(issue_variant['clash_content']) / 1024, 2)
+                if issue_variant else None
+            ),
             'format': 'v2ray (base64, upstream original) + clash (yaml)',
             'source_mode': 'direct' if use_direct_source else 'issue',
+            'issue_variant_status': issue_variant_status,
             'instructions': [
                 '1. 在 v2ray 客户端中添加远程订阅',
                 '2. 订阅地址: https://c1a200.github.io/wv2ray/subscribe.txt',
@@ -166,7 +273,12 @@ def save_subscription_files(output_dir: str = '.'):
                     '3. 在 clash/Clash Meta 中添加远程订阅: '
                     'https://c1a200.github.io/wv2ray/clash.yaml'
                 ),
-                '4. 订阅每天自动更新（北京时间每天下午3点）',
+                (
+                    '4. Issue 对照订阅: '
+                    'https://c1a200.github.io/wv2ray/subscribe1.txt '
+                    '与 https://c1a200.github.io/wv2ray/clash1.yaml'
+                ),
+                '5. 订阅每天自动更新（北京时间每天下午3点）',
             ],
         }
 

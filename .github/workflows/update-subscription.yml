@@ -24,6 +24,7 @@ env:
   USE_DIRECT_SOURCE: ${{ vars.USE_DIRECT_SOURCE || 'true' }}
   DIRECT_V2RAY_URL: ${{ vars.DIRECT_V2RAY_URL || 'https://node.zyfx6.xyz/v2rayNG/' }}
   DIRECT_CLASH_URL: ${{ vars.DIRECT_CLASH_URL || 'https://node.zyfx6.xyz/clash' }}
+  GENERATE_ISSUE_VARIANTS: ${{ vars.GENERATE_ISSUE_VARIANTS || 'true' }}
 
 on:
   push:
@@ -101,10 +102,18 @@ jobs:
                   <div>V2ray:</div>
                   <code>https://c1a200.github.io/wv2ray/subscribe.txt</code>
               </div>
+                <div class="box">
+                  <div>V2ray (Issue #91):</div>
+                  <code>https://c1a200.github.io/wv2ray/subscribe1.txt</code>
+                </div>
               <div class="box">
                   <div>Clash:</div>
                   <code>https://c1a200.github.io/wv2ray/clash.yaml</code>
               </div>
+                <div class="box">
+                  <div>Clash (Issue #91):</div>
+                  <code>https://c1a200.github.io/wv2ray/clash1.yaml</code>
+                </div>
           </body>
           </html>
           EOF

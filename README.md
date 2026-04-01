@@ -9,9 +9,19 @@ V2ray（base64）：
 https://c1a200.github.io/wv2ray/subscribe.txt
 ```
 
+V2ray（Issue #91 对照版）：
+```
+https://c1a200.github.io/wv2ray/subscribe1.txt
+```
+
 Clash / Clash Meta（YAML）：
 ```
 https://c1a200.github.io/wv2ray/clash.yaml
+```
+
+Clash / Clash Meta（Issue #91 对照版）：
+```
+https://c1a200.github.io/wv2ray/clash1.yaml
 ```
 
 在对应客户端使用相应链接，客户端将自动定期获取最新节点。
@@ -50,7 +60,9 @@ GitHub Actions 定时任务 / self-hosted runner (每天 UTC 3点)
          ↓
 直接抓取 https://node.zyfx6.xyz/v2rayNG/ 与 https://node.zyfx6.xyz/clash
          ↓
-分别生成 subscribe.txt 与 clash.yaml
+生成主文件 subscribe.txt 与 clash.yaml（直链）
+         ↓
+额外生成 subscribe1.txt 与 clash1.yaml（Issue #91）
          ↓
 上传到 GitHub Pages
          ↓
@@ -70,7 +82,10 @@ GitHub Actions 定时任务 / self-hosted runner (每天 UTC 3点)
 
 ## 📁 文件说明
 
-- `subscribe.txt` - 标准 v2ray 订阅文件（base64 编码）
+- `subscribe.txt` - 直链源 v2ray 订阅文件（base64 编码）
+- `subscribe1.txt` - Issue #91 源 v2ray 对照订阅文件（base64 编码）
+- `clash.yaml` - 直链源 clash 订阅文件（YAML）
+- `clash1.yaml` - Issue #91 源 clash 对照订阅文件（YAML）
 - `metadata.json` - 订阅元数据和获取时间
 - `summary.json` - 订阅摘要信息
 - `index.html` - 项目主页面
@@ -80,14 +95,14 @@ GitHub Actions 定时任务 / self-hosted runner (每天 UTC 3点)
 这个项目使用 GitHub Actions 自动化以下流程：
 
 1. **定时触发**：每天 UTC 3点自动运行
-2. **爬取信息**：直接抓取 v2ray 与 clash 两个订阅页面
-3. **生成文件**：分别输出 `subscribe.txt` 与 `clash.yaml`
+2. **爬取信息**：抓取直链源，并尝试抓取 Issue #91 源
+3. **生成文件**：输出 `subscribe.txt` / `clash.yaml`（直链）以及 `subscribe1.txt` / `clash1.yaml`（Issue）
 4. **保存元数据**：生成 `metadata.json` 与 `summary.json`
 5. **上传部署**：将文件上传到 GitHub Pages
 6. **自动更新**：您的 V2ray 客户端定期自动获取新版本
 
-当前默认启用直链模式（`USE_DIRECT_SOURCE=true`）。
-如需恢复旧模式（从 `issues/91` 动态提取 token），将 `USE_DIRECT_SOURCE` 设置为 `false` 即可。
+当前默认主文件仍是直链模式（`USE_DIRECT_SOURCE=true`）。
+Issue 对照产物默认开启（`GENERATE_ISSUE_VARIANTS=true`）。
 
 ## ☁️ Worker 转发模式（可选）
 
@@ -185,14 +200,17 @@ env:
 
 默认数据源：
 
-| 文件          | 来源                                              |
-| ------------- | ------------------------------------------------- |
+| 文件 | 来源 |
+| --- | --- |
 | `subscribe.txt` | [https://node.zyfx6.xyz/v2rayNG/](https://node.zyfx6.xyz/v2rayNG/) |
-| `clash.yaml`    | [https://node.zyfx6.xyz/clash](https://node.zyfx6.xyz/clash)       |
+| `clash.yaml` | [https://node.zyfx6.xyz/clash](https://node.zyfx6.xyz/clash) |
+| `subscribe1.txt` | GitHub Issue #91 动态提取 token/api_url 后生成 |
+| `clash1.yaml` | GitHub Issue #91 动态提取 token/api_url 后生成 |
 
 兼容模式：
 
 - 当 `USE_DIRECT_SOURCE=false` 时，脚本会回退到 Issue/API 动态抓取流程。
+- 当 `GENERATE_ISSUE_VARIANTS=false` 时，将不再生成 `subscribe1.txt` 与 `clash1.yaml`。
 
 ## 🎯 项目结构
 
