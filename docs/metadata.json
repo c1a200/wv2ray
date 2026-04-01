@@ -10,7 +10,7 @@
   "issue_api_url": "https://raoku-pm.hf.space/api/v1/subscribe",
   "v2ray_subscribe_url_issue": "https://raoku-pm.hf.space/api/v1/subscribe?token=8uak3-ue1idoujz%2Ady6ooumx&target=v2ray&list=false",
   "clash_subscribe_url_issue": "https://raoku-pm.hf.space/api/v1/subscribe?token=8uak3-ue1idoujz%2Ady6ooumx&target=clash&list=false",
-  "fetched_at": "2026-04-01T03:42:48.458148Z",
+  "fetched_at": "2026-04-01T07:44:16.874857Z",
   "v2ray_subscription_file": "subscribe.txt",
   "clash_subscription_file": "clash.yaml",
   "v2ray_subscription_file_issue": "subscribe1.txt",
