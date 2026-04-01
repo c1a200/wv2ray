@@ -4,9 +4,19 @@
   "api_url": null,
   "v2ray_subscribe_url": "https://node.zyfx6.xyz/v2rayNG/",
   "clash_subscribe_url": "https://node.zyfx6.xyz/clash",
-  "fetched_at": "2026-03-31T23:40:28.310201Z",
+  "issue_variant_enabled": true,
+  "issue_variant_status": "failed: 获取订阅内容失败: HTTP 400, body=No nodes were found!, url=https://subconverter-jboo.onrender.com/sub?target=mixed&url=https%3A%2F%2Fraoku-pm.hf.space%2Fapi%2Fv1%2Fsubscribe%3Ftoken%3D8uak3-ue1idoujz%26target%3Dclash%26list%3Dtrue&insert=false&emoji=true&list=false",
+  "issue_token": null,
+  "issue_api_url": null,
+  "v2ray_subscribe_url_issue": null,
+  "clash_subscribe_url_issue": null,
+  "fetched_at": "2026-04-01T03:12:09.649358Z",
   "v2ray_subscription_file": "subscribe.txt",
   "clash_subscription_file": "clash.yaml",
+  "v2ray_subscription_file_issue": "subscribe1.txt",
+  "clash_subscription_file_issue": "clash1.yaml",
   "github_pages_v2ray": "https://c1a200.github.io/wv2ray/subscribe.txt",
-  "github_pages_clash": "https://c1a200.github.io/wv2ray/clash.yaml"
+  "github_pages_clash": "https://c1a200.github.io/wv2ray/clash.yaml",
+  "github_pages_v2ray_issue": "https://c1a200.github.io/wv2ray/subscribe1.txt",
+  "github_pages_clash_issue": "https://c1a200.github.io/wv2ray/clash1.yaml"
 }
