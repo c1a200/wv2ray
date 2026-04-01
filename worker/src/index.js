@@ -146,23 +146,23 @@ async function getSubscriptionInfo(env) {
 }
 
 function containsToken(text) {
-  return /token/i.test(text) || /[A-Za-z0-9_\-+.]{8,128}/.test(text);
+  return /token/i.test(text) || /[A-Za-z0-9_\-+.*]{8,128}/.test(text);
 }
 
 function extractToken(content) {
-  const tablePattern = /<td>\s*token\s*<\/td>.*?<code[^>]*>([A-Za-z0-9_\-+.]{8,128})<\/code>/is;
+  const tablePattern = /<td>\s*token\s*<\/td>.*?<code[^>]*>([A-Za-z0-9_\-+.*]{8,128})<\/code>/is;
   const tableMatch = content.match(tablePattern);
   if (tableMatch) {
     return tableMatch[1];
   }
 
-  const mdPattern = /\|\s*token\s*\|.*?\|\s*`?([A-Za-z0-9_\-+.]{8,128})`?\s*\|/is;
+  const mdPattern = /\|\s*token\s*\|.*?\|\s*`?([A-Za-z0-9_\-+.*]{8,128})`?\s*\|/is;
   const mdMatch = content.match(mdPattern);
   if (mdMatch) {
     return mdMatch[1];
   }
 
-  const generic = content.match(/[?&]token=([A-Za-z0-9_\-+.]{8,128})/i);
+  const generic = content.match(/[?&]token=([A-Za-z0-9_\-+.*]{8,128})/i);
   if (generic) {
     return generic[1];
   }

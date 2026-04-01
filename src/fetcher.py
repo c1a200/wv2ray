@@ -162,17 +162,32 @@ class AggregatorFetcher:
     def extract_token(self, content: str) -> Optional[str]:
         """从页面内容中提取 token"""
         # 优先从表格行提取（HTML 格式）
-        table_pattern = r'<td>\s*token\s*</td>.*?<code[^>]*>([A-Za-z0-9_\-+.]{8,128})</code>'
+        table_pattern = (
+            r'<td>\s*token\s*</td>.*?<code[^>]*>'
+            r'([A-Za-z0-9_\-+.*]{8,128})</code>'
+        )
         match = re.search(table_pattern, content, re.IGNORECASE | re.DOTALL)
         if match:
             return match.group(1)
 
         # Issue body 中的 details/summary 结构（Markdown 或渲染后的 HTML）
         details_patterns = [
-            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
-            r'<details>\s*<summary>\s*.*?密钥.*?\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
-            r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})',
-            r'点击查看最新密钥\s*</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>',
+            (
+                r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*'
+                r'([A-Za-z0-9_\-+.*]{8,128})\s*</details>'
+            ),
+            (
+                r'<details>\s*<summary>\s*.*?密钥.*?\s*</summary>\s*'
+                r'([A-Za-z0-9_\-+.*]{8,128})\s*</details>'
+            ),
+            (
+                r'<details>\s*<summary>\s*点击查看最新密钥\s*</summary>\s*'
+                r'([A-Za-z0-9_\-+.*]{8,128})'
+            ),
+            (
+                r'点击查看最新密钥\s*</summary>\s*'
+                r'([A-Za-z0-9_\-+.*]{8,128})\s*</details>'
+            ),
         ]
         for pattern in details_patterns:
             match = re.search(pattern, content, re.IGNORECASE | re.DOTALL)
@@ -180,21 +195,31 @@ class AggregatorFetcher:
                 return match.group(1)
 
         # Markdown 表格里包含 details 的情况
-        md_details_pattern = r'\|\s*token\s*\|.*?<details>.*?</summary>\s*([A-Za-z0-9_\-+.]{8,128})\s*</details>'
-        match = re.search(md_details_pattern, content, re.IGNORECASE | re.DOTALL)
+        md_details_pattern = (
+            r'\|\s*token\s*\|.*?<details>.*?</summary>\s*'
+            r'([A-Za-z0-9_\-+.*]{8,128})\s*</details>'
+        )
+        match = re.search(
+            md_details_pattern,
+            content,
+            re.IGNORECASE | re.DOTALL,
+        )
         if match:
             return match.group(1)
         
         # Markdown 格式兜底（如评论或 issue body）
-        md_pattern = r'\|\s*token\s*\|.*?\|\s*`?([A-Za-z0-9_\-+.]{8,128})`?\s*\|'
+        md_pattern = (
+            r'\|\s*token\s*\|.*?\|\s*`?'
+            r'([A-Za-z0-9_\-+.*]{8,128})`?\s*\|'
+        )
         match = re.search(md_pattern, content, re.IGNORECASE | re.DOTALL)
         if match:
             return match.group(1)
         
         # 通用格式兜底
         patterns = [
-            r'token=([A-Za-z0-9_\-+.]{8,128})',
-            r'token["\s:=]+([A-Za-z0-9_\-+.]{8,128})',
+            r'token=([A-Za-z0-9_\-+.*]{8,128})',
+            r'token["\s:=]+([A-Za-z0-9_\-+.*]{8,128})',
         ]
         
         for pattern in patterns:
@@ -251,7 +276,8 @@ class AggregatorFetcher:
         if not api_url:
             raise ValueError("api_url 不能为空，必须从 Issue 页面动态获取")
         
-        return f"{api_url}?token={token}&target={target}&list=false"
+        encoded_token = quote(token, safe='')
+        return f"{api_url}?token={encoded_token}&target={target}&list=false"
 
     def _build_converted_url(self, source_url: str, target: str,
                              minimal: bool = False) -> Optional[str]:
