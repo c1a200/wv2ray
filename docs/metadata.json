@@ -10,7 +10,7 @@
   "issue_api_url": "https://bglyquhwuqaz.us-west-1.clawcloudrun.com/api/v1/subscribe",
   "v2ray_subscribe_url_issue": "https://bglyquhwuqaz.us-west-1.clawcloudrun.com/api/v1/subscribe?token=e9ldidvac1nkw4rm&target=v2ray&list=false",
   "clash_subscribe_url_issue": "https://bglyquhwuqaz.us-west-1.clawcloudrun.com/api/v1/subscribe?token=e9ldidvac1nkw4rm&target=clash&list=false",
-  "fetched_at": "2026-05-06T23:56:31.776816Z",
+  "fetched_at": "2026-05-07T08:43:25.831896Z",
   "v2ray_subscription_file": "subscribe.txt",
   "clash_subscription_file": "clash.yaml",
   "v2ray_subscription_file_issue": "subscribe1.txt",
