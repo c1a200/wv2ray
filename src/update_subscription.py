@@ -270,6 +270,45 @@ def _proxy_to_hysteria2_uri(proxy: dict) -> str:
     return f'hysteria2://{password}@{server}:{port}?{query}#{name}'
 
 
+def _proxy_to_ssr_uri(proxy: dict) -> str:
+    """将 Clash ssr 节点转换为 ssr:// URI。"""
+    server = proxy.get('server', '')
+    port = str(proxy.get('port', ''))
+    protocol = proxy.get('protocol', 'origin')
+    cipher = proxy.get('cipher', '')
+    obfs = proxy.get('obfs', 'plain')
+    password = proxy.get('password', '')
+
+    # SSR URI: base64(server:port:protocol:method:obfs:base64(password)/
+    #   ?obfsparam=base64(obfs-param)&protoparam=base64(proto-param)&remarks=base64(name))
+    def b64_encode(s):
+        return base64.urlsafe_b64encode(
+            s.encode('utf-8')
+        ).decode('utf-8').rstrip('=')
+
+    password_b64 = b64_encode(password)
+    main_part = f'{server}:{port}:{protocol}:{cipher}:{obfs}:{password_b64}'
+
+    params_parts = []
+    obfs_param = proxy.get('obfs-param', '')
+    if obfs_param:
+        params_parts.append(f'obfsparam={b64_encode(obfs_param)}')
+    proto_param = proxy.get('protocol-param', '')
+    if proto_param:
+        params_parts.append(f'protoparam={b64_encode(proto_param)}')
+    name = proxy.get('name', '')
+    if name:
+        params_parts.append(f'remarks={b64_encode(name)}')
+
+    if params_parts:
+        main_part += '/?' + '&'.join(params_parts)
+
+    encoded = base64.urlsafe_b64encode(
+        main_part.encode('utf-8')
+    ).decode('utf-8').rstrip('=')
+    return f'ssr://{encoded}'
+
+
 def _clash_proxies_to_v2ray_uris(content: str) -> str:
     """将 Clash YAML 格式的 proxies 列表转换为 v2rayNG 订阅格式（base64 编码的 URI 列表）。"""
     # 去除 BOM
@@ -305,8 +344,10 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
                 uris.append(_proxy_to_ss_uri(proxy))
             elif proxy_type in ('hysteria2', 'hy2', 'hysteria'):
                 uris.append(_proxy_to_hysteria2_uri(proxy))
-            elif proxy_type in ('ssr', 'http', 'socks5', 'anytls'):
-                # 这些协议 v2rayNG 不支持或格式复杂，跳过
+            elif proxy_type == 'ssr':
+                uris.append(_proxy_to_ssr_uri(proxy))
+            elif proxy_type in ('http', 'socks5', 'anytls'):
+                # 这些协议没有通用的 URI 分享格式，跳过
                 skipped += 1
             else:
                 skipped += 1
