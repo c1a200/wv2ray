@@ -45,6 +45,41 @@ def _fetch_direct_content(url: str) -> str:
     return content
 
 
+# FlClash / Clash 内核要求配置文件顶部包含这些基础字段
+_CLASH_REQUIRED_HEADER = """\
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+"""
+
+
+def _ensure_clash_headers(content: str) -> str:
+    """确保 clash 配置包含必要的顶级字段。
+
+    如果上游返回的内容直接以 proxies: 开头（缺少 port/mode 等），
+    则自动补充默认 Clash 配置头部，使 FlClash 等客户端能正确识别。
+    同时去除可能存在的 UTF-8 BOM。
+    """
+    # 去除 BOM（如果存在）
+    content = content.lstrip('\ufeff')
+
+    # 检查是否已包含关键顶级字段
+    stripped = content.lstrip()
+    has_port = stripped.startswith('port:') or '\nport:' in content
+    has_mode = '\nmode:' in content or stripped.startswith('mode:')
+
+    if has_port and has_mode:
+        # 已经包含完整头部，直接返回
+        return content
+
+    # 缺少头部，补充默认配置
+    print("⚠️ 上游 clash 内容缺少必要头部字段，自动补充默认配置...")
+    return _CLASH_REQUIRED_HEADER + content
+
+
 def _fetch_issue_variant() -> dict:
     """从 Issue #91 获取 v2ray/clash 内容，返回用于 subscribe1/clash1 的数据。"""
     from fetcher import AggregatorFetcher
@@ -154,9 +189,10 @@ def save_subscription_files(output_dir: str = '.'):
         print(f"✓ v2ray 订阅文件已保存: {v2_file}")
 
         clash_file = output_path / 'clash.yaml'
-        # 为了确保客户端正确识别为 UTF-8（特别是在某些系统上默认为 ANSI），
-        # 添加 UTF-8 BOM (byte order mark)
-        clash_file.write_bytes(b'\xef\xbb\xbf' + clash_content.encode('utf-8'))
+        # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
+        clash_final_content = _ensure_clash_headers(clash_content)
+        # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
+        clash_file.write_text(clash_final_content, encoding='utf-8')
         print(f"✓ clash 订阅文件已保存: {clash_file}")
 
         # 额外生成 issue 版本：subscribe1.txt / clash1.yaml
@@ -179,9 +215,11 @@ def save_subscription_files(output_dir: str = '.'):
                 print(f"✓ issue v2ray 订阅文件已保存: {v2_file_issue}")
 
                 clash_file_issue = output_path / 'clash1.yaml'
-                clash_file_issue.write_bytes(
-                    b'\xef\xbb\xbf'
-                    + issue_variant['clash_content'].encode('utf-8')
+                clash_final_issue = _ensure_clash_headers(
+                    issue_variant['clash_content']
+                )
+                clash_file_issue.write_text(
+                    clash_final_issue, encoding='utf-8'
                 )
                 print(f"✓ issue clash 订阅文件已保存: {clash_file_issue}")
                 issue_variant_status = 'ok'
