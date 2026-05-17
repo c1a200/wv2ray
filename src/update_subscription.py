@@ -376,18 +376,16 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
                 uris.append(_proxy_to_trojan_uri(proxy))
             elif proxy_type == 'ss':
                 uris.append(_proxy_to_ss_uri(proxy))
-            elif proxy_type in ('hysteria2', 'hy2', 'hysteria'):
-                uris.append(_proxy_to_hysteria2_uri(proxy))
             elif proxy_type == 'ssr':
                 uris.append(_proxy_to_ssr_uri(proxy))
+            elif proxy_type in ('hysteria2', 'hy2', 'hysteria'):
+                uris.append(_proxy_to_hysteria2_uri(proxy))
             elif proxy_type == 'http':
                 uris.append(_proxy_to_http_uri(proxy))
             elif proxy_type == 'socks5':
                 uris.append(_proxy_to_socks5_uri(proxy))
-            elif proxy_type == 'anytls':
-                # anytls 暂无标准 URI 分享格式，跳过
-                skipped += 1
             else:
+                # anytls 等无标准 URI 格式的协议，跳过
                 skipped += 1
         except Exception as e:
             skipped += 1
@@ -400,8 +398,18 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
         print("⚠️ 无法转换任何节点，返回原始内容")
         return content
 
+    # v2rayNG 只支持 vmess/vless/trojan/ss/ssr 协议
+    # hysteria2/http/socks5 等会导致 v2rayNG 整体解析失败
+    # 所以只保留兼容的协议行
+    v2rayng_prefixes = ('vmess://', 'vless://', 'trojan://', 'ss://', 'ssr://')
+    compatible_uris = [u for u in uris if u.startswith(v2rayng_prefixes)]
+    extra_count = len(uris) - len(compatible_uris)
+    if extra_count > 0:
+        print(f"⚠️ 过滤掉 {extra_count} 个 v2rayNG 不兼容的协议"
+              f"（hysteria2/http/socks5），这些节点仍可通过 clash.yaml 使用")
+
     # v2rayNG 订阅格式：所有 URI 用换行连接，然后整体 base64 编码
-    uri_text = '\n'.join(uris)
+    uri_text = '\n'.join(compatible_uris)
     encoded = base64.b64encode(uri_text.encode('utf-8')).decode('utf-8')
     return encoded
 
