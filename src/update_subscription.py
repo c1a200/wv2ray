@@ -309,6 +309,40 @@ def _proxy_to_ssr_uri(proxy: dict) -> str:
     return f'ssr://{encoded}'
 
 
+def _proxy_to_http_uri(proxy: dict) -> str:
+    """将 Clash http 节点转换为简易 URI 格式（v2rayN 可识别）。"""
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+    username = proxy.get('username', '')
+    password = proxy.get('password', '')
+    tls = proxy.get('tls', False)
+
+    scheme = 'https' if tls else 'http'
+    if username and password:
+        userinfo = f'{urllib.parse.quote(username)}:{urllib.parse.quote(password)}@'
+    else:
+        userinfo = ''
+
+    return f'{scheme}://{userinfo}{server}:{port}#{name}'
+
+
+def _proxy_to_socks5_uri(proxy: dict) -> str:
+    """将 Clash socks5 节点转换为 socks5:// URI。"""
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+    username = proxy.get('username', '')
+    password = proxy.get('password', '')
+
+    if username and password:
+        userinfo = f'{urllib.parse.quote(username)}:{urllib.parse.quote(password)}@'
+    else:
+        userinfo = ''
+
+    return f'socks5://{userinfo}{server}:{port}#{name}'
+
+
 def _clash_proxies_to_v2ray_uris(content: str) -> str:
     """将 Clash YAML 格式的 proxies 列表转换为 v2rayNG 订阅格式（base64 编码的 URI 列表）。"""
     # 去除 BOM
@@ -346,8 +380,12 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
                 uris.append(_proxy_to_hysteria2_uri(proxy))
             elif proxy_type == 'ssr':
                 uris.append(_proxy_to_ssr_uri(proxy))
-            elif proxy_type in ('http', 'socks5', 'anytls'):
-                # 这些协议没有通用的 URI 分享格式，跳过
+            elif proxy_type == 'http':
+                uris.append(_proxy_to_http_uri(proxy))
+            elif proxy_type == 'socks5':
+                uris.append(_proxy_to_socks5_uri(proxy))
+            elif proxy_type == 'anytls':
+                # anytls 暂无标准 URI 分享格式，跳过
                 skipped += 1
             else:
                 skipped += 1
