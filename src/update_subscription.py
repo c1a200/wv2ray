@@ -7,9 +7,12 @@
 import json
 import sys
 import os
+import base64
+import urllib.parse
 from pathlib import Path
 from datetime import datetime
 
+import yaml
 import requests
 
 # 添加 src 目录到路径
@@ -43,6 +46,364 @@ def _fetch_direct_content(url: str) -> str:
     if not content.strip():
         raise Exception(f'直接抓取返回空内容: {url}')
     return content
+
+
+# FlClash / Clash 内核要求配置文件顶部包含这些基础字段
+_CLASH_REQUIRED_HEADER = """\
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+"""
+
+
+def _ensure_clash_headers(content: str) -> str:
+    """确保 clash 配置包含必要的顶级字段。
+
+    如果上游返回的内容直接以 proxies: 开头（缺少 port/mode 等），
+    则自动补充默认 Clash 配置头部，使 FlClash 等客户端能正确识别。
+    同时去除可能存在的 UTF-8 BOM。
+    """
+    # 去除 BOM（如果存在）
+    content = content.lstrip('\ufeff')
+
+    # 检查是否已包含关键顶级字段
+    stripped = content.lstrip()
+    has_port = stripped.startswith('port:') or '\nport:' in content
+    has_mode = '\nmode:' in content or stripped.startswith('mode:')
+
+    if has_port and has_mode:
+        # 已经包含完整头部，直接返回
+        return content
+
+    # 缺少头部，补充默认配置
+    print("⚠️ 上游 clash 内容缺少必要头部字段，自动补充默认配置...")
+    return _CLASH_REQUIRED_HEADER + content
+
+
+def _is_valid_v2ray_subscription(content: str) -> bool:
+    """判断内容是否是有效的 v2rayNG 订阅格式。
+
+    有效格式：
+    1. Base64 编码的 URI 列表（解码后每行是 vmess://、vless://、trojan://、ss:// 等）
+    2. 纯文本 URI 列表（每行以协议前缀开头）
+    """
+    stripped = content.strip()
+
+    # 如果以 proxies: 开头，说明是 Clash YAML 格式，不是 v2ray 格式
+    if stripped.startswith('proxies:'):
+        return False
+
+    # 检查是否是纯文本 URI 列表
+    first_line = stripped.split('\n')[0].strip()
+    v2ray_prefixes = ('vmess://', 'vless://', 'trojan://', 'ss://', 'ssr://',
+                      'hysteria2://', 'hysteria://', 'hy2://')
+    if first_line.startswith(v2ray_prefixes):
+        return True
+
+    # 尝试 base64 解码
+    try:
+        # 补齐 base64 padding
+        padded = stripped + '=' * (-len(stripped) % 4)
+        decoded = base64.b64decode(padded).decode('utf-8', errors='replace')
+        first_decoded_line = decoded.split('\n')[0].strip()
+        if first_decoded_line.startswith(v2ray_prefixes):
+            return True
+    except Exception:
+        pass
+
+    return False
+
+
+def _proxy_to_vmess_uri(proxy: dict) -> str:
+    """将 Clash vmess 节点转换为 vmess:// URI。"""
+    vmess_obj = {
+        'v': '2',
+        'ps': proxy.get('name', ''),
+        'add': proxy.get('server', ''),
+        'port': str(proxy.get('port', '')),
+        'id': proxy.get('uuid', ''),
+        'aid': str(proxy.get('alterId', 0)),
+        'scy': proxy.get('cipher', 'auto'),
+        'net': proxy.get('network', 'tcp'),
+        'type': 'none',
+        'host': '',
+        'path': '',
+        'tls': 'tls' if proxy.get('tls') else '',
+        'sni': proxy.get('servername', ''),
+    }
+
+    ws_opts = proxy.get('ws-opts', {})
+    if ws_opts:
+        vmess_obj['path'] = ws_opts.get('path', '')
+        headers = ws_opts.get('headers', {})
+        vmess_obj['host'] = headers.get('Host', '')
+
+    grpc_opts = proxy.get('grpc-opts', {})
+    if grpc_opts:
+        vmess_obj['path'] = grpc_opts.get('grpc-service-name', '')
+
+    encoded = base64.b64encode(
+        json.dumps(vmess_obj, ensure_ascii=False).encode('utf-8')
+    ).decode('utf-8')
+    return f'vmess://{encoded}'
+
+
+def _proxy_to_vless_uri(proxy: dict) -> str:
+    """将 Clash vless 节点转换为 vless:// URI。"""
+    uuid = proxy.get('uuid', '')
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+
+    params = {}
+    if proxy.get('tls'):
+        params['security'] = 'tls'
+    if proxy.get('reality-opts'):
+        params['security'] = 'reality'
+        reality = proxy['reality-opts']
+        if reality.get('public-key'):
+            params['pbk'] = reality['public-key']
+        if reality.get('short-id'):
+            params['sid'] = reality['short-id']
+    if proxy.get('flow'):
+        params['flow'] = proxy['flow']
+    if proxy.get('network'):
+        params['type'] = proxy['network']
+    if proxy.get('servername'):
+        params['sni'] = proxy['servername']
+    if proxy.get('client-fingerprint'):
+        params['fp'] = proxy['client-fingerprint']
+
+    ws_opts = proxy.get('ws-opts', {})
+    if ws_opts:
+        params['path'] = ws_opts.get('path', '')
+        headers = ws_opts.get('headers', {})
+        if headers.get('Host'):
+            params['host'] = headers['Host']
+
+    grpc_opts = proxy.get('grpc-opts', {})
+    if grpc_opts:
+        params['serviceName'] = grpc_opts.get('grpc-service-name', '')
+
+    if proxy.get('skip-cert-verify'):
+        params['allowInsecure'] = '1'
+
+    query = urllib.parse.urlencode(params)
+    return f'vless://{uuid}@{server}:{port}?{query}#{name}'
+
+
+def _proxy_to_trojan_uri(proxy: dict) -> str:
+    """将 Clash trojan 节点转换为 trojan:// URI。"""
+    password = urllib.parse.quote(str(proxy.get('password', '')), safe='')
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+
+    params = {}
+    if proxy.get('sni'):
+        params['sni'] = proxy['sni']
+    if proxy.get('skip-cert-verify'):
+        params['allowInsecure'] = '1'
+    if proxy.get('network') == 'ws':
+        params['type'] = 'ws'
+        ws_opts = proxy.get('ws-opts', {})
+        if ws_opts.get('path'):
+            params['path'] = ws_opts['path']
+        headers = ws_opts.get('headers', {})
+        if headers.get('Host'):
+            params['host'] = headers['Host']
+
+    query = urllib.parse.urlencode(params)
+    return f'trojan://{password}@{server}:{port}?{query}#{name}'
+
+
+def _proxy_to_ss_uri(proxy: dict) -> str:
+    """将 Clash ss 节点转换为 ss:// URI。"""
+    cipher = proxy.get('cipher', '')
+    password = proxy.get('password', '')
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+
+    # ss:// 格式: base64(method:password)@server:port#name
+    user_info = base64.b64encode(
+        f'{cipher}:{password}'.encode('utf-8')
+    ).decode('utf-8').rstrip('=')
+
+    plugin = proxy.get('plugin', '')
+    plugin_opts = proxy.get('plugin-opts', {})
+    if plugin:
+        plugin_str = f'{plugin};'
+        opts_parts = []
+        for k, v in plugin_opts.items():
+            opts_parts.append(f'{k}={v}')
+        plugin_str += ';'.join(opts_parts)
+        plugin_param = urllib.parse.quote(plugin_str)
+        return f'ss://{user_info}@{server}:{port}?plugin={plugin_param}#{name}'
+
+    return f'ss://{user_info}@{server}:{port}#{name}'
+
+
+def _proxy_to_hysteria2_uri(proxy: dict) -> str:
+    """将 Clash hysteria2 节点转换为 hysteria2:// URI。"""
+    password = urllib.parse.quote(str(proxy.get('password', '')), safe='')
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+
+    params = {}
+    if proxy.get('sni'):
+        params['sni'] = proxy['sni']
+    if proxy.get('skip-cert-verify'):
+        params['insecure'] = '1'
+    if proxy.get('obfs') == 'salamander':
+        params['obfs'] = 'salamander'
+        if proxy.get('obfs-password'):
+            params['obfs-password'] = proxy['obfs-password']
+    if proxy.get('ports'):
+        params['mport'] = proxy['ports']
+
+    query = urllib.parse.urlencode(params)
+    return f'hysteria2://{password}@{server}:{port}?{query}#{name}'
+
+
+def _proxy_to_ssr_uri(proxy: dict) -> str:
+    """将 Clash ssr 节点转换为 ssr:// URI。"""
+    server = proxy.get('server', '')
+    port = str(proxy.get('port', ''))
+    protocol = proxy.get('protocol', 'origin')
+    cipher = proxy.get('cipher', '')
+    obfs = proxy.get('obfs', 'plain')
+    password = proxy.get('password', '')
+
+    # SSR URI: base64(server:port:protocol:method:obfs:base64(password)/
+    #   ?obfsparam=base64(obfs-param)&protoparam=base64(proto-param)&remarks=base64(name))
+    def b64_encode(s):
+        return base64.urlsafe_b64encode(
+            s.encode('utf-8')
+        ).decode('utf-8').rstrip('=')
+
+    password_b64 = b64_encode(password)
+    main_part = f'{server}:{port}:{protocol}:{cipher}:{obfs}:{password_b64}'
+
+    params_parts = []
+    obfs_param = proxy.get('obfs-param', '')
+    if obfs_param:
+        params_parts.append(f'obfsparam={b64_encode(obfs_param)}')
+    proto_param = proxy.get('protocol-param', '')
+    if proto_param:
+        params_parts.append(f'protoparam={b64_encode(proto_param)}')
+    name = proxy.get('name', '')
+    if name:
+        params_parts.append(f'remarks={b64_encode(name)}')
+
+    if params_parts:
+        main_part += '/?' + '&'.join(params_parts)
+
+    encoded = base64.urlsafe_b64encode(
+        main_part.encode('utf-8')
+    ).decode('utf-8').rstrip('=')
+    return f'ssr://{encoded}'
+
+
+def _proxy_to_http_uri(proxy: dict) -> str:
+    """将 Clash http 节点转换为简易 URI 格式（v2rayN 可识别）。"""
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+    username = proxy.get('username', '')
+    password = proxy.get('password', '')
+    tls = proxy.get('tls', False)
+
+    scheme = 'https' if tls else 'http'
+    if username and password:
+        userinfo = f'{urllib.parse.quote(username)}:{urllib.parse.quote(password)}@'
+    else:
+        userinfo = ''
+
+    return f'{scheme}://{userinfo}{server}:{port}#{name}'
+
+
+def _proxy_to_socks5_uri(proxy: dict) -> str:
+    """将 Clash socks5 节点转换为 socks5:// URI。"""
+    server = proxy.get('server', '')
+    port = proxy.get('port', '')
+    name = urllib.parse.quote(proxy.get('name', ''))
+    username = proxy.get('username', '')
+    password = proxy.get('password', '')
+
+    if username and password:
+        userinfo = f'{urllib.parse.quote(username)}:{urllib.parse.quote(password)}@'
+    else:
+        userinfo = ''
+
+    return f'socks5://{userinfo}{server}:{port}#{name}'
+
+
+def _clash_proxies_to_v2ray_uris(content: str) -> str:
+    """将 Clash YAML 格式的 proxies 列表转换为 v2rayNG 订阅格式（base64 编码的 URI 列表）。"""
+    # 去除 BOM
+    content = content.lstrip('\ufeff')
+
+    try:
+        data = yaml.safe_load(content)
+    except Exception as e:
+        print(f"⚠️ YAML 解析失败，尝试手动提取 proxies: {e}")
+        return content
+
+    proxies = data if isinstance(data, list) else data.get('proxies', [])
+    if not proxies:
+        print("⚠️ 未找到 proxies 列表，返回原始内容")
+        return content
+
+    uris = []
+    skipped = 0
+    for proxy in proxies:
+        if not isinstance(proxy, dict):
+            skipped += 1
+            continue
+
+        proxy_type = proxy.get('type', '').lower()
+        try:
+            if proxy_type == 'vmess':
+                uris.append(_proxy_to_vmess_uri(proxy))
+            elif proxy_type == 'vless':
+                uris.append(_proxy_to_vless_uri(proxy))
+            elif proxy_type == 'trojan':
+                uris.append(_proxy_to_trojan_uri(proxy))
+            elif proxy_type == 'ss':
+                uris.append(_proxy_to_ss_uri(proxy))
+            elif proxy_type in ('hysteria2', 'hy2', 'hysteria'):
+                uris.append(_proxy_to_hysteria2_uri(proxy))
+            elif proxy_type == 'ssr':
+                uris.append(_proxy_to_ssr_uri(proxy))
+            elif proxy_type == 'http':
+                uris.append(_proxy_to_http_uri(proxy))
+            elif proxy_type == 'socks5':
+                uris.append(_proxy_to_socks5_uri(proxy))
+            elif proxy_type == 'anytls':
+                # anytls 暂无标准 URI 分享格式，跳过
+                skipped += 1
+            else:
+                skipped += 1
+        except Exception as e:
+            skipped += 1
+            continue
+
+    print(f"✓ 已转换 {len(uris)} 个节点为 v2ray URI 格式"
+          f"（跳过 {skipped} 个不支持的节点）")
+
+    if not uris:
+        print("⚠️ 无法转换任何节点，返回原始内容")
+        return content
+
+    # v2rayNG 订阅格式：所有 URI 用换行连接，然后整体 base64 编码
+    uri_text = '\n'.join(uris)
+    encoded = base64.b64encode(uri_text.encode('utf-8')).decode('utf-8')
+    return encoded
 
 
 def _fetch_issue_variant() -> dict:
@@ -150,13 +511,21 @@ def save_subscription_files(output_dir: str = '.'):
             fetched_at = info['fetched_at']
 
         v2_file = output_path / 'subscribe.txt'
-        v2_file.write_text(v2ray_content, encoding='utf-8')
+        # 检测 v2ray 内容格式，如果是 Clash YAML 则自动转换为 v2rayNG 格式
+        if _is_valid_v2ray_subscription(v2ray_content):
+            v2_final_content = v2ray_content
+            print("✓ v2ray 内容已是有效的订阅格式")
+        else:
+            print("⚠️ 上游 v2ray 源返回了 Clash 格式，自动转换为 v2rayNG 订阅格式...")
+            v2_final_content = _clash_proxies_to_v2ray_uris(v2ray_content)
+        v2_file.write_text(v2_final_content, encoding='utf-8')
         print(f"✓ v2ray 订阅文件已保存: {v2_file}")
 
         clash_file = output_path / 'clash.yaml'
-        # 为了确保客户端正确识别为 UTF-8（特别是在某些系统上默认为 ANSI），
-        # 添加 UTF-8 BOM (byte order mark)
-        clash_file.write_bytes(b'\xef\xbb\xbf' + clash_content.encode('utf-8'))
+        # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
+        clash_final_content = _ensure_clash_headers(clash_content)
+        # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
+        clash_file.write_text(clash_final_content, encoding='utf-8')
         print(f"✓ clash 订阅文件已保存: {clash_file}")
 
         # 额外生成 issue 版本：subscribe1.txt / clash1.yaml
@@ -172,16 +541,26 @@ def save_subscription_files(output_dir: str = '.'):
                 issue_variant = _fetch_issue_variant()
 
                 v2_file_issue = output_path / 'subscribe1.txt'
+                issue_v2_content = issue_variant['v2ray_content']
+                if _is_valid_v2ray_subscription(issue_v2_content):
+                    v2_final_issue = issue_v2_content
+                else:
+                    print("⚠️ issue v2ray 源也返回了 Clash 格式，自动转换...")
+                    v2_final_issue = _clash_proxies_to_v2ray_uris(
+                        issue_v2_content
+                    )
                 v2_file_issue.write_text(
-                    issue_variant['v2ray_content'],
+                    v2_final_issue,
                     encoding='utf-8',
                 )
                 print(f"✓ issue v2ray 订阅文件已保存: {v2_file_issue}")
 
                 clash_file_issue = output_path / 'clash1.yaml'
-                clash_file_issue.write_bytes(
-                    b'\xef\xbb\xbf'
-                    + issue_variant['clash_content'].encode('utf-8')
+                clash_final_issue = _ensure_clash_headers(
+                    issue_variant['clash_content']
+                )
+                clash_file_issue.write_text(
+                    clash_final_issue, encoding='utf-8'
                 )
                 print(f"✓ issue clash 订阅文件已保存: {clash_file_issue}")
                 issue_variant_status = 'ok'
