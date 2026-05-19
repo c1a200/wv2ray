@@ -63,8 +63,8 @@ def _optimize_proxy_groups(content: str) -> str:
     """优化 Clash 配置中的 proxy-groups 结构。
 
     改动：
-    1. 「节点选择」改为 include-all，既能选地区组也能直接选节点
-    2. 去掉「手动切换」（功能被合并到「节点选择」中）
+    1. 「节点选择」改为 include-all，可直接选具体节点
+    2. 「手动切换」改名为「地区选择」，只保留地区分组作为选项
     3. 各地区组保持按名称过滤 + url-test（地区内自动测速选最快）
     4. 「自动选择」保持 include-all + url-test（全局最快）
     """
@@ -82,37 +82,50 @@ def _optimize_proxy_groups(content: str) -> str:
 
     # 找到「节点选择」和「手动切换」
     select_group = None
+    manual_group = None
     manual_group_name = None
     for g in groups:
         name = g.get('name', '')
         if '节点选择' in name:
             select_group = g
         if '手动切换' in name:
+            manual_group = g
             manual_group_name = name
 
-    if select_group:
-        # 把「节点选择」改为 include-all，保留地区组作为快捷入口
-        select_group['include-all'] = True
-        # 确保 proxies 列表中去掉「手动切换」引用
-        if 'proxies' in select_group and manual_group_name:
-            select_group['proxies'] = [
-                p for p in select_group['proxies']
-                if p != manual_group_name
-            ]
+    # 收集地区组名称（用于「地区选择」的 proxies 列表）
+    region_keywords = ('香港', '台湾', '狮城', '新加坡', '日本', '美国',
+                       '韩国', '英国', '德国', '澳大利亚', '加拿大',
+                       'HK', 'TW', 'SG', 'JP', 'US', 'KR')
+    region_group_names = []
+    for g in groups:
+        name = g.get('name', '')
+        if any(kw in name for kw in region_keywords) and '节点' in name:
+            region_group_names.append(name)
 
-    # 从所有组中移除「手动切换」的引用，然后删除「手动切换」组本身
+    if select_group:
+        # 把「节点选择」改为 include-all，可直接选具体节点
+        select_group['include-all'] = True
+        # proxies 只保留：自动选择、DIRECT（不再引用地区选择，避免重复）
+        select_group['proxies'] = ['♻️ 自动选择', 'DIRECT']
+
+    if manual_group:
+        # 把「手动切换」改名为「地区选择」，只包含地区分组
+        manual_group['name'] = '🌍 地区选择'
+        manual_group['type'] = 'select'
+        # 移除 include-all，改为手动列出地区组
+        manual_group.pop('include-all', None)
+        manual_group['proxies'] = region_group_names if region_group_names else [
+            '♻️ 自动选择'
+        ]
+
+    # 更新所有引用「手动切换」的地方为「地区选择」
     if manual_group_name:
         for g in groups:
             if 'proxies' in g:
                 g['proxies'] = [
-                    p for p in g['proxies']
-                    if p != manual_group_name
+                    '🌍 地区选择' if p == manual_group_name else p
+                    for p in g['proxies']
                 ]
-        # 删除「手动切换」组
-        data['proxy-groups'] = [
-            g for g in groups
-            if '手动切换' not in g.get('name', '')
-        ]
 
     return yaml.dump(data, allow_unicode=True, default_flow_style=False,
                      sort_keys=False, width=1000)
