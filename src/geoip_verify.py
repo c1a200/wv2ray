@@ -123,6 +123,7 @@ def verify_and_fix_proxies(proxies: list) -> list:
 
     fixed_count = 0
     failed_count = 0
+    skipped_cdn = 0
 
     for proxy in proxies:
         if not isinstance(proxy, dict):
@@ -130,6 +131,11 @@ def verify_and_fix_proxies(proxies: list) -> list:
 
         server = proxy.get('server', '')
         if not server:
+            continue
+
+        # 跳过 CDN/Anycast 域名，这些 IP 不代表实际落地位置
+        if _is_cdn_domain(server):
+            skipped_cdn += 1
             continue
 
         # 解析 IP
@@ -176,8 +182,31 @@ def verify_and_fix_proxies(proxies: list) -> list:
 
     reader.close()
     print(f"✓ GeoIP 验证完成: 纠正 {fixed_count} 个节点名称"
-          f"（{failed_count} 个无法解析）")
+          f"（{failed_count} 个无法解析，{skipped_cdn} 个 CDN 跳过）")
     return proxies
+
+
+# CDN/Anycast 域名关键词，这些域名的 IP 不代表节点实际落地位置
+_CDN_KEYWORDS = (
+    'cloudflare', 'cdn', 'cf.', 'workers.dev', 'pages.dev',
+    'fastly', 'akamai', 'cloudfront', 'azure', 'gcore',
+    'jsdelivr', 'vercel', 'netlify', 'fly.dev',
+    'shopify.com', 'visa.com', 'microsoft.com', 'apple.com',
+    'amazon', 'aws', 'google', 'gstatic',
+    'one.dash.cloudflare.com', 'singapore.com', 'docker.',
+    '104.16.', '104.17.', '104.18.', '104.19.', '104.20.',
+    '104.21.', '104.22.', '104.23.', '104.24.', '104.25.',
+    '162.159.', '172.67.', '141.101.',
+)
+
+
+def _is_cdn_domain(server: str) -> bool:
+    """判断 server 是否是 CDN/Anycast 域名或 IP，不适合做 GeoIP 判断。"""
+    server_lower = server.lower()
+    for keyword in _CDN_KEYWORDS:
+        if keyword in server_lower:
+            return True
+    return False
 
 
 def _detect_country_from_name(name: str) -> str:

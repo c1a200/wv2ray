@@ -97,7 +97,7 @@ def _optimize_proxy_groups(content: str) -> str:
     改动：
     1. 「节点选择」改为 include-all，可直接选具体节点
     2. 「手动切换」改名为「地区选择」，只保留地区分组作为选项
-    3. 各地区组保持按名称过滤 + url-test（地区内自动测速选最快）
+    3. 各地区组根据节点修正后的名称重新匹配 filter
     4. 「自动选择」保持 include-all + url-test（全局最快）
     """
     try:
@@ -158,6 +158,35 @@ def _optimize_proxy_groups(content: str) -> str:
                     '🌍 地区选择' if p == manual_group_name else p
                     for p in g['proxies']
                 ]
+
+    # 重建地区组的 filter 规则，确保 GeoIP 纠正后的节点归入正确分组
+    # 地区组名 → 匹配的关键词（用于节点名称匹配）
+    region_filter_map = {
+        '香港': '(?i)香港|HK|Hong',
+        '台湾': '(?i)台湾|TW|Taiwan',
+        '日本': '(?i)日本|JP|Japan',
+        '韩国': '(?i)韩国|KR|Korea',
+        '狮城': '(?i)新加坡|狮城|SG|Singapore',
+        '新加坡': '(?i)新加坡|狮城|SG|Singapore',
+        '美国': '(?i)美国|US|United States',
+        '英国': '(?i)英国|GB|UK|United Kingdom',
+        '德国': '(?i)德国|DE|Germany',
+        '澳大利亚': '(?i)澳大利亚|AU|Australia',
+        '加拿大': '(?i)加拿大|CA|Canada',
+    }
+
+    for g in data['proxy-groups']:
+        name = g.get('name', '')
+        if '节点' not in name:
+            continue
+        # 找到这个地区组对应的 filter 关键词
+        for region_key, filter_pattern in region_filter_map.items():
+            if region_key in name:
+                g['filter'] = filter_pattern
+                # 确保使用 include-all 而非 proxies 列表
+                g['include-all'] = True
+                g.pop('proxies', None)
+                break
 
     return yaml.dump(data, allow_unicode=True, default_flow_style=False,
                      sort_keys=False, width=1000)
