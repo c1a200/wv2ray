@@ -59,6 +59,38 @@ external-controller: 127.0.0.1:9090
 """
 
 
+def _geoip_fix_clash(content: str) -> str:
+    """使用 GeoIP 验证 Clash 配置中的节点，纠正名称和分组归属。"""
+    try:
+        from geoip_verify import verify_and_fix_proxies
+    except ImportError:
+        print("⚠️ geoip_verify 模块不可用，跳过 GeoIP 验证")
+        return content
+
+    try:
+        data = yaml.safe_load(content)
+    except Exception:
+        return content
+
+    if not isinstance(data, dict) or 'proxies' not in data:
+        return content
+
+    proxies = data['proxies']
+    if not proxies:
+        return content
+
+    print("🌍 正在进行 GeoIP 验证...")
+    data['proxies'] = verify_and_fix_proxies(proxies)
+
+    # 清理内部标记字段
+    for p in data['proxies']:
+        if isinstance(p, dict):
+            p.pop('_real_country', None)
+
+    return yaml.dump(data, allow_unicode=True, default_flow_style=False,
+                     sort_keys=False, width=1000)
+
+
 def _optimize_proxy_groups(content: str) -> str:
     """优化 Clash 配置中的 proxy-groups 结构。
 
@@ -604,6 +636,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_file = output_path / 'clash.yaml'
         # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
         clash_final_content = _ensure_clash_headers(clash_content)
+        # GeoIP 验证并纠正节点名称和分组
+        clash_final_content = _geoip_fix_clash(clash_final_content)
         # 优化 proxy-groups 结构
         clash_final_content = _optimize_proxy_groups(clash_final_content)
         # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
