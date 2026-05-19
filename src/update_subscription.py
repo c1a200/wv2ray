@@ -59,6 +59,65 @@ external-controller: 127.0.0.1:9090
 """
 
 
+def _optimize_proxy_groups(content: str) -> str:
+    """优化 Clash 配置中的 proxy-groups 结构。
+
+    改动：
+    1. 「节点选择」改为 include-all，既能选地区组也能直接选节点
+    2. 去掉「手动切换」（功能被合并到「节点选择」中）
+    3. 各地区组保持按名称过滤 + url-test（地区内自动测速选最快）
+    4. 「自动选择」保持 include-all + url-test（全局最快）
+    """
+    try:
+        data = yaml.safe_load(content)
+    except Exception:
+        return content
+
+    if not isinstance(data, dict) or 'proxy-groups' not in data:
+        return content
+
+    groups = data['proxy-groups']
+    if not groups:
+        return content
+
+    # 找到「节点选择」和「手动切换」
+    select_group = None
+    manual_group_name = None
+    for g in groups:
+        name = g.get('name', '')
+        if '节点选择' in name:
+            select_group = g
+        if '手动切换' in name:
+            manual_group_name = name
+
+    if select_group:
+        # 把「节点选择」改为 include-all，保留地区组作为快捷入口
+        select_group['include-all'] = True
+        # 确保 proxies 列表中去掉「手动切换」引用
+        if 'proxies' in select_group and manual_group_name:
+            select_group['proxies'] = [
+                p for p in select_group['proxies']
+                if p != manual_group_name
+            ]
+
+    # 从所有组中移除「手动切换」的引用，然后删除「手动切换」组本身
+    if manual_group_name:
+        for g in groups:
+            if 'proxies' in g:
+                g['proxies'] = [
+                    p for p in g['proxies']
+                    if p != manual_group_name
+                ]
+        # 删除「手动切换」组
+        data['proxy-groups'] = [
+            g for g in groups
+            if '手动切换' not in g.get('name', '')
+        ]
+
+    return yaml.dump(data, allow_unicode=True, default_flow_style=False,
+                     sort_keys=False, width=1000)
+
+
 def _ensure_clash_headers(content: str) -> str:
     """确保 clash 配置包含必要的顶级字段。
 
@@ -532,6 +591,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_file = output_path / 'clash.yaml'
         # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
         clash_final_content = _ensure_clash_headers(clash_content)
+        # 优化 proxy-groups 结构
+        clash_final_content = _optimize_proxy_groups(clash_final_content)
         # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
         clash_file.write_text(clash_final_content, encoding='utf-8')
         print(f"✓ clash 订阅文件已保存: {clash_file}")
@@ -567,6 +628,7 @@ def save_subscription_files(output_dir: str = '.'):
                 clash_final_issue = _ensure_clash_headers(
                     issue_variant['clash_content']
                 )
+                clash_final_issue = _optimize_proxy_groups(clash_final_issue)
                 clash_file_issue.write_text(
                     clash_final_issue, encoding='utf-8'
                 )
