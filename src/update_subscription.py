@@ -651,27 +651,29 @@ def save_subscription_files(output_dir: str = '.'):
 
             fetched_at = info['fetched_at']
 
+        # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
+        clash_final_content = _ensure_clash_headers(clash_content)
+        # GeoIP 验证并纠正节点名称（只跑一次，clash 和 subscribe 共享结果）
+        clash_final_content = _geoip_fix_clash(clash_final_content)
+        # 优化 proxy-groups 结构
+        clash_final_content = _optimize_proxy_groups(clash_final_content)
+
+        # 保存 clash.yaml
+        clash_file = output_path / 'clash.yaml'
+        clash_file.write_text(clash_final_content, encoding='utf-8')
+        print(f"✓ clash 订阅文件已保存: {clash_file}")
+
+        # 生成 subscribe.txt（从 GeoIP 修正后的 clash 数据转换）
         v2_file = output_path / 'subscribe.txt'
-        # 检测 v2ray 内容格式，如果是 Clash YAML 则自动转换为 v2rayNG 格式
         if _is_valid_v2ray_subscription(v2ray_content):
             v2_final_content = v2ray_content
             print("✓ v2ray 内容已是有效的订阅格式")
         else:
-            print("⚠️ 上游 v2ray 源返回了 Clash 格式，自动转换为 v2rayNG 订阅格式...")
-            v2_final_content = _clash_proxies_to_v2ray_uris(v2ray_content)
+            print("⚠️ 上游 v2ray 源返回了 Clash 格式，从 GeoIP 修正后的数据转换...")
+            # 用 GeoIP 修正后的 clash 内容生成 subscribe，名称一致
+            v2_final_content = _clash_proxies_to_v2ray_uris(clash_final_content)
         v2_file.write_text(v2_final_content, encoding='utf-8')
         print(f"✓ v2ray 订阅文件已保存: {v2_file}")
-
-        clash_file = output_path / 'clash.yaml'
-        # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
-        clash_final_content = _ensure_clash_headers(clash_content)
-        # GeoIP 验证并纠正节点名称和分组
-        clash_final_content = _geoip_fix_clash(clash_final_content)
-        # 优化 proxy-groups 结构
-        clash_final_content = _optimize_proxy_groups(clash_final_content)
-        # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
-        clash_file.write_text(clash_final_content, encoding='utf-8')
-        print(f"✓ clash 订阅文件已保存: {clash_file}")
 
         # 额外生成 issue 版本：subscribe1.txt / clash1.yaml
         issue_variant_enabled = _env_to_bool(
