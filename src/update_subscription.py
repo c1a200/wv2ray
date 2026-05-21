@@ -59,6 +59,116 @@ external-controller: 127.0.0.1:9090
 """
 
 
+def _ensure_proxy_groups(content: str) -> str:
+    """确保 Clash 配置包含 proxy-groups 和 rules。
+
+    如果上游只返回了 proxies 列表而没有 proxy-groups/rules，
+    自动补充默认的分组和规则，使 FlClash 等客户端能正常使用。
+    """
+    try:
+        data = yaml.safe_load(content)
+    except Exception:
+        return content
+
+    if not isinstance(data, dict):
+        return content
+
+    # 如果已有 proxy-groups，直接返回
+    if data.get('proxy-groups'):
+        return content
+
+    if not data.get('proxies'):
+        return content
+
+    print("⚠️ 上游缺少 proxy-groups/rules，自动补充默认分组...")
+
+    # 生成默认 proxy-groups
+    data['proxy-groups'] = [
+        {
+            'name': '🚀 节点选择',
+            'type': 'select',
+            'include-all': True,
+            'proxies': ['♻️ 自动选择', '🌍 地区选择', 'DIRECT'],
+        },
+        {
+            'name': '🌍 地区选择',
+            'type': 'select',
+            'proxies': ['🇭🇰 香港节点', '🇯🇵 日本节点', '🇺🇸 美国节点',
+                        '🇸🇬 新加坡节点', '🇰🇷 韩国节点', '🇨🇳 台湾节点'],
+        },
+        {
+            'name': '♻️ 自动选择',
+            'type': 'url-test',
+            'include-all': True,
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇭🇰 香港节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)香港|HK|Hong',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇯🇵 日本节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)日本|JP|Japan',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇺🇸 美国节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)美国|US|United States',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇸🇬 新加坡节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)新加坡|狮城|SG|Singapore',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇰🇷 韩国节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)韩国|KR|Korea',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🇨🇳 台湾节点',
+            'type': 'url-test',
+            'include-all': True,
+            'filter': '(?i)台湾|TW|Taiwan',
+            'interval': 300,
+            'tolerance': 50,
+        },
+        {
+            'name': '🎯 全球直连',
+            'type': 'select',
+            'proxies': ['DIRECT', '🚀 节点选择'],
+        },
+    ]
+
+    # 生成默认 rules
+    data['rules'] = [
+        'GEOIP,LAN,DIRECT',
+        'GEOIP,CN,DIRECT',
+        'MATCH,🚀 节点选择',
+    ]
+
+    return yaml.dump(data, allow_unicode=True, default_flow_style=False,
+                     sort_keys=False, width=1000)
+
+
 def _optimize_proxy_groups(content: str) -> str:
     """优化 Clash 配置中的 proxy-groups 结构。
 
@@ -604,6 +714,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_file = output_path / 'clash.yaml'
         # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
         clash_final_content = _ensure_clash_headers(clash_content)
+        # 确保包含 proxy-groups 和 rules（上游可能只返回 proxies 列表）
+        clash_final_content = _ensure_proxy_groups(clash_final_content)
         # 优化 proxy-groups 结构
         clash_final_content = _optimize_proxy_groups(clash_final_content)
         # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
