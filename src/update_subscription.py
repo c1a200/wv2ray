@@ -290,7 +290,13 @@ def _is_valid_v2ray_subscription(content: str) -> bool:
         # 补齐 base64 padding
         padded = stripped + '=' * (-len(stripped) % 4)
         decoded = base64.b64decode(padded).decode('utf-8', errors='replace')
-        first_decoded_line = decoded.split('\n')[0].strip()
+        # 跳过空行找第一个有效行
+        for line in decoded.split('\n'):
+            first_decoded_line = line.strip()
+            if first_decoded_line:
+                break
+        else:
+            first_decoded_line = ''
         if first_decoded_line.startswith(v2ray_prefixes):
             return True
     except Exception:
@@ -536,7 +542,9 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
         print(f"⚠️ YAML 解析失败，尝试手动提取 proxies: {e}")
         return content
 
-    proxies = data if isinstance(data, list) else data.get('proxies', [])
+    proxies = data if isinstance(data, list) else (
+        data.get('proxies', []) if isinstance(data, dict) else []
+    )
     if not proxies:
         print("⚠️ 未找到 proxies 列表，返回原始内容")
         return content
@@ -544,6 +552,13 @@ def _clash_proxies_to_v2ray_uris(content: str) -> str:
     uris = []
     skipped = 0
     for proxy in proxies:
+        # 有些上游返回的 proxies 元素是 JSON 字符串而非字典，需要解析
+        if isinstance(proxy, str):
+            try:
+                proxy = json.loads(proxy)
+            except (json.JSONDecodeError, TypeError):
+                skipped += 1
+                continue
         if not isinstance(proxy, dict):
             skipped += 1
             continue
