@@ -5,41 +5,6 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🇳🇱 荷兰 | 不加速 | 1倍-1
-  type: anytls
-  server: free.nl1.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free.nl1.laodavip.com
-- name: 🇺🇸 美国01 | 不加速 | 1倍-2
-  type: anytls
-  server: free.us1.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free.us1.laodavip.com
-- name: 🇺🇸 美国02 | 不加速 | 1倍-3
-  type: anytls
-  server: free-us02.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free-us02.laodavip.com
-- name: 🇮🇹 意大利 | 不加速 | 1倍-4
-  type: anytls
-  server: free.it1.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free.it1.laodavip.com
-- name: 🇨🇭 瑞士 | 不加速 | 1倍-5
-  type: anytls
-  server: free.ch1.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free.ch1.laodavip.com
 - name: 🇭🇰 香港HK-6
   type: vmess
   server: 4.w.x.b.t.q.5.9.6.hk09-vm5.entry.v51124-3a.qpon
@@ -238,11 +203,6 @@ proxies:
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
   name: 🇸🇬 新加坡SG-29
-- type: http
-  server: 203.69.23.34
-  port: 443
-  tls: true
-  name: 🇨🇳 台湾TW-30
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -1151,16 +1111,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
   udp: true
-- name: 🇰🇷 韩国KR-185
-  server: testkr3.ssv.vc
-  port: 30446
-  type: http
-  username: test
-  password: test.+
-  tls: true
-  skip-cert-verify: true
-  udp: true
-  sni: testkr3.ssv.vc
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -4340,13 +4290,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇷🇴 罗马尼亚RO-515
-  type: http
-  server: 193.176.84.32
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 38.107.232.124
   port: 2053
@@ -4497,13 +4440,6 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: bZ87amPpdG7KuWM62bKtm1KHoowuVjnV8CKtq653ymHcg2dPYcPJfnaQ61stuAjr2ZiLDaqH56XpkxEYuwDzzRrMWieebWGt
-- name: 🇷🇴 罗马尼亚RO-536
-  type: http
-  server: 84.239.14.159
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇩🇪 德国DE-537
   type: trojan
   server: 95.164.53.184
@@ -4691,13 +4627,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-552
-- name: 🇷🇴 罗马尼亚RO-553
-  type: http
-  server: 193.176.84.38
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -4962,13 +4891,6 @@ proxies:
   server: 193.124.183.69
   port: 443
   name: 🇸🇪 瑞典SE-579
-- name: 🇷🇴 罗马尼亚RO-580
-  type: http
-  server: 84.239.14.149
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 81.85.77.14
   port: 2083
@@ -5230,11 +5152,6 @@ proxies:
   client-fingerprint: chrome
   name: 🇩🇪 德国DE-606
   servername: www.microsoft.com
-- type: http
-  server: 178.237.108.214
-  port: 443
-  tls: true
-  name: 🇫🇷 法国FR-608
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -5354,13 +5271,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   network: ws
-- name: 🇷🇴 罗马尼亚RO-619
-  type: http
-  server: 84.239.49.202
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 80.211.249.68
   port: 8443
@@ -5372,13 +5282,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-620
-- name: 🇷🇴 罗马尼亚RO-621
-  type: http
-  server: 84.239.49.254
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 83.147.216.151
   port: 8443
@@ -5474,13 +5377,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-633
-- name: 🇷🇴 罗马尼亚RO-634
-  type: http
-  server: 84.239.49.160
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇩🇪 德国DE-635
   type: trojan
   server: 95.164.123.31
@@ -5525,13 +5421,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   udp: true
-- name: 🇷🇴 罗马尼亚RO-639
-  type: http
-  server: 193.176.84.35
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇻🇳 越南VN-640
   server: 103.186.155.21
   port: 38388
@@ -5603,13 +5492,6 @@ proxies:
   server: 144.31.123.194
   port: 443
   name: 🇩🇪 德国DE-645
-- name: 🇷🇴 罗马尼亚RO-646
-  type: http
-  server: 84.239.49.191
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 77.221.143.56
   port: 8443
@@ -5621,13 +5503,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-647
-- name: 🇷🇴 罗马尼亚RO-648
-  type: http
-  server: 84.239.49.219
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 45.144.51.139
   port: 8443
@@ -5650,13 +5525,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇺🇸 美国US-650
-- name: 🇷🇴 罗马尼亚RO-651
-  type: http
-  server: 84.239.49.242
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 77.221.158.36
   port: 8443
@@ -5668,12 +5536,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-652
-- name: 🇷🇴 罗马尼亚RO-654
-  server: 193.176.84.39
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -5983,13 +5845,6 @@ proxies:
   server: 79.137.196.233
   port: 443
   name: 🇩🇪 德国DE-681
-- name: 🇷🇴 罗马尼亚RO-682
-  type: http
-  server: 84.239.49.40
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇯🇵 日本JP-683
   server: 150.230.214.172
   type: trojan
@@ -6078,13 +5933,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇮🇹 意大利IT-689
-- name: 🇷🇴 罗马尼亚RO-690
-  type: http
-  server: 84.239.49.156
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 152.53.200.105
   port: 8443
@@ -6117,13 +5965,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   name: 🇺🇸 美国US-693
   skip-cert-verify: false
-- name: 🇷🇴 罗马尼亚RO-694
-  type: http
-  server: 84.239.49.38
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 31.22.10.240
   port: 2053
@@ -6135,13 +5976,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-695
-- name: 🇷🇴 罗马尼亚RO-698
-  type: http
-  server: 84.239.49.154
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 148.253.212.110
   port: 8443
@@ -6214,13 +6048,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-705
-- name: 🇷🇴 罗马尼亚RO-706
-  type: http
-  server: 84.239.49.166
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 77.221.144.41
   port: 8443
@@ -6232,13 +6059,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-708
-- name: 🇷🇴 罗马尼亚RO-709
-  type: http
-  server: 84.239.49.247
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 194.48.140.83
   port: 8443
@@ -6263,13 +6083,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- name: 🇷🇴 罗马尼亚RO-713
-  type: http
-  server: 84.239.49.185
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -6347,12 +6160,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-720
-- name: 🇷🇴 罗马尼亚RO-721
-  server: 84.239.49.253
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
 - name: 🇺🇸 美国US-722
   server: 192.241.210.208
   type: trojan
@@ -6402,13 +6209,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   network: ws
   client-fingerprint: chrome
-- name: 🇷🇴 罗马尼亚RO-727
-  type: http
-  server: 84.239.49.245
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 46.102.156.144
   port: 2053
@@ -6438,20 +6238,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇷🇴 罗马尼亚RO-733
-  type: http
-  server: 84.239.49.180
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-734
-  type: http
-  server: 84.239.49.231
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 5.181.134.24
   port: 8443
@@ -6557,13 +6343,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- name: 🇷🇴 罗马尼亚RO-749
-  type: http
-  server: 84.239.49.211
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇺🇸 美国US-750
   server: 173.249.198.100
   port: 443
@@ -6653,13 +6432,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-758
-- name: 🇷🇴 罗马尼亚RO-760
-  type: http
-  server: 84.239.49.233
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇩🇪 德国DE-761
   server: 23.168.72.17
   type: trojan
@@ -6687,19 +6459,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   network: ws
   client-fingerprint: chrome
-- name: 🇷🇴 罗马尼亚RO-764
-  server: 84.239.49.198
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
-- name: 🇷🇴 罗马尼亚RO-765
-  type: http
-  server: 84.239.49.155
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇳🇱 荷兰NL-766
   type: trojan
   server: 138.124.241.133
@@ -6780,12 +6539,6 @@ proxies:
   port: 38388
   server: 103.186.154.184
   type: ss
-- name: 🇷🇴 罗马尼亚RO-775
-  server: 84.239.49.224
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
 - type: trojan
   server: 220.122.102.26
   port: 30017
@@ -6904,13 +6657,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- name: 🇷🇴 罗马尼亚RO-786
-  type: http
-  server: 84.239.49.171
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 89.46.235.32
   port: 8443
@@ -7050,20 +6796,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇷🇴 罗马尼亚RO-799
-  type: http
-  server: 84.239.49.204
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-800
-  type: http
-  server: 84.239.14.154
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇺🇸 美国US-801
   server: 150.136.254.79
   port: 443
@@ -7077,27 +6809,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   udp: true
-- name: 🇷🇴 罗马尼亚RO-802
-  type: http
-  server: 84.239.14.160
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-803
-  type: http
-  server: 84.239.49.159
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-804
-  type: http
-  server: 84.239.49.162
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇱🇹 立陶宛LT-805
   type: trojan
   server: 46.29.234.91
@@ -7160,41 +6871,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-809
-- name: 🇷🇴 罗马尼亚RO-810
-  type: http
-  server: 84.239.49.57
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-811
-  type: http
-  server: 84.239.49.157
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-812
-  type: http
-  server: 84.239.49.161
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-813
-  type: http
-  server: 84.239.14.157
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-- name: 🇷🇴 罗马尼亚RO-814
-  type: http
-  server: 84.239.49.163
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇺🇸 美国US-815
   type: trojan
   network: ws
@@ -7303,13 +6979,6 @@ proxies:
   port: 38388
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   cipher: aes-256-cfb
-- name: 🇷🇴 罗马尼亚RO-828
-  type: http
-  server: 84.239.49.208
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 95.164.55.81
   port: 8443
@@ -7390,13 +7059,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇷🇴 罗马尼亚RO-837
-  type: http
-  server: 84.239.14.146
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇳🇱 荷兰NL-839
   server: 185.220.204.92
   type: trojan
@@ -7432,21 +7094,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-841
-- name: 🇷🇴 罗马尼亚RO-842
-  type: http
-  server: 84.239.14.158
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
-  udp: true
-- name: 🇷🇴 罗马尼亚RO-843
-  type: http
-  server: 84.239.49.187
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - type: trojan
   server: 44.32.224.208
   port: 2053
@@ -7574,13 +7221,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-854
-- name: 🇷🇴 罗马尼亚RO-855
-  type: http
-  server: 84.239.49.244
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
   name: 🇺🇸 美国US-856
@@ -7744,13 +7384,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   name: 🇺🇸 美国US-870
-- name: 🇷🇴 罗马尼亚RO-872
-  type: http
-  server: 193.176.84.34
-  port: 9002
-  skip-cert-verify: true
-  tls: true
-  sni: www.bing.com
 - name: 🇳🇱 荷兰NL-873
   type: trojan
   server: 152.53.200.152
@@ -8077,12 +7710,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-903
-- name: 🇷🇴 罗马尼亚RO-904
-  server: 193.176.84.40
-  port: 9002
-  type: http
-  tls: true
-  skip-cert-verify: true
 - type: trojan
   server: 91.84.127.163
   port: 8443
@@ -9088,31 +8715,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-995
-- name: 🇩🇪 德国DE-996
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  protocol: udp
-  auth-str: dongtaiwang.com
-  up: '500'
-  down: '1000'
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-- name: 🇩🇪 德国DE-998
-  server: 5.83.129.90
-  port: 54177
-  type: hysteria
-  auth-str: dongtaiwang.com
-  up: 500
-  down: 1000
-  protocol: udp
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  udp: true
 - type: vless
   name: 🇭🇰 香港-999
   server: yx-auto-mvp.pages.dev
@@ -10329,20 +9931,6 @@ proxies:
   server: 104.18.32.37
   port: 443
   name: 🇳🇱 荷兰-1092
-- name: 🇲🇾 马来西亚-1094
-  type: http
-  tls: false
-  server: c92910b5-ta1og0-tfeciy-1iddy.my.oshuawei.com
-  port: 31233
-  username: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-  password: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-- name: 🇲🇾 马来西亚-1095
-  type: http
-  tls: false
-  server: 7b7fb5b7-t9zts0-tfeciy-1iddy.my.oshuawei.com
-  port: 31233
-  username: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-  password: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
 - skip-cert-verify: true
   sni: vpn1.rnmcnm.com
   network: ws
@@ -10401,20 +9989,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   name: 🇨🇳 台湾-1105
-- name: 🇨🇳 台湾-1106
-  type: http
-  tls: false
-  server: twmoon1-cdn-route.couldflare-cdn.com
-  port: 1443
-  username: mrwdfNTD8M79LCukCieldrqZWqs=
-  password: exaxgqkKkd0TAMrCxeonWg==
-- name: 🇨🇳 台湾-1107
-  type: http
-  tls: false
-  server: twmoon1-cdn-route.couldflare-cdn.com
-  port: 1443
-  username: mrwdfNTD8M79LCukCieldrqZWqs=
-  password: mrwdfNTD8M79LCukCieldrqZWqs=
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -11007,15 +10581,6 @@ proxies:
   sni: holz3.api3-max.ru
   skip-cert-verify: false
   tfo: false
-- type: hysteria
-  name: 🇩🇪 德国-1187
-  server: '@5.83.129.90'
-  port: 54177
-  protocol: udp
-  sni: apple.com
-  skip-cert-verify: true
-  up: '500'
-  down: '1000'
 - type: vless
   name: 🇺🇸 美国-1194
   server: 144.31.157.163
@@ -13082,23 +12647,6 @@ proxies:
   encryption: none
   servername: www.tradingview.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1409
-  server: staging.lastilhame.monster
-  port: 443
-  uuid: 106d20f6-d70a-40e2-b69b-8e82baf8d117
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: FjcEZNQ8t5E4R04_11T6ghsOutdqwKKrelkuadakoQg
-    short-id: 60500a63ad12
-  network: raw
-  encryption: none
-  servername: www.microsoft.com
-- type: vless
   name: 🇫🇮 Finland, Helsinki | [BL]-1410
   server: 31.59.106.127
   port: 8443
@@ -13535,23 +13083,6 @@ proxies:
     short-id: b531f9a8f53b802e
   network: tcp
   encryption: none
-  servername: de.locklance.lol
-- type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | 🌐 | [BL]-1455
-  server: de.locklance.lol
-  port: 443
-  uuid: be0e7d89-9c35-4950-a460-d3bf5aae5f91
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: 0k2aDh6JSsLCZsO7QUYepYnS_kHAnfmXX18WQBkgxEc
-    short-id: b531f9a8f53b802e
-  network: raw
-  encryption: none
-  client-fingerprint: chrome
   servername: de.locklance.lol
 - type: vless
   name: 🇩🇪 Germany, Karlsruhe (Nordweststadt) | [BL]-1457

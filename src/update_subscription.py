@@ -106,6 +106,80 @@ def _dedup_proxies(content: str) -> str:
     return content
 
 
+def _filter_unsupported_proxies(content: str) -> str:
+    """过滤掉 FlClash/Clash Meta 不支持的代理协议类型。
+
+    FlClash 支持的协议: vmess, vless, trojan, ss, ssr, hysteria2, tuic
+    不支持的协议会导致整个配置文件导入失败（如 "invalid REALITY short ID" 等报错）。
+
+    过滤规则：
+    1. 移除不支持的协议类型: anytls, http, socks5, hysteria (v1)
+    2. 移除 server 字段包含非法字符的节点（如 @）
+    3. 移除 network: raw 的节点（FlClash 不支持）
+    """
+    try:
+        data = yaml.safe_load(content)
+    except Exception:
+        return content
+
+    if not isinstance(data, dict) or 'proxies' not in data:
+        return content
+
+    proxies = data['proxies']
+    if not proxies:
+        return content
+
+    # FlClash/Clash Meta 支持的协议类型
+    SUPPORTED_TYPES = {
+        'vmess', 'vless', 'trojan', 'ss', 'ssr',
+        'hysteria2', 'hy2', 'tuic', 'wireguard',
+    }
+
+    valid = []
+    removed_reasons = {}
+
+    for proxy in proxies:
+        if not isinstance(proxy, dict):
+            continue
+
+        proxy_type = str(proxy.get('type', '')).lower()
+        name = proxy.get('name', '未知')
+
+        # 检查协议类型是否支持
+        if proxy_type not in SUPPORTED_TYPES:
+            reason = f'不支持的协议: {proxy_type}'
+            removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
+            continue
+
+        # 检查 server 字段是否有效
+        server = str(proxy.get('server', ''))
+        if not server or server.startswith('@') or server.startswith("'@"):
+            reason = '无效的 server 地址'
+            removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
+            continue
+
+        # 检查 network: raw（FlClash 不支持）
+        network = str(proxy.get('network', '')).lower()
+        if network == 'raw':
+            reason = '不支持的 network: raw'
+            removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
+            continue
+
+        valid.append(proxy)
+
+    removed_count = len(proxies) - len(valid)
+    if removed_count > 0:
+        print(f"✓ 协议过滤: 移除 {removed_count} 个不兼容节点（保留 {len(valid)} 个）")
+        for reason, count in sorted(removed_reasons.items(),
+                                    key=lambda x: -x[1]):
+            print(f"  - {reason}: {count} 个")
+        data['proxies'] = valid
+        return yaml.dump(data, allow_unicode=True, default_flow_style=False,
+                         sort_keys=False, width=1000)
+
+    return content
+
+
 def _ensure_proxy_groups(content: str) -> str:
     """确保 Clash 配置包含 proxy-groups 和 rules。
 
@@ -778,6 +852,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_final_content = _ensure_clash_headers(clash_content)
         # 去除重复节点
         clash_final_content = _dedup_proxies(clash_final_content)
+        # 过滤掉 FlClash 不支持的协议类型（anytls/http/socks5/hysteria v1 等）
+        clash_final_content = _filter_unsupported_proxies(clash_final_content)
         # 确保包含 proxy-groups 和 rules（上游可能只返回 proxies 列表）
         clash_final_content = _ensure_proxy_groups(clash_final_content)
         # 优化 proxy-groups 结构
@@ -816,6 +892,9 @@ def save_subscription_files(output_dir: str = '.'):
                 clash_file_issue = output_path / 'clash1.yaml'
                 clash_final_issue = _ensure_clash_headers(
                     issue_variant['clash_content']
+                )
+                clash_final_issue = _filter_unsupported_proxies(
+                    clash_final_issue
                 )
                 clash_final_issue = _optimize_proxy_groups(clash_final_issue)
                 clash_file_issue.write_text(
