@@ -879,6 +879,15 @@ def save_subscription_files(output_dir: str = '.'):
         clash_final_content = _ensure_proxy_groups(clash_final_content)
         # 优化 proxy-groups 结构
         clash_final_content = _optimize_proxy_groups(clash_final_content)
+        # 修复 YAML 输出中纯数字 short-id 未加引号的问题
+        # （如 short-id: 09 会被 Clash YAML 1.1 解析器当作无效八进制）
+        import re as _re
+        clash_final_content = _re.sub(
+            r'([ ]+short-id: )(\d+)$',
+            lambda m: f"{m.group(1)}'{m.group(2)}'",
+            clash_final_content,
+            flags=_re.MULTILINE,
+        )
         # 不再添加 BOM —— BOM 会导致 Clash 内核 YAML 解析失败
         clash_file.write_text(clash_final_content, encoding='utf-8')
         print(f"✓ clash 订阅文件已保存: {clash_file}")
@@ -918,6 +927,13 @@ def save_subscription_files(output_dir: str = '.'):
                     clash_final_issue
                 )
                 clash_final_issue = _optimize_proxy_groups(clash_final_issue)
+                # 修复纯数字 short-id 引号问题
+                clash_final_issue = _re.sub(
+                    r'([ ]+short-id: )(\d+)$',
+                    lambda m: f"{m.group(1)}'{m.group(2)}'",
+                    clash_final_issue,
+                    flags=_re.MULTILINE,
+                )
                 clash_file_issue.write_text(
                     clash_final_issue, encoding='utf-8'
                 )
