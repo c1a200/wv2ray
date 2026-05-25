@@ -59,6 +59,53 @@ external-controller: 127.0.0.1:9090
 """
 
 
+def _dedup_proxies(content: str) -> str:
+    """根据核心参数去除重复节点，只保留第一个出现的。
+
+    判断依据：server + port + type + password/uuid 相同即为重复。
+    """
+    try:
+        data = yaml.safe_load(content)
+    except Exception:
+        return content
+
+    if not isinstance(data, dict) or 'proxies' not in data:
+        return content
+
+    proxies = data['proxies']
+    if not proxies:
+        return content
+
+    seen = set()
+    unique = []
+    for proxy in proxies:
+        if not isinstance(proxy, dict):
+            unique.append(proxy)
+            continue
+
+        # 生成指纹：server + port + type + 密钥字段
+        server = str(proxy.get('server', ''))
+        port = str(proxy.get('port', ''))
+        ptype = str(proxy.get('type', ''))
+        # 不同协议用不同字段作为密钥
+        key = proxy.get('uuid') or proxy.get('password') or ''
+        fingerprint = f"{server}:{port}:{ptype}:{key}"
+
+        if fingerprint in seen:
+            continue
+        seen.add(fingerprint)
+        unique.append(proxy)
+
+    removed = len(proxies) - len(unique)
+    if removed > 0:
+        print(f"✓ 去重: 移除 {removed} 个重复节点（保留 {len(unique)} 个）")
+        data['proxies'] = unique
+        return yaml.dump(data, allow_unicode=True, default_flow_style=False,
+                         sort_keys=False, width=1000)
+
+    return content
+
+
 def _ensure_proxy_groups(content: str) -> str:
     """确保 Clash 配置包含 proxy-groups 和 rules。
 
@@ -729,6 +776,8 @@ def save_subscription_files(output_dir: str = '.'):
         clash_file = output_path / 'clash.yaml'
         # 确保 clash 配置包含必要的顶级字段（FlClash/Clash 内核要求）
         clash_final_content = _ensure_clash_headers(clash_content)
+        # 去除重复节点
+        clash_final_content = _dedup_proxies(clash_final_content)
         # 确保包含 proxy-groups 和 rules（上游可能只返回 proxies 列表）
         clash_final_content = _ensure_proxy_groups(clash_final_content)
         # 优化 proxy-groups 结构
