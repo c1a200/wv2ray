@@ -12403,7 +12403,7 @@ proxies:
   xudp: true
   reality-opts:
     public-key: 5xLCwB8j2l-oqOLyzDyjhJYrHxWrhpU-4QSkLyhh720
-    short-id: 09
+    short-id: '09'
   network: tcp
   encryption: none
   servername: www.ya.ru
