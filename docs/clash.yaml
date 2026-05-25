@@ -389,21 +389,6 @@ proxies:
   sni: sdnsa5465.eeuuee.com
   skip-cert-verify: true
   network: tcp
-- name: 🇸🇬 新加坡SG-36
-  server: 64.120.94.97
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: vfa9.cdn-stream.fgfw.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  servername: vfa9.cdn-stream.fgfw.indevs.in
 - name: 🇭🇰 香港HK-37
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -534,22 +519,6 @@ proxies:
   skip-cert-verify: false
   name: 🇸🇬 新加坡SG-47
   servername: mz0tgmxz.user-api.chinav.eu.org
-- cipher: aes-128-gcm
-  name: 🇭🇰 香港HK-48
-  password: '666'
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: edcloudwasm.nellewizaijn.workers.dev
-    sni: edcloudwasm.nellewizaijn.workers.dev
-    mux: 0
-  port: 80
-  server: youxuan.cf.090227.xyz
-  skip-cert-verify: false
-  type: ss
-  udp: false
-  host: edcloudwasm.nellewizaijn.workers.dev
-  sni: edcloudwasm.nellewizaijn.workers.dev
 - type: ss
   server: 106.245.187.246
   port: 34973
@@ -653,36 +622,6 @@ proxies:
       Host: 82.198.246.9
   packet-encoding: xudp
   udp: true
-- type: ss
-  server: 221.150.96.18
-  port: 10162
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-56
-- alterId: '0'
-  cipher: aes-128-gcm
-  name: 🇺🇸 美国US-57
-  network: tcp
-  port: 180
-  server: 82.198.246.9
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  udp: true
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  packet-encoding: xudp
 - name: 🇺🇸 美国US-58
   server: 82.198.246.214
   port: 180
@@ -697,38 +636,6 @@ proxies:
     path: /
     headers:
       Host: epge.muarua.filegear-sg.me
-- name: 🇺🇸 美国US-59
-  type: vmess
-  network: tcp
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  server: 82.198.246.9
-  port: 180
-  skip-cert-verify: true
-  tls: false
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    path: /
-    headers:
-      Host: ads.x5.ru
-  client-fingerprint: chrome
-  udp: true
-- name: 🇺🇸 美国US-60
-  type: vmess
-  network: tcp
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  server: 82.198.246.214
-  port: 180
-  skip-cert-verify: true
-  tls: false
-  udp: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    path: /
-    headers:
-      Host: ads.x5.ru
-  client-fingerprint: chrome
 - type: vless
   server: 14.36.170.70
   port: 19530
@@ -786,34 +693,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-63
-- name: 🇺🇸 美国US-64
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 82.198.246.214
-- name: 🇺🇸 美国US-65
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed\=2560
-    headers:
-      Host: kfm-bn0.pages.dev
 - type: ss
   server: 121.182.16.235
   port: 18246
@@ -832,49 +711,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-66
-- name: 🇺🇸 美国US-67
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: aes-128-gcm
-  tls: false
-  skip-cert-verify: false
-  udp: true
-  network: tcp
-- type: ss
-  server: 175.213.181.45
-  port: 12121
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-68
-- name: 🇺🇸 美国US-69
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /vmess-balkar
-    headers:
-      Host: free-v7-09.elbrusway.online
 - type: vless
   server: 106.244.196.196
   port: 11371
@@ -896,39 +732,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-70
   servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇰🇷 韩国KR-71
-  server: 220.124.181.77
-  port: 18081
-  type: ss
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  udp: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-- name: 🇺🇸 美国US-72
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: t.me%2Fripaojiedian
 - type: vless
   server: 221.150.188.210
   port: 12300
@@ -970,33 +773,6 @@ proxies:
   name: 🇰🇷 韩国KR-74
 - alterId: '0'
   cipher: auto
-  name: 🇺🇸 美国US-75
-  network: tcp
-  port: 180
-  server: 82.198.246.9
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  udp: true
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  packet-encoding: xudp
-- name: 🇺🇸 美国US-76
-  type: vmess
-  network: tcp
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  server: 82.198.246.214
-  port: 180
-  skip-cert-verify: false
-  tls: false
-  udp: true
-  alterId: 0
-  cipher: aes-128-gcm
-  ws-opts:
-    path: /
-    headers:
-      Host: 82.198.246.214
-- alterId: '0'
-  cipher: auto
   name: 🇺🇸 美国US-77
   network: tcp
   port: 180
@@ -1007,14 +783,6 @@ proxies:
   udp: true
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   packet-encoding: xudp
-- type: vmess
-  name: 🇺🇸 美国US-78
-  server: 82.198.246.9
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: aes-128-gcm
-  network: tcp
 - type: ss
   server: 220.79.9.247
   port: 26027
@@ -1033,32 +801,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-79
-- type: ss
-  server: 125.136.152.137
-  port: 10002
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-80
-- type: vmess
-  name: 🇩🇪 德国DE-81
-  server: 82.198.246.250
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: auto
-  network: tcp
 - name: 🇹🇭 泰国TH-82
   server: sdnsa5465.eeuuee.com
   port: 50029
@@ -1067,20 +809,6 @@ proxies:
   sni: sdnsa5465.eeuuee.com
   skip-cert-verify: true
   network: tcp
-- name: 🇺🇸 美国US-83
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /65b17c0b-0a52-4b54-9bc9-60e31397b841-vmess
-    headers:
-      Host: skk.moe
 - type: ss
   server: 121.178.83.161
   port: 10909
@@ -1099,28 +827,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-84
-- type: vmess
-  name: 🇺🇸 美国US-85
-  server: 82.198.246.9
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: auto
-  network: tcp
-- name: 🇺🇸 美国US-86
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fra34.chasem2026sud.com
 - name: 🇺🇸 美国US-87
   type: ss
   server: hackney-latest-strike.freesocks.work
@@ -1128,38 +834,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: XUMTygEM1jVYIvysXKqA5T
   udp: true
-- name: 🇺🇸 美国US-88
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /usavm
-    headers:
-      Host: usaapp2.jisuyun.top
-- type: ss
-  server: 218.150.34.228
-  port: 10912
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-89
 - name: 🇭🇰 香港HK-90
   server: 104.26.12.27
   port: 2053
@@ -1184,41 +858,6 @@ proxies:
   alterId: '0'
   cipher: auto
   network: tcp
-- name: 🇳🇱 荷兰NL-92
-  type: anytls
-  server: free.nl1.laodavip.com
-  port: 443
-  password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-  udp: true
-  sni: free.nl1.laodavip.com
-- name: 🇺🇸 美国US-93
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-- name: 🇩🇪 德国DE-94
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fra33.chasem2026sud.com
 - name: 🇹🇭 泰国TH-95
   server: sdnsa5465.eeuuee.com
   port: 40001
@@ -1241,28 +880,6 @@ proxies:
     path: /
     headers:
       Host: jp2-8sb.6121999.dpdns.org
-- type: vmess
-  name: 🇺🇸 美国US-97
-  server: 82.198.246.214
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: auto
-  network: tcp
-- name: 🇩🇪 德国DE-98
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /obj
-    headers:
-      Host: img14.360buyimg.com
 - type: vless
   server: 162.141.130.233
   port: 24443
@@ -1284,27 +901,6 @@ proxies:
   skip-cert-verify: false
   name: 🇯🇵 日本JP-99
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇰🇷 韩国KR-100
-  server: 220.124.181.77
-  port: 18081
-  type: ss
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  udp: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  skip-cert-verify: true
 - cipher: none
   name: 🇰🇷 韩国KR-101
   password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
@@ -1326,34 +922,6 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- name: 🇩🇪 德国DE-102
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: 3e96ef7d-8637-42c2-ac73-75182196e755/?ed\=2560
-    headers:
-      Host: kfm-bn0.pages.dev
-- name: 🇺🇸 美国US-103
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: node33.ourfast.asia
 - name: 🇩🇪 德国DE-104
   server: 82.198.246.233
   port: 180
@@ -1368,35 +936,6 @@ proxies:
     path: /
     headers:
       Host: jp2-8sb.6121999.dpdns.org
-- name: 🇩🇪 德国DE-105
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: sy4.620720.xyz
-  udp: true
-- name: 🇩🇪 德国DE-106
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-    headers:
-      Host: 2001:bc8:32d7:302::10
 - name: 🇰🇷 韩国KR-107
   server: 222.113.253.35
   port: 14147
@@ -1416,146 +955,6 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- name: 🇩🇪 德国DE-108
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /79960b0b-7d31-4263-8915-6511b0e137a8/?ed\=2560
-    headers:
-      Host: 0b0c6db6-t70f40-tbe46y-1la7v.hkt.gotochinatown.net
-- type: vmess
-  name: 🇺🇸 美国US-109
-  server: 82.198.246.37
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: aes-128-gcm
-  network: tcp
-- name: 🇺🇸 美国US-110
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fra33.chasem2026sud.com
-- name: 🇩🇪 德国DE-111
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: epge.muarua.filegear-sg.me
-- name: 🇩🇪 德国DE-112
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: ads.x5.ru
-- name: 🇺🇸 美国US-113
-  server: 82.198.246.9
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed\=2560
-    headers:
-      Host: 82.198.246.9
-- type: ss
-  server: 220.124.181.77
-  port: 18081
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-114
-- name: 🇩🇪 德国DE-115
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: www.nintendogames.net
-- name: 🇺🇸 美国US-116
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  server: 82.198.246.250
-  port: 180
-  skip-cert-verify: false
-  tls: false
-  udp: true
-  alterId: 0
-  cipher: auto
-  packet-encoding: xudp
-  network: tcp
-- type: ss
-  server: 220.79.9.247
-  port: 26027
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-117
 - cipher: none
   name: 🇰🇷 韩国KR-118
   password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
@@ -1577,42 +976,6 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- name: 🇺🇸 美国US-119
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: ads.x5.ru
-- name: 🇩🇪 德国DE-120
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: t.me%252Fripaojiedian
-- type: vmess
-  name: 🇺🇸 美国US-121
-  server: 82.198.246.233
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: aes-128-gcm
-  network: tcp
 - type: vless
   server: 202.85.76.75
   port: 443
@@ -1634,18 +997,6 @@ proxies:
   skip-cert-verify: false
   name: 🇸🇬 新加坡SG-122
   servername: nai3.api-gateway-01.chinat.indevs.in
-- alterId: '0'
-  cipher: auto
-  name: 🇺🇸 美国US-123
-  network: tcp
-  port: 180
-  server: 82.198.246.37
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  udp: true
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  packet-encoding: xudp
 - type: ss
   server: 114.207.99.233
   port: 11434
@@ -1700,97 +1051,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-126
-- type: ss
-  server: 220.124.181.77
-  port: 18081
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  skip-cert-verify: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-127
-- name: 🇩🇪 德国DE-128
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: cdnfire.xiaomispeed.com
-- name: 🇩🇪 德国DE-129
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-- name: 🇩🇪 德国DE-130
-  type: vmess
-  server: 82.198.246.233
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: aes-128-gcm
-  tls: false
-  skip-cert-verify: false
-  udp: true
-  network: tcp
-- name: 🇺🇸 美国US-131
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: yespaintstudio.rav-kraski.ru
-- type: ss
-  server: 175.213.181.45
-  port: 12121
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-132
 - type: vless
   server: 116.121.210.196
   port: 10243
@@ -1812,95 +1072,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-133
   servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-134
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: trojan.burgerip.co.uk
-  udp: true
-- name: 🇩🇪 德国DE-135
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /14b02e2a-8930-4afb-8412-ea4a4954ca5b/?ed\=2560
-    headers:
-      Host: kfm-bn0.pages.dev
-- name: 🇩🇪 德国DE-136
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /f2fc2a1f
-    headers:
-      Host: HL-FREEDOM-1.UNDEF.NETWORK
-- type: ss
-  server: 115.21.105.223
-  port: 10443
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-137
-- name: 🇩🇪 德国DE-138
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: 3e96ef7d-8637-42c2-ac73-75182196e755/?ed\=2560
-    headers:
-      Host: 82.198.246.250
-- name: 🇩🇪 德国DE-139
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: tianjiu.pages.dev
 - type: vless
   server: 218.144.217.243
   port: 12203
@@ -1923,56 +1094,6 @@ proxies:
   name: 🇰🇷 韩国KR-140
   servername: nai3.api-gateway-01.chinat.indevs.in
 - type: ss
-  server: 106.245.187.246
-  port: 34973
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-141
-- type: ss
-  server: 125.136.152.137
-  port: 10002
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-142
-- name: 🇩🇪 德国DE-143
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-- type: ss
   server: 59.11.33.164
   port: 16923
   cipher: none
@@ -1990,110 +1111,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-144
-- type: ss
-  server: 59.11.33.164
-  port: 16923
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-145
-- type: vmess
-  name: 🇺🇸 美国US-146
-  server: 82.198.246.214
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: aes-128-gcm
-  network: tcp
-- name: 🇺🇸 美国US-147
-  server: 82.198.246.250
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fra35.chasem2026sud.com
-  udp: true
-- alterId: 0
-  cipher: auto
-  name: 🇬🇧 英国GB-148
-  network: tcp
-  port: 180
-  server: 82.198.246.250
-  servername: ''
-  tls: false
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-- name: 🇰🇷 韩国KR-149
-  server: 218.150.34.228
-  port: 10912
-  type: ss
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  udp: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  skip-cert-verify: true
-- name: 🇩🇪 德国DE-150
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: HL-FREEDOM-1.UNDEF.NETWORK
-- alterId: 0
-  cipher: auto
-  name: 🇬🇧 英国GB-151
-  network: tcp
-  port: 180
-  server: 82.198.246.233
-  servername: ''
-  tls: false
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-- type: vmess
-  name: 🇺🇸 美国US-152
-  server: 82.198.246.214
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: aes-128-gcm
-  network: tcp
 - type: ss
   server: 218.155.125.99
   port: 10001
@@ -2113,60 +1130,6 @@ proxies:
   tls: true
   name: 🇰🇷 韩国KR-153
 - type: ss
-  server: 183.99.58.243
-  port: 10909
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-154
-- type: ss
-  server: 183.99.58.243
-  port: 10909
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-155
-- type: ss
-  server: 114.207.99.233
-  port: 11434
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-156
-- type: ss
   server: 59.3.62.210
   port: 32677
   cipher: none
@@ -2184,33 +1147,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-157
-- name: 🇺🇸 美国US-158
-  server: 82.198.246.233
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: trojan.burgerip.co.uk
-  udp: true
-  tfo: false
-- name: 🇺🇸 美国US-159
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: aes-128-gcm
-  tls: false
-  skip-cert-verify: false
-  udp: true
-  network: tcp
 - type: ss
   server: 222.113.18.214
   port: 37215
@@ -2229,24 +1165,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-160
-- type: ss
-  server: 211.199.27.72
-  port: 10002
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-161
 - type: ss
   server: 222.117.215.112
   port: 11965
@@ -2281,56 +1199,6 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   encryption: none
   packet-encoding: xudp
-- name: 🇺🇸 美国US-164
-  server: 82.198.246.37
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: true
-  udp: true
-  client-fingerprint: chrome
-  network: tcp
-  ws-opts:
-    path: /
-    headers:
-      Host: 82.198.246.37
-  packet-encoding: xudp
-  servername: <nil>
-- type: ss
-  server: 175.213.181.45
-  port: 12121
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-165
-- name: 🇩🇪 德国DE-166
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /github.com/Alvin9999
-    headers:
-      Host: www.bing.com
 - name: 🇸🇬 新加坡SG-167
   server: 104.43.91.69
   port: 443
@@ -2365,60 +1233,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-168
   servername: nai3.api-gateway-01.chinat.indevs.in
-- type: ss
-  server: 115.21.105.223
-  port: 10443
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-169
-- type: ss
-  server: 218.150.34.228
-  port: 10912
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-170
-- type: ss
-  server: 222.113.18.214
-  port: 37215
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-171
 - name: 🇭🇰 香港HK-172
   server: 163.5.58.77
   port: 443
@@ -2447,86 +1261,6 @@ proxies:
     headers:
       Host: 2a02:6ea0:d32f::f8fe:349b
   udp: true
-- type: ss
-  server: 106.245.187.246
-  port: 34973
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-174
-- type: ss
-  server: 183.99.58.243
-  port: 10909
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-175
-- type: vmess
-  server: 82.198.246.97
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  name: 🇺🇸 美国US-176
-  network: tcp
-- type: ss
-  server: 59.3.62.210
-  port: 32677
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-177
-- type: ss
-  server: 115.21.105.223
-  port: 10443
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-178
 - name: 🇰🇷 韩国KR-179
   server: 59.31.102.62
   port: 25565
@@ -2546,20 +1280,6 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- name: 🇺🇸 美国US-180
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 3416cbe57b7c52733721859d4e23be39.mobgslb.tbcache.com
 - name: 🇯🇵 日本JP-181
   type: trojan
   network: ws
@@ -2572,24 +1292,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- type: ss
-  server: 222.113.18.214
-  port: 37215
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-182
 - type: ss
   server: 59.3.62.210
   port: 10332
@@ -2608,33 +1310,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-183
-- name: 🇺🇸 美国US-184
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: fra35.chasem2026sud.com
-  udp: true
-- alterId: '0'
-  cipher: aes-128-gcm
-  name: 🇺🇸 美国US-185
-  network: tcp
-  port: 180
-  server: 82.198.246.37
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  udp: true
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  packet-encoding: xudp
 - cipher: none
   name: 🇰🇷 韩国KR-186
   password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
@@ -2656,24 +1331,6 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- type: ss
-  server: 221.150.96.18
-  port: 10162
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-187
 - type: ss
   server: 59.4.161.71
   port: 38241
@@ -2710,45 +1367,6 @@ proxies:
   header-type: none
   name: 🇰🇷 韩国KR-189
   servername: vfa9.cdn-stream.fgfw.indevs.in
-- cipher: none
-  name: 🇰🇷 韩国KR-190
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-    skip-cert-verify: false
-  port: 16923
-  server: 59.11.33.164
-  skip-cert-verify: false
-  type: ss
-  udp: false
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-- type: ss
-  server: 59.3.62.210
-  port: 10332
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-191
 - name: 🇩🇪 德国DE-192
   type: tuic
   uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
@@ -2764,24 +1382,6 @@ proxies:
   udp-relay-mode: native
   disable-sni: false
   version: 5
-- type: ss
-  server: 59.31.102.62
-  port: 25565
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-193
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -2794,32 +1394,6 @@ proxies:
   server: 121.145.78.141
   port: 13579
   name: 🇰🇷 韩国KR-194
-- type: vmess
-  name: 🇬🇧 英国GB-195
-  server: 82.198.246.233
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: '0'
-  cipher: auto
-  network: tcp
-- type: ss
-  server: 222.113.253.35
-  port: 14147
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-196
 - name: 🇸🇬 新加坡SG-197
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -2830,60 +1404,6 @@ proxies:
   type: trojan
   ws-opts:
     path: /trTelegram🇨🇳 @WangCai2
-- type: ss
-  server: 58.151.107.230
-  port: 14000
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-198
-- type: ss
-  server: 222.113.18.214
-  port: 11310
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-199
-- type: ss
-  server: 59.11.33.164
-  port: 16923
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-200
 - type: vless
   server: 121.151.76.196
   port: 11965
@@ -2905,82 +1425,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-201
   servername: nai3.api-gateway-01.chinat.indevs.in
-- type: ss
-  server: 222.113.253.35
-  port: 14147
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-202
-- name: 🇩🇪 德国DE-203
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: t.me%2Fripaojiedian
-- alterId: '0'
-  cipher: auto
-  name: 🇺🇸 美国US-204
-  network: tcp
-  port: 180
-  server: 82.198.246.37
-  skip-cert-verify: false
-  tls: false
-  type: vmess
-  udp: true
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  packet-encoding: xudp
-- name: 🇺🇸 美国US-205
-  server: 82.198.246.214
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: 3e96ef7d-8637-42c2-ac73-75182196e755/?ed\=2560
-    headers:
-      Host: jp2-8sb.6121999.dpdns.org
-- type: ss
-  server: 218.155.125.99
-  port: 10001
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-206
 - type: ss
   server: 211.48.77.114
   port: 24095
@@ -3073,24 +1517,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-213
   servername: vfa9.cdn-stream.fgfw.indevs.in
-- type: ss
-  server: 222.113.18.214
-  port: 11310
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-214
 - type: vless
   server: 222.113.253.35
   port: 12300
@@ -3112,38 +1538,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-215
   servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
-  server: 211.199.27.72
-  port: 10002
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  network: ws
-  encryption: none
-  tls: true
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: vfa9.cdn-stream.fgfw.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  client-fingerprint: chrome
-  skip-cert-verify: true
-  header-type: none
-  name: 🇰🇷 韩国KR-216
-  servername: vfa9.cdn-stream.fgfw.indevs.in
-- name: 🇩🇪 德国DE-217
-  server: 82.198.246.97
-  port: 180
-  type: vmess
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: web
-    headers:
-      Host: test.api-aws.com
 - type: vless
   server: 49.142.200.31
   port: 11434
@@ -3211,24 +1605,6 @@ proxies:
   server: 121.150.166.119
   port: 10999
   name: 🇰🇷 韩国KR-221
-- type: ss
-  server: 58.151.107.230
-  port: 14000
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-222
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -3302,58 +1678,6 @@ proxies:
   server: 59.9.136.68
   port: 19888
   name: 🇰🇷 韩国KR-228
-- type: ss
-  server: 121.178.83.161
-  port: 10909
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-229
-- cipher: none
-  name: 🇰🇷 韩国KR-230
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-    skip-cert-verify: false
-  port: 16923
-  server: 59.11.33.164
-  skip-cert-verify: false
-  type: ss
-  udp: false
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-- type: vless
-  server: 121.151.210.54
-  port: 10333
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  network: ws
-  tls: true
-  ws-opts:
-    path: /danfeng?ed=2560fp=firefox
-    headers:
-      Host: vfa9.cdn-stream.fgfw.indevs.in
-  skip-cert-verify: false
-  name: 🇰🇷 韩国KR-231
-  servername: vfa9.cdn-stream.fgfw.indevs.in
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -3466,43 +1790,6 @@ proxies:
   server: 59.0.58.42
   port: 14000
   name: 🇰🇷 韩国KR-239
-- name: 🇰🇷 韩国KR-240
-  server: 59.31.102.62
-  port: 25565
-  type: ss
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  udp: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  skip-cert-verify: true
-- type: ss
-  server: youxuan.cf.090227.xyz
-  port: 80
-  cipher: aes-128-gcm
-  password: '666'
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: edcloudwasm.nellewizaijn.workers.dev
-    path: /undefined
-    sni: edcloudwasm.nellewizaijn.workers.dev
-    mux: 0
-  host: edcloudwasm.nellewizaijn.workers.dev
-  sni: edcloudwasm.nellewizaijn.workers.dev
-  path: /undefined
-  name: 🇭🇰 香港HK-241
 - name: 🇰🇷 韩国KR-242
   server: sdnsa5465.eeuuee.com
   port: 50046
@@ -3511,26 +1798,6 @@ proxies:
   sni: sdnsa5465.eeuuee.com
   skip-cert-verify: true
   network: tcp
-- type: ss
-  server: 220.124.181.77
-  port: 18081
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  skip-cert-verify: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-243
 - name: 🇸🇬 新加坡SG-244
   type: anytls
   server: bgpeer.oo.3333399.xyz
@@ -3552,22 +1819,6 @@ proxies:
   server: 121.159.11.183
   port: 37020
   name: 🇰🇷 韩国KR-245
-- name: 🇺🇸 美国US-246
-  server: bestcf.030101.xyz
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇨🇳 台湾TW-247
   server: sdnsa5465.eeuuee.com
   port: 52024
@@ -3576,38 +1827,6 @@ proxies:
   sni: sdnsa5465.eeuuee.com
   skip-cert-verify: true
   network: tcp
-- name: 🇺🇸 美国US-248
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ous9.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- type: ss
-  server: 59.11.33.164
-  port: 16923
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-249
 - type: ss
   server: 20.235.105.146
   port: 443
@@ -3746,38 +1965,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-259
-  server: china.embassy.gov.au
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-260
-  server: 162.159.254.137
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇺🇸 美国US-261
   server: 104.192.226.106
   type: ss
@@ -3828,22 +2015,6 @@ proxies:
     path: /api/v1/stream
     tls: false
     mux: true
-- name: 🇺🇸 美国US-265
-  server: 1357900.xyz
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇺🇸 美国US-266
   server: www.sofi.com
   port: 443
@@ -3876,22 +2047,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-268
-  server: quick-edit.devprod.cloudflare.dev
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇺🇸 美国US-269
   server: legion.lenovo.com
   port: 2053
@@ -3973,22 +2128,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-274
-  server: www.sofi.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇮🇳 印度IN-275
   server: sdnsa5465.eeuuee.com
   port: 50053
@@ -3997,36 +2136,6 @@ proxies:
   sni: sdnsa5465.eeuuee.com
   skip-cert-verify: true
   network: tcp
-- name: 🇺🇸 美国US-276
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:YTgyZmZlMTAtZGYwYS00ZQ==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ous7.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- name: 🇺🇸 美国US-277
-  server: legion.lenovo.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - type: vless
   server: 152.53.200.225
   port: 8443
@@ -4124,22 +2233,6 @@ proxies:
   skip-cert-verify: false
   name: 🇺🇸 美国US-283
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇸🇬 新加坡SG-284
-  server: one.dash.cloudflare.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇺🇸 美国US-285
   server: testingcf.jsdelivr.net
   port: 443
@@ -4185,27 +2278,6 @@ proxies:
   skip-cert-verify: false
   name: 🇰🇷 韩国KR-287
   servername: vfa9.cdn-stream.fgfw.indevs.in
-- name: 🇰🇷 韩国KR-288
-  type: ss
-  server: 218.150.34.228
-  port: 10912
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  skip-cert-verify: false
-  udp: false
-  cipher: none
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-    skip-cert-verify: false
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
 - name: 🇺🇸 美国US-289
   type: ss
   server: 23.80.80.22
@@ -4220,22 +2292,6 @@ proxies:
     path: /ws
     tls: false
     mux: true
-- name: 🇭🇰 香港HK-290
-  server: www.caritas.org.hk
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇺🇸 美国US-291
   server: nrt.xxxxxxxx.nyc.mn
   port: 2053
@@ -4278,38 +2334,6 @@ proxies:
   network: tcp
 - name: 🇺🇸 美国US-294
   server: newsroom.paypal-corp.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-295
-  server: pages.cloudflare.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-296
-  server: testingcf.jsdelivr.net
   port: 443
   type: vless
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -4370,22 +2394,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-300
-  server: nrt.xxxxxxxx.nyc.mn
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: vless
   server: 64.186.250.65
   port: 11088
@@ -4407,22 +2415,6 @@ proxies:
   skip-cert-verify: false
   name: 🇺🇸 美国US-301
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-302
-  server: newsroom.paypal-corp.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇺🇸 美国US-303
   type: ss
   server: cdn.shopify.com
@@ -4469,22 +2461,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-306
-  server: unpkg.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: vless
   server: r1.mizulina.top
   port: 22231
@@ -4521,22 +2497,6 @@ proxies:
     max-early-data: 2560
   udp: true
   servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇭🇰 香港HK-310
-  server: docker.1panel.live
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇭🇰 香港HK-311
   type: anytls
   server: bgpeer.oo.3333399.xyz
@@ -4546,38 +2506,6 @@ proxies:
   client-fingerprint: chrome
   skip-cert-verify: true
   sni: bgpeer.oo.3333399.xyz
-- name: 🇺🇸 美国US-312
-  server: www.gco.gov.qa
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-313
-  server: static.shopify.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇹🇭 泰国TH-314
   server: a4748f99b0835933fde1d4051b43e634.node.tro.cac.cab
   port: 47530
@@ -4586,54 +2514,6 @@ proxies:
   sni: th.01.naiun.bilibili.com
   skip-cert-verify: true
   network: tcp
-- name: 🇺🇸 美国US-315
-  server: www.charteredaccountantsanz.com
-  port: 443
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇭🇰 香港HK-316
-  server: notability.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- name: 🇺🇸 美国US-317
-  server: 104.19.73.126
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - type: vless
   server: 64.186.233.88
   port: 27082
@@ -4672,36 +2552,6 @@ proxies:
   udp: true
   servername: nai3.api-gateway-01.chinat.indevs.in
 - type: vless
-  name: 🇺🇸 美国US-320
-  server: r1.mizulina.top
-  port: 22231
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: edge
-  skip-cert-verify: false
-  encryption: none
-  packet-encoding: xudp
-  network: tcp
-  servername: r1.mizulina.top
-- name: 🇺🇸 美国US-321
-  server: www.visa.cn
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
   server: 160.22.16.203
   port: 443
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -4714,22 +2564,6 @@ proxies:
   skip-cert-verify: false
   name: 🇸🇬 新加坡SG-322
   servername: vfa9.cdn-stream.fgfw.indevs.in
-- name: 🇺🇸 美国US-323
-  server: go2.lenovo.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇸🇬 新加坡SG-324
   server: 837c18b0896d716eda5d8bf096b46387.node.tro.cac.cab
   port: 41007
@@ -4738,19 +2572,6 @@ proxies:
   sni: sg.01.naiun.bilibili.com
   skip-cert-verify: true
   network: tcp
-- client-fingerprint: edge
-  encryption: none
-  flow: xtls-rprx-vision
-  name: 🇺🇸 美国US-325
-  port: 22231
-  server: r1.mizulina.top
-  tls: true
-  type: vless
-  udp: true
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  packet-encoding: xudp
-  network: tcp
-  servername: r1.mizulina.top
 - name: 🇺🇸 美国US-326
   type: ss
   server: 172.96.161.152
@@ -4854,33 +2675,6 @@ proxies:
   skip-cert-verify: false
   name: 🇺🇸 美国US-332
   servername: nai3.api-gateway-01.chinat.indevs.in
-- name: 🇺🇸 美国US-333
-  server: r1.mizulina.top
-  port: 22231
-  type: vless
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: edge
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  encryption: none
-  packet-encoding: xudp
-  header-type: none
-  servername: r1.mizulina.top
-- type: vless
-  server: r1.mizulina.top
-  port: 22231
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  flow: xtls-rprx-vision-udp443
-  encryption: none
-  tls: true
-  client-fingerprint: edge
-  header-type: none
-  name: 🇺🇸 美国US-334
-  network: tcp
-  servername: r1.mizulina.top
 - name: 🇸🇬 新加坡SG-335
   server: 139.180.220.7
   type: trojan
@@ -4938,23 +2732,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇺🇸 美国US-340
-  server: convera.com
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
 - name: 🇺🇸 美国US-341
   server: 104.129.165.253
   port: 443
@@ -4968,22 +2745,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   udp: true
-- name: 🇭🇰 香港HK-342
-  server: cfxr.eu.org
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: trojan
   server: 84.21.189.108
   port: 8443
@@ -5327,32 +3088,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   name: 🇺🇸 美国US-368
-- name: 🇺🇸 美国US-369
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 184.174.80.25
-  servername: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-  client-fingerprint: chrome
-- type: trojan
-  server: 141.101.122.253
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-370
 - type: trojan
   server: 198.62.62.253
   port: 443
@@ -5366,18 +3101,6 @@ proxies:
   skip-cert-verify: true
   client-fingerprint: chrome
   name: 🇺🇸 美国US-371
-- type: trojan
-  server: 130.250.137.253
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /tr+|+免费机场TG@proxyshareCN+|+
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-372
 - type: vless
   server: 104.18.39.150
   port: 443
@@ -5683,18 +3406,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
 - type: trojan
-  server: 135.84.74.253
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-397
-- type: trojan
   server: 167.68.4.253
   port: 443
   password: 8r<[9'l6hAO#8ZQi
@@ -5706,18 +3417,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   name: 🇺🇸 美国US-398
-- type: trojan
-  server: 31.57.47.225
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-399
 - name: 🇺🇸 美国US-400
   server: 107.151.188.120
   type: trojan
@@ -5842,18 +3541,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram
-- name: 🇺🇸 美国US-410
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 199.34.229.253
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /tr+|+免费机场TG@proxyshareCN+|+
 - type: trojan
   server: 83.147.253.187
   port: 443
@@ -6529,27 +4216,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇰🇷 韩国KR-465
-  server: 59.31.102.62
-  port: 25565
-  type: ss
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    skip-cert-verify: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  udp: true
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  skip-cert-verify: true
 - type: trojan
   server: 91.228.154.170
   port: 8443
@@ -6599,18 +4265,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
   name: 🇺🇸 美国US-469
-- type: trojan
-  server: 107.175.232.157
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-470
 - name: 🇻🇳 越南VN-471
   server: 103.186.155.213
   port: 38388
@@ -6698,20 +4352,6 @@ proxies:
     path: /trTelegram🇨🇳 @WangCai2
   client-fingerprint: chrome
 - type: vless
-  name: 🇺🇸 美国US-478
-  server: 85.234.114.30
-  port: 22231
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: edge
-  skip-cert-verify: false
-  network: tcp
-  encryption: none
-  packet-encoding: xudp
-  servername: r1.mizulina.top
-- type: vless
   server: 162.159.23.62
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -6724,23 +4364,6 @@ proxies:
       Host: sni.skylee4.cloudns.ch
   client-fingerprint: chrome
   name: 🇺🇸 美国US-479
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇺🇸 美国US-480
-  server: 103.91.219.252
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  packet-encoding: xudp
   servername: sni.skylee4.cloudns.ch
 - type: trojan
   server: 31.58.50.23
@@ -6927,22 +4550,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   udp: true
-- name: 🇺🇸 美国US-496
-  type: vmess
-  network: tcp
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  server: 82.198.246.233
-  port: 180
-  skip-cert-verify: false
-  tls: false
-  udp: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    path: /
-    headers:
-      Host: 82.198.246.233
-  client-fingerprint: chrome
 - type: trojan
   server: 195.58.48.252
   port: 8443
@@ -7232,30 +4839,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   name: 🇩🇪 德国DE-522
-- type: trojan
-  server: 45.61.166.121
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  name: 🇺🇸 美国US-523
-- type: trojan
-  server: 185.9.27.113
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-524
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -7459,22 +5042,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-541
-- name: 🇭🇰 香港HK-542
-  server: blog.646474.xyz
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - name: 🇻🇳 越南VN-543
   server: 103.186.155.140
   port: 38388
@@ -7550,24 +5117,6 @@ proxies:
   server: 77.110.102.197
   port: 443
   name: 🇩🇪 德国DE-549
-- name: 🇺🇸 美国US-550
-  server: 103.91.219.252
-  port: 443
-  type: vless
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.CMLiussss.net
-    headers:
-      Host: sni.skylee4.cloudns.ch
-  encryption: none
-  header-type: none
-  skip-cert-verify: true
-  packet-encoding: xudp
-  udp: true
-  servername: sni.skylee4.cloudns.ch
 - type: trojan
   server: 83.147.253.194
   port: 443
@@ -7643,19 +5192,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇺🇸 美国US-558
-  server: 38.107.232.120
-  type: trojan
-  port: 443
-  udp: true
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  network: ws
 - name: 🇩🇪 德国DE-559
   type: trojan
   server: 95.164.123.31
@@ -7856,17 +5392,6 @@ proxies:
   udp: true
   network: ws
 - type: trojan
-  server: 31.58.50.23
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-  client-fingerprint: chrome
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-576
-- type: trojan
   server: 92.118.233.111
   port: 2053
   password: 8r<[9'l6hAO#8ZQi
@@ -7885,16 +5410,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- type: trojan
-  server: 149.104.110.97
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  skip-cert-verify: true
-  name: 🇩🇪 德国DE-579
 - type: vless
   server: 142.248.219.31
   port: 2053
@@ -8256,21 +5771,6 @@ proxies:
   port: 443
   name: 🇸🇪 瑞典SE-609
 - type: vless
-  name: 🇺🇸 美国US-610
-  server: 103.149.145.120
-  port: 443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    headers:
-      Host: vfa9.cdn-stream.fgfw.indevs.in
-    path: /danfeng?ed
-  packet-encoding: xudp
-  servername: vfa9.cdn-stream.fgfw.indevs.in
-- type: vless
   name: 🇺🇸 美国US-611
   server: us.nodes.rocketnetwork.ru
   port: 443
@@ -8301,17 +5801,6 @@ proxies:
   client-fingerprint: chrome
   name: 🇺🇸 美国US-612
   servername: sni.skylee4.cloudns.ch
-- type: trojan
-  server: 31.58.226.196
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-613
 - type: trojan
   server: 45.144.51.133
   port: 8443
@@ -8454,15 +5943,6 @@ proxies:
   skip-cert-verify: false
   name: 🇩🇪 德国DE-623
   servername: nai3.api-gateway-01.chinat.indevs.in
-- type: trojan
-  server: 31.57.63.63
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  name: 🇺🇸 美国US-624
 - name: 🇻🇳 越南VN-625
   server: 103.186.155.124
   port: 38388
@@ -8497,19 +5977,6 @@ proxies:
   ws-opts:
     path: /%2FtrTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
   name: 🇺🇸 美国US-628
-- name: 🇺🇸 美国US-629
-  type: trojan
-  network: ws
-  server: 185.106.95.125
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-  client-fingerprint: chrome
 - type: trojan
   server: 45.95.203.214
   port: 2053
@@ -8570,18 +6037,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-633
-- name: 🇵🇱 波兰PL-634
-  type: vless
-  server: pl194.mechvpn.online
-  port: 443
-  uuid: 6d916d55-fead-4ff3-a3a9-83e175ea8ad7
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  udp: true
-  skip-cert-verify: false
-  network: tcp
-  servername: pl194.mechvpn.online
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -8649,17 +6104,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳+@WangCai2
-- type: trojan
-  server: 95.182.101.74
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-641
 - type: trojan
   server: 179.61.132.245
   port: 8443
@@ -9023,18 +6467,6 @@ proxies:
   port: 443
   name: 🇸🇪 瑞典SE-673
 - type: trojan
-  server: 23.168.72.85
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇩🇪 德国DE-674
-- type: trojan
   server: 179.61.132.245
   port: 2053
   password: 8r<[9'l6hAO#8ZQi
@@ -9045,16 +6477,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-675
-- type: trojan
-  server: 172.86.114.80
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-  client-fingerprint: chrome
-  name: 🇺🇸 美国US-676
 - type: trojan
   server: 188.227.86.123
   port: 2053
@@ -9364,19 +6786,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-703
-- name: 🇩🇪 德国DE-704
-  server: 83.147.253.187
-  type: trojan
-  port: 443
-  udp: true
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  network: ws
 - name: 🇷🇴 罗马尼亚RO-705
   type: http
   server: 84.239.49.191
@@ -9428,24 +6837,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-709
 - type: trojan
-  server: 81.85.77.14
-  port: 2083
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  name: 🇺🇸 美国US-710
-- type: trojan
-  server: 38.107.232.124
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /%2FtrTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
-  name: 🇺🇸 美国US-711
-- type: trojan
   server: 194.53.54.201
   port: 8443
   password: 8r<[9'l6hAO#8ZQi
@@ -9492,18 +6883,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳 @WangCai2
-- type: trojan
-  server: 31.58.50.114
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: false
-  name: 🇺🇸 美国US-716
 - type: trojan
   server: 31.58.50.110
   port: 8443
@@ -9605,18 +6984,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳
 - type: trojan
-  server: 31.58.50.110
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-726
-- type: trojan
   server: 152.53.200.178
   port: 8443
   password: 8r<[9'l6hAO#8ZQi
@@ -9693,31 +7060,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇺🇸 美国US-733
-- name: 🇩🇪 德国DE-734
-  type: trojan
-  network: ws
-  server: 94.156.179.217
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  skip-cert-verify: false
-  udp: true
-  sni: Koma-YT.PAGeS.Dev
-  ws-opts:
-    headers:
-      User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36
-    path: /trTelegram🇨🇳 @WangCai2
-  client-fingerprint: chrome
-- type: trojan
-  server: 173.70.8.178
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-735
 - name: 🇺🇸 美国US-736
   type: trojan
   server: 213.134.31.130
@@ -9868,16 +7210,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
   name: 🇸🇪 瑞典SE-748
-- name: 🇩🇪 德国DE-749
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 83.147.253.194
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -9896,15 +7228,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- type: trojan
-  server: 31.58.50.23
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  name: 🇺🇸 美国US-752
 - name: 🇷🇴 罗马尼亚RO-753
   type: http
   server: 84.239.49.156
@@ -9986,15 +7309,6 @@ proxies:
     path: /api/v1/stream
     tls: false
     mux: true
-- name: 🇺🇸 美国US-761
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 2053
-  server: 31.58.50.114
-  sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  ws-opts:
-    path: /trTelegram
 - name: 🇷🇴 罗马尼亚RO-762
   type: http
   server: 84.239.49.242
@@ -10193,17 +7507,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   network: ws
-- type: trojan
-  server: 80.209.242.70
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-780
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -10258,18 +7561,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-785
 - type: trojan
-  server: 31.58.50.114
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-786
-- type: trojan
   server: 37.114.46.24
   port: 8443
   password: 8r<[9'l6hAO#8ZQi
@@ -10280,15 +7571,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-787
-- type: trojan
-  server: 31.58.50.114
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  name: 🇺🇸 美国US-788
 - type: trojan
   server: 77.110.108.196
   port: 8443
@@ -10377,18 +7659,6 @@ proxies:
   server: 66.154.124.191
   port: 443
   name: 🇺🇸 美国US-796
-- type: trojan
-  server: 80.209.240.188
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-797
-  skip-cert-verify: true
 - name: 🇩🇪 德国DE-798
   type: vless
   server: 2a14:7584:d097::a
@@ -10410,17 +7680,6 @@ proxies:
   xhttp-opts:
     path: /alvin9999.com
   servername: toarumajutsunoindex.fandom.com
-- type: trojan
-  server: 198.204.227.171
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-799
 - name: 🇩🇪 德国DE-800
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -10512,16 +7771,6 @@ proxies:
   skip-cert-verify: true
   tls: true
   sni: www.bing.com
-- type: trojan
-  server: 138.124.60.93
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram+@WangCai2
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-810
 - name: 🇺🇸 美国US-811
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -10590,20 +7839,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇺🇸 美国US-817
-- name: 🇺🇸 美国US-818
-  type: trojan
-  server: 23.165.104.123
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  udp: true
-  network: ws
-  client-fingerprint: chrome
 - type: trojan
   server: 144.31.79.168
   port: 443
@@ -10718,31 +7953,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   network: ws
-- name: 🇺🇸 美国US-828
-  type: trojan
-  network: ws
-  server: 31.172.79.138
-  port: 2083
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram🇨🇳 @WangCai2
-- name: 🇯🇵 日本JP-829
-  type: ss
-  server: www.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: leajp2.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
 - name: 🇺🇸 美国US-830
   type: trojan
   network: ws
@@ -10758,17 +7968,6 @@ proxies:
       User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36
     path: /trTelegram🇨🇳 @WangCai2
   client-fingerprint: chrome
-- type: trojan
-  server: 198.204.227.171
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇺🇸 美国US-831
 - type: trojan
   server: 89.46.235.32
   port: 8443
@@ -10820,19 +8019,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-836
-- type: trojan
-  server: 23.168.72.23
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  name: 🇩🇪 德国DE-837
 - type: trojan
   server: 185.254.158.250
   port: 8443
@@ -10934,27 +8120,6 @@ proxies:
   client-fingerprint: chrome
   name: 🇺🇸 美国US-846
 - type: trojan
-  server: 31.58.50.110
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇺🇸 美国US-847
-- type: trojan
-  server: 138.124.60.93
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /%2FtrTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2
-  name: 🇺🇸 美国US-848
-- type: trojan
   server: 45.144.48.186
   port: 8443
   password: 8r<[9'l6hAO#8ZQi
@@ -11012,18 +8177,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- type: trojan
-  server: 23.165.104.123
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  client-fingerprint: chrome
-  name: 🇺🇸 美国US-854
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11177,20 +8330,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-868
-- name: 🇦🇹 奥地利AT-869
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: arm.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
 - type: trojan
   server: 129.158.241.2
   port: 8443
@@ -11235,16 +8374,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳+@WangCai2
-- name: 🇳🇱 荷兰NL-874
-  network: ws
-  password: 8r<[9'l6hAO#8ZQi
-  port: 443
-  server: 144.31.66.244
-  sni: Koma-YT.PAGeS.Dev
-  type: trojan
-  ws-opts:
-    path: /trTelegram🇨🇳
-  skip-cert-verify: true
 - type: trojan
   server: 185.239.142.83
   port: 2053
@@ -11446,24 +8575,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇺🇸 美国US-893
-- type: ss
-  server: 116.44.147.152
-  port: 22085
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-894
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11605,22 +8716,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   name: 🇸🇪 瑞典SE-908
-- name: 🇭🇰 香港HK-909
-  server: 104.26.12.27
-  port: 2053
-  type: vless
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  tls: true
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /danfeng
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  udp: true
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: trojan
   server: 172.86.95.90
   port: 8443
@@ -11715,16 +8810,6 @@ proxies:
   skip-cert-verify: true
   network: tcp
 - type: trojan
-  server: 216.126.237.69
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳
-  client-fingerprint: chrome
-  name: 🇺🇸 美国US-918
-- type: trojan
   server: 62.60.150.140
   port: 2053
   password: 8r<[9'l6hAO#8ZQi
@@ -11779,21 +8864,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- type: vless
-  server: ru3.banovano.space
-  port: 443
-  uuid: dc540911-cd1d-41e9-9301-ecb5a507b788
-  flow: xtls-rprx-vision
-  encryption: none
-  tls: true
-  reality-opts:
-    public-key: JbxZQuL2t4eews1QuA8O4jpsU_NXPMpmzKwlxSQj5Sk
-    short-id: f690c1046814dc9d
-  client-fingerprint: chrome
-  header-type: none
-  name: 🇺🇸 美国US-923
-  network: tcp
-  servername: www.icloud.com
 - type: trojan
   server: 194.48.140.83
   port: 8443
@@ -11868,19 +8938,6 @@ proxies:
   server: 79.137.206.247
   port: 443
   name: 🇩🇪 德国DE-930
-- type: trojan
-  server: 150.136.219.11
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  client-fingerprint: chrome
-  name: 🇺🇸 美国US-931
 - type: trojan
   server: 91.220.8.170
   port: 2053
@@ -12055,15 +9112,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇫🇷 法国FR-946
-- type: trojan
-  server: 91.220.8.170
-  port: 2053
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram+@WangCai2
-  name: 🇩🇪 德国DE-947
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12296,18 +9344,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-968
   skip-cert-verify: true
-- type: trojan
-  server: 77.110.108.196
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  client-fingerprint: chrome
-  name: 🇩🇪 德国DE-969
 - type: trojan
   server: 109.120.135.161
   port: 8443
@@ -12548,18 +9584,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-990
-- type: trojan
-  server: 144.31.79.168
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳 @WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  skip-cert-verify: true
-  name: 🇳🇱 荷兰NL-991
 - name: 🇩🇪 德国DE-992
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -12605,24 +9629,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-995
-- type: ss
-  server: 116.44.147.152
-  port: 22085
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-996
 - type: trojan
   server: 31.59.105.119
   port: 2053
@@ -12891,14 +9897,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇨🇦 加拿大CA-1020
-- type: vmess
-  server: 82.198.246.37
-  port: 180
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  cipher: auto
-  name: 🇺🇸 美国US-1021
-  network: tcp
 - type: trojan
   server: 95.182.97.46
   port: 8443
@@ -13060,18 +10058,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-1035
-- name: 🇺🇸 美国US-1036
-  type: trojan
-  network: ws
-  server: 43.170.25.96
-  port: 443
-  password: 8r<[9'l6hAO#8ZQi
-  skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  ws-opts:
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-    path: /trTelegram @WangCai2
 - name: 🇫🇷 法国FR-1037
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -13128,25 +10114,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇫🇷 法国FR-1041
-- name: 🇰🇷 韩国KR-1042
-  type: ss
-  server: 220.124.181.77
-  port: 18081
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  udp: true
-  cipher: none
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
 - type: trojan
   server: 31.56.228.210
   port: 2053
@@ -13205,24 +10172,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-1047
-- type: ss
-  server: 112.184.13.229
-  port: 10911
-  cipher: none
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
-  name: 🇰🇷 韩国KR-1048
 - type: trojan
   server: 217.60.63.209
   port: 8443
@@ -13234,27 +10183,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇫🇷 法国FR-1049
-- name: 🇰🇷 韩国KR-1050
-  type: ss
-  server: 218.150.34.228
-  port: 10912
-  password: 59fc5f8c-5697-4eb8-acf2-8ae363f203a2
-  skip-cert-verify: false
-  udp: false
-  cipher: none
-  plugin: v2ray-plugin
-  plugin-opts:
-    mode: websocket
-    host: woshinidie-et3.pages.dev
-    path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-    tls: true
-    sni: woshinidie-et3.pages.dev
-    mux: 0
-    skip-cert-verify: false
-  host: woshinidie-et3.pages.dev
-  sni: woshinidie-et3.pages.dev
-  path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
-  tls: true
 - type: trojan
   server: 77.221.152.22
   port: 2053
@@ -13340,17 +10268,6 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   udp: true
-- type: trojan
-  server: 92.246.136.90
-  port: 8443
-  password: 8r<[9'l6hAO#8ZQi
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-1059
 - type: trojan
   server: 217.60.63.211
   port: 2053
@@ -14322,38 +11239,6 @@ proxies:
     path: /
   encryption: none
 - type: vless
-  name: 🇭🇰 香港-1128
-  server: 172.64.41.212
-  port: 443
-  uuid: 0e366b8e-c7c7-41cb-9093-cd624fac2d82
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: cf1.xn--9swa.com
-    path: /
-  encryption: none
-  servername: cf1.xn--9swa.com
-- type: vless
-  name: 🇭🇰 香港-1129
-  server: 172.64.41.212
-  port: 80
-  uuid: 0e366b8e-c7c7-41cb-9093-cd624fac2d82
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: cf1.xn--9swa.com
-    path: /
-  encryption: none
-- type: vless
   name: 🇭🇰 香港-1130
   server: 172.64.41.10
   port: 443
@@ -14373,38 +11258,6 @@ proxies:
 - type: vless
   name: 🇭🇰 香港-1131
   server: 172.64.41.10
-  port: 80
-  uuid: 0e366b8e-c7c7-41cb-9093-cd624fac2d82
-  udp: true
-  tls: false
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: cf1.xn--9swa.com
-    path: /
-  encryption: none
-- type: vless
-  name: 🇭🇰 香港-1132
-  server: 172.64.41.212
-  port: 443
-  uuid: 0e366b8e-c7c7-41cb-9093-cd624fac2d82
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: cf1.xn--9swa.com
-    path: /
-  encryption: none
-  servername: cf1.xn--9swa.com
-- type: vless
-  name: 🇭🇰 香港-1133
-  server: 172.64.41.212
   port: 80
   uuid: 0e366b8e-c7c7-41cb-9093-cd624fac2d82
   udp: true
@@ -14673,40 +11526,6 @@ proxies:
   encryption: none
   servername: lxs1jp.lxy1015.top
 - type: vless
-  name: 🇯🇵 日本-1149
-  server: cfyes.lxy1015.top
-  port: 443
-  uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: lx-1jp.lxy1015.top
-    path: /liangxin/jp1
-  encryption: none
-  servername: lxs1jp.lxy1015.top
-- type: vless
-  name: 🇯🇵 日本-1150
-  server: cfyes.lxy1015.top
-  port: 443
-  uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: lx-1jp.lxy1015.top
-    path: /liangxin/jp1
-  encryption: none
-  servername: lxs1jp.lxy1015.top
-- type: vless
   name: 🇺🇸 美国-1151
   server: aws-link19.liangxin1.xyz
   port: 443
@@ -14723,40 +11542,6 @@ proxies:
   network: tcp
   encryption: none
   servername: download-porter.hoyoverse.com
-- type: vless
-  name: 🇺🇸 美国-1152
-  server: cfyes.lxy1015.top
-  port: 443
-  uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: lx-us1.lxy1015.top
-    path: /liangxin/us
-  encryption: none
-  servername: lx-us1.lxy1015.top
-- type: vless
-  name: 🇺🇸 美国-1153
-  server: cfyes.lxy1015.top
-  port: 443
-  uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: lx-us1.lxy1015.top
-    path: /liangxin/us
-  encryption: none
-  servername: lx-us1.lxy1015.top
 - type: vless
   name: 🇰🇷 韩国-1154
   server: aws-link25.liangxin1.xyz
@@ -14915,22 +11700,6 @@ proxies:
   cipher: aes-256-gcm
   password: 32c0ea6e823341a2
   name: 🇷🇺 俄罗斯-1169
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 195.133.2.2
-  port: 34898
-  cipher: chacha20-ietf-poly1305
-  password: D1oFY5dskhFuI8PNbSA35s
-  name: 🇫🇮 芬兰-1170
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 109.107.182.229
-  port: 51544
-  cipher: chacha20-ietf-poly1305
-  password: rgb8YGYlxYN7jvDGxA14K9
-  name: 🇫🇮 芬兰-1171
 - name: 🇰🇷 韩国-1172
   type: http
   tls: false
@@ -15019,50 +11788,6 @@ proxies:
   server: 219.103.68.164
   port: 20770
   name: 🇺🇸 美国-1181
-- name: 🇺🇸 美国-1182
-  type: vmess
-  server: 82.198.246.37
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 88.210.36.106
-  port: 2377
-  cipher: chacha20-ietf-poly1305
-  password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
-  name: 🇺🇸 美国-1183
-- name: 🇺🇸 美国-1184
-  type: vmess
-  server: 82.198.246.9
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇺🇸 美国-1185
-  type: vmess
-  server: 82.198.246.214
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇺🇸 美国-1186
-  type: vmess
-  server: 82.198.246.233
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
 - name: 🇺🇸 美国-1187
   type: vmess
   server: 103.182.97.245
@@ -15445,25 +12170,9 @@ proxies:
   skip-cert-verify: true
   tfo: false
 - type: hysteria2
-  name: 🇨🇳 台湾-1222
-  server: tw2.fuckip.me
-  port: 21520
-  password: sI0wl1bvYlSXu2RsMSAtAIMM
-  sni: www.cloudflare.com
-  skip-cert-verify: true
-  tfo: false
-- type: hysteria2
   name: 🇨🇳 台湾-1223
   server: starlink-tw5.mfa.cat
   port: 12405
-  password: sI0wl1bvYlSXu2RsMSAtAIMM
-  sni: www.cloudflare.com
-  skip-cert-verify: true
-  tfo: false
-- type: hysteria2
-  name: 🇨🇳 台湾-1224
-  server: tw2.fuckip.me
-  port: 21520
   password: sI0wl1bvYlSXu2RsMSAtAIMM
   sni: www.cloudflare.com
   skip-cert-verify: true
@@ -15497,25 +12206,9 @@ proxies:
   network: tcp
   type: trojan
   password: sI0wl1bvYlSXu2RsMSAtAIMM
-  server: tw2.fuckip.me
-  port: 21520
-  name: 🇨🇳 台湾-1228
-- skip-cert-verify: true
-  sni: www.cloudflare.com
-  network: tcp
-  type: trojan
-  password: sI0wl1bvYlSXu2RsMSAtAIMM
   server: starlink-tw5.mfa.cat
   port: 12408
   name: 🇨🇳 台湾-1229
-- skip-cert-verify: true
-  sni: www.cloudflare.com
-  network: tcp
-  type: trojan
-  password: sI0wl1bvYlSXu2RsMSAtAIMM
-  server: tw2.fuckip.me
-  port: 21520
-  name: 🇨🇳 台湾-1230
 - type: hysteria2
   name: 🇰🇷 韩国-1231
   server: starlink-kr1.mfa.cat
@@ -15534,22 +12227,6 @@ proxies:
   tfo: false
 - type: vless
   name: 🇰🇷 韩国-1233
-  server: starlink-kr2.mfa.cat
-  port: 443
-  uuid: sI0wl1bvYlSXu2RsMSAtAIMM
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: UFe-Y_-8fEigWjaksGsQzU-B8o-QHWcyQG0Wnelc03A
-  network: tcp
-  encryption: none
-  servername: www.microsoft.com
-- type: vless
-  name: 🇰🇷 韩国-1234
   server: starlink-kr2.mfa.cat
   port: 443
   uuid: sI0wl1bvYlSXu2RsMSAtAIMM
@@ -15724,42 +12401,6 @@ proxies:
   server: starlink-de2.mfa.cat
   port: 443
   name: 🇩🇪 德国-1254
-- name: 🇺🇸 美国-1255
-  type: vmess
-  server: 82.198.246.9
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇺🇸 美国-1256
-  type: vmess
-  server: 82.198.246.214
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇺🇸 美国-1257
-  type: vmess
-  server: 82.198.246.250
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇩🇪 德国-1258
-  type: vmess
-  server: 82.198.246.233
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
 - name: 🇨🇴 哥伦比亚-1259
   type: vmess
   server: vpnicp.xyc.hk.cn
@@ -15786,27 +12427,6 @@ proxies:
   network: tcp
   encryption: none
   servername: www.tesla.com
-- name: 🇺🇸 美国-1261
-  type: vmess
-  server: 82.198.246.97
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- type: vless
-  name: 🇨🇭 瑞士-1262
-  server: 172.65.111.43
-  port: 22
-  uuid: monacoVPN
-  udp: true
-  skip-cert-verify: false
-  xudp: true
-  network: h2
-  encryption: none
-  h2-opts:
-    path: /
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -16287,20 +12907,6 @@ proxies:
   alterId: 2
   tls: false
   network: tcp
-- name: 🇺🇸 美国-1294
-  type: vmess
-  server: cf.scpnb.top
-  port: 443
-  cipher: auto
-  uuid: 6a4e7e55-9f07-4c54-abdd-72b9820f4cb3
-  alterId: 0
-  tls: true
-  network: ws
-  ws-opts:
-    path: /6a4e7e55-9f07-4c54-abdd-72b9820f4cb3-vm
-    headers:
-      Host: explicit-freeware-animation-greg.trycloudflare.com
-  servername: explicit-freeware-animation-greg.trycloudflare.com
 - name: 🇺🇸 美国-1295
   type: vmess
   server: 104.168.1.102
@@ -16410,23 +13016,6 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   encryption: none
   servername: sni.111000.v6.army
-- type: vless
-  name: 🇩🇪 德国-1303
-  server: 159.195.82.187
-  port: 9443
-  uuid: 4649d681-7f26-4959-a3f2-02eb8866230f
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: wAYsJ6RJXFy94w_WaTIhp1ZfCePAPoZmP27RarvUqXg
-    short-id: 2344766a270a6298
-  network: tcp
-  encryption: none
-  servername: yahoo.com
 - type: hysteria
   name: 🇩🇪 德国-1304
   server: '@5.83.129.90'
@@ -16934,45 +13523,15 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
   name: 🇳🇱 荷兰-1337
-- name: 🇮🇹 意大利-1338
-  type: http
-  tls: false
-  server: 84.239.49.156
-  port: 9002
-- name: 🇮🇹 意大利-1339
-  type: http
-  tls: false
-  server: 84.239.49.211
-  port: 9002
 - name: 🇮🇹 意大利-1340
   type: http
   tls: false
   server: 84.239.49.219
   port: 9002
-- name: 🇮🇹 意大利-1341
-  type: http
-  tls: false
-  server: 84.239.49.224
-  port: 9002
 - name: 🇮🇹 意大利-1342
   type: http
   tls: false
   server: 84.239.49.198
-  port: 9002
-- name: 🇮🇹 意大利-1343
-  type: http
-  tls: false
-  server: 84.239.49.37
-  port: 9002
-- name: 🇮🇹 意大利-1344
-  type: http
-  tls: false
-  server: 193.176.84.25
-  port: 9002
-- name: 🇮🇹 意大利-1345
-  type: http
-  tls: false
-  server: 84.239.14.158
   port: 9002
 - type: vless
   name: 🇸🇬 新加坡-1346
@@ -17068,15 +13627,6 @@ proxies:
   cipher: aes-256-gcm
   password: dada1203
   name: 🇺🇸 美国-1354
-- name: 🇺🇸 美国-1355
-  type: vmess
-  server: 82.198.246.250
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
 - type: vless
   name: 🇺🇸 美国-1356
   server: ohio1.ap221.com
@@ -17124,72 +13674,6 @@ proxies:
   network: tcp
   encryption: none
   servername: www.sony.com
-- name: 🇲🇾 马来西亚-1359
-  type: http
-  tls: false
-  server: c92910b5-ta1og0-tfeciy-1iddy.my.oshuawei.com
-  port: 31233
-  username: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-  password: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-- name: 🇲🇾 马来西亚-1360
-  type: http
-  tls: false
-  server: 7b7fb5b7-t9zts0-tfeciy-1iddy.my.oshuawei.com
-  port: 31233
-  username: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-  password: e168c43e-c6d9-11ed-a8bf-f23c91cfbbc9
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 82.38.31.205
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: 🇬🇧 英国-1361
-- name: 🇬🇧 英国-1362
-  type: vmess
-  server: 82.198.246.233
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇬🇧 英国-1363
-  type: vmess
-  server: 82.198.246.37
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- name: 🇬🇧 英国-1364
-  type: vmess
-  server: 82.198.246.9
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 82.38.31.210
-  port: 8080
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: 🇬🇧 英国-1365
-- name: 🇬🇧 英国-1366
-  type: vmess
-  server: 82.198.246.37
-  port: 180
-  cipher: auto
-  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-  alterId: 0
-  tls: false
-  network: tcp
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -17249,23 +13733,6 @@ proxies:
   encryption: none
   servername: yahoo.com
 - type: vless
-  name: 🇬🇧 英国-1371
-  server: swe-8t.freeonline.pro
-  port: 443
-  uuid: 980231fb-4372-5c81-b696-20aa34d33af0
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: 978-Yxgtd3AWTVfiXEQqCstdwrT1qgsgleGPIRGQDl8
-    short-id: bdac121c7debdaba
-  network: tcp
-  encryption: none
-  servername: www.microsoft.com
-- type: vless
   name: 🇬🇧 英国-1372
   server: hongkong.cloudpath.live
   port: 443
@@ -17313,13 +13780,6 @@ proxies:
     path: /fp=chromefp=chrome
   encryption: none
   servername: dcsrzh.ccwu.cc
-- name: 🇰🇷 韩国-1375
-  type: http
-  tls: false
-  server: testkr3.ssv.vc
-  port: 30446
-  username: test
-  password: test.+
 - type: vless
   name: 🇳🇱 荷兰-1376
   server: 45.88.78.89
@@ -17337,33 +13797,6 @@ proxies:
   network: tcp
   encryption: none
   servername: www.spotify.com
-- name: 🇷🇴 罗马尼亚-1377
-  type: http
-  tls: false
-  server: 84.239.14.158
-  port: 9002
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 45.140.168.54
-  port: 50129
-  cipher: aes-256-gcm
-  password: 32c0ea6e823341a2
-  name: 🇷🇺 俄罗斯-1378
-- type: vless
-  name: 🇷🇺 俄罗斯-1379
-  server: r1.mizulina.top
-  port: 22231
-  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: edge
-  skip-cert-verify: false
-  xudp: true
-  network: tcp
-  encryption: none
-  servername: r1.mizulina.top
 - type: vless
   name: 🇷🇺 俄罗斯-1380
   server: 45.12.75.242
@@ -17414,28 +13847,6 @@ proxies:
     path: /@Marisa_kristi
   encryption: none
   servername: nn9jdg-k7yewrrk.acg.xx.kg
-- type: ss
-  skip-cert-verify: false
-  udp: false
-  server: 203.32.26.24
-  port: 20129
-  cipher: aes-256-gcm
-  password: 63d7c17506d1f48b
-  name: 🇹🇷 土耳其-1383
-- name: 🇨🇳 台湾-1384
-  type: http
-  tls: false
-  server: twmoon1-cdn-route.couldflare-cdn.com
-  port: 1443
-  username: mrwdfNTD8M79LCukCieldrqZWqs=
-  password: exaxgqkKkd0TAMrCxeonWg==
-- name: 🇨🇳 台湾-1385
-  type: http
-  tls: false
-  server: twmoon1-cdn-route.couldflare-cdn.com
-  port: 1443
-  username: mrwdfNTD8M79LCukCieldrqZWqs=
-  password: mrwdfNTD8M79LCukCieldrqZWqs=
 - type: vless
   name: 🇺🇸 美国-1386
   server: cf.090227.xyz
@@ -17597,22 +14008,6 @@ proxies:
   encryption: none
   servername: fuckingfangbinxing.cnmfangbinxing-p.workers.dev
 - type: vless
-  name: 🇺🇸 美国-1396
-  server: 144.31.157.163
-  port: 443
-  uuid: d511e429-e32b-46a7-ac07-a0fffa9b634c
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: ZHEMPjSWslk6_qD2JNQzd5enUPz8nY9mYRRuM6NkZmU
-  network: tcp
-  encryption: none
-  servername: www.deepl.com
-- type: vless
   name: 🇺🇸 美国-1397
   server: 64.186.225.13
   port: 8443
@@ -17628,36 +14023,6 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   encryption: none
   servername: sni.skylee4.cloudns.ch
-- sni: vless.herogoing.top
-  network: ws
-  ws-opts:
-    path: /tr
-    headers:
-      Host: vless.herogoing.top
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  type: trojan
-  password: bpb-trojan
-  server: vless.herogoing.top
-  port: 443
-  name: 🇺🇸 美国-1398
-- type: vless
-  name: 🇺🇸 美国-1399
-  server: ru3.banovano.space
-  port: 443
-  uuid: dc540911-cd1d-41e9-9301-ecb5a507b788
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: JbxZQuL2t4eews1QuA8O4jpsU_NXPMpmzKwlxSQj5Sk
-    short-id: f690c1046814dc9d
-  network: tcp
-  encryption: none
-  servername: www.icloud.com
 - type: vless
   name: 🇬🇧 英国-1400
   server: 185.184.70.120
@@ -17698,132 +14063,6 @@ proxies:
   encryption: none
   servername: https.kmj.qzz.io
 - type: vless
-  name: 🇨🇳 台湾-1402
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://118.163.99.115:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇸🇬 新加坡-1403
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://165.22.60.108:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇲🇾 马来西亚-1404
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://210.48.154.99:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇮🇹 意大利-1405
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://5.158.70.34:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇦🇱 阿尔巴尼亚-1406
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://134.0.63.185:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇮🇳 印度-1407
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://14.99.141.239:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
   name: 🇺🇸 美国-1408
   server: cf.tencentapp.cn
   port: 443
@@ -17842,216 +14081,6 @@ proxies:
     headers:
       Host: tptpss.pages.dev
     path: /https://128.84.46.176:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇺🇸 美国-1409
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://50.184.176.222:8090
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇵🇱 波兰-1410
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://193.25.2.239:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇯🇵 日本-1411
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://133.9.6.10:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇨🇳 台湾-1412
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://203.69.23.34:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇸🇬 新加坡-1413
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://203.126.53.78:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇰🇷 韩国-1414
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://211.34.105.110:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇬🇧 英国-1415
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://46.17.91.114:3000
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇨🇿 捷克-1416
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://91.227.97.113:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇨🇳 台湾-1417
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://118.163.99.115:443
-  encryption: none
-  servername: tptpss.pages.dev
-- type: vless
-  name: 🇵🇱 波兰-1418
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://79.188.239.44:8443
   encryption: none
   servername: tptpss.pages.dev
 - type: vless
@@ -18096,27 +14125,6 @@ proxies:
     path: /
   encryption: none
   servername: 2-ayr.pages.dev
-- type: vless
-  name: 🇮🇸 冰岛-1421
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: gogo.onetap.qzz.io
-    path: /
-  encryption: none
-  servername: gogo.onetap.qzz.io
 - type: vless
   name: 🇺🇦 乌克兰-1422
   server: mfa.gov.ua
@@ -19074,17 +15082,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   type: trojan
   password: 8r<[9'l6hAO#8ZQi
-  server: 172.86.69.166
-  port: 8443
-  name: 🇩🇪 Germany-1512
-- sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  type: trojan
-  password: 8r<[9'l6hAO#8ZQi
   server: 46.101.250.69
   port: 2096
   name: 🇩🇪 Germany-1513
@@ -19612,17 +15609,6 @@ proxies:
   port: 8443
   name: 🇳🇱 Netherlands-1560
   network: tcp
-- sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  type: trojan
-  password: 8r<[9'l6hAO#8ZQi
-  server: 109.120.156.122
-  port: 8443
-  name: 🇳🇱 Netherlands-1561
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -19732,14 +15718,6 @@ proxies:
 - type: ss
   skip-cert-verify: false
   udp: false
-  server: 103.186.154.191
-  port: 38388
-  cipher: aes-256-cfb
-  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
-  name: 🇻🇳 Viet Nam-1571
-- type: ss
-  skip-cert-verify: false
-  udp: false
   server: 103.186.154.231
   port: 38388
   cipher: aes-256-cfb
@@ -19777,18 +15755,6 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   type: trojan
   password: 8r<[9'l6hAO#8ZQi
-  server: 176.125.240.63
-  port: 2053
-  name: 🇸🇪 Sweden-1575
-- skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  type: trojan
-  password: 8r<[9'l6hAO#8ZQi
   server: 77.221.143.39
   port: 443
   name: 🇸🇪 Sweden-1576
@@ -19804,18 +15770,6 @@ proxies:
   server: 77.232.143.161
   port: 443
   name: 🇸🇪 Sweden-1577
-- skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  type: trojan
-  password: 8r<[9'l6hAO#8ZQi
-  server: 64.112.127.151
-  port: 443
-  name: 🇸🇪 Sweden-1578
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -20119,18 +16073,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
   name: 🇸🇨 Seychelles-1604
-- skip-cert-verify: true
-  sni: Koma-YT.PAGeS.Dev
-  network: ws
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-  type: trojan
-  password: 8r<[9'l6hAO#8ZQi
-  server: 185.221.163.129
-  port: 443
-  name: 🇻🇬 Virgin Islands, British-1605
 - type: vless
   name: 🇦🇲 Armenia, Yerevan | [BL]-1606
   server: am.synatra.net
@@ -20345,22 +16287,6 @@ proxies:
     _spider-x: /
   network: tcp
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]-1619
-  server: de-1.shadowhub.cc
-  port: 443
-  uuid: e3da803c-9c04-4ffb-a0f2-32cda93dd868
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: RuJ1lpOsGekCBHkDdJ-ZeaeHQ4biiMj3ioU2eqSyfQM
-  network: tcp
-  encryption: none
-  servername: static.gcore.pro
-- type: vless
   name: 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | 🌐 | [BL]-1620
   server: de.cloxybot.eu
   port: 443
@@ -20409,20 +16335,6 @@ proxies:
     headers:
       Host: srv131.towersflowerss.com
   encryption: none
-- type: vless
-  name: 🇰🇿 Kazakhstan | 🌐 | [BL]-1623
-  server: srv131.towersflowerss.com
-  port: 443
-  uuid: 1933362c-1176-457b-b361-8c01f9e78b32
-  udp: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: srv131.towersflowerss.com
-  servername: srv131.towersflowerss.com
 - type: vless
   name: 🇱🇻 Latvia, Riga | [BL]-1624
   server: 95.163.83.93.alexanderoff.ru
@@ -20714,60 +16626,6 @@ proxies:
     grpc-service-name: vless
   servername: q3r6s9t2u5v.spectrumproxy.shop
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1641
-  server: 171.22.180.35
-  port: 443
-  uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: zpxbyw3Y0c--G-zox99d_W0cFCDOUoL50bK70DCY_x8
-    short-id: a1c1e5f7b9d0
-    _spider-x: /
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-  servername: q3r6s9t2u5v.spectrumproxy.shop
-- type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1642
-  server: 171.22.180.35
-  port: 443
-  uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: zpxbyw3Y0c--G-zox99d_W0cFCDOUoL50bK70DCY_x8
-    short-id: 1e7f9a1b3c5d
-    _spider-x: /
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-  servername: t9r8e7w6q5p.spectrumproxy.shop
-- type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1643
-  server: 171.22.180.35
-  port: 443
-  uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: zpxbyw3Y0c--G-zox99d_W0cFCDOUoL50bK70DCY_x8
-    short-id: 1e7f9a1b3c5d
-    _spider-x: /
-  network: grpc
-  grpc-opts:
-    grpc-service-name: vless
-  servername: w6e9r1t3y5u.spectrumproxy.shop
-- type: vless
   name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1644
   server: nl5.safepass.click
   port: 443
@@ -20849,22 +16707,6 @@ proxies:
   skip-cert-verify: true
   xudp: true
   network: tcp
-  servername: www.amd.com
-- type: vless
-  name: 🇳🇱 The Netherlands, Eygelshoven | [BL]-1649
-  server: 31.59.39.192
-  port: 443
-  uuid: 7a685dc5-f93c-4e19-8b9b-b77998feb042
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: tcp
-  encryption: none
   servername: www.amd.com
 - type: vless
   name: 🇹🇷 Turkey | 🌐 | [BL]-1650
@@ -20967,24 +16809,6 @@ proxies:
   network: tcp
   encryption: none
   servername: www.speedtest.org
-- type: vless
-  name: 🇺🇸 United States | 🌐 | [BL]-1656
-  server: sha1.o4ka-internet.com
-  port: 443
-  uuid: 42ba03da-78cf-413e-9e79-1128ee6ddb30
-  udp: true
-  tls: true
-  flow: xtls-rprx-vision
-  client-fingerprint: random
-  skip-cert-verify: false
-  xudp: true
-  reality-opts:
-    public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
-    short-id: 5629431325884ff0
-    _spider-x: /
-  network: tcp
-  encryption: none
-  servername: sha1.o4ka-internet.com
 - type: vless
   name: 🇺🇸 United States | 🌐 | [BL]-1657
   server: vless-node-fhzagelw.fly.dev
@@ -21156,43 +16980,6 @@ proxies:
   encryption: none
   servername: ru10.myxasecure.space
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |   | [BL]-1667
-  server: 64.186.227.227
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇦🇷 🌐 Anycast-IP |     | [BL]-1668
-  server: 142.248.218.231
-  port: 2053
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
   name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1669
   server: 154.17.235.9
   port: 8443
@@ -21243,23 +17030,6 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.netfp=chrome
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1672
-  server: 154.17.3.247
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
   name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1673
   server: 154.17.31.82
   port: 443
@@ -21291,23 +17061,6 @@ proxies:
     headers:
       Host: sni.skylee4.cloudns.ch
     path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1675
-  server: 64.186.225.13
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: ''
-  skip-cert-verify: true
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
@@ -21344,43 +17097,6 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.netfp=chrome
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1678
-  server: 69.63.199.39
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1679
-  server: 142.248.219.31
-  port: 2053
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
   name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1680
   server: 64.186.234.176
   port: 443
@@ -21395,21 +17111,6 @@ proxies:
       Host: qznql.node-proxy.chinat.indevs.in
     path: /danfeng?ed
   servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇦🇷 🌐 Anycast-IP |   | [BL]-1681
-  server: 64.186.225.13
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  servername: sni.skylee4.cloudns.ch
 - type: vless
   name: 🇧🇷 🌐 Anycast-IP |   | [BL]-1682
   server: dustyvless-gru-ba15b6.fly.dev
@@ -21428,56 +17129,6 @@ proxies:
   encryption: none
   servername: dustyvless-gru-ba15b6.fly.dev
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |  | [BL]-1683
-  server: 64.186.227.227
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyipfp
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1684
-  server: 106.244.196.196
-  port: 11371
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng?ed
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1685
-  server: 112.72.253.34
-  port: 11371
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed=2560fp=firefox
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1686
   server: 125.138.172.119
   port: 15000
@@ -21493,44 +17144,6 @@ proxies:
       Host: qznql.node-proxy.chinat.indevs.in
     path: /danfeng?ed=2560fp=firefox
   servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1687
-  server: 121.151.76.196
-  port: 11965
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng?ed
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1688
-  server: 222.113.253.35
-  port: 12300
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng?ed
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1689
   server: 219.76.13.183
@@ -21562,25 +17175,6 @@ proxies:
     path: /proxyip
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1691
-  server: 119.8.26.15
-  port: 443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng?ed
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1692
   server: 103.43.191.121
   port: 8443
@@ -21597,21 +17191,6 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1693
-  server: 103.43.191.121
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1694
   server: 154.12.188.42
   port: 2053
@@ -21625,53 +17204,6 @@ proxies:
     headers:
       Host: sni.skylee4.cloudns.ch
     path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1695
-  server: 163.5.58.77
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /fp
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1696
-  server: 219.76.13.183
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sn1.skylee5.cloudns.ch
-    path: /fp
-  servername: sn1.skylee5.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1697
-  server: 70.36.96.118
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1698
@@ -21691,60 +17223,6 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1699
-  server: 70.36.96.118
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.netfp=chrome
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1700
-  server: 154.12.188.42
-  port: 2053
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1701
-  server: 202.81.229.40
-  port: 30011
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1702
   server: 8.210.55.92
   port: 10001
@@ -21759,23 +17237,6 @@ proxies:
       Host: qznql.node-proxy.chinat.indevs.in
     path: /danfeng?ed
   servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1703
-  server: 193.3.168.163
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1704
   server: 188.239.21.47
@@ -21810,192 +17271,6 @@ proxies:
     path: /proxyip
   encryption: none
   servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1706
-  server: 8.219.232.55
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1707
-  server: 112.72.253.34
-  port: 11371
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1708
-  server: 116.121.210.196
-  port: 10243
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng?ed
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1709
-  server: 14.36.170.70
-  port: 19530
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng?ed
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1710
-  server: 218.144.217.243
-  port: 12203
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng?ed
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1711
-  server: 219.255.114.230
-  port: 18889
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed=2560fp=firefox
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1712
-  server: 183.108.49.163
-  port: 11434
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1713
-  server: 219.255.114.230
-  port: 18889
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1714
-  server: 220.94.34.138
-  port: 18852
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1715
-  server: 221.150.188.210
-  port: 12300
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng?ed
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1716
-  server: 221.158.4.230
-  port: 18853
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng?ed
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1717
   server: 58.125.206.55
@@ -22044,21 +17319,6 @@ proxies:
     path: /danfeng?ed=2560fp=firefox
   servername: qznql.node-proxy.chinat.indevs.in
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1720
-  server: 93.93.205.70
-  port: 443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1721
   server: 109.248.160.84
   port: 8443
@@ -22073,21 +17333,6 @@ proxies:
     headers:
       Host: qznql.node-proxy.chinat.indevs.in
     path: /danfeng?ed=2560fp=firefox
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1722
-  server: 109.248.160.84
-  port: 8443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
   servername: qznql.node-proxy.chinat.indevs.in
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1723
@@ -22105,63 +17350,6 @@ proxies:
     path: /danfeng?ed
   servername: qznql.node-proxy.chinat.indevs.in
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1724
-  server: 147.45.125.192
-  port: 443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng?ed
-  servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1725
-  server: 172.86.90.160
-  port: 443
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1726
-  server: 173.231.16.245
-  port: 20000
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: mz0tgmxz.user-api.chinav.eu.org
-    path: /danfeng
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: mz0tgmxz.user-api.chinav.eu.org
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1727
   server: 166.0.198.35
   port: 17009
@@ -22176,152 +17364,6 @@ proxies:
       Host: qznql.node-proxy.chinat.indevs.in
     path: /danfeng?ed
   servername: qznql.node-proxy.chinat.indevs.in
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1728
-  server: 154.17.235.9
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1729
-  server: 154.17.29.83
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1730
-  server: 154.17.3.247
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1731
-  server: 154.17.31.82
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1732
-  server: 154.26.181.85
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1733
-  server: 31.220.31.67
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1734
-  server: 64.186.225.13
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1735
-  server: 64.186.225.13
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇨🇭 🌐 Anycast-IP |    | [BL]-1736
-  server: 91.90.193.138
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  encryption: none
-  servername: sni.skylee4.cloudns.ch
 - type: vless
   name: 🇩🇪 🌐 Anycast-IP |   | [BL]-1737
   server: ip2.bv24.org
@@ -22356,104 +17398,6 @@ proxies:
       Host: dustyvless-fra-34219f.fly.dev
     path: /i02laDkLQf7t
   servername: dustyvless-fra-34219f.fly.dev
-- type: vless
-  name: 🇫🇮 🌐 Anycast-IP |   | [BL]-1739
-  server: fl-7-direct.djarbnet.ru
-  port: 443
-  uuid: 0c9c3d36-c93c-4d1b-bdff-8038c3ed78a2
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: fl-7-direct.djarbnet.ru
-    path: /getupdates
-  encryption: none
-  servername: fl-7-direct.djarbnet.ru
-- type: vless
-  name: 🇬🇧 🌐 Anycast-IP |   | [BL]-1740
-  server: 112.222.0.27
-  port: 10255
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: nai3.api-gateway-01.chinat.indevs.in
-    path: /danfeng?ed
-  encryption: none
-  servername: nai3.api-gateway-01.chinat.indevs.in
-- type: vless
-  name: 🇭🇰 🌐 Anycast-IP |  | [BL]-1741
-  server: 43.247.134.179
-  port: 8443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇭🇰 🌐 Anycast-IP |   | [BL]-1742
-  server: 70.36.96.118
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /proxyip=ProxyIP.CMLiussss.net
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇭🇰 🌐 Anycast-IP |   | [BL]-1743
-  server: 163.5.58.140
-  port: 443
-  uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: sni.skylee4.cloudns.ch
-    path: /
-  servername: sni.skylee4.cloudns.ch
-- type: vless
-  name: 🇯🇵 🌐 Anycast-IP |   | [BL]-1744
-  server: dustyvless-nrt-934ad9.fly.dev
-  port: 443
-  uuid: a92eb27d-d7b4-5945-a8a2-36910acfa28a
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: dustyvless-nrt-934ad9.fly.dev
-    path: /4pt-gO4kNuNG
-  encryption: none
-  servername: dustyvless-nrt-934ad9.fly.dev
 - type: vless
   name: 🇰🇷 🌐 Anycast-IP |   | [BL]-1745
   server: 49.165.150.206
@@ -22498,34 +17442,6 @@ proxies:
     path: /ws
     tls: false
     mux: true
-- name: 🇸🇬 新加坡01-1748
-  type: ss
-  server: www.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: sg.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- name: 🇸🇬 新加坡02-1749
-  type: ss
-  server: www.shopify.com
-  port: 2052
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: sg3.337777777.xyz
-    path: /ws
-    tls: false
-    mux: true
 - name: 🇯🇵 日本01-1750
   type: ss
   server: openai.com
@@ -22540,76 +17456,6 @@ proxies:
     path: /api/v1/stream1
     tls: false
     mux: true
-- name: 🇯🇵 日本02-1751
-  type: ss
-  server: www.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: leajp1.337777777.xyz
-    path: /api/v1/stream2
-    tls: false
-    mux: true
-- name: 🇯🇵 日本03-1752
-  type: ss
-  server: www.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: leajp2.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- name: 🇯🇵 日本04-1753
-  type: ss
-  server: www.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: leajp1.337777777.xyz
-    path: /api/v1/stream4
-    tls: false
-    mux: true
-- name: 🇰🇷 韩国01-1754
-  type: ss
-  server: openai.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: leajp1.337777777.xyz
-    path: /api/v1/stream3
-    tls: false
-    mux: true
-- name: 🇺🇸 美国01-1755
-  type: ss
-  server: 23.80.80.22
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: one.local
-    path: /ws
-    tls: false
-    mux: true
 - name: 🇺🇸 美国02-1756
   type: ss
   server: 104.128.72.119
@@ -22622,20 +17468,6 @@ proxies:
     mode: websocket
     host: one.local
     path: /ws
-    tls: false
-    mux: true
-- name: 🇺🇸 美国03-1757
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ccus3.337777777.xyz
-    path: /api/v1/stream
     tls: false
     mux: true
 - name: 🇺🇸 美国04-1758
@@ -22664,76 +17496,6 @@ proxies:
     mode: websocket
     host: one.local
     path: /ws
-    tls: false
-    mux: true
-- name: 🇺🇸 美国06-1760
-  type: ss
-  server: 172.96.161.152
-  port: 20092
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: one.local
-    path: /ws
-    tls: false
-    mux: true
-- name: 🇺🇸 美国07-1761
-  type: ss
-  server: cdn.shopify.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ous.337777777.xyz
-    path: /ws
-    tls: false
-    mux: true
-- name: 🇺🇸 美国08-1762
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ous7.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- name: 🇺🇸 美国09-1763
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: ous9.337777777.xyz
-    path: /api/v1/stream
-    tls: false
-    mux: true
-- name: 🇺🇸 美国10-1764
-  type: ss
-  server: www.syfe.com
-  port: 80
-  cipher: 2022-blake3-aes-128-gcm
-  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
-  udp: true
-  plugin: gost-plugin
-  plugin-opts:
-    mode: websocket
-    host: arm.337777777.xyz
-    path: /api/v1/stream
     tls: false
     mux: true
 - type: ss
