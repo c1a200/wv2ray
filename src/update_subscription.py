@@ -179,6 +179,9 @@ def _filter_unsupported_proxies(content: str) -> str:
             for k in keys_to_remove:
                 del proxy['reality-opts'][k]
                 cleaned_fields += 1
+            # 确保 short-id 是字符串（纯数字如 09 在 YAML 中会被误解析为整数）
+            if 'short-id' in proxy['reality-opts']:
+                proxy['reality-opts']['short-id'] = str(proxy['reality-opts']['short-id'])
 
         valid.append(proxy)
 
