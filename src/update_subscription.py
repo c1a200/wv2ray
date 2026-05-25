@@ -137,6 +137,7 @@ def _filter_unsupported_proxies(content: str) -> str:
 
     valid = []
     removed_reasons = {}
+    cleaned_fields = 0
 
     for proxy in proxies:
         if not isinstance(proxy, dict):
@@ -165,14 +166,31 @@ def _filter_unsupported_proxies(content: str) -> str:
             removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
             continue
 
+        # 检查 ech-opts（Encrypted Client Hello，FlClash 不支持）
+        if proxy.get('ech-opts'):
+            reason = '不支持的 ech-opts (ECH)'
+            removed_reasons[reason] = removed_reasons.get(reason, 0) + 1
+            continue
+
+        # 清理 reality-opts 中的非标准字段（如 _spider-x, _dns）
+        # 这些字段不是协议规范的一部分，会导致某些客户端解析异常
+        if proxy.get('reality-opts') and isinstance(proxy['reality-opts'], dict):
+            keys_to_remove = [k for k in proxy['reality-opts'] if k.startswith('_')]
+            for k in keys_to_remove:
+                del proxy['reality-opts'][k]
+                cleaned_fields += 1
+
         valid.append(proxy)
 
     removed_count = len(proxies) - len(valid)
-    if removed_count > 0:
-        print(f"✓ 协议过滤: 移除 {removed_count} 个不兼容节点（保留 {len(valid)} 个）")
-        for reason, count in sorted(removed_reasons.items(),
-                                    key=lambda x: -x[1]):
-            print(f"  - {reason}: {count} 个")
+    if removed_count > 0 or cleaned_fields > 0:
+        if removed_count > 0:
+            print(f"✓ 协议过滤: 移除 {removed_count} 个不兼容节点（保留 {len(valid)} 个）")
+            for reason, count in sorted(removed_reasons.items(),
+                                        key=lambda x: -x[1]):
+                print(f"  - {reason}: {count} 个")
+        if cleaned_fields > 0:
+            print(f"✓ 清理了 {cleaned_fields} 个非标准字段（_spider-x 等）")
         data['proxies'] = valid
         return yaml.dump(data, allow_unicode=True, default_flow_style=False,
                          sort_keys=False, width=1000)

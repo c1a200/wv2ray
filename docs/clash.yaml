@@ -799,27 +799,6 @@ proxies:
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
   name: 🇰🇷 韩国KR-110
-- client-fingerprint: firefox
-  ech-opts:
-    enable: true
-    query-server-name: encryptedsni.com
-  name: 🇰🇷 韩国KR-114
-  network: ws
-  port: 20201
-  server: 125.135.9.231
-  skip-cert-verify: false
-  tfo: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: 26524cce-d514-4014-a426-365fb266a14d
-  ws-opts:
-    headers:
-      Host: qznql.node-proxy.chinat.indevs.in
-    path: /danfeng
-    early-data-header-name: Sec-WebSocket-Protocol
-    max-early-data: 2560
-  servername: qznql.node-proxy.chinat.indevs.in
 - type: hysteria2
   server: 45.67.136.93
   port: 443
@@ -1883,26 +1862,6 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: hk1SdyRWbYi3Igxeow9JdN
   name: 🇺🇸 美国US-285
-- client-fingerprint: firefox
-  ech-opts:
-    _dns: https://dns.alidns.com/dns-query
-    enable: true
-    query-server-name: encryptedsni.com
-  name: 🇰🇷 韩国KR-286
-  network: ws
-  port: 12312
-  server: 14.52.210.173
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  ws-opts:
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-    path: /
-  packet-encoding: xudp
-  servername: juzi8186.qea.ccwu.cc
 - name: 🇰🇷 韩国KR-288
   type: trojan
   network: ws
@@ -4662,28 +4621,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- client-fingerprint: firefox
-  ech-opts:
-    _dns: https://dns.alidns.com/dns-query
-    enable: true
-    query-server-name: encryptedsni.com
-  name: 🇺🇸 美国US-558
-  network: ws
-  port: 31222
-  server: 43.153.68.102
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  ws-opts:
-    early-data-header-name: Sec-WebSocket-Protocol
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-    max-early-data: 2560
-    path: /register/juzibaipiao
-  packet-encoding: xudp
-  servername: juzi8186.qea.ccwu.cc
 - type: trojan
   server: 45.89.66.185
   port: 8443
@@ -4947,7 +4884,6 @@ proxies:
   reality-opts:
     public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
     short-id: 5629431325884ff0
-    _spider-x: /
   network: tcp
   encryption: none
   packet-encoding: xudp
@@ -8153,27 +8089,6 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- type: vless
-  name: 🇺🇸 美国US-944
-  server: cf.tencentapp.cn
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  network: ws
-  ws-opts:
-    headers:
-      Host: tptpss.pages.dev
-    path: /https://128.84.46.176:443
-  encryption: none
-  packet-encoding: xudp
-  servername: tptpss.pages.dev
 - type: trojan
   server: 45.91.168.197
   port: 8443
@@ -10980,111 +10895,6 @@ proxies:
   network: tcp
   encryption: none
   servername: www.icloud.com
-- type: vless
-  name: 🇫🇷 法国-1238
-  server: time.is
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: https.kmj.qzz.io
-    path: /https://178.237.108.214:443
-  encryption: none
-  servername: https.kmj.qzz.io
-- type: vless
-  name: 🇺🇦 乌克兰-1256
-  server: da.mfa.gov.ua
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: 3-abf.pages.dev
-    path: /
-  encryption: none
-  servername: 3-abf.pages.dev
-- type: vless
-  name: 🇲🇨 摩纳哥-1257
-  server: www.mc.js.cool
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev
-    path: /
-  encryption: none
-  servername: gsgsdgreyrehjsrteargsfhtrhsrwrhtruiekghmg.pages.dev
-- type: vless
-  name: 🇺🇦 乌克兰-1259
-  server: mfa.gov.ua
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: ewgruiehoe.pages.dev
-    path: /
-  encryption: none
-  servername: ewgruiehoe.pages.dev
-- type: vless
-  name: 🇺🇦 乌克兰-1260
-  server: tajikistan.mfa.gov.ua
-  port: 443
-  uuid: ce069292-c8bf-40dd-a6b1-87818a1e64e9
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: cloudflare-ech.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: 1-jk1.pages.dev
-    path: /
-  encryption: none
-  servername: 1-jk1.pages.dev
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12625,7 +12435,6 @@ proxies:
   reality-opts:
     public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
     short-id: 5629431325884ff0
-    _spider-x: /
   network: tcp
   encryption: none
   servername: eston5.o4ka-internet.com
@@ -12675,7 +12484,6 @@ proxies:
   reality-opts:
     public-key: 2lReHLDD5UCpT8FyBLPyrrIbi6MNKDBTArtCwI3NUQA
     short-id: 4b1b
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -12890,7 +12698,6 @@ proxies:
   reality-opts:
     public-key: oHql-On8aGXhj2PMd0v1vGi23Fbr0jlLT1OWke1LUS0
     short-id: '23'
-    _spider-x: /
   network: tcp
   encryption: none
   servername: germany1.grovpn.com
@@ -12907,7 +12714,6 @@ proxies:
   reality-opts:
     public-key: 6NCa8hdmqu3ZpYSQkODtsExGL1M0wR0GI4XZbb3Kdxo
     short-id: ce1b
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -13063,7 +12869,6 @@ proxies:
   xudp: true
   reality-opts:
     public-key: vCmEFMhXtECxxnRz6SsFHRWx5JJ6AMJdoKtC1HCATkA
-    _spider-x: /
   network: tcp
   encryption: none
   servername: developer.mozilla.org
@@ -13173,7 +12978,6 @@ proxies:
   reality-opts:
     public-key: OzoYp8homkMDMozggbwqswuBiWRykfmmszFpu2_YM1g
     short-id: f0b670194e8d2401
-    _spider-x: /
   network: tcp
   encryption: none
   servername: www.icloud.com
@@ -13241,7 +13045,6 @@ proxies:
   reality-opts:
     public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
     short-id: 5629431325884ff0
-    _spider-x: /
   network: tcp
   encryption: none
   servername: lit2.o4ka-internet.com
@@ -13258,7 +13061,6 @@ proxies:
   reality-opts:
     public-key: 256_nhGBxahWpHUBAQUN-MkS58XedIAc6glz0b-bjx0
     short-id: bf05
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -13274,7 +13076,6 @@ proxies:
   reality-opts:
     public-key: VKnmZTvFbnmlCDWFpZiLw8054w02QOmXmXVCFFG7T2U
     short-id: d5d0
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -13428,7 +13229,6 @@ proxies:
   reality-opts:
     public-key: TFAGMtH1LB503O0SJadbPxBs8S_LACshWQpEIAyuS1g
     short-id: 9b1cdc34dd5664
-    _spider-x: /
   network: tcp
   encryption: none
   servername: www.icloud.com
@@ -13542,7 +13342,6 @@ proxies:
   reality-opts:
     public-key: NqYnddqVskPX-aTP4Vdip_XDnMphLwVtgc3XwTc2QVg
     short-id: 9c2378562188c3cb
-    _spider-x: /
   network: tcp
   servername: sw.nosok-top.com
 - type: vless
@@ -13558,7 +13357,6 @@ proxies:
   xudp: true
   reality-opts:
     public-key: vCmEFMhXtECxxnRz6SsFHRWx5JJ6AMJdoKtC1HCATkA
-    _spider-x: /
   network: tcp
   encryption: none
   servername: developer.mozilla.org
@@ -13608,7 +13406,6 @@ proxies:
   reality-opts:
     public-key: zoiagJDF37YVs5uHvZ7Ldm9dFnzxjIKqh5NcX8hTZ0s
     short-id: 7f7f
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -13656,7 +13453,6 @@ proxies:
   reality-opts:
     public-key: zpxbyw3Y0c--G-zox99d_W0cFCDOUoL50bK70DCY_x8
     short-id: f1a4b6c8d0e1
-    _spider-x: /
   network: grpc
   grpc-opts:
     grpc-service-name: vless
@@ -13724,7 +13520,6 @@ proxies:
   reality-opts:
     public-key: DkDoSniuiRGJmHe2eHvS5-JAxOCLe3pIWHk7PHfmojk
     short-id: c1a9
-    _spider-x: /
   network: tcp
   encryption: none
   servername: yahoo.com
@@ -13772,7 +13567,6 @@ proxies:
   reality-opts:
     public-key: k0PiinCAao_mS5jAiZ1h57Mpoh_CUtLw8-Dk6mGvLmA
     short-id: 301f
-    _spider-x: /
   network: tcp
   servername: yahoo.com
 - type: vless
@@ -13805,7 +13599,6 @@ proxies:
   reality-opts:
     public-key: f1kpVFY3EHaR41TCKGqSWzZq7HG-WpyE2g_tlMm2US0
     short-id: 844dfa3681e4c4
-    _spider-x: /
   network: tcp
   servername: nl1.skysafe.online
 - type: vless
@@ -13989,7 +13782,6 @@ proxies:
   reality-opts:
     public-key: V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8
     short-id: 5629431325884ff0
-    _spider-x: /
   network: tcp
   encryption: none
   servername: sha1.o4ka-internet.com
@@ -14056,7 +13848,6 @@ proxies:
   reality-opts:
     public-key: 4iuR2mv0RnnPZbwvQuZ4L07Bois8hMUczEbMeDF0iRc
     short-id: fb38c1c83009e1
-    _spider-x: /
   network: tcp
   servername: us.skysafe.online
 - type: vless
@@ -14406,27 +14197,6 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   encryption: none
   servername: sni.111000.v6.navy
-- type: vless
-  name: 🇦🇷 🌐 Anycast-IP |   | [BL]-1569
-  server: 8.209.253.101
-  port: 34237
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  udp: true
-  tls: true
-  client-fingerprint: chrome
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: encryptedsni.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-    path: /zh-tw/channels/juzibaipiao?ed
-  encryption: none
-  servername: juzi8186.qea.ccwu.cc
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |      | [BL]-1570
   server: 188.241.241.28
@@ -15271,29 +15041,6 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1662
-  server: 153.121.45.101
-  port: 443
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: encryptedsni.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-    path: /lives/photos/juzibaipiao
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  encryption: none
-  servername: juzi8186.qea.ccwu.cc
-- type: vless
   name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1664
   server: 8.216.121.234
   port: 51922
@@ -15409,28 +15156,6 @@ proxies:
       Host: cf.cfvip.lol
     path: /pyip
   servername: cf.cfvip.lol
-- type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1674
-  server: 13.216.170.138
-  port: 443
-  uuid: bafacd98-136a-4530-838d-4e5c51838dac
-  udp: true
-  tls: true
-  client-fingerprint: firefox
-  skip-cert-verify: false
-  ech-opts:
-    enable: true
-    _dns: https://dns.alidns.com/dns-query
-    query-server-name: encryptedsni.com
-  xudp: true
-  network: ws
-  ws-opts:
-    headers:
-      Host: juzi8186.qea.ccwu.cc
-    path: /sale/about/api/juzibaipiao
-    max-early-data: 2560
-    early-data-header-name: Sec-WebSocket-Protocol
-  servername: juzi8186.qea.ccwu.cc
 - type: vless
   name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1676
   server: 45.43.76.184
