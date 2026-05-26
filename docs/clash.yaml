@@ -149,7 +149,7 @@ proxies:
   port: 17742
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇭🇰 香港HK-23（原标JP）
+  name: 🇯🇵 日本JP-23
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -187,7 +187,7 @@ proxies:
   port: 14006
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇭🇰 香港HK-27（原标JP）
+  name: 🇯🇵 日本JP-27
 - type: hysteria2
   server: 47.80.6.141
   port: 443
@@ -202,7 +202,7 @@ proxies:
   port: 20001
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇸🇬 新加坡SG-29
+  name: 🇭🇰 香港HK-29（原标SG）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -509,7 +509,7 @@ proxies:
   port: 20011
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇭🇰 香港HK-65（原标US）
+  name: 🇺🇸 美国US-65
 - name: 🇩🇪 德国DE-69（原标US）
   server: 82.198.246.214
   port: 180
@@ -1558,7 +1558,7 @@ proxies:
   port: 20056
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇨🇦 加拿大CA-253
+  name: 🇭🇰 香港HK-253（原标CA）
 - name: 🇺🇸 美国US-254
   type: ss
   server: www.syfe.com
@@ -1997,7 +1997,7 @@ proxies:
   port: 20066
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇫🇷 法国FR-301
+  name: 🇭🇰 香港HK-301（原标FR）
 - type: vless
   server: r1.mizulina.top
   port: 22231
@@ -2094,7 +2094,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇮🇩 印尼ID-313（原标NL）
+- name: 🇸🇬 新加坡SG-313（原标NL）
   type: vmess
   server: v30.hdacd.com
   port: 30830
@@ -12717,7 +12717,7 @@ proxies:
   network: tcp
   servername: yahoo.com
 - type: vless
-  name: 🇦🇪 阿联酋AE-1433（原标DE）
+  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1433
   server: de5.safepass.click
   port: 443
   uuid: 9d59677e-df00-4918-bb03-e428cfc7c606
