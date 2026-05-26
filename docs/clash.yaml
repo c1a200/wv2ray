@@ -84,7 +84,7 @@ proxies:
   port: 20081
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇸🇬 新加坡SG-15
+  name: 🇭🇰 香港HK-15（原标SG）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -100,7 +100,7 @@ proxies:
   port: 489
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇯🇵 日本JP-17
+  name: 🇭🇰 香港HK-17（原标JP）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -141,7 +141,7 @@ proxies:
   port: 16525
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇯🇵 日本JP-22
+  name: 🇭🇰 香港HK-22（原标JP）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -149,7 +149,7 @@ proxies:
   port: 17742
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇯🇵 日本JP-23
+  name: 🇭🇰 香港HK-23（原标JP）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -179,7 +179,7 @@ proxies:
   port: 474
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇯🇵 日本JP-26
+  name: 🇭🇰 香港HK-26（原标JP）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -187,7 +187,7 @@ proxies:
   port: 14006
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇯🇵 日本JP-27
+  name: 🇭🇰 香港HK-27（原标JP）
 - type: hysteria2
   server: 47.80.6.141
   port: 443
@@ -285,21 +285,21 @@ proxies:
   password: 65bc8227-48db-4993-9e9d-68394de672a1
   sni: holz2.api3-max.ru
   skip-cert-verify: true
-  name: 🇬🇧 英国GB-41
+  name: 🇫🇷 法国FR-41（原标GB）
 - type: hysteria2
   server: 217.179.6.54
   port: 443
   password: 65bc8227-48db-4993-9e9d-68394de672a1
   sni: holz1.api3-max.ru
   skip-cert-verify: true
-  name: 🇬🇧 英国GB-42
+  name: 🇫🇷 法国FR-42（原标GB）
 - type: hysteria2
   server: 217.179.6.71
   port: 443
   password: 65bc8227-48db-4993-9e9d-68394de672a1
   sni: holz5.api3-max.ru
   skip-cert-verify: true
-  name: 🇬🇧 英国GB-43
+  name: 🇫🇷 法国FR-43（原标GB）
 - type: ss
   server: 221.139.79.57
   port: 13979
@@ -330,7 +330,7 @@ proxies:
     path: /danfeng?ed=2560fp=firefoxfp=chrome
     headers:
       Host: qznql.node-proxy.chinat.indevs.in
-  name: 🇯🇵 日本JP-47
+  name: 🇸🇬 新加坡SG-47（原标JP）
   servername: qznql.node-proxy.chinat.indevs.in
 - name: 🇭🇰 香港HK-49
   type: trojan
@@ -351,7 +351,7 @@ proxies:
   password: 65bc8227-48db-4993-9e9d-68394de672a1
   sni: holz10.api3-max.ru
   skip-cert-verify: true
-  name: 🇬🇧 英国GB-50
+  name: 🇫🇷 法国FR-50（原标GB）
 - type: hysteria2
   server: 5.39.254.225
   port: 2056
@@ -378,7 +378,7 @@ proxies:
   port: 443
   password: 65bc8227-48db-4993-9e9d-68394de672a1
   sni: holz4.api3-max.ru
-  name: 🇬🇧 英国GB-53
+  name: 🇫🇷 法国FR-53（原标GB）
 - type: ss
   server: 121.182.16.235
   port: 18246
@@ -492,7 +492,7 @@ proxies:
   network: tcp
 - alterId: '0'
   cipher: auto
-  name: 🇺🇸 美国US-64
+  name: 🇩🇪 德国DE-64（原标US）
   network: tcp
   port: 180
   server: 82.198.246.9
@@ -509,8 +509,8 @@ proxies:
   port: 20011
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇺🇸 美国US-65
-- name: 🇺🇸 美国US-69
+  name: 🇭🇰 香港HK-65（原标US）
+- name: 🇩🇪 德国DE-69（原标US）
   server: 82.198.246.214
   port: 180
   type: vmess
@@ -610,7 +610,7 @@ proxies:
   sni: suprim4.api3-max.ru
   skip-cert-verify: true
   name: 🇳🇱 荷兰NL-79
-- name: 🇺🇸 美国US-81
+- name: 🇩🇪 德国DE-81（原标US）
   server: 82.198.246.250
   port: 180
   type: vmess
@@ -692,7 +692,7 @@ proxies:
   sni: www.amd.com
   skip-cert-verify: true
   name: 🇦🇪 阿联酋AE-91
-- name: 🇺🇸 美国US-96
+- name: 🇩🇪 德国DE-96（原标US）
   server: 82.198.246.233
   port: 180
   type: vmess
@@ -763,7 +763,7 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-- name: 🇺🇸 美国US-106
+- name: 🇩🇪 德国DE-106（原标US）
   type: vmess
   network: tcp
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
@@ -839,7 +839,7 @@ proxies:
     headers:
       Host: 2a02:6ea0:d32f::f8fe:349b
   udp: true
-- name: 🇺🇸 美国US-123
+- name: 🇩🇪 德国DE-123（原标US）
   server: 82.198.246.37
   port: 180
   type: vmess
@@ -1625,7 +1625,7 @@ proxies:
   port: 20061
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇦🇺 澳大利亚AU-262
+  name: 🇭🇰 香港HK-262（原标AU）
 - type: ss
   server: 195.238.126.84
   port: 9039
@@ -1756,7 +1756,7 @@ proxies:
   port: 20046
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇮🇳 印度IN-273
+  name: 🇭🇰 香港HK-273（原标IN）
 - type: ss
   server: 146.70.61.37
   port: 8080
@@ -1789,14 +1789,14 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-  name: 🇭🇰 香港HK-276
+  name: 🇸🇬 新加坡SG-276（原标HK）
 - type: ss
   server: 82.38.31.179
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  name: 🇳🇱 荷兰NL-277
-- name: 🇭🇰 香港HK-278
+  name: 🇬🇧 英国GB-277（原标NL）
+- name: 🇰🇷 韩国KR-278（原标HK）
   server: 116.44.53.251
   type: trojan
   port: 12126
@@ -1853,7 +1853,7 @@ proxies:
   network: tcp
   tls: true
   client-fingerprint: edge
-  name: 🇺🇸 美国US-283
+  name: 🇷🇺 俄罗斯RU-283（原标US）
   encryption: none
   servername: r1.mizulina.top
 - type: ss
@@ -1908,7 +1908,7 @@ proxies:
   cipher: aes-128-gcm
   password: shadowsocks
   name: 🇬🇧 英国GB-291
-- name: 🇭🇰 香港HK-292
+- name: 🇸🇬 新加坡SG-292（原标HK）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
@@ -1965,7 +1965,7 @@ proxies:
   name: 🇰🇷 韩国KR-296
   servername: qznql.node-proxy.chinat.indevs.in
 - type: vless
-  name: 🇷🇺 俄罗斯RU-298
+  name: 🇺🇸 美国US-298（原标RU）
   server: 72.56.233.158
   port: 2027
   uuid: 35325a3c-411e-42a8-962b-db12e55b071d
@@ -2007,7 +2007,7 @@ proxies:
   tls: true
   client-fingerprint: edge
   header-type: none
-  name: 🇺🇸 美国US-302
+  name: 🇷🇺 俄罗斯RU-302（原标US）
   network: tcp
   servername: r1.mizulina.top
 - type: vmess
@@ -2074,7 +2074,7 @@ proxies:
   port: 20051
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇩🇪 德国DE-310
+  name: 🇭🇰 香港HK-310（原标DE）
 - type: ss
   server: 103.186.154.177
   port: 38388
@@ -2094,7 +2094,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇳🇱 荷兰NL-313
+- name: 🇮🇩 印尼ID-313（原标NL）
   type: vmess
   server: v30.hdacd.com
   port: 30830
@@ -2156,7 +2156,7 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-  name: 🇭🇰 香港HK-318
+  name: 🇻🇳 越南VN-318（原标HK）
 - type: vless
   server: sweden.grovpn.com.alexanderoff.ru
   port: 42912
@@ -2605,7 +2605,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-354
+  name: 🇳🇱 荷兰NL-354（原标DE）
 - type: vless
   server: 154.21.89.183
   port: 2054
@@ -2617,7 +2617,7 @@ proxies:
     headers:
       Host: qznql.node-proxy.chinat.indevs.in
   skip-cert-verify: false
-  name: 🇸🇬 新加坡SG-355
+  name: 🇺🇸 美国US-355（原标SG）
   servername: qznql.node-proxy.chinat.indevs.in
 - name: 🇺🇸 美国US-356
   type: trojan
@@ -2747,7 +2747,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   network: ws
-- name: 🇺🇸 美国US-368
+- name: 🇸🇬 新加坡SG-368（原标US）
   server: 92.243.74.253
   type: trojan
   port: 443
@@ -2835,7 +2835,7 @@ proxies:
   sni: woshinidie-et3.pages.dev
   path: /59fc5f8c-5697-4eb8-acf2-8ae363f203a2/?ed=2560
   tls: true
-  name: 🇭🇰 香港HK-374
+  name: 🇨🇭 瑞士CH-374（原标HK）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -2844,7 +2844,7 @@ proxies:
   cipher: chacha20-ietf-poly1305
   password: rgb8YGYlxYN7jvDGxA14K9
   name: 🇫🇮 芬兰FI-377
-- name: 🇩🇪 德国DE-378
+- name: 🇺🇸 美国US-378（原标DE）
   server: 83.147.253.187
   type: trojan
   port: 443
@@ -2923,7 +2923,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-383
+  name: 🇫🇷 法国FR-383（原标DE）
 - type: trojan
   server: 185.235.131.40
   port: 2053
@@ -3021,7 +3021,7 @@ proxies:
   cipher: aes-256-cfb
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   udp: true
-- name: 🇺🇸 美国US-395
+- name: 🇭🇰 香港HK-395（原标US）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
@@ -3128,7 +3128,7 @@ proxies:
   server: 104.128.72.119
   type: ss
   udp: true
-- name: 🇩🇪 德国DE-403
+- name: 🇳🇱 荷兰NL-403（原标DE）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 2053
@@ -3181,7 +3181,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇩🇪 德国DE-410
+- name: 🇳🇱 荷兰NL-410（原标DE）
   type: trojan
   network: ws
   server: 144.31.122.162
@@ -3221,7 +3221,7 @@ proxies:
     public-key: y7KvEE3JCmQfLv2p6xFCWU3PGjcRRfqcbjj4wz_Nu3k
   client-fingerprint: chrome
   header-type: none
-  name: 🇷🇺 俄罗斯RU-412
+  name: 🇸🇬 新加坡SG-412（原标RU）
   servername: ru-service5.frostmotiveseed.net
 - type: vless
   server: 107.175.53.196
@@ -3312,7 +3312,7 @@ proxies:
   - h2
   - http/1.1
   client-fingerprint: qq
-  name: 🇺🇸 美国US-420
+  name: 🇸🇪 瑞典SE-420（原标US）
   network: tcp
 - sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -3438,7 +3438,7 @@ proxies:
   client-fingerprint: chrome
   spx: /
   header-type: none
-  name: 🇫🇮 芬兰FI-433
+  name: 🇷🇺 俄罗斯RU-433（原标FI）
   servername: eh.vk.com
 - type: vless
   name: 🇺🇸 美国US-434
@@ -3525,7 +3525,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-441
-- name: 🇩🇪 德国DE-442
+- name: 🇺🇸 美国US-442（原标DE）
   server: 83.147.253.78
   type: trojan
   port: 443
@@ -3771,7 +3771,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-465
+  name: 🇳🇱 荷兰NL-465（原标DE）
 - type: trojan
   server: 89.150.41.86
   port: 2053
@@ -3921,7 +3921,7 @@ proxies:
   ws-opts:
     path: /trTelegram🇨🇳
   skip-cert-verify: true
-  name: 🇩🇪 德国DE-481
+  name: 🇺🇸 美国US-481（原标DE）
 - client-fingerprint: chrome
   encryption: none
   flow: xtls-rprx-vision
@@ -3976,7 +3976,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-486
+  name: 🇳🇱 荷兰NL-486（原标DE）
 - type: trojan
   server: 138.124.54.117
   port: 8443
@@ -4020,7 +4020,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-490
+  name: 🇬🇧 英国GB-490（原标DE）
 - client-fingerprint: chrome
   name: 🇰🇷 韩国KR-491
   network: ws
@@ -4058,7 +4058,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-493
+  name: 🇫🇷 法国FR-493（原标DE）
 - type: trojan
   server: 45.61.166.121
   port: 443
@@ -4134,7 +4134,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇳🇱 荷兰NL-502
+  name: 🇱🇹 立陶宛LT-502（原标NL）
 - type: trojan
   server: 92.119.127.156
   port: 8443
@@ -4145,7 +4145,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-503
+  name: 🇫🇷 法国FR-503（原标DE）
 - name: 🇻🇳 越南VN-504
   server: 103.186.155.18
   port: 38388
@@ -4313,7 +4313,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-524
+  name: 🇫🇷 法国FR-524（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -4369,7 +4369,7 @@ proxies:
   sni: flkf.mangshe.xyz
   skip-cert-verify: true
   name: 🇩🇪 德国DE-529
-- name: 🇺🇸 美国US-530
+- name: 🇰🇷 韩国KR-530（原标US）
   type: trojan
   server: 121.145.78.141
   port: 13579
@@ -4484,7 +4484,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
-  name: 🇩🇪 德国DE-543
+  name: 🇺🇸 美国US-543（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -4521,7 +4521,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 212.80.216.85
   port: 443
-  name: 🇳🇱 荷兰NL-546
+  name: 🇱🇹 立陶宛LT-546（原标NL）
 - name: 🇫🇮 芬兰FI-547
   server: 195.96.156.92
   type: trojan
@@ -4593,7 +4593,7 @@ proxies:
   port: 20021
   cipher: aes-256-gcm
   password: b3ff1981-fb03-3738-89e9-317a5e1d7eb3
-  name: 🇬🇧 英国GB-554
+  name: 🇭🇰 香港HK-554（原标GB）
 - type: vless
   server: 15.204.97.206
   port: 23576
@@ -4631,7 +4631,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-559
+  name: 🇷🇺 俄罗斯RU-559（原标SE）
 - name: 🇺🇸 美国US-560
   server: 31.57.63.63
   type: trojan
@@ -4677,7 +4677,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇳🇱 荷兰NL-564
+  name: 🇱🇹 立陶宛LT-564（原标NL）
 - type: trojan
   server: 95.85.253.109
   port: 8443
@@ -4750,7 +4750,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-570
+  name: 🇫🇷 法国FR-570（原标DE）
 - type: trojan
   server: 109.120.184.43
   port: 2053
@@ -4761,7 +4761,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-571
+  name: 🇫🇮 芬兰FI-571（原标DE）
 - type: vless
   server: 82.22.40.196
   port: 59999
@@ -4815,7 +4815,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
   client-fingerprint: chrome
-  name: 🇩🇪 德国DE-577
+  name: 🇺🇸 美国US-577（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -4827,7 +4827,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 193.124.183.69
   port: 443
-  name: 🇸🇪 瑞典SE-579
+  name: 🇷🇺 俄罗斯RU-579（原标SE）
 - type: trojan
   server: 81.85.77.14
   port: 2083
@@ -4898,7 +4898,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 62.171.170.182
   port: 2053
-  name: 🇩🇪 德国DE-588
+  name: 🇫🇷 法国FR-588（原标DE）
 - name: 🇺🇸 美国US-590
   type: trojan
   network: ws
@@ -4916,7 +4916,7 @@ proxies:
 - client-fingerprint: randomized
   encryption: none
   flow: xtls-rprx-vision
-  name: 🇷🇺 俄罗斯RU-591
+  name: 🇺🇸 美国US-591（原标RU）
   network: tcp
   port: 443
   reality-opts:
@@ -4929,7 +4929,7 @@ proxies:
   uuid: ea35c030-5628-11f1-9df5-54db13ea7d40
   packet-encoding: xudp
   servername: cloudcdn-m9-15.cdn.yandex.net
-- name: 🇸🇪 瑞典SE-592
+- name: 🇨🇭 瑞士CH-592（原标SE）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 8443
@@ -4951,7 +4951,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 89.169.34.174
   port: 443
-  name: 🇩🇪 德国DE-593
+  name: 🇸🇪 瑞典SE-593（原标DE）
 - type: trojan
   server: 194.67.204.158
   port: 2053
@@ -4962,7 +4962,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-594
+  name: 🇷🇺 俄罗斯RU-594（原标SE）
 - name: 🇺🇸 美国US-595
   network: ws
   password: 8r<[9'l6hAO#8ZQi
@@ -4999,7 +4999,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 88.218.77.37
   port: 443
-  name: 🇩🇪 德国DE-597
+  name: 🇫🇷 法国FR-597（原标DE）
 - type: vless
   server: 84.201.129.56
   port: 443
@@ -5060,7 +5060,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
-  name: 🇩🇪 德国DE-604
+  name: 🇨🇭 瑞士CH-604（原标DE）
 - type: trojan
   server: 77.221.144.41
   port: 2053
@@ -5071,7 +5071,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-605
+  name: 🇫🇮 芬兰FI-605（原标SE）
 - type: vless
   server: 178.18.147.163
   port: 15530
@@ -5138,7 +5138,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇸🇪 瑞典SE-612
+  name: 🇫🇮 芬兰FI-612（原标SE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -5217,7 +5217,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-620
+  name: 🇵🇱 波兰PL-620（原标DE）
 - type: trojan
   server: 83.147.216.151
   port: 8443
@@ -5312,7 +5312,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-633
+  name: 🇫🇷 法国FR-633（原标DE）
 - name: 🇩🇪 德国DE-635
   type: trojan
   server: 95.164.123.31
@@ -5427,7 +5427,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 144.31.123.194
   port: 443
-  name: 🇩🇪 德国DE-645
+  name: 🇳🇱 荷兰NL-645（原标DE）
 - type: trojan
   server: 77.221.143.56
   port: 8443
@@ -5471,7 +5471,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-652
+  name: 🇫🇮 芬兰FI-652（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -5483,7 +5483,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 198.105.125.167
   port: 443
-  name: 🇸🇪 瑞典SE-656
+  name: 🇫🇮 芬兰FI-656（原标SE）
 - type: trojan
   server: 194.67.204.158
   port: 8443
@@ -5494,7 +5494,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-657
+  name: 🇷🇺 俄罗斯RU-657（原标SE）
 - type: trojan
   server: 147.45.69.68
   port: 8443
@@ -5505,7 +5505,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-658
+  name: 🇳🇱 荷兰NL-658（原标DE）
 - type: trojan
   server: 31.58.50.110
   port: 8443
@@ -5583,7 +5583,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 203.189.233.99
   port: 8443
-  name: 🇸🇪 瑞典SE-665
+  name: 🇷🇺 俄罗斯RU-665（原标SE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -5595,7 +5595,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 77.110.102.197
   port: 443
-  name: 🇩🇪 德国DE-666
+  name: 🇳🇱 荷兰NL-666（原标DE）
 - name: 🇺🇸 美国US-667
   server: 23.165.104.123
   type: trojan
@@ -5655,7 +5655,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-671
+  name: 🇫🇷 法国FR-671（原标DE）
 - type: trojan
   server: 176.124.199.82
   port: 8443
@@ -5666,7 +5666,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-672
+  name: 🇳🇱 荷兰NL-672（原标DE）
 - name: 🇯🇵 日本JP-673
   type: ss
   server: www.shopify.com
@@ -5780,7 +5780,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 79.137.196.233
   port: 443
-  name: 🇩🇪 德国DE-681
+  name: 🇳🇱 荷兰NL-681（原标DE）
 - name: 🇯🇵 日本JP-683
   server: 150.230.214.172
   type: trojan
@@ -5960,7 +5960,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇩🇪 德国DE-704
+- name: 🇺🇸 美国US-704（原标DE）
   type: trojan
   server: 23.168.72.85
   port: 443
@@ -5994,7 +5994,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-708
+  name: 🇫🇮 芬兰FI-708（原标SE）
 - type: trojan
   server: 194.48.140.83
   port: 8443
@@ -6039,7 +6039,7 @@ proxies:
   network: ws
   ws-opts:
     path: /trTelegram+@WangCai2
-  name: 🇩🇪 德国DE-715
+  name: 🇫🇮 芬兰FI-715（原标DE）
 - type: trojan
   server: 80.209.242.70
   port: 2053
@@ -6095,7 +6095,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇳🇱 荷兰NL-720
+  name: 🇫🇮 芬兰FI-720（原标NL）
 - name: 🇺🇸 美国US-722
   server: 192.241.210.208
   type: trojan
@@ -6203,7 +6203,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-738
+  name: 🇳🇱 荷兰NL-738（原标DE）
 - type: trojan
   server: 80.211.249.240
   port: 2053
@@ -6214,7 +6214,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-739
+  name: 🇵🇱 波兰PL-739（原标DE）
 - type: trojan
   server: 31.56.146.122
   port: 2053
@@ -6243,7 +6243,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 178.236.254.123
   port: 443
-  name: 🇩🇪 德国DE-745
+  name: 🇷🇺 俄罗斯RU-745（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -6266,8 +6266,8 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-747
-- name: 🇳🇱 荷兰NL-748
+  name: 🇳🇱 荷兰NL-747（原标DE）
+- name: 🇺🇸 美国US-748（原标NL）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
@@ -6304,7 +6304,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 66.154.124.191
   port: 443
-  name: 🇺🇸 美国US-751
+  name: 🇨🇦 加拿大CA-751（原标US）
 - type: trojan
   server: 89.22.234.0
   port: 2053
@@ -6345,7 +6345,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-756
+  name: 🇷🇺 俄罗斯RU-756（原标SE）
 - type: trojan
   server: 152.53.200.78
   port: 8443
@@ -6368,7 +6368,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇩🇪 德国DE-758
-- name: 🇩🇪 德国DE-761
+- name: 🇺🇸 美国US-761（原标DE）
   server: 23.168.72.17
   type: trojan
   port: 443
@@ -6395,7 +6395,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   network: ws
   client-fingerprint: chrome
-- name: 🇳🇱 荷兰NL-766
+- name: 🇫🇮 芬兰FI-766（原标NL）
   type: trojan
   server: 138.124.241.133
   port: 8443
@@ -6444,7 +6444,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-769
+  name: 🇳🇱 荷兰NL-769（原标DE）
 - type: trojan
   server: 89.46.235.32
   port: 2053
@@ -6507,7 +6507,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-778
+  name: 🇷🇺 俄罗斯RU-778（原标SE）
 - type: trojan
   server: 109.120.156.122
   port: 8443
@@ -6518,7 +6518,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-779
+  name: 🇸🇪 瑞典SE-779（原标DE）
 - name: 🇩🇪 德国DE-780
   server: 62.60.216.82
   type: trojan
@@ -6615,7 +6615,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-788
-- name: 🇩🇪 德国DE-789
+- name: 🇳🇱 荷兰NL-789（原标DE）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 8443
@@ -6636,7 +6636,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-790
+  name: 🇷🇺 俄罗斯RU-790（原标SE）
 - name: 🇳🇱 荷兰NL-791
   server: 151.245.136.43
   type: trojan
@@ -6719,7 +6719,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
     path: /trTelegram🇨🇳+@WangCai2
-- name: 🇺🇸 美国US-798
+- name: 🇵🇱 波兰PL-798（原标US）
   type: trojan
   server: 213.134.31.130
   port: 8443
@@ -6769,7 +6769,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 46.243.1.89
   port: 443
-  name: 🇸🇪 瑞典SE-806
+  name: 🇫🇮 芬兰FI-806（原标SE）
 - type: trojan
   server: 195.123.220.24
   port: 8443
@@ -6830,7 +6830,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-816
-- name: 🇩🇪 德国DE-817
+- name: 🇺🇸 美国US-817（原标DE）
   type: vless
   server: 2a14:7584:d097::a
   port: 11330
@@ -6862,7 +6862,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 144.31.27.118
   port: 443
-  name: 🇳🇱 荷兰NL-818
+  name: 🇫🇮 芬兰FI-818（原标NL）
 - type: trojan
   server: 77.221.142.165
   port: 8443
@@ -6873,7 +6873,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-820
+  name: 🇸🇪 瑞典SE-820（原标DE）
 - type: trojan
   server: 31.58.50.143
   port: 2053
@@ -6951,7 +6951,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇸🇪 瑞典SE-832
-- name: 🇨🇦 加拿大CA-833
+- name: 🇺🇸 美国US-833（原标CA）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 8443
@@ -6974,8 +6974,8 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 92.118.233.25
   port: 443
-  name: 🇸🇪 瑞典SE-834
-- name: 🇩🇪 德国DE-835
+  name: 🇫🇮 芬兰FI-834（原标SE）
+- name: 🇷🇺 俄罗斯RU-835（原标DE）
   type: trojan
   server: 82.97.254.184
   port: 2053
@@ -7063,7 +7063,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇸🇪 瑞典SE-846
+  name: 🇫🇮 芬兰FI-846（原标SE）
 - type: trojan
   server: 147.45.197.21
   port: 8443
@@ -7083,7 +7083,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇳🇱 荷兰NL-848
+  name: 🇱🇹 立陶宛LT-848（原标NL）
 - type: trojan
   server: 144.31.132.86
   port: 8443
@@ -7094,7 +7094,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇳🇱 荷兰NL-849
+  name: 🇫🇮 芬兰FI-849（原标NL）
 - type: vless
   server: fr.denditop.site
   port: 443
@@ -7223,7 +7223,7 @@ proxies:
   network: ws
   ws-opts:
     path: /trTelegram🇨🇳
-  name: 🇳🇱 荷兰NL-862
+  name: 🇺🇸 美国US-862（原标NL）
 - type: trojan
   server: 44.32.224.206
   port: 2053
@@ -7246,7 +7246,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇸🇪 瑞典SE-864
+  name: 🇫🇮 芬兰FI-864（原标SE）
 - type: vless
   server: 82.22.40.162
   port: 59999
@@ -7273,7 +7273,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 178.159.94.113
   port: 443
-  name: 🇳🇱 荷兰NL-866
+  name: 🇷🇺 俄罗斯RU-866（原标NL）
 - type: trojan
   server: 144.31.183.221
   port: 8443
@@ -7285,7 +7285,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇷🇺 俄罗斯RU-867
+  name: 🇫🇮 芬兰FI-867（原标RU）
 - type: trojan
   server: 31.57.108.170
   port: 2053
@@ -7307,7 +7307,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-869
+  name: 🇫🇮 芬兰FI-869（原标SE）
 - type: trojan
   server: 91.149.239.206
   port: 443
@@ -7405,7 +7405,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇫🇷 法国FR-880
+  name: 🇦🇪 阿联酋AE-880（原标FR）
 - name: 🇸🇪 瑞典SE-881
   server: swe-8t.freeonline.pro
   port: 443
@@ -7483,7 +7483,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-886
-- name: 🇩🇪 德国DE-887
+- name: 🇳🇱 荷兰NL-887（原标DE）
   type: trojan
   network: ws
   server: 77.110.103.243
@@ -7555,7 +7555,7 @@ proxies:
   server: 62.60.186.93
   port: 443
   name: 🇸🇪 瑞典SE-893
-- name: 🇺🇸 美国US-894
+- name: 🇸🇬 新加坡SG-894（原标US）
   type: trojan
   network: ws
   server: 43.170.25.96
@@ -7588,7 +7588,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-897
+  name: 🇷🇺 俄罗斯RU-897（原标SE）
 - type: trojan
   server: 31.57.108.170
   port: 8443
@@ -7680,7 +7680,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
-  name: 🇸🇪 瑞典SE-908
+  name: 🇫🇮 芬兰FI-908（原标SE）
 - type: trojan
   server: 138.124.229.141
   port: 8443
@@ -7722,7 +7722,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-912
+  name: 🇦🇹 奥地利AT-912（原标DE）
 - type: trojan
   server: 77.110.108.196
   port: 8443
@@ -7734,7 +7734,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇩🇪 德国DE-913
+  name: 🇫🇮 芬兰FI-913（原标DE）
 - type: trojan
   server: 23.173.104.204
   port: 2053
@@ -7757,7 +7757,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇩🇪 德国DE-915
+  name: 🇫🇮 芬兰FI-915（原标DE）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -7827,7 +7827,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇸🇪 瑞典SE-921
+  name: 🇫🇮 芬兰FI-921（原标SE）
 - type: trojan
   server: 87.239.250.244
   port: 8443
@@ -7839,7 +7839,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
-  name: 🇸🇪 瑞典SE-922
+  name: 🇳🇱 荷兰NL-922（原标SE）
 - type: trojan
   server: 31.59.120.180
   port: 2053
@@ -7872,7 +7872,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇫🇷 法国FR-925
+  name: 🇦🇪 阿联酋AE-925（原标FR）
 - type: trojan
   server: 151.241.228.200
   port: 2083
@@ -7895,7 +7895,7 @@ proxies:
     public-key: soIvKRHAcDWgye_rZ3zAPUo74ul9yzGImjb1-ykHxh0
     short-id: e66bdb1999097cc4
   header-type: none
-  name: 🇬🇧 英国GB-927
+  name: 🇳🇱 荷兰NL-927（原标GB）
   network: tcp
   client-fingerprint: chrome
   servername: www.microsoft.com
@@ -7935,7 +7935,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 79.137.206.247
   port: 443
-  name: 🇩🇪 德国DE-930
+  name: 🇫🇮 芬兰FI-930（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -7947,7 +7947,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 103.71.22.234
   port: 443
-  name: 🇸🇪 瑞典SE-931
+  name: 🇫🇮 芬兰FI-931（原标SE）
 - type: trojan
   server: 93.77.177.164
   port: 443
@@ -7981,7 +7981,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 77.221.143.39
   port: 443
-  name: 🇩🇪 德国DE-934
+  name: 🇸🇪 瑞典SE-934（原标DE）
 - type: trojan
   server: 23.173.104.213
   port: 2053
@@ -8003,7 +8003,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 135.136.176.221
   port: 2053
-  name: 🇸🇪 瑞典SE-936
+  name: 🇫🇮 芬兰FI-936（原标SE）
 - type: trojan
   server: 217.60.37.28
   port: 8443
@@ -8050,7 +8050,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-940
+  name: 🇫🇷 法国FR-940（原标DE）
 - type: vless
   server: 185.103.103.213
   port: 9443
@@ -8068,7 +8068,7 @@ proxies:
   client-fingerprint: chrome
   spx: /
   header-type: none
-  name: 🇷🇺 俄罗斯RU-941
+  name: 🇸🇪 瑞典SE-941（原标RU）
   servername: azure.microsoft.com
 - type: trojan
   server: 144.31.79.168
@@ -8081,7 +8081,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   skip-cert-verify: true
-  name: 🇳🇱 荷兰NL-942
+  name: 🇺🇸 美国US-942（原标NL）
 - name: 🇻🇳 越南VN-943
   server: 103.186.155.120
   port: 38388
@@ -8100,7 +8100,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇳🇱 荷兰NL-946
-- name: 🇫🇷 法国FR-947
+- name: 🇦🇪 阿联酋AE-947（原标FR）
   type: trojan
   server: 217.60.5.223
   port: 2053
@@ -8123,7 +8123,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-948
+  name: 🇸🇪 瑞典SE-948（原标DE）
 - name: 🇫🇷 法国FR-949
   type: trojan
   server: 217.60.63.232
@@ -8195,7 +8195,7 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇫🇷 法国FR-954
-- name: 🇳🇱 荷兰NL-955
+- name: 🇺🇸 美国US-955（原标NL）
   network: ws
   password: 8r<[9'l6hAO#8ZQi
   port: 443
@@ -8295,7 +8295,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 144.31.132.176
   port: 443
-  name: 🇳🇱 荷兰NL-964
+  name: 🇫🇮 芬兰FI-964（原标NL）
 - type: trojan
   server: 77.246.102.229
   port: 8443
@@ -8339,7 +8339,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-968
+  name: 🇳🇱 荷兰NL-968（原标DE）
 - type: trojan
   server: 217.60.63.209
   port: 8443
@@ -8372,7 +8372,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-971
+  name: 🇷🇺 俄罗斯RU-971（原标DE）
 - type: trojan
   server: 31.56.228.210
   port: 2053
@@ -8461,7 +8461,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 77.232.143.161
   port: 443
-  name: 🇩🇪 德国DE-980
+  name: 🇸🇪 瑞典SE-980（原标DE）
 - name: 🇩🇪 德国DE-981
   type: trojan
   server: 93.185.156.107
@@ -8531,8 +8531,8 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇩🇪 德国DE-986
-- name: 🇺🇸 美国US-988
+  name: 🇸🇪 瑞典SE-986（原标DE）
+- name: 🇭🇰 香港HK-988（原标US）
   server: 154.92.9.253
   type: trojan
   port: 443
@@ -8611,7 +8611,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-  name: 🇸🇪 瑞典SE-994
+  name: 🇫🇮 芬兰FI-994（原标SE）
 - type: ss
   server: 220.122.42.198
   port: 19071
@@ -9622,7 +9622,7 @@ proxies:
   encryption: none
   servername: lxs1jp.lxy1015.top
 - type: vless
-  name: 🇺🇸 美国-1066
+  name: 🇯🇵 日本JP-1066（原标US）
   server: aws-link19.liangxin1.xyz
   port: 443
   uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
@@ -9656,7 +9656,7 @@ proxies:
   encryption: none
   servername: download-porter.hoyoverse.com
 - type: vless
-  name: 🇨🇳 台湾-1070
+  name: 🇰🇷 韩国KR-1070（原标TW）
   server: aws-link27.liangxin1.xyz
   port: 443
   uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
@@ -9811,7 +9811,7 @@ proxies:
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  name: 🇳🇱 荷兰-1089
+  name: 🇬🇧 英国GB-1089（原标NL）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -9819,7 +9819,7 @@ proxies:
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  name: 🇳🇱 荷兰-1090
+  name: 🇬🇧 英国GB-1090（原标NL）
 - skip-cert-verify: true
   sni: vless.herogoing.top
   network: ws
@@ -9857,7 +9857,7 @@ proxies:
   password: GKHWMe2R4qwNcNxu6l3KMkdd
   server: 219.103.68.164
   port: 20770
-  name: 🇺🇸 美国-1096
+  name: 🇯🇵 日本JP-1096（原标US）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -9895,7 +9895,7 @@ proxies:
   port: 443
   cipher: chacha20-ietf-poly1305
   password: RY2DXJBLOo5PxkuIACgAJF
-  name: 🇬🇧 英国-1104
+  name: 🇳🇱 荷兰NL-1104（原标GB）
 - type: ss
   skip-cert-verify: false
   udp: false
@@ -10497,7 +10497,7 @@ proxies:
   skip-cert-verify: false
   tfo: false
 - type: vless
-  name: 🇺🇸 美国-1194
+  name: 🇳🇱 荷兰NL-1194（原标US）
   server: 144.31.157.163
   port: 443
   uuid: d511e429-e32b-46a7-ac07-a0fffa9b634c
@@ -10552,9 +10552,9 @@ proxies:
   port: 27715
   cipher: aes-256-gcm
   password: tUjC8m8b0/YBw8aMW3ZIdSF2wRVusJh9XId8v9nXSYY=
-  name: 🇬🇧 英国-1205
+  name: 🇺🇸 美国US-1205（原标GB）
 - type: vless
-  name: 🇬🇧 英国-1206
+  name: 🇸🇪 瑞典SE-1206（原标GB）
   server: 194.238.57.104
   port: 443
   uuid: 8046e3a1-83a7-4155-86e4-374153fe66f3
@@ -10571,7 +10571,7 @@ proxies:
   encryption: none
   servername: www.icloud.com
 - type: vless
-  name: 🇬🇧 英国-1207
+  name: 🇫🇮 芬兰FI-1207（原标GB）
   server: 2.26.3.148
   port: 443
   uuid: d511e429-e32b-46a7-ac07-a0fffa9b634c
@@ -10636,7 +10636,7 @@ proxies:
   encryption: none
   servername: microsoft.com
 - type: vless
-  name: 🇳🇱 荷兰-1214
+  name: 🇺🇸 美国US-1214（原标NL）
   server: 45.88.78.89
   port: 8443
   uuid: 07c7b9c6-387b-5e38-86e9-c29d3436d177
@@ -11097,7 +11097,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 220.87.152.138
   port: 30005
-  name: 🇩🇪 Germany-1278
+  name: 🇰🇷 韩国KR-1278（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
@@ -11110,7 +11110,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 89.117.112.253
   port: 443
-  name: 🇩🇪 Germany-1279
+  name: 🇱🇹 立陶宛LT-1279（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11239,7 +11239,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 193.56.3.169
   port: 443
-  name: 🇩🇪 Germany-1291
+  name: 🇳🇱 荷兰NL-1291（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11366,7 +11366,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 51.77.140.9
   port: 2053
-  name: 🇩🇪 Germany-1302
+  name: 🇫🇷 法国FR-1302（原标DE）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -11377,7 +11377,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 217.60.39.139
   port: 2053
-  name: 🇩🇪 Germany-1303
+  name: 🇦🇪 阿联酋AE-1303（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11423,7 +11423,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 188.226.165.198
   port: 443
-  name: 🇩🇪 Germany-1307
+  name: 🇳🇱 荷兰NL-1307（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11799,7 +11799,7 @@ proxies:
   port: 443
   name: 🇳🇱 Netherlands-1344
 - type: vless
-  name: 🇳🇱 Netherlands-1345
+  name: 🇸🇪 瑞典SE-1345（原标NL）
   server: 144.31.230.144
   port: 10443
   uuid: a5e6c25a-9602-51c9-901c-aab09b7a105d
@@ -11850,7 +11850,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 193.233.134.254
   port: 8443
-  name: 🇷🇺 Russia-1349
+  name: 🇷🇺 俄罗斯RU-1349（原标US）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
@@ -11863,7 +11863,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 193.9.49.253
   port: 443
-  name: 🇷🇺 Russia-1350
+  name: 🇷🇺 俄罗斯RU-1350（原标US）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -11874,9 +11874,9 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 130.49.178.164
   port: 8443
-  name: 🇷🇺 Russia-1351
+  name: 🇷🇺 俄罗斯RU-1351（原标US）
 - type: vless
-  name: 🇷🇺 Russia-1352
+  name: 🇷🇺 俄罗斯RU-1352（原标US）
   server: 45.144.31.17
   port: 443
   uuid: ce04b97a-4af4-42d3-88f1-1e0c06f5af94
@@ -11937,7 +11937,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 37.252.8.202
   port: 443
-  name: 🇸🇪 Sweden-1357
+  name: 🇸🇪 瑞典SE-1357（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11949,7 +11949,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 144.31.78.95
   port: 443
-  name: 🇸🇪 Sweden-1358
+  name: 🇺🇸 美国US-1358（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11961,7 +11961,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 51.91.248.218
   port: 443
-  name: 🇸🇪 Sweden-1360
+  name: 🇫🇷 法国FR-1360（原标DE）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11973,7 +11973,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 94.237.30.58
   port: 443
-  name: 🇫🇮 Finland-1361
+  name: 🇫🇮 芬兰FI-1361（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11985,7 +11985,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 83.219.97.178
   port: 443
-  name: 🇫🇮 Finland-1362
+  name: 🇫🇮 芬兰FI-1362（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -11997,7 +11997,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 2.27.50.53
   port: 443
-  name: 🇫🇮 Finland-1363
+  name: 🇫🇮 芬兰FI-1363（原标NL）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -12008,7 +12008,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 65.109.95.205
   port: 2053
-  name: 🇫🇮 Finland-1364
+  name: 🇫🇮 芬兰FI-1364（原标NL）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -12019,7 +12019,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 31.57.62.60
   port: 8443
-  name: 🇫🇮 Finland-1365
+  name: 🇫🇮 芬兰FI-1365（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12031,7 +12031,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 65.21.16.186
   port: 443
-  name: 🇫🇮 Finland-1366
+  name: 🇫🇮 芬兰FI-1366（原标NL）
 - sni: Koma-YT.PAGeS.Dev
   client-fingerprint: chrome
   network: ws
@@ -12043,7 +12043,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 95.216.168.240
   port: 2053
-  name: 🇫🇮 Finland-1367
+  name: 🇫🇮 芬兰FI-1367（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12055,7 +12055,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 212.192.212.100
   port: 443
-  name: 🇫🇮 Finland-1368
+  name: 🇫🇮 芬兰FI-1368（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12067,7 +12067,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 31.57.106.178
   port: 443
-  name: 🇫🇮 Finland-1369
+  name: 🇫🇮 芬兰FI-1369（原标NL）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -12078,7 +12078,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 46.8.236.176
   port: 2053
-  name: 🇫🇮 Finland-1370
+  name: 🇫🇮 芬兰FI-1370（原标NL）
 - sni: Koma-YT.PAGeS.Dev
   network: ws
   ws-opts:
@@ -12089,7 +12089,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 31.57.27.42
   port: 8443
-  name: 🇫🇮 Finland-1371
+  name: 🇫🇮 芬兰FI-1371（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12101,7 +12101,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 31.57.106.250
   port: 443
-  name: 🇫🇮 Finland-1372
+  name: 🇫🇮 芬兰FI-1372（原标NL）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12113,7 +12113,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 38.244.145.50
   port: 443
-  name: 🇨🇭 Switzerland-1373
+  name: 🇨🇭 瑞士CH-1373（原标IT）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12125,7 +12125,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 138.124.28.6
   port: 443
-  name: 🇨🇭 Switzerland-1374
+  name: 🇨🇭 瑞士CH-1374（原标IT）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12137,7 +12137,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 152.53.249.249
   port: 8443
-  name: 🇦🇹 Austria-1375
+  name: 🇦🇹 奥地利AT-1375（原标US）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12149,7 +12149,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 152.53.227.239
   port: 8443
-  name: 🇦🇹 Austria-1376
+  name: 🇦🇹 奥地利AT-1376（原标US）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12161,7 +12161,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 87.236.146.230
   port: 443
-  name: 🇨🇿 Czech Republic-1377
+  name: 🇨🇿 捷克CZ-1377（原标CH）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12234,7 +12234,7 @@ proxies:
   password: 8r<[9'l6hAO#8ZQi
   server: 88.216.66.253
   port: 443
-  name: 🇱🇹 Lithuania-1383
+  name: 🇱🇹 立陶宛LT-1383（原标IT）
 - skip-cert-verify: true
   sni: Koma-YT.PAGeS.Dev
   network: ws
@@ -12327,7 +12327,7 @@ proxies:
   encryption: none
   servername: deepl.com
 - type: vless
-  name: 🇦🇺 Australia, Sydney | [BL]-1391
+  name: 🇦🇺 澳大利亚AU-1391（原标US）
   server: 54.252.231.115
   port: 55292
   uuid: aca32055-db88-4634-b623-6429ddbb6c93
@@ -12343,7 +12343,7 @@ proxies:
   client-fingerprint: chrome
   servername: yahoo.com
 - type: vless
-  name: 🇦🇺 Australia, Sydney | 🌐 | [BL]-1392
+  name: 🇦🇺 澳大利亚AU-1392（原标US）
   server: 3.106.214.88
   port: 31318
   uuid: 3c7961e6-6ce7-4e55-8b8a-01a5d663efd4
@@ -12359,7 +12359,7 @@ proxies:
   network: tcp
   servername: www.tesla.com
 - type: vless
-  name: 🇦🇺 Australia, Sydney | 🌐 | [BL]-1396
+  name: 🇦🇺 澳大利亚AU-1396（原标US）
   server: 3.27.234.120
   port: 51808
   uuid: b64ced11-143e-4ded-a985-a8de25461061
@@ -12375,7 +12375,7 @@ proxies:
   network: tcp
   servername: yahoo.com
 - type: vless
-  name: 🇦🇺 Australia, Sydney | 🌐 | [BL]-1398
+  name: 🇦🇺 澳大利亚AU-1398（原标US）
   server: 13.239.112.139
   port: 42376
   uuid: c42b435d-e1d2-45ba-85bc-2f3c080ce826
@@ -12422,7 +12422,7 @@ proxies:
     path: /
   encryption: none
 - type: vless
-  name: 🇪🇪 Estonia, Tallinn (Kesklinna linnaosa) | 🌐 | [BL]-1407
+  name: 🇪🇪 爱沙尼亚EE-1407（原标IN）
   server: eston5.o4ka-internet.com
   port: 443
   uuid: 42ba03da-78cf-413e-9e79-1128ee6ddb30
@@ -12439,7 +12439,7 @@ proxies:
   encryption: none
   servername: eston5.o4ka-internet.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1408
+  name: 🇨🇳 台湾TW-1408（原标NL）
   server: download.riferoser.icu
   port: 443
   uuid: 0878c33b-ab5e-47f4-94ec-44206a08069c
@@ -12456,7 +12456,7 @@ proxies:
   encryption: none
   servername: www.tradingview.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1410
+  name: 🇫🇮 芬兰FI-1410（原标NL）
   server: 31.59.106.127
   port: 8443
   uuid: 10e82fcc-94ec-4d09-8855-579bb55b77e4
@@ -12487,7 +12487,7 @@ proxies:
   network: tcp
   servername: yahoo.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1414
+  name: 🇬🇧 英国GB-1414（原标NL）
   server: staging.lastilhame.monster
   port: 443
   uuid: 317bc783-340f-453c-afb5-b6bf637c0b23
@@ -12504,7 +12504,7 @@ proxies:
   encryption: none
   servername: www.tradingview.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1415
+  name: 🇫🇮 芬兰FI-1415（原标NL）
   server: fiv4.alexanderoff.ru
   port: 17495
   uuid: 4206611c-7240-4d83-8039-0e0e94877d87
@@ -12520,7 +12520,7 @@ proxies:
       Host: fiv4.alexanderoff.ru
   encryption: none
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1416
+  name: 🇬🇧 英国GB-1416（原标NL）
   server: staging.lastilhame.monster
   port: 443
   uuid: 455cfdc6-9abf-4e40-863f-5ff6cc63457c
@@ -12537,7 +12537,7 @@ proxies:
   encryption: none
   servername: www.microsoft.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1417
+  name: 🇬🇧 英国GB-1417（原标NL）
   server: staging.lastilhame.monster
   port: 443
   uuid: 594d466e-8ac3-4fda-b1d1-eeb817853518
@@ -12554,7 +12554,7 @@ proxies:
   encryption: none
   servername: www.microsoft.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1418
+  name: 🇬🇧 英国GB-1418（原标NL）
   server: lists.soloramtin.cyou
   port: 443
   uuid: 67eb6b17-7797-4ded-bf52-423c4c5f6cbd
@@ -12570,7 +12570,7 @@ proxies:
   network: tcp
   servername: www.foxsports.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1419
+  name: 🇫🇮 芬兰FI-1419（原标NL）
   server: fi.srv.raw-srv.org
   port: 443
   uuid: 8b4c4359-ff2d-4322-bc04-e57e3eaca361
@@ -12587,7 +12587,7 @@ proxies:
   encryption: none
   servername: fi.srv.raw-srv.org
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1420
+  name: 🇨🇳 台湾TW-1420（原标NL）
   server: download.riferoser.icu
   port: 443
   uuid: 9f1b677f-aeea-43a9-9927-12188cdc1249
@@ -12604,7 +12604,7 @@ proxies:
   encryption: none
   servername: www.microsoft.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | [BL]-1421
+  name: 🇬🇧 英国GB-1421（原标NL）
   server: staging.lastilhame.monster
   port: 443
   uuid: aded66f1-de12-4c3c-af9e-a21d6e7d9c96
@@ -12668,7 +12668,7 @@ proxies:
   network: tcp
   servername: yahoo.com
 - type: vless
-  name: 🇫🇮 Finland, Helsinki | 🌐 | [BL]-1430
+  name: 🇺🇸 美国US-1430（原标NL）
   server: ip.bv24.net
   port: 2083
   uuid: 72c319bb-577f-481c-8fc7-0364d72a395d
@@ -12702,7 +12702,7 @@ proxies:
   encryption: none
   servername: germany1.grovpn.com
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1432
+  name: 🇭🇰 香港HK-1432（原标DE）
   server: 216.57.108.24
   port: 443
   uuid: 61bf6a18-727e-4492-ab5f-01dea4aa2df9
@@ -12717,7 +12717,7 @@ proxies:
   network: tcp
   servername: yahoo.com
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1433
+  name: 🇦🇪 阿联酋AE-1433（原标DE）
   server: de5.safepass.click
   port: 443
   uuid: 9d59677e-df00-4918-bb03-e428cfc7c606
@@ -12796,7 +12796,7 @@ proxies:
   encryption: none
   servername: www.fh-aachen.de
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1439
+  name: 🇦🇹 奥地利AT-1439（原标DE）
   server: 185.224.3.29
   port: 10443
   uuid: f6431ff1-dec0-4a6c-be4a-ce917913b589
@@ -12811,7 +12811,7 @@ proxies:
   client-fingerprint: chrome
   servername: www.cloudflare.com
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1441
+  name: 🇦🇹 奥地利AT-1441（原标DE）
   server: 185.224.3.41
   port: 10443
   uuid: f6431ff1-dec0-4a6c-be4a-ce917913b589
@@ -12826,7 +12826,7 @@ proxies:
   client-fingerprint: chrome
   servername: www.cloudflare.com
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1444
+  name: 🇦🇹 奥地利AT-1444（原标DE）
   server: 185.224.3.42
   port: 10443
   uuid: f6431ff1-dec0-4a6c-be4a-ce917913b589
@@ -12841,7 +12841,7 @@ proxies:
   client-fingerprint: chrome
   servername: www.cloudflare.com
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main | [BL]-1447
+  name: 🇦🇹 奥地利AT-1447（原标DE）
   server: bc-at-ph.ray-balance.space
   port: 10443
   uuid: f6431ff1-dec0-4a6c-be4a-ce917913b589
@@ -12873,7 +12873,7 @@ proxies:
   encryption: none
   servername: developer.mozilla.org
 - type: vless
-  name: 🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | 🌐 | [BL]-1453
+  name: 🇷🇺 俄罗斯RU-1453（原标DE）
   server: 109.122.198.14
   port: 443
   uuid: be0e7d89-9c35-4950-a460-d3bf5aae5f91
@@ -13032,7 +13032,7 @@ proxies:
   encryption: none
   servername: ru7.aimodelhub.top
 - type: vless
-  name: 🇱🇹 Lithuania, Vilnius | [BL]-1470
+  name: 🇱🇹 立陶宛LT-1470（原标US）
   server: 88.119.176.125
   port: 443
   uuid: 42ba03da-78cf-413e-9e79-1128ee6ddb30
@@ -13249,7 +13249,7 @@ proxies:
   network: tcp
   servername: www.sony.com
 - type: vless
-  name: 🇪🇸 Spain | 🌐 | [BL]-1489
+  name: 🇪🇸 西班牙ES-1489（原标IN）
   server: 45.150.195.252
   port: 2027
   uuid: 35325a3c-411e-42a8-962b-db12e55b071d
@@ -13265,7 +13265,7 @@ proxies:
   network: tcp
   servername: isp.skysafe.online
 - type: vless
-  name: 🇸🇪 Sweden, Stockholm | 🌐 | [BL]-1490
+  name: 🇸🇪 瑞典SE-1490（原标DE）
   server: 45.80.230.241
   port: 11111
   uuid: 820c9c91-9747-4bea-b86d-d5d2e449494a
@@ -13279,7 +13279,7 @@ proxies:
     mode: packet-up
   encryption: none
 - type: vless
-  name: 🇸🇪 Sweden, Stockholm | 🌐 | [BL]-1492
+  name: 🇸🇪 瑞典SE-1492（原标DE）
   server: swe-8t.freeonline.pro
   port: 443
   uuid: '8546145579'
@@ -13295,7 +13295,7 @@ proxies:
   network: tcp
   servername: www.microsoft.com
 - type: vless
-  name: 🇨🇭 Switzerland, Geneva | 🌐 | [BL]-1499
+  name: 🇷🇺 俄罗斯RU-1499（原标IT）
   server: ru10.aimodelhub.top
   port: 443
   uuid: ba895ce4-8c24-0001-9f22-81ee227c89d0
@@ -13312,7 +13312,7 @@ proxies:
   encryption: none
   servername: ru10.aimodelhub.top
 - type: vless
-  name: 🇨🇭 Switzerland, Geneva | 🌐 | [BL]-1500
+  name: 🇷🇺 俄罗斯RU-1500（原标IT）
   server: ru10.aimodelhub.top
   port: 443
   uuid: ba895ce4-8c24-000b-9f22-81ee227c89d0
@@ -13329,7 +13329,7 @@ proxies:
   encryption: none
   servername: ru10.aimodelhub.top
 - type: vless
-  name: 🇨🇭 Switzerland, Zurich | [BL]-1501
+  name: 🇨🇭 瑞士CH-1501（原标IT）
   server: 179.43.146.219
   port: 443
   uuid: 8d872dde-6771-4ec9-a472-eadcd0feeee6
@@ -13361,7 +13361,7 @@ proxies:
   encryption: none
   servername: developer.mozilla.org
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1503
+  name: 🇺🇸 美国US-1503（原标NL）
   server: download.lastilhame.monster
   port: 443
   uuid: 1c0dcb8a-8c28-480f-8e27-588e39932ad1
@@ -13426,7 +13426,7 @@ proxies:
   encryption: none
   servername: serv-ne-3.whit3.net
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1509
+  name: 🇷🇺 俄罗斯RU-1509（原标NL）
   server: 193.233.127.219
   port: 443
   uuid: 6fd9f786-d974-49d0-b5c4-397678de69a2
@@ -13441,7 +13441,7 @@ proxies:
   network: tcp
   servername: www.cybo.com
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1510
+  name: 🇷🇺 俄罗斯RU-1510（原标NL）
   server: 171.22.180.35
   port: 443
   uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
@@ -13475,7 +13475,7 @@ proxies:
     mode: auto
   servername: www.samsung.com
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1516
+  name: 🇺🇸 美国US-1516（原标NL）
   server: download.lastilhame.monster
   port: 443
   uuid: a5952e75-79f3-495d-b95d-5faa2452b5b8
@@ -13492,7 +13492,7 @@ proxies:
   encryption: none
   servername: www.hollywoodreporter.com
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1517
+  name: 🇺🇸 美国US-1517（原标NL）
   server: download.lastilhame.monster
   port: 443
   uuid: a8da758c-510d-4827-83cf-2f2b51c49c5b
@@ -13508,7 +13508,7 @@ proxies:
   network: tcp
   servername: www.techradar.com
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | [BL]-1518
+  name: 🇨🇿 捷克CZ-1518（原标NL）
   server: 194.87.115.225
   port: 443
   uuid: f6ca4401-06cb-476a-ae12-c039781fef51
@@ -13524,7 +13524,7 @@ proxies:
   encryption: none
   servername: yahoo.com
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]-1519
+  name: 🇷🇺 俄罗斯RU-1519（原标NL）
   server: 147.45.165.192
   port: 2027
   uuid: 35325a3c-411e-42a8-962b-db12e55b071d
@@ -13555,7 +13555,7 @@ proxies:
   network: tcp
   servername: s220.okgfwbackxyz.xyz
 - type: vless
-  name: 🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]-1521
+  name: 🇷🇺 俄罗斯RU-1521（原标NL）
   server: 147.45.244.177
   port: 443
   uuid: 7a814e01-457b-42ca-96cb-4e82ae0c00bf
@@ -13586,7 +13586,7 @@ proxies:
   network: tcp
   servername: nl1.skysafe.online
 - type: vless
-  name: 🇳🇱 The Netherlands, Assen | 🌐 | [BL]-1523
+  name: 🇷🇺 俄罗斯RU-1523（原标NL）
   server: nl1.skysafe.online
   port: 8443
   uuid: 0e3a9376-1bf0-4b9e-a328-f28083bf6c34
@@ -13736,7 +13736,7 @@ proxies:
   network: tcp
   servername: vl03.myxasecure.space
 - type: vless
-  name: 🇬🇧 United Kingdom, Martlesham (Martlesham Heath) | [BL]-1532
+  name: 🇫🇮 芬兰FI-1532（原标GB）
   server: 31.76.120.162
   port: 443
   uuid: 05e9d254-8ea8-4097-9450-d4aefc44bd7e
@@ -13835,7 +13835,7 @@ proxies:
   encryption: none
   servername: chus.nodes.rocketnetwork.ru
 - type: vless
-  name: 🇺🇸 United States, Draper | [BL]-1542
+  name: 🇱🇻 拉脱维亚LV-1542（原标US）
   server: us.skysafe.online
   port: 443
   uuid: 0e3a9376-1bf0-4b9e-a328-f28083bf6c34
@@ -13851,7 +13851,7 @@ proxies:
   network: tcp
   servername: us.skysafe.online
 - type: vless
-  name: 🇺🇸 United States, Draper | [BL]-1543
+  name: 🇱🇻 拉脱维亚LV-1543（原标US）
   server: us.skysafe.online
   port: 9443
   uuid: 0e3a9376-1bf0-4b9e-a328-f28083bf6c34
@@ -13866,7 +13866,7 @@ proxies:
   client-fingerprint: chrome
   servername: us.skysafe.online
 - type: vless
-  name: 🇺🇸 United States, Manassas | [BL]-1544
+  name: 🇦🇹 奥地利AT-1544（原标US）
   server: us.srv.raw-srv.org
   port: 443
   uuid: 8b4c4359-ff2d-4322-bc04-e57e3eaca361
@@ -13900,7 +13900,7 @@ proxies:
   encryption: none
   servername: www.microsoft.com
 - type: vless
-  name: 🇺🇸 United States, Washington D.C. | [BL]-1547
+  name: 🇱🇻 拉脱维亚LV-1547（原标US）
   server: 186.246.18.5
   port: 2027
   uuid: 35325a3c-411e-42a8-962b-db12e55b071d
@@ -13935,7 +13935,7 @@ proxies:
   encryption: none
   servername: yahoo.com
 - type: vless
-  name: 🇷🇺 Russia, Moscow | [BL]-1550
+  name: 🇷🇺 俄罗斯RU-1550（原标US）
   server: l12.l-itx.info
   port: 7443
   uuid: 5da05cf7-9913-45a9-a7c6-71a41b1cd713
@@ -13968,7 +13968,7 @@ proxies:
   encryption: none
   servername: ru-service2.frostmotiveseed.net
 - type: vless
-  name: 🇷🇺 Russia, Moscow | 🌐 | [BL]-1552
+  name: 🇷🇺 俄罗斯RU-1552（原标US）
   server: ru-service3.alexanderoff.ru
   port: 4443
   uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
@@ -13984,7 +13984,7 @@ proxies:
   encryption: none
   servername: ru-service3.frostmotiveseed.net
 - type: vless
-  name: 🇷🇺 Russia, Moscow | 🌐 | [BL]-1553
+  name: 🇷🇺 俄罗斯RU-1553（原标US）
   server: ru-service4.alexanderoff.ru
   port: 4443
   uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
@@ -14000,7 +14000,7 @@ proxies:
   encryption: none
   servername: ru-service4.frostmotiveseed.net
 - type: vless
-  name: 🇷🇺 Russia, Moscow (Tsentralnyy administrativnyy okrug) | [BL]-1554
+  name: 🇷🇺 俄罗斯RU-1554（原标US）
   server: ru10.myxasecure.space
   port: 443
   uuid: 5381a1bb-479a-412a-9d99-08ccbc008828
@@ -14017,7 +14017,7 @@ proxies:
   encryption: none
   servername: ru10.myxasecure.space
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |     | [BL]-1555
+  name: 🇺🇸 美国US-1555（原标CA）
   server: 193.32.177.101
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14052,7 +14052,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.my111000.tech
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |     | [BL]-1558
+  name: 🇺🇸 美国US-1558（原标CA）
   server: 77.110.124.132
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14067,7 +14067,7 @@ proxies:
     path: /%3Fhttps%3A//t.me/wangcai2%F0%9F%87%A8%F0%9F%87%B3
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1559
+  name: 🇺🇸 美国US-1559（原标CA）
   server: 154.17.22.207
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14084,7 +14084,7 @@ proxies:
   encryption: none
   servername: sn1.skylee5.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1560
+  name: 🇺🇸 美国US-1560（原标CA）
   server: 154.17.235.9
   port: 8443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14100,7 +14100,7 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.netfp=chrome
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1562
+  name: 🇺🇸 美国US-1562（原标CA）
   server: 154.26.181.85
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14117,7 +14117,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1564
+  name: 🇺🇸 美国US-1564（原标CA）
   server: 31.220.31.67
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14134,7 +14134,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1565
+  name: 🇺🇸 美国US-1565（原标CA）
   server: 64.186.227.227
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14149,7 +14149,7 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |    | [BL]-1566
+  name: 🇺🇸 美国US-1566（原标CA）
   server: 23.106.154.209
   port: 9418
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -14164,7 +14164,7 @@ proxies:
     path: /torrent/go.html/activityfp
   servername: pagescm.freen9.cc.cd
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |     | [BL]-1567
+  name: 🇳🇱 荷兰NL-1567（原标CA）
   server: 45.134.21.8
   port: 8443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14180,7 +14180,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇦🇷 🌐 Anycast-IP |     | [BL]-1568
+  name: 🇳🇱 荷兰NL-1568（原标CA）
   server: 185.243.112.61
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14198,7 +14198,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |      | [BL]-1570
+  name: 🇷🇴 罗马尼亚RO-1570（原标CA）
   server: 188.241.241.28
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14216,7 +14216,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1571
+  name: 🇩🇪 德国DE-1571（原标CA）
   server: 94.159.98.140
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14249,7 +14249,7 @@ proxies:
   encryption: none
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1573
+  name: 🇷🇴 罗马尼亚RO-1573（原标CA）
   server: 188.241.241.29
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14267,7 +14267,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1574
+  name: 🇸🇬 新加坡SG-1574（原标CA）
   server: 43.169.18.179
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14284,7 +14284,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1576
+  name: 🇩🇪 德国DE-1576（原标CA）
   server: 193.24.209.103
   port: 8443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14302,7 +14302,7 @@ proxies:
   encryption: none
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1577
+  name: 🇩🇪 德国DE-1577（原标CA）
   server: 94.159.96.182
   port: 8443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14319,7 +14319,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1579
+  name: 🇩🇪 德国DE-1579（原标CA）
   server: 98.142.253.82
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14336,7 +14336,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1583
+  name: 🇩🇪 德国DE-1583（原标CA）
   server: 94.159.101.93
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14354,7 +14354,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1585
+  name: 🇫🇮 芬兰FI-1585（原标CA）
   server: fl-7-direct.djarbnet.ru
   port: 443
   uuid: 0c9c3d36-c93c-4d1b-bdff-8038c3ed78a2
@@ -14384,7 +14384,7 @@ proxies:
       Host: 29.alij47649.workers.dev
     path: /?ed
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1588
+  name: 🇺🇸 美国US-1588（原标CA）
   server: 160.153.137.184
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14399,7 +14399,7 @@ proxies:
     path: /%3Fed%3D2560%26Telegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1589
+  name: 🇺🇸 美国US-1589（原标CA）
   server: 167.68.42.191
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14415,7 +14415,7 @@ proxies:
     path: /
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1591
+  name: 🇺🇸 美国US-1591（原标CA）
   server: 198.62.62.122
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14431,7 +14431,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1592
+  name: 🇺🇸 美国US-1592（原标CA）
   server: 198.71.233.55
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14449,7 +14449,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1593
+  name: 🇺🇸 美国US-1593（原标CA）
   server: 199.34.228.160
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14465,7 +14465,7 @@ proxies:
     path: /
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1597
+  name: 🇺🇸 美国US-1597（原标CA）
   server: 199.34.228.41
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14482,7 +14482,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1601
+  name: 🇺🇸 美国US-1601（原标CA）
   server: 209.102.207.120
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14498,7 +14498,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1602
+  name: 🇬🇧 英国GB-1602（原标CA）
   server: 217.163.76.254
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14516,7 +14516,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1606
+  name: 🇬🇧 英国GB-1606（原标CA）
   server: 217.163.76.46
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14533,7 +14533,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1609
+  name: 🇬🇧 英国GB-1609（原标CA）
   server: 25.129.197.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14549,7 +14549,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1610
+  name: 🇸🇬 新加坡SG-1610（原标CA）
   server: 27.50.48.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14585,7 +14585,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1612
+  name: 🇷🇴 罗马尼亚RO-1612（原标CA）
   server: 45.12.30.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14602,7 +14602,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1613
+  name: 🇳🇱 荷兰NL-1613（原标CA）
   server: 45.131.6.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14620,7 +14620,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1615
+  name: 🇷🇺 俄罗斯RU-1615（原标CA）
   server: 45.142.120.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14636,7 +14636,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1616
+  name: 🇷🇺 俄罗斯RU-1616（原标CA）
   server: 45.142.120.191
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14653,7 +14653,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1617
+  name: 🇱🇹 立陶宛LT-1617（原标CA）
   server: 45.153.7.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14669,7 +14669,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1618
+  name: 🇷🇺 俄罗斯RU-1618（原标CA）
   server: 45.8.211.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14702,7 +14702,7 @@ proxies:
     path: /torrent/section
   servername: pagescm.freen26.cc.cd
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1623
+  name: 🇬🇧 英国GB-1623（原标CA）
   server: 25.129.196.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14735,7 +14735,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1628
+  name: 🇺🇸 美国US-1628（原标CA）
   server: 167.68.5.191
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14751,7 +14751,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1629
+  name: 🇺🇸 美国US-1629（原标CA）
   server: 199.107.164.149
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14766,7 +14766,7 @@ proxies:
     path: /Telegram%3AVlessTrogan
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1634
+  name: 🇷🇴 罗马尼亚RO-1634（原标CA）
   server: 45.85.119.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14781,7 +14781,7 @@ proxies:
     path: /
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1635
+  name: 🇫🇷 法国FR-1635（原标CA）
   server: 94.183.186.27
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14799,7 +14799,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1637
+  name: 🇫🇷 法国FR-1637（原标CA）
   server: 82.64.152.55
   port: 20304
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14817,7 +14817,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1641
+  name: 🇬🇧 英国GB-1641（原标CA）
   server: 87.106.65.110
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14835,7 +14835,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1642
+  name: 🇰🇷 韩国KR-1642（原标CA）
   server: 58.232.50.76
   port: 10003
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -14850,7 +14850,7 @@ proxies:
     path: /ajax/p
   servername: pagescm.freen36.cc.cd
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1643
+  name: 🇰🇷 韩国KR-1643（原标CA）
   server: 61.98.237.169
   port: 14147
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -14865,7 +14865,7 @@ proxies:
     path: /torrent/redirect
   servername: pagescm.freen24.cc.cd
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1644
+  name: 🇰🇷 韩国KR-1644（原标CA）
   server: 59.4.166.72
   port: 12504
   uuid: bafacd98-136a-4530-838d-4e5c51838dac
@@ -14880,7 +14880,7 @@ proxies:
     path: /
   servername: juzi8186.qea.ccwu.cc
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1645
+  name: 🇱🇻 拉脱维亚LV-1645（原标CA）
   server: 46.32.184.75
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14915,7 +14915,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1647
+  name: 🇷🇺 俄罗斯RU-1647（原标CA）
   server: 89.248.207.37
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -14930,7 +14930,7 @@ proxies:
     path: /%3Fed%3D2560%26Telegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1648
+  name: 🇭🇰 香港HK-1648（原标CA）
   server: 219.76.13.183
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14945,7 +14945,7 @@ proxies:
     path: /
   servername: sn1.skylee5.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1649
+  name: 🇸🇬 新加坡SG-1649（原标CA）
   server: 103.43.191.121
   port: 8443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14960,7 +14960,7 @@ proxies:
     path: /proxyip
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1651
+  name: 🇭🇰 香港HK-1651（原标CA）
   server: 70.36.96.118
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14977,7 +14977,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1655
+  name: 🇭🇰 香港HK-1655（原标CA）
   server: 163.5.58.140
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -14992,7 +14992,7 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1658
+  name: 🇸🇬 新加坡SG-1658（原标CA）
   server: 194.36.179.17
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15009,7 +15009,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |     | [BL]-1660
+  name: 🇳🇱 荷兰NL-1660（原标CA）
   server: 62.84.102.169
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15025,7 +15025,7 @@ proxies:
     path: /?Telegram🇨🇳+@WangCai2
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1661
+  name: 🇸🇬 新加坡SG-1661（原标CA）
   server: 20.6.12.145
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15041,7 +15041,7 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1664
+  name: 🇯🇵 日本JP-1664（原标CA）
   server: 8.216.121.234
   port: 51922
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15060,7 +15060,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1665
+  name: 🇺🇸 美国US-1665（原标CA）
   server: 192.220.249.8
   port: 45222
   uuid: 00000000-0000-4000-8000-000000000000
@@ -15075,7 +15075,7 @@ proxies:
     path: /@Marisa_kristifp
   servername: ufo4dxyv6255yk8eh1ejyxgxc.worker.ddns-ip.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1666
+  name: 🇰🇷 韩国KR-1666（原标CA）
   server: 123.111.169.70
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15093,7 +15093,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1668
+  name: 🇰🇷 韩国KR-1668（原标CA）
   server: 123.212.221.182
   port: 50001
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -15108,7 +15108,7 @@ proxies:
     path: /redirect.php/files
   servername: pagescm.freen33.cc.cd
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1671
+  name: 🇰🇷 韩国KR-1671（原标CA）
   server: 211.196.12.95
   port: 15831
   uuid: bafacd98-136a-4530-838d-4e5c51838dac
@@ -15124,7 +15124,7 @@ proxies:
     path: /res/juzibaipiao
   servername: juzi8186.qea.ccwu.cc
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1672
+  name: 🇺🇸 美国US-1672（原标CA）
   server: 47.88.24.237
   port: 10444
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15142,7 +15142,7 @@ proxies:
   encryption: none
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1673
+  name: 🇺🇸 美国US-1673（原标CA）
   server: 47.251.95.178
   port: 443
   uuid: 93f0761d-4393-4b43-a523-e812fa0b7e83
@@ -15157,7 +15157,7 @@ proxies:
     path: /pyip
   servername: cf.cfvip.lol
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1676
+  name: 🇱🇻 拉脱维亚LV-1676（原标CA）
   server: 45.43.76.184
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15173,7 +15173,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1682
+  name: 🇱🇻 拉脱维亚LV-1682（原标CA）
   server: 5.34.209.231
   port: 8443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15189,7 +15189,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1685
+  name: 🇱🇻 拉脱维亚LV-1685（原标CA）
   server: 185.82.126.247
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15205,7 +15205,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1686
+  name: 🇱🇻 拉脱维亚LV-1686（原标CA）
   server: 185.82.126.64
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15222,7 +15222,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1687
+  name: 🇺🇸 美国US-1687（原标CA）
   server: 14.102.228.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15239,7 +15239,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1688
+  name: 🇺🇸 美国US-1688（原标CA）
   server: 14.102.228.191
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15255,7 +15255,7 @@ proxies:
   encryption: none
   servername: sni.my111000.tech
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1689
+  name: 🇱🇻 拉脱维亚LV-1689（原标CA）
   server: 185.82.126.185
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15271,7 +15271,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1694
+  name: 🇱🇻 拉脱维亚LV-1694（原标CA）
   server: 185.82.126.9
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15287,7 +15287,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1697
+  name: 🇺🇸 美国US-1697（原标CA）
   server: 172.174.11.248
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15303,7 +15303,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1699
+  name: 🇸🇬 新加坡SG-1699（原标CA）
   server: 188.239.21.47
   port: 8443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15320,7 +15320,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1700
+  name: 🇸🇬 新加坡SG-1700（原标CA）
   server: 43.156.116.194
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15335,7 +15335,7 @@ proxies:
     path: /
   servername: sn1.skylee5.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |    | [BL]-1701
+  name: 🇨🇳 台湾TW-1701（原标CA）
   server: 220.128.110.108
   port: 43
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -15350,7 +15350,7 @@ proxies:
     path: /tags/detailsfp
   servername: pagescm.freen6.cc.cd
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1702
+  name: 🇺🇸 美国US-1702（原标CA）
   server: 154.17.31.82
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15365,7 +15365,7 @@ proxies:
     path: /proxyip=ProxyIP.CMLiussss.net
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇨🇦 🌐 Anycast-IP |   | [BL]-1706
+  name: 🇺🇸 美国US-1706（原标CA）
   server: 64.186.248.118
   port: 8443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15382,7 +15382,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇩🇪 🌐 Anycast-IP |   | [BL]-1710
+  name: 🇺🇸 美国US-1710（原标CA）
   server: ip2.bv24.org
   port: 2083
   uuid: 72c319bb-577f-481c-8fc7-0364d72a395d
@@ -15400,7 +15400,7 @@ proxies:
   encryption: none
   servername: fi2.bv24.org
 - type: vless
-  name: 🇩🇪 🌐 Anycast-IP |    | [BL]-1712
+  name: 🇺🇸 美国US-1712（原标CA）
   server: 156.154.245.84
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15418,7 +15418,7 @@ proxies:
   encryption: none
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇫🇮 🌐 Anycast-IP |  | [BL]-1720
+  name: 🇬🇧 英国GB-1720（原标CA）
   server: 25.26.27.191
   port: 2096
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15435,7 +15435,7 @@ proxies:
     early-data-header-name: Sec-WebSocket-Protocol
   servername: sni.my111000.tech
 - type: vless
-  name: 🇬🇧 🌐 Anycast-IP |    | [BL]-1723
+  name: 🇸🇬 新加坡SG-1723（原标CA）
   server: 47.84.25.234
   port: 10001
   uuid: ae0dd58e-e222-40bf-84ae-365a97532737
@@ -15450,7 +15450,7 @@ proxies:
     path: /mobile/groupfp
   servername: pagescm.freen1.de5.net
 - type: vless
-  name: 🇬🇧 🌐 Anycast-IP |    | [BL]-1724
+  name: 🇳🇱 荷兰NL-1724（原标CA）
   server: 185.94.164.106
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15465,7 +15465,7 @@ proxies:
     path: /%3Fhttps%3A//t.me/wangcai2%F0%9F%87%A8%F0%9F%87%B3
   servername: sni.latonyamadeline.ndjp.net
 - type: vless
-  name: 🇮🇪 🌐 Anycast-IP |     | [BL]-1727
+  name: 🇳🇱 荷兰NL-1727（原标CA）
   server: 81.22.132.47
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15483,7 +15483,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇮🇪 🌐 Anycast-IP |    | [BL]-1728
+  name: 🇳🇱 荷兰NL-1728（原标CA）
   server: 193.3.168.163
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15500,7 +15500,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇮🇪 🌐 Anycast-IP |    | [BL]-1729
+  name: 🇳🇱 荷兰NL-1729（原标CA）
   server: 163.5.207.235
   port: 443
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15516,7 +15516,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇮🇪 🌐 Anycast-IP |    | [BL]-1732
+  name: 🇳🇱 荷兰NL-1732（原标CA）
   server: 212.34.144.154
   port: 2053
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
@@ -15534,7 +15534,7 @@ proxies:
   encryption: none
   servername: sni.111000.v6.navy
 - type: vless
-  name: 🇮🇪 🌐 Anycast-IP |    | [BL]-1736
+  name: 🇸🇬 新加坡SG-1736（原标CA）
   server: 109.176.19.182
   port: 8443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15551,7 +15551,7 @@ proxies:
   encryption: none
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇸🇬 🌐 Anycast-IP |  | [BL]-1741
+  name: 🇸🇬 新加坡SG-1741（原标CA）
   server: 8.219.232.55
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
@@ -15566,7 +15566,7 @@ proxies:
     path: /proxyip
   servername: sni.skylee4.cloudns.ch
 - type: vless
-  name: 🇸🇬 🌐 Anycast-IP |   | [BL]-1742
+  name: 🇸🇬 新加坡SG-1742（原标CA）
   server: 43.160.195.223
   port: 443
   uuid: 06b65903-406d-4a41-8463-6fd5c0ee7798
