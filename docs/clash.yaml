@@ -559,7 +559,7 @@ proxies:
   tls: false
   network: tcp
 - type: vless
-  name: 🇺🇸 美国US-74（原标TW）
+  name: 🇭🇰 香港HK-74（原标TW）
   server: t1.hhaakk9922.com
   port: 36791
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -590,7 +590,7 @@ proxies:
   encryption: none
   servername: pagescm.freen35.cc.cd
 - type: vless
-  name: 🇺🇸 美国US-77（原标TW）
+  name: 🇭🇰 香港HK-77（原标TW）
   server: t1.hhaakk9922.com
   port: 36790
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -623,7 +623,7 @@ proxies:
   name: 🇬🇧 英国GB-79
   network: tcp
 - type: vless
-  name: 🇺🇸 美国US-80（原标HK）
+  name: 🇭🇰 香港HK-80
   server: t1.hhaakk9922.com
   port: 36782
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -646,7 +646,7 @@ proxies:
   skip-cert-verify: true
   tfo: false
 - type: vless
-  name: 🇺🇸 美国US-82（原标SG）
+  name: 🇭🇰 香港HK-82（原标SG）
   server: t1.hhaakk9922.com
   port: 36788
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -661,7 +661,7 @@ proxies:
   encryption: none
   servername: t1.hhaakk9922.com
 - type: vless
-  name: 🇺🇸 美国US-83（原标SG）
+  name: 🇭🇰 香港HK-83（原标SG）
   server: t1.hhaakk9922.com
   port: 36785
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -676,7 +676,7 @@ proxies:
   encryption: none
   servername: t1.hhaakk9922.com
 - type: vless
-  name: 🇺🇸 美国US-84（原标SG）
+  name: 🇭🇰 香港HK-84（原标SG）
   server: t1.hhaakk9922.com
   port: 36786
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -801,7 +801,7 @@ proxies:
   name: 🇯🇵 日本JP-97
   network: tcp
 - type: vless
-  name: 🇺🇸 美国US-98（原标GB）
+  name: 🇭🇰 香港HK-98（原标GB）
   server: t1.hhaakk9922.com
   port: 46782
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -897,7 +897,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-105
 - type: vless
-  name: 🇺🇸 美国US-107（原标SG）
+  name: 🇭🇰 香港HK-107（原标SG）
   server: t1.hhaakk9922.com
   port: 36787
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -930,7 +930,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-109
 - type: vless
-  name: 🇺🇸 美国US-110（原标JP）
+  name: 🇭🇰 香港HK-110（原标JP）
   server: t1.hhaakk9922.com
   port: 46783
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -969,7 +969,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-114
 - type: vless
-  name: 🇺🇸 美国US-115（原标GB）
+  name: 🇭🇰 香港HK-115（原标GB）
   server: t1.hhaakk9922.com
   port: 46784
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -1266,7 +1266,7 @@ proxies:
   encryption: none
   servername: www.deepl.com
 - type: hysteria2
-  name: 🇮🇳 印度IN-177（原标JP）
+  name: 🇩🇪 德国DE-177（原标JP）
   server: zf.9966690.xyz
   port: 60017
   password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
@@ -2449,7 +2449,7 @@ proxies:
   encryption: none
   servername: download-porter.hoyoverse.com
 - type: hysteria2
-  name: 🇸🇬 新加坡SG-307（原标HK）
+  name: 🇭🇰 香港-307
   server: aws-linkhy1.liangxin1.xyz
   port: 60000
   ports: 60000-65530
@@ -3608,7 +3608,7 @@ proxies:
       Host: vms.lifetime26.workers.dev
     path: /?https://t.me/YouTube@小青科学网🇨🇳
   encryption: none
-- name: 🇲🇾 马来西亚MY-424（原标US）
+- name: 🇮🇩 印尼ID-424（原标US）
   type: vmess
   server: v29.hdacd.com
   port: 30829
@@ -4258,7 +4258,7 @@ proxy-groups:
   icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
   type: select
   proxies:
-  - ♻️ 自动选择
+  - 自动选择
   - DIRECT
   include-all: true
 - name: 🌍 地区选择
