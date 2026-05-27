@@ -354,11 +354,23 @@ def _optimize_proxy_groups(content: str) -> str:
         if any(kw in name for kw in region_keywords) and '节点' in name:
             region_group_names.append(name)
 
+    # 动态查找「自动选择」组的实际名称（可能带或不带 emoji）
+    auto_select_name = None
+    for g in groups:
+        name = g.get('name', '')
+        if '自动选择' in name:
+            auto_select_name = name
+            break
+
     if select_group:
         # 把「节点选择」改为 include-all，可直接选具体节点
         select_group['include-all'] = True
-        # proxies 只保留：自动选择、DIRECT（不再引用地区选择，避免重复）
-        select_group['proxies'] = ['♻️ 自动选择', 'DIRECT']
+        # proxies 只保留：自动选择（如果存在）、DIRECT
+        new_proxies = []
+        if auto_select_name:
+            new_proxies.append(auto_select_name)
+        new_proxies.append('DIRECT')
+        select_group['proxies'] = new_proxies
 
     if manual_group:
         # 把「手动切换」改名为「地区选择」，只包含地区分组
@@ -366,9 +378,9 @@ def _optimize_proxy_groups(content: str) -> str:
         manual_group['type'] = 'select'
         # 移除 include-all，改为手动列出地区组
         manual_group.pop('include-all', None)
-        manual_group['proxies'] = region_group_names if region_group_names else [
-            '♻️ 自动选择'
-        ]
+        manual_group['proxies'] = region_group_names if region_group_names else (
+            [auto_select_name] if auto_select_name else ['DIRECT']
+        )
 
     # 更新所有引用「手动切换」的地方为「地区选择」
     if manual_group_name:
