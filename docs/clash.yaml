@@ -125,7 +125,7 @@ proxies:
       User-Agent: Mozilla/5.0 (Linux; Android 7.0; Moto G (5) Build/NPPS25.137-93-14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Mobile Safari/537.36
   udp: true
   client-fingerprint: chrome
-- name: 🇭🇰 香港HK-13（原标JP）
+- name: 🇯🇵 日本JP-13
   server: jw9r3arl.d33tqmk.cc
   port: 11398
   type: hysteria2
@@ -134,7 +134,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-14（原标JP）
+- name: 🇯🇵 日本JP-14
   server: jw9r3arl.d33tqmk.cc
   port: 11400
   type: hysteria2
@@ -167,7 +167,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-17（原标JP）
+- name: 🇯🇵 日本JP-17
   server: jw9r3arl.d33tqmk.cc
   port: 16006
   type: hysteria2
@@ -185,7 +185,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-19（原标JP）
+- name: 🇯🇵 日本JP-19
   server: jw9r3arl.d33tqmk.cc
   port: 11402
   type: hysteria2
@@ -194,7 +194,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-20（原标JP）
+- name: 🇯🇵 日本JP-20
   server: jw9r3arl.d33tqmk.cc
   port: 11403
   type: hysteria2
@@ -257,7 +257,7 @@ proxies:
   password: 2e46192a-5029-46da-af0d-c38d580bfa5e
   sni: hk.mjhy2.com
   skip-cert-verify: true
-- name: 🇭🇰 香港HK-26（原标JP）
+- name: 🇯🇵 日本JP-26
   server: jw9r3arl.d33tqmk.cc
   port: 11404
   type: hysteria2
@@ -283,7 +283,7 @@ proxies:
   sni: cdnsg.douyinvod.com
   skip-cert-verify: true
   network: tcp
-- name: 🇭🇰 香港HK-29（原标TW）
+- name: 🇯🇵 日本JP-29（原标TW）
   server: y97kdqwr.d33tqmk.cc
   port: 20011
   type: hysteria2
@@ -292,7 +292,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-30（原标JP）
+- name: 🇯🇵 日本JP-30
   server: jw9r3arl.d33tqmk.cc
   port: 16007
   type: hysteria2
@@ -317,7 +317,7 @@ proxies:
   sni: dl.shcthkhkc.baidu.com
   skip-cert-verify: true
   network: tcp
-- name: 🇭🇰 香港HK-33（原标TW）
+- name: 🇯🇵 日本JP-33（原标TW）
   server: y97kdqwr.d33tqmk.cc
   port: 20006
   type: hysteria2
@@ -455,7 +455,7 @@ proxies:
   network: tcp
   udp: true
   servername: sgg.knhqf.com
-- name: 🇭🇰 香港HK-48
+- name: 🇯🇵 日本JP-48（原标HK）
   server: y97kdqwr.d33tqmk.cc
   port: 12023
   type: hysteria2
@@ -508,7 +508,7 @@ proxies:
   skip-cert-verify: false
   obfs: salamander
   obfs-password: 1ol3tasb90
-- name: 🇭🇰 香港HK-54（原标SG）
+- name: 🇯🇵 日本JP-54（原标SG）
   server: y97kdqwr.d33tqmk.cc
   port: 12003
   type: hysteria2
@@ -531,7 +531,7 @@ proxies:
   network: tcp
   udp: true
   servername: www.apple.com.cn
-- name: 🇭🇰 香港HK-56（原标SG）
+- name: 🇯🇵 日本JP-56（原标SG）
   server: y97kdqwr.d33tqmk.cc
   port: 12015
   type: hysteria2
@@ -638,7 +638,7 @@ proxies:
   sni: bilibili-kr.biliimg.com
   skip-cert-verify: true
   ports: 60000-65530
-- name: 🇭🇰 香港HK-67（原标JP）
+- name: 🇯🇵 日本JP-67
   server: jw9r3arl.d33tqmk.cc
   port: 11399
   type: hysteria2
@@ -1813,7 +1813,7 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   udp: true
   network: ws
-- name: 🇯🇵 日本JP-226（原标NL）
+- name: 🇭🇰 香港HK-226（原标NL）
   server: nx4r7v9q.d33tqmk.cc
   port: 20020
   type: hysteria2
@@ -1882,7 +1882,7 @@ proxies:
   type: ss
   udp: true
   skip-cert-verify: false
-- name: 🇯🇵 日本JP-234（原标DE）
+- name: 🇭🇰 香港HK-234（原标DE）
   server: nx4r7v9q.d33tqmk.cc
   port: 16008
   type: hysteria2
@@ -2243,7 +2243,7 @@ proxies:
     method: GET
     path:
     - /ABCDE
-- name: 🇯🇵 日本JP-273（原标RU）
+- name: 🇭🇰 香港HK-273（原标RU）
   server: nx4r7v9q.d33tqmk.cc
   port: 20022
   type: hysteria2
@@ -9785,7 +9785,26 @@ proxies:
   skip-cert-verify: false
   tfo: false
 - type: vless
-  name: 🇷🇺 俄罗斯RU-1047（原标DE）
+  name: 🇺🇸 美国US-1044（原标CA）
+  server: 142.248.219.34
+  port: 2053
+  uuid: 26524cce-d514-4014-a426-365fb266a14d
+  udp: true
+  tls: true
+  client-fingerprint: firefox
+  skip-cert-verify: false
+  xudp: true
+  network: ws
+  ws-opts:
+    headers:
+      Host: c1mxc.api-gateway.fgfw.qzz.io
+    path: /danfeng-2cm3
+    max-early-data: 2560
+    early-data-header-name: Sec-WebSocket-Protocol
+  encryption: none
+  servername: c1mxc.api-gateway.fgfw.qzz.io
+- type: vless
+  name: 🇷🇺 俄罗斯RU-1049（原标DE）
   server: 178.236.254.244
   port: 8443
   uuid: 69a2af58-d74a-44ca-864a-e09b493f4274
@@ -9802,7 +9821,7 @@ proxies:
   encryption: none
   servername: www.vk.ru
 - type: vless
-  name: 🇩🇪 德国-1048
+  name: 🇩🇪 德国-1050
   server: 167.99.131.232
   port: 2053
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9821,7 +9840,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇬🇧 英国-1050
+  name: 🇬🇧 英国-1052
   server: 157.245.34.157
   port: 2087
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9840,7 +9859,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇬🇧 英国-1051
+  name: 🇬🇧 英国-1053
   server: 157.245.33.149
   port: 443
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9859,7 +9878,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇰🇷 韩国-1052
+  name: 🇰🇷 韩国-1054
   server: 121.175.192.245
   port: 26257
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9878,7 +9897,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇰🇷 韩国-1053
+  name: 🇰🇷 韩国-1055
   server: 118.33.142.8
   port: 16010
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9897,7 +9916,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇰🇷 韩国-1054
+  name: 🇰🇷 韩国-1056
   server: 59.4.161.71
   port: 10162
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -9916,7 +9935,7 @@ proxies:
   encryption: none
   servername: c1mxc.api-gateway.fgfw.qzz.io
 - type: vless
-  name: 🇳🇱 荷兰-1055
+  name: 🇳🇱 荷兰-1057
   server: lv-geo.dataload-cdn.ru
   port: 8443
   uuid: 69a2af58-d74a-44ca-864a-e09b493f4274
@@ -9933,7 +9952,7 @@ proxies:
   encryption: none
   servername: www.vk.com
 - type: vless
-  name: 🇷🇺 俄罗斯-1057
+  name: 🇷🇺 俄罗斯-1059
   server: 85.234.114.30
   port: 22231
   uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
@@ -9947,7 +9966,7 @@ proxies:
   encryption: none
   servername: r1.mizulina.top
 - type: vless
-  name: 🇺🇸 美国-1060
+  name: 🇺🇸 美国-1062
   server: 44.242.50.106
   port: 36895
   uuid: 5c875449-ae7d-46f8-b919-5a29f271dfce
@@ -9973,9 +9992,9 @@ proxies:
   password: :U]2hAN7Y[Ka0Eb_
   server: www.speedtest.net
   port: 8443
-  name: 🇺🇸 美国-1061
+  name: 🇺🇸 美国-1063
 - type: vless
-  name: 🇺🇸 美国-1062
+  name: 🇺🇸 美国-1064
   server: 172.64.47.168
   port: 2096
   uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -9993,7 +10012,7 @@ proxies:
   encryption: none
   servername: jp.aniua.qzz.io
 - type: vless
-  name: 🇺🇸 美国-1063
+  name: 🇺🇸 美国-1065
   server: 92.118.228.113
   port: 443
   uuid: 26524cce-d514-4014-a426-365fb266a14d
@@ -10021,7 +10040,7 @@ proxies:
   password: :U]2hAN7Y[Ka0Eb_
   server: 104.17.148.22
   port: 8443
-  name: 🇺🇸 美国-1064
+  name: 🇺🇸 美国-1066
 - sni: gzjx.dpdns.org
   network: ws
   ws-opts:
@@ -10032,7 +10051,7 @@ proxies:
   password: 2238e2f3-1a01-485e-8c22-24b65764c68b
   server: 172.64.152.23
   port: 443
-  name: 🇺🇸 美国-1065
+  name: 🇺🇸 美国-1067
 - type: ss
   skip-cert-verify: false
   udp: false
