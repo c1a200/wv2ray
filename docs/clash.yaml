@@ -406,7 +406,7 @@ proxies:
   sni: vpn-tw-002.fastervpn.world
   skip-cert-verify: true
   tfo: false
-- name: 🇺🇸 美国US-49（原标HK）
+- name: 🇭🇰 香港HK-49
   type: vmess
   server: gtm-sg-cc54q7d1q01.365cloud0285.com
   port: 6001
@@ -457,7 +457,7 @@ proxies:
   port: 65384
   name: 🇨🇳 台湾TW-53
   network: tcp
-- name: 🇺🇸 美国US-54（原标SG）
+- name: 🇸🇬 新加坡SG-54
   type: vmess
   server: gtm-sg-cc54q7d1q01.365cloud0285.com
   port: 6004
@@ -501,7 +501,7 @@ proxies:
     path:
     - /ABCDE
     headers: {}
-- name: 🇩🇪 德国DE-58（原标US）
+- name: 🇺🇸 美国US-58
   type: vmess
   server: 82.198.246.250
   port: 180
@@ -511,7 +511,7 @@ proxies:
   tls: false
   skip-cert-verify: true
   network: tcp
-- name: 🇩🇪 德国DE-59（原标US）
+- name: 🇺🇸 美国US-59
   type: vmess
   server: 82.198.246.37
   port: 180
@@ -559,7 +559,7 @@ proxies:
   tls: false
   network: tcp
 - type: vless
-  name: 🇭🇰 香港HK-74（原标TW）
+  name: 🇨🇳 台湾TW-74
   server: t1.hhaakk9922.com
   port: 36791
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -590,7 +590,7 @@ proxies:
   encryption: none
   servername: pagescm.freen35.cc.cd
 - type: vless
-  name: 🇭🇰 香港HK-77（原标TW）
+  name: 🇨🇳 台湾TW-77
   server: t1.hhaakk9922.com
   port: 36790
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -605,7 +605,7 @@ proxies:
   encryption: none
   servername: t1.hhaakk9922.com
 - type: hysteria2
-  name: 🇮🇳 印度IN-78（原标HK）
+  name: 🇭🇰 香港HK-78
   server: zfin.9966690.xyz
   port: 60008
   password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
@@ -646,7 +646,7 @@ proxies:
   skip-cert-verify: true
   tfo: false
 - type: vless
-  name: 🇭🇰 香港HK-82（原标SG）
+  name: 🇸🇬 新加坡SG-82
   server: t1.hhaakk9922.com
   port: 36788
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -661,7 +661,7 @@ proxies:
   encryption: none
   servername: t1.hhaakk9922.com
 - type: vless
-  name: 🇭🇰 香港HK-83（原标SG）
+  name: 🇸🇬 新加坡SG-83
   server: t1.hhaakk9922.com
   port: 36785
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -676,7 +676,7 @@ proxies:
   encryption: none
   servername: t1.hhaakk9922.com
 - type: vless
-  name: 🇭🇰 香港HK-84（原标SG）
+  name: 🇸🇬 新加坡SG-84
   server: t1.hhaakk9922.com
   port: 36786
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -801,7 +801,7 @@ proxies:
   name: 🇯🇵 日本JP-97
   network: tcp
 - type: vless
-  name: 🇭🇰 香港HK-98（原标GB）
+  name: 🇬🇧 英国GB-98
   server: t1.hhaakk9922.com
   port: 46782
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -897,7 +897,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-105
 - type: vless
-  name: 🇭🇰 香港HK-107（原标SG）
+  name: 🇸🇬 新加坡SG-107
   server: t1.hhaakk9922.com
   port: 36787
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -930,7 +930,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-109
 - type: vless
-  name: 🇭🇰 香港HK-110（原标JP）
+  name: 🇯🇵 日本JP-110
   server: t1.hhaakk9922.com
   port: 46783
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -969,7 +969,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-114
 - type: vless
-  name: 🇭🇰 香港HK-115（原标GB）
+  name: 🇬🇧 英国GB-115
   server: t1.hhaakk9922.com
   port: 46784
   uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
@@ -1032,7 +1032,7 @@ proxies:
   password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
   name: 🇻🇳 越南VN-121
 - type: vless
-  name: 🇷🇺 俄罗斯RU-122（原标US）
+  name: 🇺🇸 美国US-122
   server: 85.234.114.53
   port: 443
   uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
@@ -1266,7 +1266,7 @@ proxies:
   encryption: none
   servername: www.deepl.com
 - type: hysteria2
-  name: 🇺🇸 美国US-177（原标JP）
+  name: 🇯🇵 日本JP-177
   server: zf.9966690.xyz
   port: 60017
   password: a7c5d30b-ce9b-4e34-b5cb-66f8308790ef
@@ -1372,7 +1372,7 @@ proxies:
   encryption: none
   servername: v24.editsync.de
 - type: vless
-  name: 🇸🇪 瑞典SE-230（原标RU）
+  name: 🇷🇺 俄罗斯RU-230
   server: 185.103.103.213
   port: 9443
   uuid: 76ef4299-78d9-49a9-9620-a6b63c5519fd
@@ -2398,7 +2398,7 @@ proxies:
   encryption: none
   servername: lxs1jp.lxy1015.top
 - type: vless
-  name: 🇯🇵 日本JP-302（原标US）
+  name: 🇺🇸 美国-302
   server: aws-link19.liangxin1.xyz
   port: 443
   uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
@@ -2432,7 +2432,7 @@ proxies:
   encryption: none
   servername: download-porter.hoyoverse.com
 - type: vless
-  name: 🇰🇷 韩国KR-306（原标TW）
+  name: 🇨🇳 台湾-306
   server: aws-link27.liangxin1.xyz
   port: 443
   uuid: e3eea080-16c5-4368-93eb-eb8077c743a5
@@ -3443,7 +3443,7 @@ proxies:
   encryption: none
   servername: yahoo.com
 - type: vless
-  name: 🇨🇿 捷克CZ-419（原标DE）
+  name: 🇩🇪 德国-419
   server: 89.125.20.89
   port: 8444
   uuid: 386066cb-9257-42da-8f2e-cae2096a6097
@@ -3488,7 +3488,7 @@ proxies:
   network: xhttp
   encryption: none
   servername: my.pars-cdn.ir
-- name: 🇭🇰 香港HK-423（原标SG）
+- name: 🇸🇬 新加坡-423
   type: vmess
   server: world.t.51guangtaobao.com
   port: 2504
@@ -3526,7 +3526,7 @@ proxies:
   network: tcp
   encryption: none
   servername: eh.vk.com
-- name: 🇭🇰 香港HK-431（原标CH）
+- name: 🇨🇭 瑞士-431
   type: vmess
   server: world.t.51guangtaobao.com
   port: 9002
@@ -3535,7 +3535,7 @@ proxies:
   alterId: 0
   tls: false
   network: tcp
-- name: 🇭🇰 香港HK-432（原标CH）
+- name: 🇨🇭 瑞士-432
   type: vmess
   server: world.t.51guangtaobao.com
   port: 6012
@@ -3544,7 +3544,7 @@ proxies:
   alterId: 0
   tls: false
   network: tcp
-- name: 🇭🇰 香港HK-434（原标CH）
+- name: 🇨🇭 瑞士-434
   type: vmess
   server: world.t.51guangtaobao.com
   port: 9020
@@ -3553,7 +3553,7 @@ proxies:
   alterId: 0
   tls: false
   network: tcp
-- name: 🇭🇰 香港HK-435（原标CH）
+- name: 🇨🇭 瑞士-435
   type: vmess
   server: world.t.51guangtaobao.com
   port: 6009
@@ -3609,7 +3609,7 @@ proxies:
   encryption: none
   servername: cdg-1.fromblancwithlove.com
 - type: vless
-  name: 🇫🇮 芬兰FI-441（原标GB）
+  name: 🇬🇧 英国-441
   server: 31.76.120.162
   port: 443
   uuid: 05e9d254-8ea8-4097-9450-d4aefc44bd7e
@@ -3626,7 +3626,7 @@ proxies:
   encryption: none
   servername: www.sony.com
 - type: vless
-  name: 🇺🇸 美国US-442（原标GB）
+  name: 🇬🇧 英国-442
   server: 134.33.73.249
   port: 54254
   uuid: acba684c-4098-4eca-f519-828b09f96464
@@ -3643,7 +3643,7 @@ proxies:
   encryption: none
   servername: apple.com
 - type: vless
-  name: 🇳🇱 荷兰NL-443（原标GB）
+  name: 🇬🇧 英国-443
   server: 85.234.65.21
   port: 443
   uuid: 8711e97a-63cc-47f5-b1ab-b9280b82ac2e
@@ -3661,7 +3661,7 @@ proxies:
     path: /
   servername: www.sony.com
 - type: vless
-  name: 🇨🇿 捷克CZ-444（原标GB）
+  name: 🇬🇧 英国-444
   server: cz.krevetkavpn.ru
   port: 443
   uuid: 729d3d1e-ee1a-4c42-84bc-2ff331518221
@@ -3765,7 +3765,7 @@ proxies:
   encryption: none
   servername: r1.mizulina.top
 - type: vless
-  name: 🇺🇸 美国US-465（原标RU）
+  name: 🇷🇺 俄罗斯-465
   server: 185.139.214.151
   port: 443
   uuid: 9270ef77-592f-11f1-98cc-54db13ea7d40
@@ -3797,7 +3797,7 @@ proxies:
   network: tcp
   encryption: none
   servername: godsjgoijoigofsiuh.com
-- name: 🇯🇵 日本JP-468（原标TW）
+- name: 🇨🇳 台湾-468
   type: vmess
   server: 103.127.243.60
   port: 55386
@@ -4176,7 +4176,7 @@ proxies:
   encryption: none
   servername: www.yahoo.com
 - type: vless
-  name: 🇸🇪 瑞典SE-494（原标US）
+  name: 🇺🇸 美国-494
   server: se.endvn.org
   port: 443
   uuid: 8a6b2cf8-b21a-402a-bc3f-7efee320052f
@@ -4236,7 +4236,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-542（原标TW）
+- name: 🇨🇳 ✪ 台湾 01 v2ray协议-542
   type: vmess
   server: dotu-twv1.kunlun03dns.com
   port: 11111
@@ -4245,7 +4245,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-543（原标TW）
+- name: 🇨🇳 ✪ 台湾 02 v2ray协议-543
   type: vmess
   server: dotu-twv1.kunlun03dns.com
   port: 11112
@@ -4254,7 +4254,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-544（原标TW）
+- name: 🇨🇳 ✪ 台湾 03 v2ray协议-544
   type: vmess
   server: dotu-twv1.kunlun03dns.com
   port: 11113
@@ -4263,7 +4263,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-545（原标TW）
+- name: 🇨🇳 ✪ 台湾 04 v2ray协议-545
   type: vmess
   server: dotu-twv1.kunlun03dns.com
   port: 11114
@@ -4272,7 +4272,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-546（原标JP）
+- name: 🇯🇵 ✪ 日本 01 v2ray协议-546
   type: vmess
   server: dotu-jpv1.kunlun03dns.com
   port: 11119
@@ -4281,7 +4281,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-547（原标JP）
+- name: 🇯🇵 ✪ 日本 02 v2ray协议-547
   type: vmess
   server: dotu-jpv1.kunlun03dns.com
   port: 11120
@@ -4290,7 +4290,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-548（原标JP）
+- name: 🇯🇵 ✪ 日本 03 v2ray协议-548
   type: vmess
   server: dotu-jpv1.kunlun03dns.com
   port: 11121
@@ -4299,7 +4299,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-549（原标JP）
+- name: 🇯🇵 ✪ 日本 04 v2ray协议-549
   type: vmess
   server: dotu-jpv1.kunlun03dns.com
   port: 11122
@@ -4308,7 +4308,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-550（原标US）
+- name: 🇺🇸 ✪ 美国 01 v2ray协议-550
   type: vmess
   server: dotu-usv1.kunlun03dns.com
   port: 11127
@@ -4317,7 +4317,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-551（原标US）
+- name: 🇺🇸 ✪ 美国 02 v2ray协议-551
   type: vmess
   server: dotu-usv1.kunlun03dns.com
   port: 11128
@@ -4326,7 +4326,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-552（原标US）
+- name: 🇺🇸 ✪ 美国 03 v2ray协议-552
   type: vmess
   server: dotu-usv1.kunlun03dns.com
   port: 11129
@@ -4335,7 +4335,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-553（原标US）
+- name: 🇺🇸 ✪ 美国 04 v2ray协议-553
   type: vmess
   server: dotu-usv1.kunlun03dns.com
   port: 11130
@@ -4344,7 +4344,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-554（原标KR）
+- name: 🇰🇷 ✪ 韩国 01 v2ray协议-554
   type: vmess
   server: dotu-krv1.kunlun03dns.com
   port: 11143
@@ -4353,7 +4353,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-555（原标KR）
+- name: 🇰🇷 ✪ 韩国 02 v2ray协议-555
   type: vmess
   server: dotu-krv1.kunlun03dns.com
   port: 11144
@@ -4362,7 +4362,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-556（原标KR）
+- name: 🇰🇷 ✪ 韩国 03 v2ray协议-556
   type: vmess
   server: dotu-krv1.kunlun03dns.com
   port: 11145
@@ -4371,7 +4371,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-557（原标KR）
+- name: 🇰🇷 ✪ 韩国 04 v2ray协议-557
   type: vmess
   server: dotu-krv1.kunlun03dns.com
   port: 11146
@@ -4380,7 +4380,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-558（原标SG）
+- name: 🇸🇬 ✪ 新加坡 01 v2ray协议-558
   type: vmess
   server: dotu-sgv1.kunlun03dns.com
   port: 11135
@@ -4389,7 +4389,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-559（原标SG）
+- name: 🇸🇬 ✪ 新加坡 02 v2ray协议-559
   type: vmess
   server: dotu-sgv1.kunlun03dns.com
   port: 11136
@@ -4398,7 +4398,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-560（原标SG）
+- name: 🇸🇬 ✪ 新加坡 03 v2ray协议-560
   type: vmess
   server: dotu-sgv1.kunlun03dns.com
   port: 11137
@@ -4407,7 +4407,7 @@ proxies:
   cipher: auto
   udp: true
   network: tcp
-- name: 🇭🇰 香港HK-561（原标SG）
+- name: 🇸🇬 ✪ 新加坡 04 v2ray协议-561
   type: vmess
   server: dotu-sgv1.kunlun03dns.com
   port: 11138
