@@ -876,19 +876,20 @@ def save_subscription_files(output_dir: str = '.'):
             print("✓ v2ray 内容已是有效的订阅格式")
         else:
             print("⚠️ 上游 v2ray 源返回了 Clash 格式，自动转换为 v2rayNG 订阅格式...")
-            # 先去重 + GeoIP 纠正，再转换为 v2ray URI
+            # 先去重，再转换为 v2ray URI
             _v2_processed = _dedup_proxies(_ensure_clash_headers(v2ray_content))
-            try:
-                from geoip_verify import verify_and_fix_proxies as _geoip_fix_v2
-                _v2_data = yaml.safe_load(_v2_processed)
-                if isinstance(_v2_data, dict) and _v2_data.get('proxies'):
-                    _v2_data['proxies'] = _geoip_fix_v2(_v2_data['proxies'])
-                    _v2_processed = yaml.dump(
-                        _v2_data, allow_unicode=True,
-                        default_flow_style=False, sort_keys=False, width=1000,
-                    )
-            except Exception:
-                pass
+            if _env_to_bool(os.getenv('ENABLE_GEOIP'), default=False):
+                try:
+                    from geoip_verify import verify_and_fix_proxies as _geoip_fix_v2
+                    _v2_data = yaml.safe_load(_v2_processed)
+                    if isinstance(_v2_data, dict) and _v2_data.get('proxies'):
+                        _v2_data['proxies'] = _geoip_fix_v2(_v2_data['proxies'])
+                        _v2_processed = yaml.dump(
+                            _v2_data, allow_unicode=True,
+                            default_flow_style=False, sort_keys=False, width=1000,
+                        )
+                except Exception:
+                    pass
             v2_final_content = _clash_proxies_to_v2ray_uris(_v2_processed)
         v2_file.write_text(v2_final_content, encoding='utf-8')
         print(f"✓ v2ray 订阅文件已保存: {v2_file}")
@@ -898,18 +899,19 @@ def save_subscription_files(output_dir: str = '.'):
         clash_final_content = _ensure_clash_headers(clash_content)
         # 去除重复节点
         clash_final_content = _dedup_proxies(clash_final_content)
-        # GeoIP 验证并纠正节点名称（clash 和 subscribe 共用）
-        try:
-            from geoip_verify import verify_and_fix_proxies as _geoip_fix
-            _geoip_data = yaml.safe_load(clash_final_content)
-            if isinstance(_geoip_data, dict) and _geoip_data.get('proxies'):
-                _geoip_data['proxies'] = _geoip_fix(_geoip_data['proxies'])
-                clash_final_content = yaml.dump(
-                    _geoip_data, allow_unicode=True,
-                    default_flow_style=False, sort_keys=False, width=1000,
-                )
-        except Exception as geoip_err:
-            print(f"⚠️ GeoIP 纠正跳过: {geoip_err}")
+        # GeoIP 验证并纠正节点名称（默认禁用，ENABLE_GEOIP=true 启用）
+        if _env_to_bool(os.getenv('ENABLE_GEOIP'), default=False):
+            try:
+                from geoip_verify import verify_and_fix_proxies as _geoip_fix
+                _geoip_data = yaml.safe_load(clash_final_content)
+                if isinstance(_geoip_data, dict) and _geoip_data.get('proxies'):
+                    _geoip_data['proxies'] = _geoip_fix(_geoip_data['proxies'])
+                    clash_final_content = yaml.dump(
+                        _geoip_data, allow_unicode=True,
+                        default_flow_style=False, sort_keys=False, width=1000,
+                    )
+            except Exception as geoip_err:
+                print(f"⚠️ GeoIP 纠正跳过: {geoip_err}")
         # 过滤掉 FlClash 不支持的协议类型（anytls/http/socks5/hysteria v1 等）
         clash_final_content = _filter_unsupported_proxies(clash_final_content)
         # 确保包含 proxy-groups 和 rules（上游可能只返回 proxies 列表）
