@@ -4,681 +4,2746 @@ allow-lan: true
 mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
-<br />
-<b>Warning</b>:  file_exists(): open_basedir restriction in effect. File(/www/wwwroot/wordpress/wp-content/plugins/wordfence/waf/bootstrap.php) is not within the allowed path(s): (/www/wwwroot/zz/:/tmp/) in <b>/www/wwwroot/wordpress/wordfence-waf.php</b> on line <b>4</b><br />
 proxies:
-  - name: "\U0001F1F3\U0001F1F1 荷兰 |不加速|1倍-1"
-    type: anytls
-    server: free.nl1.laodavip.com
-    port: 443
-    password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-    udp: true
-    sni: free.nl1.laodavip.com
-  - name: "\U0001F1FA\U0001F1F8 美国01 |不加速|1倍-2"
-    type: anytls
-    server: free.us1.laodavip.com
-    port: 443
-    password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-    udp: true
-    sni: free.us1.laodavip.com
-  - name: "\U0001F1EE\U0001F1F9 意大利 |不加速|1倍-3"
-    type: anytls
-    server: free.it1.laodavip.com
-    port: 443
-    password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-    udp: true
-    sni: free.it1.laodavip.com
-  - name: "\U0001F1E8\U0001F1ED 瑞士 |不加速|1倍-4"
-    type: anytls
-    server: free.ch1.laodavip.com
-    port: 443
-    password: 2f3a2a4d-ca46-4012-a472-b559d379ad0a
-    udp: true
-    sni: free.ch1.laodavip.com
+- name: 🇭🇰 香港HK-1
+  server: 8.210.132.120
+  port: 51139
+  type: vmess
+  uuid: 36011d8c-9e33-4598-992d-6cbbd7d1e532
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /ABCDE
+- name: 🇭🇰 香港HK-2
+  server: 8.210.132.120
+  port: 52080
+  type: vmess
+  uuid: f6381558-6b41-46ba-bfa2-d1744dda4d7f
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /QQqun-737805443
+- name: 🇭🇰 香港HK-3
+  type: vmess
+  server: dotu-hkv1.kunlun03dns.com
+  port: 11104
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- type: hysteria2
+  name: 🇸🇬 新加坡SG-4
+  server: sg.mjhy2.com
+  port: 1443
+  password: 2e46192a-5029-46da-af0d-c38d580bfa5e
+  sni: sg.mjhy2.com
+  skip-cert-verify: true
+  tfo: false
+- type: ss
+  server: r3mrcg00129437x.cybervena.com
+  port: 50099
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  name: 🇨🇳 台湾TW-5
+- name: 🇭🇰 香港HK-6
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8098
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-7
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8087
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-8
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8085
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-9
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8089
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-10
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8099
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-11
+  server: 3.6.x.8.k.s.4.3.b.hk09-vm5.entry.v51124-1.qpon
+  port: 15265
+  type: vmess
+  uuid: 252d2a01-8ebe-3669-ac29-e53f7e6c8c78
+  alterId: 1
+  cipher: auto
+  tls: false
+  network: tcp
+- name: 🇸🇬 新加坡SG-12
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8061
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-13
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8083
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇸🇬 新加坡SG-14
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8063
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-15
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8094
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇸🇬 新加坡SG-16
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8062
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-17
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8090
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-18
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8084
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-19
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8091
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-20
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8092
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-21
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8082
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-22
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8081
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-23
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8088
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇨🇳 台湾TW-24
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8071
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: hysteria2
+  name: 🇭🇰 香港HK-26
+  server: hk.mjhy2.com
+  port: 1443
+  password: 2e46192a-5029-46da-af0d-c38d580bfa5e
+  sni: hk.mjhy2.com
+  skip-cert-verify: true
+  tfo: false
+- name: 🇯🇵 日本JP-27
+  server: ntcej0f-g04.jp02-e3-vm0.entry.fr0528.art
+  port: 11776
+  type: vmess
+  uuid: bbf5ba0d-f881-3cf7-bb47-ddc560346acd
+  alterId: 1
+  cipher: auto
+  tls: false
+  network: tcp
+- name: 🇭🇰 香港HK-28
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8086
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇯🇵 日本JP-29
+  network: tcp
+  port: 11122
+  server: dotu-jpv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇨🇳 台湾TW-30
+  type: vmess
+  server: dotu-twv1.kunlun03dns.com
+  port: 11114
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇨🇳 台湾TW-32
+  network: tcp
+  port: 11112
+  server: dotu-twv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇭🇰 香港HK-33
+  server: u1.cnjdyun.link
+  port: 30703
+  type: hysteria2
+  password: 5b40d08b-1fb1-3950-a295-235bfac2985b
+  sni: hy-hk3.llzf1.xyz
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: AJuIjWjFOvwHFYq0
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇨🇳 台湾TW-35
+  network: tcp
+  port: 11113
+  server: dotu-twv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- type: hysteria2
+  server: hk02.jgpy.help
+  port: 10085
+  password: 45a90d32-08bd-4dea-8345-f1f541cc7f90
+  sni: apple.com
+  skip-cert-verify: true
+  name: 🇭🇰 香港HK-36
+- name: 🇯🇵 日本JP-41
+  server: fj3xw4p-g03.jp01-nn-vm0.entry.fr0528.art
+  port: 21583
+  type: vmess
+  uuid: ba6b3c35-2759-3cb6-8c9c-e7d42e8becdc
+  alterId: 1
+  cipher: auto
+  tls: true
+  network: tcp
+  servername: fj3xw4p-g03.jp01-nn-vm0.entry.fr0528.art
+- name: 🇯🇵 日本JP-42
+  server: zzjp2.ainivp.com
+  port: 13103
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- type: vless
+  server: hkbgpnolixx01.odxxplay.com
+  port: 13303
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: _uyR5c5WNA96lhmIc5r6d9bEXvf589IybOhcAWp91Ac
+    short-id: c3766f2f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇯🇵 日本JP-43
+  servername: one-piece.com
+- name: 🇯🇵 日本JP-44
+  type: vmess
+  server: dotu-jpv1.kunlun03dns.com
+  port: 11121
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 🇯🇵 日本JP-45
+  server: zzjp2.ainivp.com
+  port: 13102
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇨🇳 台湾TW-46
+  network: tcp
+  port: 11111
+  server: dotu-twv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇸🇬 新加坡SG-48
+  type: vmess
+  server: dotu-sgv1.kunlun03dns.com
+  port: 11135
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- type: vless
+  server: ecin.xfdv.5gw3.a.vvps.xyz
+  port: 18799
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: eA8t9JgbosAUr9hIKM8qUKeyQH80zGfzoBJL-61FmUg
+    short-id: 2d53b5dc
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇨🇳 台湾TW-49
+  servername: www.amazon.com
+- type: vless
+  name: 🇳🇱 荷兰NL-50
+  server: 194.87.31.107
+  port: 8443
+  uuid: 10e82fcc-94ec-4d09-8855-579bb55b77e4
+  udp: true
+  tls: true
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NDe_UBPG-k6TqnheVYUxNxlXtmgy975eDsdqK35sJhA
+    short-id: 6ba85179e30d4fc2
+  network: grpc
+  grpc-opts:
+    grpc-service-name: xyz
+  encryption: none
+  packet-encoding: xudp
+  servername: eh.vk.com
+- name: 🇺🇸 美国US-52
+  server: t3.hhaakk9922.com
+  port: 46794
+  type: vless
+  uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
+  tls: true
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: ljfxz
+  udp: true
+  servername: t3.hhaakk9922.com
+- name: 🇯🇵 日本JP-53
+  server: wolf.ilovezhenjiu.top
+  port: 443
+  type: vless
+  uuid: 053909d6-5091-4a1b-95e3-a726c5e49e37
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: wolf.ilovezhenjiu.top
+- name: 🇯🇵 日本JP-54
+  server: zzjp1.ainivp.com
+  port: 13102
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇺🇸 美国US-56
+  server: u1.cnjdyun.link
+  port: 34702
+  type: hysteria2
+  password: 5b40d08b-1fb1-3950-a295-235bfac2985b
+  sni: hy-us2.llzf1.xyz
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: aMZggehi0DLne96g
+- name: 🇹🇭 泰国TH-57
+  server: u1.cnjdyun.link
+  port: 30901
+  type: hysteria2
+  password: 5b40d08b-1fb1-3950-a295-235bfac2985b
+  sni: zl-th1.llzf1.xyz
+  skip-cert-verify: true
+  obfs: salamander
+  obfs-password: jLZN2BVFTdmEQro5pRZ6M6uhUTfAYJvy
+- name: 🇭🇰 香港HK-58
+  server: ripcord7434.cjxyoung.com
+  port: 12228
+  type: vmess
+  uuid: 71b187b5-a2fe-3940-94d9-1edb622bd881
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇯🇵 日本JP-59
+  network: tcp
+  port: 11119
+  server: dotu-jpv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇭🇰 香港HK-60
+  server: ripcord7434.cjxyoung.com
+  port: 22770
+  type: vmess
+  uuid: 71b187b5-a2fe-3940-94d9-1edb622bd881
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇰🇷 韩国KR-61
+  network: tcp
+  port: 11143
+  server: dotu-krv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇭🇰 香港HK-62
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6001
+  type: vmess
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: true
+  udp: true
+  client-fingerprint: chrome
+  network: tcp
+- name: 🇭🇰 香港HK-64
+  server: zzhk5.ainivp.com
+  port: 13414
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇰🇷 韩国KR-66
+  network: tcp
+  port: 11144
+  server: dotu-krv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇯🇵 日本JP-67
+  server: o75tare-g06.jp05-h6-vm0.entry.fr0528.art
+  port: 46487
+  type: vmess
+  uuid: b9cee118-172f-3a7a-95a9-67de4d5b3ed7
+  alterId: 1
+  cipher: auto
+  tls: false
+  network: tcp
+- name: 🇰🇷 韩国KR-69
+  type: vmess
+  server: dotu-krv1.kunlun03dns.com
+  port: 11145
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- type: vmess
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6004
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  alterId: 0
+  cipher: auto
+  name: 🇸🇬 新加坡SG-70
+  network: tcp
+- name: 🇭🇰 香港HK-71
+  server: ptxlv6-2.yunjnet.com
+  port: 54357
+  type: trojan
+  password: 30ccad9e-18d5-4212-9f89-35501f51b0a4
+  sni: www.lamer.com.hk
+  skip-cert-verify: true
+  network: tcp
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇰🇷 韩国KR-73
+  network: tcp
+  port: 11146
+  server: dotu-krv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇯🇵 日本JP-77
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8053
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇨🇳 台湾TW-78
+  server: petunia9078.cjxyoung.com
+  port: 20006
+  type: vmess
+  uuid: 71b187b5-a2fe-3940-94d9-1edb622bd881
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- name: 🇨🇳 台湾TW-79
+  server: petunia9078.cjxyoung.com
+  port: 20011
+  type: vmess
+  uuid: 71b187b5-a2fe-3940-94d9-1edb622bd881
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- type: vless
+  server: hkbgpnolixx01.odxxplay.com
+  port: 54503
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: lh2UnEc7kA8vqoB1oSrLrK-YhkuNI2DOu-MW-ZgLJT4
+    short-id: 089bdc8f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇭🇰 香港HK-81
+  servername: www.hkhs.com
+- name: 🇺🇸 美国US-82
+  type: vmess
+  server: dotu-usv1.kunlun03dns.com
+  port: 11129
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- name: 🇮🇳 印度IN-83
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7087
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇯🇵 日本JP-84
+  server: gtm-sg-cc54q7d1q01.365cloud0285.com
+  port: 6003
+  type: vmess
+  uuid: a030842a-d29a-4ea9-a776-14fc4b9e102d
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇺🇸 美国US-85
+  network: tcp
+  port: 11130
+  server: dotu-usv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇯🇵 日本JP-87
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8051
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-88
+  server: zzjp1.ainivp.com
+  port: 13413
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇺🇸 美国US-90
+  server: 82.198.246.250
+  port: 180
+  type: vmess
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: 3e96ef7d-8637-42c2-ac73-75182196e755/?ed\=2560
+    headers:
+      Host: 82.198.246.250
+- alpn:
+  - ''
+  alterId: '0'
+  cipher: auto
+  name: 🇺🇸 美国US-93
+  network: tcp
+  port: 11127
+  server: dotu-usv1.kunlun03dns.com
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  packet-encoding: xudp
+- name: 🇯🇵 日本JP-95
+  server: 2a02:6ea0:d32f::f8fe:349b
+  port: 24202
+  type: vmess
+  uuid: b20a7042-70ff-4376-a79f-b68f9edb7519
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: false
+  ws-opts:
+    path: /github.com/Alvin9999-newpac/fanqiang
+    headers:
+      Host: 2a02:6ea0:d32f::f8fe:349b
+  udp: true
+- name: 🇺🇸 美国US-99
+  type: vmess
+  server: 38.207.163.135
+  port: 443
+  cipher: auto
+  uuid: cbc05e45-ca53-4cd5-e880-af3a1a850e0e
+  alterId: 0
+  tls: false
+  network: tcp
+- name: 🇭🇰 香港HK-102
+  server: ct3.ainivp.com
+  port: 33413
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: ct3.ainivp.com
+  servername: ct3.ainivp.com
+- name: 🇸🇬 新加坡SG-103
+  type: vmess
+  server: dotu-sgv1.kunlun03dns.com
+  port: 11137
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- alterId: 0
+  cipher: auto
+  name: 🇺🇸 美国US-106
+  port: 11128
+  server: dotu-usv1.kunlun03dns.com
+  type: vmess
+  udp: true
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  network: tcp
+- name: 🇭🇰 香港HK-109
+  server: t1.hhaakk9922.com
+  port: 36781
+  type: vless
+  uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
+  tls: true
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: ljfxz
+  udp: true
+  servername: t1.hhaakk9922.com
+- name: 🇭🇰 香港HK-110
+  server: zzhk5.ainivp.com
+  port: 13413
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- type: vmess
+  server: 82.198.246.214
+  port: 180
+  uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+  alterId: 0
+  cipher: auto
+  name: 🇺🇸 美国US-111
+  network: tcp
+- name: 🇭🇰 香港HK-112
+  server: ct2.ainivp.com
+  port: 33411
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: ct2.ainivp.com
+  servername: ct2.ainivp.com
+- name: 🇺🇸 美国US-114
+  server: 38.80.188.69
+  port: 50997
+  type: vmess
+  uuid: 7350d615-d1a5-4a5b-a004-18aafee8e1d8
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /ABCDE
+- name: 🇯🇵 日本JP-117
+  type: vmess
+  server: dotu-jpv1.kunlun03dns.com
+  port: 11120
+  uuid: 6b989fce-172e-37a6-b324-3922008b17f9
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: tcp
+- type: hysteria2
+  server: 163.172.126.108
+  port: 41227
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  name: 🇺🇸 美国US-119
+- name: 🇸🇬 新加坡SG-121
+  server: zzjp1.ainivp.com
+  port: 13402
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇺🇸 美国US-122
+  server: 85.234.114.53
+  port: 22231
+  type: vless
+  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: edge
+  network: tcp
+  udp: true
+  encryption: none
+  header-type: none
+  skip-cert-verify: true
+  packet-encoding: xudp
+  servername: r1.mizulina.top
+- name: 🇨🇳 台湾TW-125
+  server: ct3.ainivp.com
+  port: 33412
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: ct3.ainivp.com
+  servername: ct3.ainivp.com
+- name: 🇦🇺 澳大利亚AU-126
+  server: b.o.c.o.9.g.d.d.1.au01-ae5.entry.v51124-6.qpon
+  port: 20064
+  type: ss
+  cipher: aes-256-gcm
+  password: 5f92e57a-7a93-3978-8cac-c170591b03de
+- name: 🇯🇵 日本JP-127
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8054
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇺🇸 美国US-128
+  type: ss
+  server: www.syfe.com
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: ous9.337777777.xyz
+    path: /api/v1/stream
+    tls: false
+    mux: true
+- name: 🇰🇷 韩国KR-129
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8059
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇲🇾 马来西亚MY-130
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7089
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: vless
+  server: sg.hsyun.top
+  port: 443
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: 4RZb56SmePtMZSY0T_PJlaDx0Yh3QT9-qSiMFac0TzI
+    short-id: a0845462
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇸🇬 新加坡SG-131
+  servername: www.propertyguru.com.sg
+- type: ss
+  skip-cert-verify: false
+  udp: false
+  server: 79.141.163.21
+  port: 4668
+  cipher: chacha20-ietf-poly1305
+  password: 4LwjNxZEaMDsT26xKjcNmo
+  name: 🇺🇸 美国US-134
+- name: 🇭🇰 香港HK-135
+  server: zzhk6.ainivp.com
+  port: 13413
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇺🇸 美国US-136
+  type: ss
+  server: 23.80.80.22
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: one.local
+    path: /ws
+    tls: false
+    mux: true
+- cipher: 2022-blake3-aes-128-gcm
+  name: 🇺🇸 美国US-137
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:Y2JhZTU3ODYtZjg3MC00NA==
+  plugin: gost-plugin
+  plugin-opts:
+    host: one.local
+    mode: websocket
+    mux: true
+    path: /ws
+    tls: false
+  port: 80
+  server: 23.80.80.22
+  type: ss
+  udp: true
+- name: 🇺🇸 美国US-138
+  type: ss
+  server: www.syfe.com
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:YTgyZmZlMTAtZGYwYS00ZQ==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: ous9.337777777.xyz
+    path: /api/v1/stream
+    tls: false
+    mux: true
+- name: 🇬🇧 英国GB-139
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7085
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-140
+  server: zzhk4.ainivp.com
+  port: 13413
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇭🇰 香港HK-141
+  server: yd3.ainivp.com
+  port: 33408
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd3.ainivp.com
+  servername: yd3.ainivp.com
+- name: 🇺🇸 美国US-142
+  server: 216.167.3.209
+  port: 59773
+  type: vmess
+  uuid: b37a254e-c11a-4d8d-ba10-bf7f0dc13f7a
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /ABCDE
+- type: vless
+  name: 🇺🇸 美国US-143
+  server: r1.mizulina.top
+  port: 22231
+  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: edge
+  skip-cert-verify: false
+  network: tcp
+  encryption: none
+  packet-encoding: xudp
+  servername: r1.mizulina.top
+- name: 🇨🇭 瑞士CH-144
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7084
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇭🇰 香港HK-146
+  server: ct3.ainivp.com
+  port: 33410
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: ct3.ainivp.com
+  servername: ct3.ainivp.com
+- name: 🇨🇦 加拿大CA-147
+  server: 7.1.v.4.r.a.s.9.6.ca01-ae5.entry.v51124-3a.qpon
+  port: 20056
+  type: ss
+  cipher: aes-256-gcm
+  password: a4e5c543-1f7d-3817-99b2-dcf89041b3ef
+- name: 🇺🇸 美国US-148
+  type: ss
+  server: 172.96.161.152
+  port: 20091
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:YTgyZmZlMTAtZGYwYS00ZQ==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: one.local
+    path: /ws
+    tls: false
+    mux: true
+- type: vless
+  server: 45.139.78.77
+  port: 443
+  uuid: bbf07169-8c80-485b-83d5-93b87a882219
+  flow: xtls-rprx-vision
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  client-fingerprint: chrome
+  header-type: none
+  name: 🇷🇺 俄罗斯RU-149
+  network: tcp
+  servername: sellflow.org
+- type: vless
+  server: gzrefad01.odxxplay.com
+  port: 10511
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: Zptij4sd0uv7SrCLVz-m9q0oxciINMSy3PEPSIUKUGI
+    short-id: 3439f357
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇨🇳 台湾TW-150
+  servername: www.amazon.jobs
+- client-fingerprint: edge
+  encryption: none
+  flow: xtls-rprx-vision-udp443
+  name: 🇺🇸 美国US-151
+  port: 443
+  server: 85.234.114.53
+  tls: true
+  type: vless
+  udp: true
+  uuid: afcac633-0e1a-46c3-bef2-cc01cc0097c8
+  packet-encoding: xudp
+  network: tcp
+  servername: r1.mizulina.top
+- name: 🇺🇸 美国US-152
+  server: mg1.ainivp.com
+  port: 443
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇭🇰 香港HK-154
+  server: 140.235.141.167
+  port: 443
+  type: hysteria2
+  password: 2ab35342-d78e-4bff-bf6c-2f0b97b84e14
+  sni: www.bing.com
+  skip-cert-verify: true
+- type: vless
+  server: 64.118.131.116
+  port: 46783
+  uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
+  network: grpc
+  tls: true
+  grpc-opts:
+    grpc-service-name: ljfxz
+    grpc-mode: gun
+  client-fingerprint: chrome
+  udp: true
+  name: 🇯🇵 日本JP-155
+  servername: t1.hhaakk9922.com
+- name: 🇺🇦 乌克兰UA-156
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7081
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇩🇪 德国DE-157
+  server: e.k.z.k.s.t.t.8.d.de01-ae5.entry.v51124-4.qpon
+  port: 20052
+  type: ss
+  cipher: aes-256-gcm
+  password: 49dfdc35-6f1e-33ea-9111-40744fb8e7e9
+- name: 🇯🇵 日本JP-159
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8052
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇨🇦 加拿大CA-160
+  server: 15.157.68.13
+  type: ss
+  port: 443
+  udp: true
+  password: amazonskr05
+  cipher: aes-256-cfb
+- name: 🇯🇵 日本JP-161
+  server: cu6.ainivp.com
+  port: 33108
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: cu6.ainivp.com
+  servername: cu6.ainivp.com
+- name: 🇺🇸 美国US-162
+  server: ripcord7434.cjxyoung.com
+  port: 12001
+  type: vmess
+  uuid: 71b187b5-a2fe-3940-94d9-1edb622bd881
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: tcp
+- name: 🇺🇸 美国US-163
+  type: ss
+  server: 172.96.161.152
+  port: 20091
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: one.local
+    path: /ws
+    tls: false
+    mux: true
+- name: 🇺🇸 美国US-164
+  server: zzjp1.ainivp.com
+  port: 13403
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇯🇵 日本JP-165
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8055
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇻🇳 越南VN-166
+  server: 103.186.154.202
+  port: 38388
+  type: ss
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  udp: true
+- name: 🇻🇳 越南VN-168
+  server: 103.186.155.239
+  type: ss
+  port: 38388
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  cipher: aes-256-cfb
+- name: 🇨🇳 台湾TW-169
+  server: yd3.ainivp.com
+  port: 33404
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd3.ainivp.com
+  servername: yd3.ainivp.com
+- type: vless
+  name: 🇨🇾 塞浦路斯CY-170
+  server: 132.243.231.122
+  port: 8443
+  uuid: 7625adbb-52f7-4ff4-95f8-677471071a77
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  reality-opts:
+    public-key: A9jwrodyycJJV-apFQ91_rrh1vfJ_hSzZGNP9GBPGCM
+    short-id: 92d0c4089b6c1da3
+  network: tcp
+  encryption: none
+  packet-encoding: xudp
+  servername: io.ozone.ru
+- type: ss
+  skip-cert-verify: false
+  udp: false
+  server: 145.249.109.13
+  port: 4917
+  cipher: chacha20-ietf-poly1305
+  password: 7DoWqLxD5CMubpT1tzIyWX
+  name: 🇷🇺 俄罗斯RU-171
+- name: 🇸🇬 新加坡SG-172
+  server: yd3.ainivp.com
+  port: 33402
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd3.ainivp.com
+  servername: yd3.ainivp.com
+- name: 🇯🇵 日本JP-173
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8056
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇬🇧 英国GB-174
+  server: t1.hhaakk9922.com
+  port: 46780
+  type: vless
+  uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
+  tls: true
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: ljfxz
+  udp: true
+  servername: t1.hhaakk9922.com
+- name: 🇺🇸 美国US-180
+  type: vmess
+  server: 45.63.7.19
+  port: 49632
+  cipher: auto
+  uuid: 05f2bbe3-f29a-480f-ebfb-0deebb80741d
+  alterId: 0
+  tls: false
+  network: ws
+  ws-opts:
+    path: /05f2bbe3-f29a-480f-ebfb-0deebb80741d
+- name: 🇰🇷 韩国KR-181
+  server: yd4.ainivp.com
+  port: 33204
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd4.ainivp.com
+  servername: yd4.ainivp.com
+- encryption: none
+  http-opts:
+    headers: {}
+    path:
+    - /@monacoVPN@monacoVPN@monacoVPN@monacoVPN
+  name: 🇨🇭 瑞士CH-182
+  network: http
+  port: 22
+  server: 172.65.111.43
+  type: vless
+  udp: true
+  uuid: monacoVPN
+  packet-encoding: xudp
+- type: vless
+  server: gzrefad01.odxxplay.com
+  port: 31626
+  uuid: 231a569a-55f0-4d31-94ac-dbe4bed3efdb
+  flow: xtls-rprx-vision
+  network: tcp
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: _uyR5c5WNA96lhmIc5r6d9bEXvf589IybOhcAWp91Ac
+    short-id: c3766f2f
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇸🇨 SCSC-183
+  servername: one-piece.com
+- name: 🇺🇸 美国US-184
+  server: store.ubi.com
+  port: 443
+  type: vless
+  uuid: ae0dd58e-e222-40bf-84ae-365a97532737
+  tls: true
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /products
+    headers:
+      Host: pagescm.freen8.de5.net
+  udp: true
+  servername: pagescm.freen8.de5.net
+- name: 🇺🇦 乌克兰UA-185
+  server: d.i.4.6.7.o.o.3.b.ua01-ae5.entry.v51124-1.qpon
+  port: 20070
+  type: ss
+  cipher: aes-256-gcm
+  password: daa59f71-d347-3a18-bf40-bb6fed9b7457
+- name: 🇺🇸 美国US-186
+  server: www.ilovezhenjiu.top
+  port: 20338
+  type: hysteria2
+  password: 8bb33012
+  sni: www.ilovezhenjiu.top
+  skip-cert-verify: false
+  obfs: salamander
+  obfs-password: Jasonwu1224
+- name: 🇭🇰 香港HK-187
+  server: ct3.ainivp.com
+  port: 33414
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: ct3.ainivp.com
+  servername: ct3.ainivp.com
+- name: 🇺🇸 美国US-190
+  server: zzus5.ainivp.com
+  port: 13405
+  type: vless
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: epgveXEcUs0sbs4jV_1KldTkZGnWUHfMKcs0XNyP41Y
+    short-id: a1b2c3d4
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+  servername: www.microsoft.com
+- name: 🇯🇵 日本JP-191
+  server: cu2.ainivp.com
+  port: 33203
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: cu2.ainivp.com
+  servername: cu2.ainivp.com
+- type: ss
+  server: 103.186.154.232
+  port: 38388
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  name: 🇻🇳 越南VN-192
+- name: 🇺🇸 美国US-197
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8041
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: vless
+  name: 🇯🇵 日本JP-200
+  server: t1.hhaakk9922.com
+  port: 46783
+  uuid: eb3fa357-cea8-321e-bbd5-850e2d874025
+  udp: true
+  tls: true
+  client-fingerprint: chrome
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ljfxz
+    grpc-mode: gun
+  encryption: none
+  packet-encoding: xudp
+  servername: t1.hhaakk9922.com
+- name: 🇺🇸 美国US-201
+  server: cf.scpnb.top
+  type: vmess
+  port: 443
+  uuid: d5357318-c9b4-435b-a424-acc206dd82c3
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  skip-cert-verify: true
+  ws-opts:
+    path: /d5357318-c9b4-435b-a424-acc206dd82c3-vm
+    headers:
+      HOST: lcd-rachel-wrapping-cindy.trycloudflare.com
+  servername: lcd-rachel-wrapping-cindy.trycloudflare.com
+- type: vless
+  server: 151.101.118.95
+  port: 443
+  uuid: 7572659e-7322-4b33-9f17-bfa7a9d984bc
+  network: xhttp
+  encryption: none
+  tls: true
+  xhttp-opts:
+    path: /
+    host: ovh11.global.ssl.fastly.net
+  alpn:
+  - h3
+  client-fingerprint: chrome
+  skip-cert-verify: true
+  header-type: none
+  name: 🇫🇷 法国FR-206
+  servername: 127.0.0.1
+- type: vless
+  name: 🇷🇺 俄罗斯RU-207
+  server: 185.139.214.151
+  port: 443
+  uuid: 9270ef77-592f-11f1-98cc-54db13ea7d40
+  udp: true
+  tls: true
+  flow: xtls-rprx-vision
+  client-fingerprint: randomized
+  skip-cert-verify: false
+  reality-opts:
+    public-key: APwi9yR-ezZtFU6xj2a3SBoXvEoWOoiRuZSit0N9xWI
+  network: tcp
+  encryption: none
+  packet-encoding: xudp
+  servername: cloudcdn-m9-15.cdn.yandex.net
+- name: 🇳🇬 尼日利亚NG-214
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 7091
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇯🇵 日本JP-219
+  type: ss
+  server: www.shopify.com
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:ZjQ4NzExMzUtMGYzNy00NA==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: leajp2.337777777.xyz
+    path: /api/v1/stream
+    tls: false
+    mux: true
+- name: 🇸🇬 新加坡SG-221
+  server: 5.180.78.22
+  type: trojan
+  port: 443
+  password: d30ab83dbde4480082048fb315bedebd
+  sni: 5.180.78.22
+  skip-cert-verify: true
+  udp: true
+  network: tcp
+- name: 🇯🇵 日本JP-223
+  type: ss
+  server: www.shopify.com
+  port: 80
+  cipher: 2022-blake3-aes-128-gcm
+  password: YTE1ZWU4ZTEyZjc3YmEzZA==:YTgyZmZlMTAtZGYwYS00ZQ==
+  udp: true
+  plugin: gost-plugin
+  plugin-opts:
+    mode: websocket
+    host: leajp2.337777777.xyz
+    path: /api/v1/stream
+    tls: false
+    mux: true
+- type: vless
+  server: 185.215.184.109.blanesik.space
+  port: 443
+  uuid: 4aaac4d7-a9c3-4f5e-8112-64cca5e6a14c
+  network: grpc
+  encryption: none
+  tls: true
+  grpc-opts:
+    grpc-service-name: /sequre/grpc
+  alpn:
+  - h2
+  client-fingerprint: chrome
+  name: 🇪🇪 爱沙尼亚EE-228
+  servername: 185.215.184.109.blanesik.space
+- name: 🇰🇷 韩国KR-229
+  server: yd2.ainivp.com
+  port: 33201
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd2.ainivp.com
+  servername: yd2.ainivp.com
+- name: 🇺🇸 美国US-236
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8043
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: vless
+  server: 84.201.164.26
+  port: 446
+  uuid: 652fedf3-88a1-4b70-9136-5a5696124a6c
+  flow: ''
+  network: grpc
+  encryption: none
+  tls: true
+  reality-opts:
+    public-key: mMaSUsOC5i3ErLDcaWW9UOOjG0fcKPCwVjzGS1wXQx8
+    short-id: 0512567389abcdef
+  grpc-opts:
+    grpc-service-name: ads.x5.ru
+  client-fingerprint: chrome
+  header-type: none
+  name: 🇷🇺 俄罗斯RU-244
+  servername: ads.x5.ru
+- name: 🇩🇪 德国DE-260
+  type: vless
+  server: 2a14:7584:d097::a
+  port: 11330
+  uuid: 53d74aab-6471-4c1b-ace7-fac837d1bfbd
+  encryption: none
+  tls: true
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: xhttp
+  flow: None
+  alpn:
+  - h2
+  udp: true
+  reality-opts:
+    public-key: 3HaD5Ztk3X4gi3aJLVesV6KSJTW2YGG-hvGD3ZumJkE
+    short-id: fa789b2f5ff56959
+    spider-x: /
+  xhttp-opts:
+    path: /alvin9999.com
+  servername: toarumajutsunoindex.fandom.com
+- name: 🇻🇳 越南VN-261
+  server: 103.186.155.232
+  port: 38388
+  type: ss
+  cipher: aes-256-cfb
+  password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV
+  udp: true
+- name: 🇺🇸 美国US-269
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8042
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: vless
+  server: speedtest.net
+  port: 80
+  uuid: 384e0806-fcee-4f92-b671-bfc6a4794148
+  network: ws
+  encryption: none
+  ws-opts:
+    path: /
+    headers:
+      Host: oijji.global.ssl.fastly.net
+  name: 🇩🇪 德国DE-271
+- name: 🇺🇸 美国US-276
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8046
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- name: 🇺🇸 美国US-292
+  server: 368bed23-6dae-4434-9dbd-8dcd13897132.fuckvitas.com
+  port: 8044
+  type: vmess
+  uuid: 2eb78566-1bbc-492f-9d27-5195abd9dc30
+  alterId: 0
+  cipher: aes-128-gcm
+  tls: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - tms.dingtalk.com
+- type: vless
+  server: 89.144.30.104
+  port: 443
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+  network: xhttp
+  encryption: none
+  tls: true
+  xhttp-opts:
+    path: /kavir
+    host: dey.lnmarketplace.net
+    mode: stream-one
+  alpn:
+  - h2
+  client-fingerprint: firefox
+  name: 🇩🇪 德国DE-296
+  servername: dey.lnmarketplace.net
+- name: 🇭🇰 香港HK-297
+  server: cu7.ainivp.com
+  port: 33414
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: cu7.ainivp.com
+  servername: cu7.ainivp.com
+- name: 🇺🇸 美国US-298
+  server: planb.mojcn.com
+  port: 16648
+  type: vmess
+  uuid: 24e37e6e-7e01-4f68-afea-28fb14a47aef
+  alterId: 0
+  cipher: auto
+  tls: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 08071ec6f38bfb263ee89b1bb0c3ca1b.mobgslb.tbcache.com
+- type: vless
+  server: 78.41.110.238
+  port: 443
+  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
+  network: ws
+  encryption: none
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: s28315.cdn.ngenix.net
+  name: 🇺🇸 美国US-300
+  servername: s28315.cdn.ngenix.net
+- name: 🇯🇵 日本JP-303
+  server: cu3.ainivp.com
+  port: 33103
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: cu3.ainivp.com
+  servername: cu3.ainivp.com
+- name: 🇯🇵 日本JP-305
+  server: cu3.ainivp.com
+  port: 33108
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: cu3.ainivp.com
+  servername: cu3.ainivp.com
+- name: 🇭🇰 香港HK-306
+  server: yd3.ainivp.com
+  port: 33407
+  type: vmess
+  uuid: 9204afcd-026e-781f-1abc-c03efabd1344
+  alterId: 0
+  cipher: auto
+  tls: true
+  network: ws
+  ws-opts:
+    path: /ray
+    headers:
+      Host: yd3.ainivp.com
+  servername: yd3.ainivp.com
 proxy-groups:
-  - name: 节点选择
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
-    type: select
-    proxies:
-      - 自动选择
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 香港节点
-      - 手动切换
-      - DIRECT
-  - name: 手动切换
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
-    include-all: true
-    type: select
-  - name: 自动选择
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
-    type: url-test
-    include-all: true
-    interval: 300
-    tolerance: 50
-  - name: 电报消息
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 狮城节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 香港节点
-      - 手动切换
-      - DIRECT
-  - name: OpenAi
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - AI-UNHK
-      - 狮城节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 香港节点
-      - 手动切换
-      - DIRECT
-  - name: AI-UNHK
-    icon: 'https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png'
-    type: select
-    include-all: true
-    exclude-filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 狮城节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
-      - DIRECT
-  - name: 油管视频
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 狮城节点
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
-      - DIRECT
-  - name: 奈飞视频
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 奈飞节点
-      - 狮城节点
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
-      - DIRECT
-  - name: 巴哈姆特
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bahamut.png
-    type: select
-    proxies:
-      - 台湾节点
-      - 节点选择
-      - 手动切换
-      - DIRECT
-  - name: 哔哩哔哩
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
-    type: select
-    proxies:
-      - 全球直连
-      - 台湾节点
-      - 香港节点
-  - name: 国外媒体
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
-      - DIRECT
-  - name: 国内媒体
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
-    type: select
-    proxies:
-      - DIRECT
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 手动切换
-  - name: 谷歌FCM
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 美国节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 香港节点
-      - 手动切换
-  - name: 微软Bing
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 美国节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 手动切换
-  - name: 微软云盘
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 美国节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 手动切换
-  - name: 微软服务
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
-    type: select
-    proxies:
-      - 节点选择
-      - DIRECT
-      - 美国节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 手动切换
-  - name: 苹果服务
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 美国节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 手动切换
-  - name: 游戏平台
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 美国节点
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 韩国节点
-      - 手动切换
-  - name: 网易音乐
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netease_Music.png
-    type: select
-    include-all: true
-    filter: (?i)网易|音乐|NetEase|Music
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 自动选择
-  - name: 全球直连
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
-    type: select
-    proxies:
-      - DIRECT
-      - 节点选择
-      - 自动选择
-  - name: 广告拦截
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-  - name: 应用净化
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-  - name: 漏网之鱼
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
-    type: select
-    proxies:
-      - 节点选择
-      - 自动选择
-      - DIRECT
-      - 香港节点
-      - 台湾节点
-      - 狮城节点
-      - 日本节点
-      - 美国节点
-      - 韩国节点
-      - 手动切换
-  - name: 香港节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
-    include-all: true
-    filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 日本节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
-    include-all: true
-    filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 美国节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
-    include-all: true
-    filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 台湾节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
-    include-all: true
-    filter: (?i)台|新北|彰化|TW|Taiwan
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 狮城节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
-    include-all: true
-    filter: (?i)新加坡|坡|狮城|SG|Singapore
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 韩国节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
-    include-all: true
-    filter: (?i)KR|Korea|KOR|首尔|韩|韓
-    type: url-test
-    interval: 300
-    tolerance: 50
-  - name: 奈飞节点
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
-    include-all: true
-    filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
-    type: select
-  - name: GLOBAL
-    icon: >-
-      https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
-    include-all: true
-    type: select
-    proxies:
-      - 节点选择
-      - 手动切换
-      - 自动选择
-      - 电报消息
-      - OpenAi
-      - AI-UNHK
-      - 油管视频
-      - 奈飞视频
-      - 巴哈姆特
-      - 哔哩哔哩
-      - 国外媒体
-      - 国内媒体
-      - 谷歌FCM
-      - 微软Bing
-      - 微软云盘
-      - 微软服务
-      - 苹果服务
-      - 游戏平台
-      - 网易音乐
-      - 全球直连
-      - 广告拦截
-      - 应用净化
-      - 漏网之鱼
-      - 香港节点
-      - 日本节点
-      - 美国节点
-      - 台湾节点
-      - 狮城节点
-      - 韩国节点
-      - 奈飞节点
+- name: 节点选择
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+  type: select
+  proxies:
+  - 自动选择
+  - DIRECT
+  include-all: true
+- name: 🌍 地区选择
+  icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/select.png
+  type: select
+  proxies:
+  - 香港节点
+  - 日本节点
+  - 美国节点
+  - 台湾节点
+  - 狮城节点
+  - 韩国节点
+- name: 自动选择
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+  type: url-test
+  include-all: true
+  interval: 300
+  tolerance: 50
+- name: 电报消息
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - 狮城节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 香港节点
+  - 🌍 地区选择
+  - DIRECT
+- name: OpenAi
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - AI-UNHK
+  - 狮城节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 香港节点
+  - 🌍 地区选择
+  - DIRECT
+- name: AI-UNHK
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AI.png
+  type: select
+  include-all: true
+  exclude-filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+  proxies:
+  - 节点选择
+  - 自动选择
+  - 狮城节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 🌍 地区选择
+  - DIRECT
+- name: 油管视频
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - 狮城节点
+  - 香港节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 🌍 地区选择
+  - DIRECT
+- name: 奈飞视频
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - 奈飞节点
+  - 狮城节点
+  - 香港节点
+  - 台湾节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 🌍 地区选择
+  - DIRECT
+- name: 巴哈姆特
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bahamut.png
+  type: select
+  proxies:
+  - 台湾节点
+  - 节点选择
+  - 🌍 地区选择
+  - DIRECT
+- name: 哔哩哔哩
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png
+  type: select
+  proxies:
+  - 全球直连
+  - 台湾节点
+  - 香港节点
+- name: 国外媒体
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 🌍 地区选择
+  - DIRECT
+- name: 国内媒体
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png
+  type: select
+  proxies:
+  - DIRECT
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 🌍 地区选择
+- name: 谷歌FCM
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 美国节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 香港节点
+  - 🌍 地区选择
+- name: 微软Bing
+  icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 微软云盘
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 微软服务
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
+  type: select
+  proxies:
+  - 节点选择
+  - DIRECT
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 苹果服务
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 游戏平台
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 美国节点
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 网易音乐
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netease_Music.png
+  type: select
+  include-all: true
+  filter: (?i)网易|音乐|NetEase|Music
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 自动选择
+- name: 全球直连
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
+  type: select
+  proxies:
+  - DIRECT
+  - 节点选择
+  - 自动选择
+- name: 广告拦截
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 应用净化
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+- name: 漏网之鱼
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
+  type: select
+  proxies:
+  - 节点选择
+  - 自动选择
+  - DIRECT
+  - 香港节点
+  - 台湾节点
+  - 狮城节点
+  - 日本节点
+  - 美国节点
+  - 韩国节点
+  - 🌍 地区选择
+- name: 香港节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+  include-all: true
+  filter: (?i)港|HK|hk|Hong Kong|HongKong|hongkong
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 日本节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+  include-all: true
+  filter: (?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 美国节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+  include-all: true
+  filter: (?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 台湾节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+  include-all: true
+  filter: (?i)台|新北|彰化|TW|Taiwan
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 狮城节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+  include-all: true
+  filter: (?i)新加坡|坡|狮城|SG|Singapore
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 韩国节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+  include-all: true
+  filter: (?i)KR|Korea|KOR|首尔|韩|韓
+  type: url-test
+  interval: 300
+  tolerance: 50
+- name: 奈飞节点
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
+  include-all: true
+  filter: (?i)NF|奈飞|解锁|Netflix|NETFLIX|Media
+  type: select
+- name: GLOBAL
+  icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
+  include-all: true
+  type: select
+  proxies:
+  - 节点选择
+  - 🌍 地区选择
+  - 自动选择
+  - 电报消息
+  - OpenAi
+  - AI-UNHK
+  - 油管视频
+  - 奈飞视频
+  - 巴哈姆特
+  - 哔哩哔哩
+  - 国外媒体
+  - 国内媒体
+  - 谷歌FCM
+  - 微软Bing
+  - 微软云盘
+  - 微软服务
+  - 苹果服务
+  - 游戏平台
+  - 网易音乐
+  - 全球直连
+  - 广告拦截
+  - 应用净化
+  - 漏网之鱼
+  - 香港节点
+  - 日本节点
+  - 美国节点
+  - 台湾节点
+  - 狮城节点
+  - 韩国节点
+  - 奈飞节点
 rule-providers:
   LocalAreaNetwork:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./ruleset/LocalAreaNetwork.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   UnBan:
-    url: 'https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list'
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
     path: ./ruleset/UnBan.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   BanAD:
-    url: 'https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list'
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
     path: ./ruleset/BanAD.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   BanProgramAD:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
     path: ./ruleset/BanProgramAD.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   GoogleFCM:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
     path: ./ruleset/GoogleFCM.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   GoogleCN:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/GoogleCN.list
     path: ./ruleset/GoogleCN.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   SteamCN:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
     path: ./ruleset/SteamCN.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   AI-MIX:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/AI.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/AI.list
     path: ./ruleset/AI.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Bing:
-    url: 'https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list'
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
     path: ./ruleset/Bing.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   OneDrive:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
     path: ./ruleset/OneDrive.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Microsoft:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
     path: ./ruleset/Microsoft.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Apple:
-    url: 'https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list'
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Apple.list
     path: ./ruleset/Apple.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Telegram:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
     path: ./ruleset/Telegram.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   OpenAi:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/OpenAi.list
     path: ./ruleset/OpenAi.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   NetEaseMusic:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/NetEaseMusic.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/NetEaseMusic.list
     path: ./ruleset/NetEaseMusic.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Epic:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
     path: ./ruleset/Epic.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Origin:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
     path: ./ruleset/Origin.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Sony:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
     path: ./ruleset/Sony.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Steam:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
     path: ./ruleset/Steam.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Nintendo:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
     path: ./ruleset/Nintendo.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   YouTube:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
     path: ./ruleset/YouTube.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Netflix:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Netflix.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Netflix.list
     path: ./ruleset/Netflix.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Bahamut:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
     path: ./ruleset/Bahamut.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   BilibiliHMT:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
     path: ./ruleset/BilibiliHMT.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Bilibili:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bilibili.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bilibili.list
     path: ./ruleset/Bilibili.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   ChinaMedia:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list
     path: ./ruleset/ChinaMedia.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   ProxyMedia:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
     path: ./ruleset/ProxyMedia.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   ProxyGFWlist:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
     path: ./ruleset/ProxyGFWlist.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   ChinaDomain:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
     path: ./ruleset/ChinaDomain.list
     behavior: domain
     interval: 86400
     format: text
     type: http
   ChinaCompanyIp:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
     behavior: ipcidr
     interval: 86400
     format: text
     type: http
   Download:
-    url: >-
-      https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
     path: ./ruleset/Download.list
     behavior: classical
     interval: 86400
     format: text
     type: http
 rules:
-  - 'RULE-SET,LocalAreaNetwork,全球直连'
-  - 'RULE-SET,UnBan,全球直连'
-  - 'RULE-SET,BanAD,广告拦截'
-  - 'RULE-SET,BanProgramAD,应用净化'
-  - 'RULE-SET,GoogleFCM,谷歌FCM'
-  - 'RULE-SET,GoogleCN,全球直连'
-  - 'RULE-SET,SteamCN,全球直连'
-  - 'RULE-SET,AI-MIX,AI-UNHK'
-  - 'RULE-SET,Bing,微软Bing'
-  - 'RULE-SET,OneDrive,微软云盘'
-  - 'RULE-SET,Microsoft,微软服务'
-  - 'RULE-SET,Apple,苹果服务'
-  - 'RULE-SET,Telegram,电报消息'
-  - 'RULE-SET,OpenAi,OpenAi'
-  - 'RULE-SET,NetEaseMusic,网易音乐'
-  - 'RULE-SET,Epic,游戏平台'
-  - 'RULE-SET,Origin,游戏平台'
-  - 'RULE-SET,Sony,游戏平台'
-  - 'RULE-SET,Steam,游戏平台'
-  - 'RULE-SET,Nintendo,游戏平台'
-  - 'RULE-SET,YouTube,油管视频'
-  - 'RULE-SET,Netflix,奈飞视频'
-  - 'RULE-SET,Bahamut,巴哈姆特'
-  - 'RULE-SET,BilibiliHMT,哔哩哔哩'
-  - 'RULE-SET,Bilibili,哔哩哔哩'
-  - 'RULE-SET,ChinaMedia,国内媒体'
-  - 'RULE-SET,ProxyMedia,国外媒体'
-  - 'RULE-SET,ProxyGFWlist,节点选择'
-  - 'RULE-SET,ChinaDomain,全球直连'
-  - 'RULE-SET,ChinaCompanyIp,全球直连'
-  - 'RULE-SET,Download,全球直连'
-  - 'GEOIP,CN,全球直连'
-  - 'MATCH,漏网之鱼'
+- RULE-SET,LocalAreaNetwork,全球直连
+- RULE-SET,UnBan,全球直连
+- RULE-SET,BanAD,广告拦截
+- RULE-SET,BanProgramAD,应用净化
+- RULE-SET,GoogleFCM,谷歌FCM
+- RULE-SET,GoogleCN,全球直连
+- RULE-SET,SteamCN,全球直连
+- RULE-SET,AI-MIX,AI-UNHK
+- RULE-SET,Bing,微软Bing
+- RULE-SET,OneDrive,微软云盘
+- RULE-SET,Microsoft,微软服务
+- RULE-SET,Apple,苹果服务
+- RULE-SET,Telegram,电报消息
+- RULE-SET,OpenAi,OpenAi
+- RULE-SET,NetEaseMusic,网易音乐
+- RULE-SET,Epic,游戏平台
+- RULE-SET,Origin,游戏平台
+- RULE-SET,Sony,游戏平台
+- RULE-SET,Steam,游戏平台
+- RULE-SET,Nintendo,游戏平台
+- RULE-SET,YouTube,油管视频
+- RULE-SET,Netflix,奈飞视频
+- RULE-SET,Bahamut,巴哈姆特
+- RULE-SET,BilibiliHMT,哔哩哔哩
+- RULE-SET,Bilibili,哔哩哔哩
+- RULE-SET,ChinaMedia,国内媒体
+- RULE-SET,ProxyMedia,国外媒体
+- RULE-SET,ProxyGFWlist,节点选择
+- RULE-SET,ChinaDomain,全球直连
+- RULE-SET,ChinaCompanyIp,全球直连
+- RULE-SET,Download,全球直连
+- GEOIP,CN,全球直连
+- MATCH,漏网之鱼
