@@ -178,40 +178,67 @@ def save_subscription_files(output_dir: str = '.'):
         print(f'✓ v2ray 源地址: {v2ray_url}')
         print(f'✓ clash 源地址: {clash_url}')
 
-        # --- v2ray: 直接保存 ---
-        print('📥 正在直接抓取 v2ray 订阅内容...')
-        v2ray_content = _fetch_direct_content(v2ray_url)
+        # 初始化内容变量，用于跟踪获取状态
+        v2ray_content = None
+        clash_content = None
+        failed_sources = []
 
-        v2_file = output_path / 'subscribe.txt'
-        v2_file.write_text(v2ray_content, encoding='utf-8')
-        print(f"✓ v2ray 订阅文件已保存: {v2_file}")
+        # --- v2ray: 直接保存 ---
+        try:
+            print('📥 正在直接抓取 v2ray 订阅内容...')
+            v2ray_content = _fetch_direct_content(v2ray_url)
+
+            v2_file = output_path / 'subscribe.txt'
+            v2_file.write_text(v2ray_content, encoding='utf-8')
+            print(f"✓ v2ray 订阅文件已保存: {v2_file}")
+        except Exception as v2ray_err:
+            failed_sources.append(('v2ray', str(v2ray_err)))
+            print(f"⚠️ v2ray 订阅获取失败: {v2ray_err}")
+            print("   → 保留上次有效的 subscribe.txt 文件")
 
         # --- clash: 去重 + short-id 修复 + GeoIP（可选）---
-        print('📥 正在直接抓取 clash 订阅内容...')
-        clash_content = _fetch_direct_content(clash_url)
+        try:
+            print('📥 正在直接抓取 clash 订阅内容...')
+            clash_content = _fetch_direct_content(clash_url)
 
-        clash_final = _dedup_proxies(clash_content)
+            clash_final = _dedup_proxies(clash_content)
 
-        # GeoIP 验证并纠正节点名称（默认禁用，ENABLE_GEOIP=true 启用）
-        if _env_to_bool(os.getenv('ENABLE_GEOIP'), default=False):
-            try:
-                from geoip_verify import verify_and_fix_proxies as _geoip_fix
-                _geoip_data = yaml.safe_load(clash_final)
-                if isinstance(_geoip_data, dict) and _geoip_data.get('proxies'):
-                    _geoip_data['proxies'] = _geoip_fix(_geoip_data['proxies'])
-                    clash_final = yaml.dump(
-                        _geoip_data, allow_unicode=True,
-                        default_flow_style=False, sort_keys=False, width=1000,
-                    )
-            except Exception as geoip_err:
-                print(f"⚠️ GeoIP 纠正跳过: {geoip_err}")
+            # GeoIP 验证并纠正节点名称（默认禁用，ENABLE_GEOIP=true 启用）
+            if _env_to_bool(os.getenv('ENABLE_GEOIP'), default=False):
+                try:
+                    from geoip_verify import verify_and_fix_proxies as _geoip_fix
+                    _geoip_data = yaml.safe_load(clash_final)
+                    if isinstance(_geoip_data, dict) and _geoip_data.get('proxies'):
+                        _geoip_data['proxies'] = _geoip_fix(_geoip_data['proxies'])
+                        clash_final = yaml.dump(
+                            _geoip_data, allow_unicode=True,
+                            default_flow_style=False, sort_keys=False, width=1000,
+                        )
+                except Exception as geoip_err:
+                    print(f"⚠️ GeoIP 纠正跳过: {geoip_err}")
 
-        # 修复纯数字 short-id 引号问题
-        clash_final = _fix_short_id_quotes(clash_final)
+            # 修复纯数字 short-id 引号问题
+            clash_final = _fix_short_id_quotes(clash_final)
 
-        clash_file = output_path / 'clash.yaml'
-        clash_file.write_text(clash_final, encoding='utf-8')
-        print(f"✓ clash 订阅文件已保存: {clash_file}")
+            clash_file = output_path / 'clash.yaml'
+            clash_file.write_text(clash_final, encoding='utf-8')
+            print(f"✓ clash 订阅文件已保存: {clash_file}")
+        except Exception as clash_err:
+            failed_sources.append(('clash', str(clash_err)))
+            print(f"⚠️ clash 订阅获取失败: {clash_err}")
+            print("   → 保留上次有效的 clash.yaml 文件")
+
+        # --- 上游失败醒目提示 ---
+        if failed_sources:
+            print("\n" + "=" * 60)
+            print("⚠️  警告: 部分上游订阅获取失败！")
+            print("=" * 60)
+            for source_name, error_msg in failed_sources:
+                print(f"  ✗ {source_name}: {error_msg}")
+            print("-" * 60)
+            print("  已保留上次有效文件，用户仍可使用旧节点。")
+            print("  可能原因: token过期、网络问题、上游服务不可用")
+            print("=" * 60 + "\n")
 
         # --- Issue 变体: subscribe1.txt / clash1.yaml（可选）---
         issue_variant_enabled = _env_to_bool(
@@ -304,8 +331,14 @@ def save_subscription_files(output_dir: str = '.'):
             'clash_subscription_url_issue': (
                 'https://c1a200.github.io/wv2ray/clash1.yaml'
             ),
-            'v2ray_size_kb': round(len(v2ray_content) / 1024, 2),
-            'clash_size_kb': round(len(clash_content) / 1024, 2),
+            'v2ray_size_kb': (
+                round(len(v2ray_content) / 1024, 2)
+                if v2ray_content else None
+            ),
+            'clash_size_kb': (
+                round(len(clash_content) / 1024, 2)
+                if clash_content else None
+            ),
             'v2ray_size_kb_issue': (
                 round(len(issue_variant['v2ray_content']) / 1024, 2)
                 if issue_variant else None
