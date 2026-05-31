@@ -30,8 +30,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 23,6 * * *'
+  #schedule:
+    # - cron: '0 23,6 * * *'
   workflow_dispatch:
     inputs:
       deploy_only:
