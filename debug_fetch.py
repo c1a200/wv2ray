@@ -4,7 +4,7 @@ import re
 
 def check_v2ray():
     print("Checking v2ray direct URL...")
-    url = "https://node.zyfx6.xyz/v2rayNG/"
+    url = "https://node.zyfx6.xyz/v2ray"
     headers = {
         "Accept": "*/*",
         "User-Agent": "Mozilla/5.0",

@@ -2,7 +2,7 @@ const ISSUE_URL = "https://github.com/wzdnzd/aggregator/issues/91";
 const ISSUE_API_URL = "https://api.github.com/repos/wzdnzd/aggregator/issues/91";
 const COMMENTS_API_URL = "https://api.github.com/repos/wzdnzd/aggregator/issues/91/comments?per_page=100";
 const DEFAULT_SUBCONVERTER_URL = "https://subconverter-jboo.onrender.com/";
-const DEFAULT_DIRECT_V2RAY_URL = "https://node.zyfx6.xyz/v2rayNG/";
+const DEFAULT_DIRECT_V2RAY_URL = "https://node.zyfx6.xyz/v2ray";
 const DEFAULT_DIRECT_CLASH_URL = "https://node.zyfx6.xyz/clash";
 
 const SUPPORTED_TARGETS = new Set(["v2ray", "clash"]);
@@ -256,6 +256,22 @@ function validateContent(content, target, url) {
       throw new Error(
         `Upstream returned JSON error payload: code=${payload.code}, message=${payload.message}`,
       );
+    }
+  }
+
+  // Check for expired/mock subscription indicators
+  const invalidKeywords = ["订阅已失效", "请重新获取", "xmsubbot", "txwl666"];
+  let checkText = stripped;
+  if (target === "v2ray") {
+    try {
+      checkText = atob(stripped);
+    } catch {
+      // ignore, use original
+    }
+  }
+  for (const kw of invalidKeywords) {
+    if (checkText.includes(kw)) {
+      throw new Error(`Upstream content contains expiration marker "${kw}": ${url}`);
     }
   }
 

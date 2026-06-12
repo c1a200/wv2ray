@@ -11,6 +11,8 @@ def trigger_via_empty_commit():
     """通过提交空提交来触发工作流"""
     
     print("🔄 通过空提交触发工作流...\n")
+    import os
+    repo_dir = os.path.dirname(os.path.abspath(__file__))
     
     try:
         # 创建空提交
@@ -18,7 +20,7 @@ def trigger_via_empty_commit():
             ['git', 'commit', '--allow-empty', '-m', 'trigger: 运行 GitHub Actions 工作流'],
             capture_output=True,
             text=True,
-            cwd='E:\\pyprojects\\wzndn'
+            cwd=repo_dir
         )
         
         if result.returncode != 0:
@@ -34,7 +36,7 @@ def trigger_via_empty_commit():
             ['git', 'push'],
             capture_output=True,
             text=True,
-            cwd='E:\\pyprojects\\wzndn'
+            cwd=repo_dir
         )
         
         if result.returncode != 0:

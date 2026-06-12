@@ -20,7 +20,7 @@
   },
   "direct_sources": {
     "enabled": true,
-    "v2ray_url": "https://node.zyfx6.xyz/v2rayNG/",
+    "v2ray_url": "https://node.zyfx6.xyz/v2ray",
     "clash_url": "https://node.zyfx6.xyz/clash",
     "description": "issue 服务暂停期间，直接抓取两个页面并分别保存为 subscribe.txt 与 clash.yaml"
   },
