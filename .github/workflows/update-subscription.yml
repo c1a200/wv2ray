@@ -76,8 +76,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch from Telegram
-        if: ${{ !inputs.deploy_only && secrets.TELEGRAM_SESSION != '' }}
-        run: python src/tg_fetcher.py
+        if: ${{ !inputs.deploy_only }}
+        run: |
+          if [ -n "$TELEGRAM_SESSION" ]; then
+            python src/tg_fetcher.py
+          else
+            echo "TELEGRAM_SESSION is empty, skipping Telegram fetch."
+          fi
         env:
           PYTHONPATH: ${{ github.workspace }}/src
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
