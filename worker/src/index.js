@@ -53,6 +53,10 @@ async function handleForward(target, env) {
       target === "v2ray"
         ? env.DIRECT_V2RAY_URL || DEFAULT_DIRECT_V2RAY_URL
         : env.DIRECT_CLASH_URL || DEFAULT_DIRECT_CLASH_URL;
+    const directToken = (env.DIRECT_TOKEN || "").trim();
+    if (directToken) {
+      upstreamUrl = applyTokenToUrl(upstreamUrl, directToken);
+    }
     convertedUrl = upstreamUrl;
     content = await fetchSubscriptionContent(upstreamUrl, target, env);
   } else {
@@ -311,6 +315,16 @@ function validateContent(content, target, url) {
     if (!hasYamlMarkers) {
       throw new Error("clash payload validation failed: yaml markers missing");
     }
+  }
+}
+
+function applyTokenToUrl(urlString, token) {
+  try {
+    const url = new URL(urlString);
+    url.searchParams.set("token", token);
+    return url.toString();
+  } catch {
+    return urlString;
   }
 }
 

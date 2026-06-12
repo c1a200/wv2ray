@@ -81,6 +81,18 @@ def _validate_content(content: str, is_clash: bool):
             raise ValueError(f"订阅内容包含失效特征词 '{kw}'，判定为已失效 Mock 数据")
 
 
+def _apply_token_to_url(url: str, token: str) -> str:
+    """如果提供了 token，则在 URL 中追加或更新 token 参数。"""
+    if not token:
+        return url
+    from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
+    parsed = urlparse(url)
+    query_params = dict(parse_qsl(parsed.query))
+    query_params['token'] = token
+    new_query = urlencode(query_params)
+    return urlunparse(parsed._replace(query=new_query))
+
+
 def _fetch_direct_content(url: str) -> str:
     """直接抓取订阅地址内容。"""
     headers = {
@@ -1210,6 +1222,32 @@ def _generate_dashboard_html(output_path: Path, summary: dict, metadata: dict):
                     </div>
                 </div>
             </div>
+
+            <!-- Token Management -->
+            <div class="glass-card">
+                <div class="section-title"><i class="fa-solid fa-key"></i> 快捷更新 Token</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
+                    如果您从 Telegram 获取了新 Token，可以直接在此输入并保存。这会自动更新 GitHub 变量并触发自动同步任务。
+                </div>
+                
+                <div style="margin-bottom: 0.75rem;">
+                    <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">GitHub 个人访问令牌 (PAT)</label>
+                    <input type="password" id="githubPat" class="search-input" style="padding-left: 1rem;" placeholder="ghp_xxxxxxxxxxxx">
+                    <span style="font-size: 0.7rem; color: var(--text-muted); display: block; margin-top: 0.2rem; line-height: 1.4;">
+                        需要 <code>repo</code> 权限。保存在您本地浏览器中。
+                        <a href="https://github.com/settings/tokens/new?scopes=repo" target="_blank" style="color: var(--primary); text-decoration: none;">点击去创建 PAT</a>
+                    </span>
+                </div>
+                
+                <div style="margin-bottom: 1.25rem;">
+                    <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">最新上游 Token</label>
+                    <input type="text" id="newToken" class="search-input" style="padding-left: 1rem;" placeholder="输入新 Token...">
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" id="updateTokenBtn">
+                    <i class="fa-solid fa-rotate"></i> 更新 Token 并同步
+                </button>
+            </div>
         </div>
     </main>
 
@@ -1516,6 +1554,84 @@ def _generate_dashboard_html(output_path: Path, summary: dict, metadata: dict):
             card.classList.toggle('active');
         }}
 
+        // Setup Token Update handler
+        const savedPat = localStorage.getItem('github_pat') || '';
+        if (savedPat) {{
+            document.getElementById('githubPat').value = savedPat;
+        }}
+
+        document.getElementById('updateTokenBtn').addEventListener('click', async () => {{
+            const pat = document.getElementById('githubPat').value.trim();
+            const tokenVal = document.getElementById('newToken').value.trim();
+            const btn = document.getElementById('updateTokenBtn');
+            
+            if (!pat) {{
+                showToast('请输入 GitHub PAT 令牌！');
+                return;
+            }}
+            if (!tokenVal) {{
+                showToast('请输入新的 Token 值！');
+                return;
+            }}
+            
+            localStorage.setItem('github_pat', pat);
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在更新...';
+            
+            try {{
+                const githubUrl = subData.github_pages_v2ray || '';
+                const match = githubUrl.match(/https:\/\/([^.]+)\.github\.io\/([^/]+)/);
+                const owner = match ? match[1] : 'c1a200';
+                const repo = match ? match[2] : 'wv2ray';
+                
+                // 1. Update Repository Variable
+                const varUrl = `https://api.github.com/repos/${{owner}}/${{repo}}/actions/variables/DIRECT_TOKEN`;
+                const varResp = await fetch(varUrl, {{
+                    method: 'PATCH',
+                    headers: {{
+                        'Accept': 'application/vnd.github+json',
+                        'Authorization': `Bearer ${{pat}}`,
+                        'X-GitHub-Api-Version': '2022-11-28',
+                        'Content-Type': 'application/json'
+                    }},
+                    body: JSON.stringify({{ name: 'DIRECT_TOKEN', value: tokenVal }})
+                }});
+                
+                if (!varResp.ok) {{
+                    const errInfo = await varResp.text();
+                    throw new Error(`更新变量失败: ${{varResp.status}} ${{errInfo}}`);
+                }}
+                
+                // 2. Trigger Workflow Dispatch
+                const dispatchUrl = `https://api.github.com/repos/${{owner}}/${{repo}}/actions/workflows/update-subscription.yml/dispatches`;
+                const dispatchResp = await fetch(dispatchUrl, {{
+                    method: 'POST',
+                    headers: {{
+                        'Accept': 'application/vnd.github+json',
+                        'Authorization': `Bearer ${{pat}}`,
+                        'X-GitHub-Api-Version': '2022-11-28',
+                        'Content-Type': 'application/json'
+                    }},
+                    body: JSON.stringify({{ ref: 'main' }})
+                }});
+                
+                if (!dispatchResp.ok) {{
+                    const errInfo = await dispatchResp.text();
+                    throw new Error(`触发工作流失败: ${{dispatchResp.status}} ${{errInfo}}`);
+                }}
+                
+                showToast('Token 更新成功！自动同步已启动，请等待几分钟。');
+                document.getElementById('newToken').value = '';
+            }} catch (err) {{
+                console.error(err);
+                showToast(`操作失败: ${{err.message}}`);
+            }} finally {{
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-rotate"></i> 更新 Token 并同步';
+            }}
+        }});
+
         // Init on page load
         window.addEventListener('DOMContentLoaded', initDashboard);
     </script>
@@ -1575,12 +1691,17 @@ def save_subscription_files(output_dir: str = '.'):
     output_path.mkdir(parents=True, exist_ok=True)
 
     try:
+        direct_token = os.getenv('DIRECT_TOKEN', '').strip()
         v2ray_url = (
             os.getenv('DIRECT_V2RAY_URL') or DEFAULT_DIRECT_V2RAY_URL
         ).strip()
         clash_url = (
             os.getenv('DIRECT_CLASH_URL') or DEFAULT_DIRECT_CLASH_URL
         ).strip()
+
+        if direct_token:
+            v2ray_url = _apply_token_to_url(v2ray_url, direct_token)
+            clash_url = _apply_token_to_url(clash_url, direct_token)
 
         fetched_at = datetime.utcnow().isoformat() + 'Z'
 
