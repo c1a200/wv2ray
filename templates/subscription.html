@@ -107,7 +107,11 @@ async function state(){
   else if(d.last_refresh) parts.push('上次更新：'+d.last_refresh);
   else parts.push('尚未更新');
   if(d.error && d.refresh_status!=='running') parts.push('错误：'+d.error);
-  if(d.webdav_enabled && d.webdav_error) parts.push('WebDAV：'+d.webdav_error);
+  if(d.webdav_enabled){
+    if(d.webdav_error) parts.push('WebDAV：'+d.webdav_error);
+    else if(d.webdav_restored_files && d.webdav_restored_files.length) parts.push('WebDAV已恢复：'+d.webdav_restored_files.join(','));
+    else if(d.webdav_url) parts.push('WebDAV：'+d.webdav_url);
+  }
   setStatus(parts.join(' | '), !!(d.error && d.refresh_status==='error'));
   return d;
 }

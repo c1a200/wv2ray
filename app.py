@@ -54,6 +54,8 @@ PERSISTED_FILES = (
     "summary.json",
 )
 webdav_last_error = None
+webdav_restored_files = []
+webdav_restored_at = None
 
 
 def _admin_password():
@@ -124,12 +126,14 @@ def save_config(config):
 
 
 def _webdav_base_url():
+    # For Cloudreve accounts with "relative root" (e.g. /V2ray), use https://host/dav
+    # and do NOT append /V2ray again, or files land in /V2ray/V2ray and restore fails.
     return (os.getenv("WEBDAV_URL") or "").strip().rstrip("/")
 
 
-def _webdav_file_url(filename):
-    # Avoid urljoin replacing the last path segment; keep files in the configured folder only.
-    base = _webdav_base_url()
+def _webdav_file_url(filename, base=None):
+    """Join base folder + filename without urllib urljoin surprises."""
+    base = (base or _webdav_base_url()).rstrip("/")
     name = Path(str(filename)).name
     return f"{base}/{quote(name)}"
 
@@ -140,45 +144,149 @@ def _webdav_auth():
 
 def _record_webdav_error(error):
     global webdav_last_error
-    webdav_last_error = str(error)[:240]
+    webdav_last_error = str(error)[:240] if error else ""
+
+
+def _webdav_candidate_bases():
+    """Return base URLs to try for restore (configured first, then sensible fallbacks)."""
+    primary = _webdav_base_url()
+    if not primary:
+        return []
+    bases = [primary]
+    # If user set .../dav/V2ray while the WebDAV account root is already /V2ray,
+    # also try the parent (.../dav).
+    if primary.rstrip("/").lower().endswith("/v2ray"):
+        parent = primary.rsplit("/", 1)[0]
+        if parent and parent not in bases:
+            bases.append(parent)
+    # If user set plain .../dav, also try .../dav/V2ray (main-password + folder style).
+    if primary.rstrip("/").lower().endswith("/dav"):
+        nested = primary.rstrip("/") + "/V2ray"
+        if nested not in bases:
+            bases.append(nested)
+    return bases
 
 
 def restore_from_webdav():
-    """Restore the last saved configuration and subscription files on startup."""
+    """Restore configuration and subscription files on startup.
+
+    Never treat "nothing restored" as success without recording a warning, so the
+    admin UI can show why the settings page is empty after a cold start.
+    """
+    global webdav_restored_files, webdav_restored_at
+    webdav_restored_files = []
+    webdav_restored_at = None
     if not _webdav_base_url():
-        return
+        _record_webdav_error("WEBDAV_URL 未配置，重启后无法恢复数据")
+        return 0
+
     import requests
-    try:
-        for filename in PERSISTED_FILES:
-            response = requests.get(_webdav_file_url(filename), auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
-            if response.status_code == 404:
-                continue
-            response.raise_for_status()
-            (DATA_DIR / filename).write_bytes(response.content)
-        _record_webdav_error("")
-    except requests.RequestException as exc:
-        _record_webdav_error(f"WebDAV restore failed: {exc}")
+
+    bases = _webdav_candidate_bases()
+    timeout = int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20"))
+    last_exc = None
+
+    for base in bases:
+        restored = []
+        try:
+            # Prefer a base that at least has upstream.json or any persisted file.
+            probe = requests.get(
+                _webdav_file_url("upstream.json", base=base),
+                auth=_webdav_auth(),
+                timeout=timeout,
+            )
+            if probe.status_code == 404:
+                # Still try other files on this base in case only outputs exist.
+                any_hit = False
+                for filename in PERSISTED_FILES:
+                    response = requests.get(
+                        _webdav_file_url(filename, base=base),
+                        auth=_webdav_auth(),
+                        timeout=timeout,
+                    )
+                    if response.status_code == 404:
+                        continue
+                    response.raise_for_status()
+                    (DATA_DIR / filename).write_bytes(response.content)
+                    restored.append(filename)
+                    any_hit = True
+                if not any_hit:
+                    continue
+            else:
+                probe.raise_for_status()
+                (DATA_DIR / "upstream.json").write_bytes(probe.content)
+                restored.append("upstream.json")
+                for filename in PERSISTED_FILES:
+                    if filename == "upstream.json":
+                        continue
+                    response = requests.get(
+                        _webdav_file_url(filename, base=base),
+                        auth=_webdav_auth(),
+                        timeout=timeout,
+                    )
+                    if response.status_code == 404:
+                        continue
+                    response.raise_for_status()
+                    (DATA_DIR / filename).write_bytes(response.content)
+                    restored.append(filename)
+
+            webdav_restored_files = restored
+            webdav_restored_at = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            # Remember the working base for subsequent syncs in this process.
+            os.environ["WEBDAV_URL"] = base
+            if restored:
+                _record_webdav_error("")
+            else:
+                _record_webdav_error(f"WebDAV 可访问但无文件: {base}")
+            return len(restored)
+        except requests.RequestException as exc:
+            last_exc = exc
+            continue
+
+    if last_exc:
+        _record_webdav_error(f"WebDAV 恢复失败: {last_exc}")
+    else:
+        tried = ", ".join(bases)
+        _record_webdav_error(
+            "WebDAV 未找到可恢复文件。请确认 WEBDAV_URL 与 Cloudreve「相对根目录」匹配："
+            "专用密码根目录已是 /V2ray 时，URL 应是 https://host/dav ；"
+            f"已尝试: {tried}"
+        )
+    return 0
 
 
-def sync_to_webdav():
-    """Make the WebDAV directory match locally generated state without leaking credentials."""
+def sync_to_webdav(delete_missing=False):
+    """Upload local persisted files to WebDAV.
+
+    By default this only PUTs files that exist locally. It does NOT delete remote
+    files when local files are missing — that previously wiped Cloudreve after a
+    failed restore on free Render restarts.
+    """
     if not _webdav_base_url():
-        return
+        return False
     import requests
+
+    timeout = int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20"))
     try:
+        uploaded = 0
         for filename in PERSISTED_FILES:
             path = DATA_DIR / filename
             target = _webdav_file_url(filename)
             if path.is_file():
-                response = requests.put(target, data=path.read_bytes(), auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
+                response = requests.put(
+                    target, data=path.read_bytes(), auth=_webdav_auth(), timeout=timeout
+                )
                 response.raise_for_status()
-            else:
-                response = requests.delete(target, auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
+                uploaded += 1
+            elif delete_missing:
+                response = requests.delete(target, auth=_webdav_auth(), timeout=timeout)
                 if response.status_code not in {204, 404}:
                     response.raise_for_status()
-        _record_webdav_error("")
+        _record_webdav_error("" if uploaded or delete_missing else "本地无可同步文件")
+        return True
     except requests.RequestException as exc:
-        _record_webdav_error(f"WebDAV sync failed: {exc}")
+        _record_webdav_error(f"WebDAV 同步失败: {exc}")
+        return False
 
 
 def _converter_url(source_url, target):
@@ -507,7 +615,7 @@ def refresh():
             for filename in ("subscribe.txt", "clash.yaml", "nbsh.txt", "singbox.json", "metadata.json", "summary.json"):
                 (DATA_DIR / filename).unlink(missing_ok=True)
             source_results = []
-            sync_to_webdav()
+            sync_to_webdav(delete_missing=True)
             last_refresh = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             last_error = None
             refresh_status = "ok"
@@ -598,6 +706,8 @@ restore_from_webdav()
 def index():
     if not session.get("admin_authenticated"):
         return redirect(url_for("admin"))
+    if not CONFIG_FILE.is_file() and _webdav_base_url():
+        restore_from_webdav()
     return render_template("subscription.html")
 
 
@@ -629,7 +739,9 @@ def subscriptions():
 
 @app.get("/health")
 def health():
-    return jsonify(ok=True, service="wv2ray", last_refresh=last_refresh, error=last_error)
+    return jsonify(ok=True, service="wv2ray", last_refresh=last_refresh, error=last_error,
+                   refresh_status=refresh_status, webdav_error=webdav_last_error,
+                   webdav_restored=len(webdav_restored_files))
 
 
 @app.get("/api/status")
@@ -642,7 +754,10 @@ def status():
                    data_dir=str(DATA_DIR),
                    files=[p.name for p in DATA_DIR.iterdir()] if DATA_DIR.is_dir() else [],
                    webdav_enabled=bool(_webdav_base_url()), webdav_url=_webdav_base_url(),
-                   webdav_error=webdav_last_error, sources=source_results)
+                   webdav_error=webdav_last_error,
+                   webdav_restored_files=webdav_restored_files,
+                   webdav_restored_at=webdav_restored_at,
+                   sources=source_results)
 
 
 @app.get("/api/config")
@@ -650,6 +765,9 @@ def config():
     unauthorized = _admin_required()
     if unauthorized:
         return unauthorized
+    # Cold start may race or miss restore; retry if local config is empty.
+    if not CONFIG_FILE.is_file() and _webdav_base_url():
+        restore_from_webdav()
     current = get_config()
     return jsonify(provider_url=current["provider_url"], v2ray_url=current["v2ray_url"],
                    clash_url=current["clash_url"], token_configured=bool(current["token"]),

@@ -58,3 +58,12 @@ summary.json
 ```
 
 如果你在网盘里看到 `V2ray/V2ray` 两层，说明环境变量多写了一段路径，改成只保留一层后重新保存配置即可。
+
+## Cloudreve WebDAV 专用密码（重要）
+
+Cloudreve 可以为 WebDAV 创建「相对根目录」。例如相对根目录是 /V2ray 时：
+
+- 正确：WEBDAV_URL=https://cloudreve.176111.xyz/dav
+- 错误：WEBDAV_URL=https://cloudreve.176111.xyz/dav/V2ray（会变成 /V2ray/V2ray，重启后读不到配置）
+
+服务启动时会从 WebDAV 恢复 upstream.json 和订阅文件。若路径不匹配，设置页会是空的，状态里会显示 WebDAV 恢复错误。
