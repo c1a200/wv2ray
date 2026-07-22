@@ -890,28 +890,29 @@
 
             <!-- Token Management -->
             <div class="glass-card">
-                <div class="section-title"><i class="fa-solid fa-key"></i> 快捷更新 Token</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
-                    如果您从 Telegram 获取了新 Token，可以直接在此输入并保存。这会自动更新 GitHub 变量并触发自动同步任务。
+                <div class="section-title"><i class="fa-solid fa-key"></i> 快捷更新上游 Token</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6;">
+                    不再需要填写 GitHub PAT。请通过 <strong>GitHub Actions</strong> 运行工作流（使用你的 GitHub 登录鉴权），并把上游 Token 填入 <code>direct_token</code>。
                 </div>
-                
-                <div style="margin-bottom: 0.75rem;">
-                    <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">GitHub 个人访问令牌 (PAT)</label>
-                    <input type="password" id="githubPat" class="search-input" style="padding-left: 1rem;" placeholder="ghp_xxxxxxxxxxxx">
-                    <span style="font-size: 0.7rem; color: var(--text-muted); display: block; margin-top: 0.2rem; line-height: 1.4;">
-                        需要 <code>repo</code> 权限。保存在您本地浏览器中。
-                        <a href="https://github.com/settings/tokens/new?scopes=repo" target="_blank" style="color: var(--primary); text-decoration: none;">点击去创建 PAT</a>
-                    </span>
-                </div>
-                
-                <div style="margin-bottom: 1.25rem;">
+                <div style="margin-bottom: 1rem;">
                     <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">最新上游 Token</label>
-                    <input type="text" id="newToken" class="search-input" style="padding-left: 1rem;" placeholder="输入新 Token...">
+                    <input type="text" id="newToken" class="search-input" style="padding-left: 1rem;" placeholder="例如 3a714d1b2f1f427f">
                 </div>
-                
-                <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" id="updateTokenBtn">
-                    <i class="fa-solid fa-rotate"></i> 更新 Token 并同步
-                </button>
+                <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                    <button class="btn btn-primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" id="copyTokenBtn" type="button">
+                        <i class="fa-solid fa-copy"></i> 复制 Token
+                    </button>
+                    <button class="btn" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255,255,255,0.08); color: inherit; border: 1px solid rgba(255,255,255,0.12);" id="openActionsBtn" type="button">
+                        <i class="fa-brands fa-github"></i> 打开 Actions 运行更新
+                    </button>
+                </div>
+                <ol style="margin: 1rem 0 0; padding-left: 1.2rem; font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;">
+                    <li>点击「复制 Token」</li>
+                    <li>点击「打开 Actions 运行更新」</li>
+                    <li>右侧点 <strong>Run workflow</strong></li>
+                    <li>粘贴到 <code>direct_token</code></li>
+                    <li><code>deploy_only</code> 保持 false 后运行</li>
+                </ol>
             </div>
         </div>
     </main>
@@ -1219,82 +1220,52 @@
             card.classList.toggle('active');
         }
 
-        // Setup Token Update handler
-        const savedPat = localStorage.getItem('github_pat') || '';
-        if (savedPat) {
-            document.getElementById('githubPat').value = savedPat;
+        // Setup Token Update helpers (no PAT required)
+        const ACTIONS_WORKFLOW_URL = 'https://github.com/c1a200/wv2ray/actions/workflows/update-subscription.yml';
+
+        async function copyTokenValue(value) {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(value);
+                return;
+            }
+            const area = document.createElement('textarea');
+            area.value = value;
+            area.style.position = 'fixed';
+            area.style.opacity = '0';
+            document.body.appendChild(area);
+            area.select();
+            const ok = document.execCommand('copy');
+            area.remove();
+            if (!ok) throw new Error('copy failed');
         }
 
-        document.getElementById('updateTokenBtn').addEventListener('click', async () => {
-            const pat = document.getElementById('githubPat').value.trim();
+        document.getElementById('copyTokenBtn').addEventListener('click', async () => {
             const tokenVal = document.getElementById('newToken').value.trim();
-            const btn = document.getElementById('updateTokenBtn');
-            
-            if (!pat) {
-                showToast('请输入 GitHub PAT 令牌！');
-                return;
-            }
             if (!tokenVal) {
-                showToast('请输入新的 Token 值！');
+                showToast('请先输入上游 Token');
                 return;
             }
-            
-            localStorage.setItem('github_pat', pat);
-            
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 正在更新...';
-            
             try {
-                const githubUrl = subData.github_pages_v2ray || '';
-                const match = githubUrl.match(/https:\/\/([^.]+)\.github\.io\/([^/]+)/);
-                const owner = match ? match[1] : 'c1a200';
-                const repo = match ? match[2] : 'wv2ray';
-                
-                // 1. Update Repository Variable
-                const varUrl = `https://api.github.com/repos/${owner}/${repo}/actions/variables/DIRECT_TOKEN`;
-                const varResp = await fetch(varUrl, {
-                    method: 'PATCH',
-                    headers: {
-                        'Accept': 'application/vnd.github+json',
-                        'Authorization': `Bearer ${pat}`,
-                        'X-GitHub-Api-Version': '2022-11-28',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ name: 'DIRECT_TOKEN', value: tokenVal })
-                });
-                
-                if (!varResp.ok) {
-                    const errInfo = await varResp.text();
-                    throw new Error(`更新变量失败: ${varResp.status} ${errInfo}`);
-                }
-                
-                // 2. Trigger Workflow Dispatch
-                const dispatchUrl = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/update-subscription.yml/dispatches`;
-                const dispatchResp = await fetch(dispatchUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/vnd.github+json',
-                        'Authorization': `Bearer ${pat}`,
-                        'X-GitHub-Api-Version': '2022-11-28',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ ref: 'main' })
-                });
-                
-                if (!dispatchResp.ok) {
-                    const errInfo = await dispatchResp.text();
-                    throw new Error(`触发工作流失败: ${dispatchResp.status} ${errInfo}`);
-                }
-                
-                showToast('Token 更新成功！自动同步已启动，请等待几分钟。');
-                document.getElementById('newToken').value = '';
+                await copyTokenValue(tokenVal);
+                showToast('Token 已复制，请到 Actions 的 direct_token 中粘贴');
             } catch (err) {
-                console.error(err);
-                showToast(`操作失败: ${err.message}`);
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-rotate"></i> 更新 Token 并同步';
+                showToast('复制失败，请手动选择复制');
             }
+        });
+
+        document.getElementById('openActionsBtn').addEventListener('click', async () => {
+            const tokenVal = document.getElementById('newToken').value.trim();
+            if (tokenVal) {
+                try {
+                    await copyTokenValue(tokenVal);
+                    showToast('已复制 Token，正在打开 GitHub Actions...');
+                } catch (err) {
+                    showToast('请手动复制 Token 后，在 Actions 中粘贴');
+                }
+            } else {
+                showToast('打开 Actions 后，请把上游 Token 填入 direct_token');
+            }
+            window.open(ACTIONS_WORKFLOW_URL, '_blank', 'noopener');
         });
 
         // Init on page load
