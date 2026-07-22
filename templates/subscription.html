@@ -5,32 +5,50 @@
   <title>订阅中心</title>
   <style>
     :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172033;background:#f4f7fb}
-    body{max-width:760px;margin:0 auto;padding:32px 18px}
+    body{max-width:820px;margin:0 auto;padding:32px 18px}
     main{background:#fff;border:1px solid #dbe3ef;border-radius:8px;padding:28px;box-shadow:0 8px 30px #17203312}
     h1{margin:0 0 8px;font-size:28px}h2{margin-top:28px}
     .row{display:flex;gap:10px;align-items:center;margin:14px 0;flex-wrap:wrap}
     code{background:#eef3f9;padding:10px 12px;border-radius:5px;word-break:break-all;flex:1}
     input,select,button{font:inherit;padding:10px;box-sizing:border-box}
     button{border:0;border-radius:5px;background:#1463d8;color:#fff;cursor:pointer}
-    .danger{background:#b42318}.hint,#status{color:#60708a;font-size:13px}
-    .url{flex:1;min-width:240px}
+    .danger{background:#b42318}
+    .toggle{background:#5b6b84;min-width:72px}
+    .toggle.on{background:#0f7b46}
+    .hint,#status{color:#60708a;font-size:13px}
+    .url{flex:1;min-width:220px}
+    .name{width:110px}
+    .type{width:110px}
     .settings{border-top:1px solid #dbe3ef;margin-top:28px;padding-top:20px}
-    .settings[hidden]{display:none}
+    .disabled-row input,.disabled-row select{opacity:.55}
     .err{color:#b42318}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
   </style>
 </head>
 <body><main>
-  <div class="row"><button id="settings-toggle" type="button">管理设置</button><form action="/admin/logout" method="post"><button class="danger">退出</button></form></div>
-  <h1>订阅中心</h1><p class="hint">选择客户端对应的订阅链接。</p>
-  <h2>V2Ray</h2><div class="row"><code id="v2"></code><button data-path="/subscribe.txt">复制链接</button></div>
-  <h2>Clash</h2><div class="row"><code id="clash"></code><button data-path="/clash.yaml">复制链接</button></div>
-  <h2>Sing-box</h2><div class="row"><code id="singbox"></code><button data-path="/singbox.json">复制链接</button></div>
-  <h2>Shadowrocket / NekoBox</h2><div class="row"><code id="nbsh"></code><button data-path="/nbsh.txt">复制链接</button></div>
-  <section id="settings" class="settings" hidden>
+  <div class="top">
+    <div>
+      <h1>订阅中心</h1>
+      <p class="hint">同一页查看订阅链接并管理上游；只有“启用”的源会参与聚合。</p>
+    </div>
+    <form action="/admin/logout" method="post"><button class="danger" type="submit">退出</button></form>
+  </div>
+
+  <h2>V2Ray</h2><div class="row"><code id="v2"></code><button data-path="/subscribe.txt" type="button">复制链接</button></div>
+  <h2>Clash</h2><div class="row"><code id="clash"></code><button data-path="/clash.yaml" type="button">复制链接</button></div>
+  <h2>Sing-box</h2><div class="row"><code id="singbox"></code><button data-path="/singbox.json" type="button">复制链接</button></div>
+  <h2>Shadowrocket / NekoBox</h2><div class="row"><code id="nbsh"></code><button data-path="/nbsh.txt" type="button">复制链接</button></div>
+
+  <section class="settings">
     <h2>管理设置</h2>
-    <p class="hint">主订阅地址可填写 clash、v2ray、singbox 或 nbsh 之一。其他源会转换后聚合到订阅文件。</p>
+    <p class="hint">主订阅可填写 clash、v2ray、singbox 或 nbsh 之一。其他源会转换后聚合。关闭的源会保留配置，但刷新时不抓取、不聚合。</p>
+
     <label>主订阅地址</label>
-    <div class="row"><input class="url" id="provider" type="url" placeholder="https://node.example/clash?token=..."></div>
+    <div class="row" id="provider-row">
+      <button id="provider-toggle" class="toggle on" type="button" data-enabled="1">启用</button>
+      <input class="url" id="provider" type="url" placeholder="https://node.example/clash?token=...">
+    </div>
+
     <h2>其他订阅源</h2>
     <div id="sources"></div>
     <button id="add" type="button">添加订阅源</button>
@@ -43,7 +61,15 @@
 </main>
 <script>
 const $=id=>document.getElementById(id);
-const settings=$('settings'), provider=$('provider'), sources=$('sources'), status=$('status');
+const provider=$('provider'), providerToggle=$('provider-toggle'), providerRow=$('provider-row');
+const sources=$('sources'), status=$('status');
+
+function isEnabled(btn){ return btn.dataset.enabled === '1'; }
+function setToggle(btn, enabled){
+  btn.dataset.enabled = enabled ? '1' : '0';
+  btn.textContent = enabled ? '启用' : '关闭';
+  btn.classList.toggle('on', !!enabled);
+}
 
 async function copyText(text){
   if(navigator.clipboard && window.isSecureContext){
@@ -75,14 +101,30 @@ document.querySelectorAll('button[data-path]').forEach(button=>{
   };
 });
 
+function applySourceDisabled(e){
+  const enabled = isEnabled(e.querySelector('.toggle'));
+  e.classList.toggle('disabled-row', !enabled);
+}
+
 function row(s={}){
   const e=document.createElement('div');
   e.className='row source';
-  e.innerHTML='<input class="name" placeholder="名称"><select class="type"><option>clash</option><option>v2ray</option><option>singbox</option><option>nbsh</option><option>other</option></select><input class="url" type="url" placeholder="外部 URL"><button class="danger" type="button">删除</button>';
+  e.innerHTML=`
+    <button class="toggle on" type="button" data-enabled="1">启用</button>
+    <input class="name" placeholder="名称">
+    <select class="type">
+      <option>clash</option><option>v2ray</option><option>singbox</option><option>nbsh</option><option>other</option>
+    </select>
+    <input class="url" type="url" placeholder="外部 URL">
+    <button class="danger del" type="button">删除</button>`;
+  const toggle=e.querySelector('.toggle');
+  setToggle(toggle, s.enabled !== false);
   e.querySelector('.name').value=s.name||'';
   e.querySelector('.type').value=s.type||'clash';
   e.querySelector('.url').value=s.url||'';
-  e.querySelector('button').onclick=()=>e.remove();
+  toggle.onclick=()=>{ setToggle(toggle, !isEnabled(toggle)); applySourceDisabled(e); };
+  e.querySelector('.del').onclick=()=>e.remove();
+  applySourceDisabled(e);
   sources.append(e);
 }
 
@@ -110,7 +152,11 @@ async function state(){
   if(d.webdav_enabled){
     if(d.webdav_error) parts.push('WebDAV：'+d.webdav_error);
     else if(d.webdav_restored_files && d.webdav_restored_files.length) parts.push('WebDAV已恢复：'+d.webdav_restored_files.join(','));
-    else if(d.webdav_url) parts.push('WebDAV：'+d.webdav_url);
+  }
+  if(Array.isArray(d.sources) && d.sources.length){
+    const skipped=d.sources.filter(x=>x.skipped).length;
+    const ok=d.sources.filter(x=>x.ok).length;
+    parts.push(`源结果：成功${ok}/共${d.sources.length}`+(skipped?`，跳过${skipped}`:''));
   }
   setStatus(parts.join(' | '), !!(d.error && d.refresh_status==='error'));
   return d;
@@ -120,8 +166,11 @@ async function config(){
   const r=await fetch('/api/config',{cache:'no-store'});
   const d=await readJson(r);
   provider.value=d.provider_url||'';
+  setToggle(providerToggle, d.provider_enabled !== false);
+  providerRow.classList.toggle('disabled-row', !isEnabled(providerToggle));
   sources.innerHTML='';
   (d.sources||[]).forEach(row);
+  if(!(d.sources||[]).length) row();
 }
 
 async function waitRefresh(timeoutMs=180000){
@@ -130,9 +179,7 @@ async function waitRefresh(timeoutMs=180000){
     await new Promise(r=>setTimeout(r,1500));
     const d=await state();
     if(!d) continue;
-    if(d.refresh_status!=='running'){
-      return d;
-    }
+    if(d.refresh_status!=='running') return d;
   }
   setStatus('刷新超时，请稍后查看状态', true);
   return null;
@@ -154,27 +201,36 @@ async function refresh(){
   }
 }
 
-$('settings-toggle').onclick=async()=>{
-  settings.hidden=!settings.hidden;
-  if(!settings.hidden){
-    await config();
-    await state();
-  }
+function collectSources(){
+  return [...document.querySelectorAll('.source')].map((e,i)=>{
+    const url=e.querySelector('.url').value.trim();
+    if(!url) return null;
+    return {
+      id:'source-'+(i+1),
+      name:e.querySelector('.name').value.trim() || ('source-'+(i+1)),
+      type:e.querySelector('.type').value,
+      url,
+      enabled:isEnabled(e.querySelector('.toggle'))
+    };
+  }).filter(Boolean);
+}
+
+providerToggle.onclick=()=>{
+  setToggle(providerToggle, !isEnabled(providerToggle));
+  providerRow.classList.toggle('disabled-row', !isEnabled(providerToggle));
 };
 $('add').onclick=()=>row();
 $('refresh').onclick=refresh;
 $('save').onclick=async()=>{
-  const list=[...document.querySelectorAll('.source')].map((e,i)=>({
-    id:'source-'+(i+1),
-    name:e.querySelector('.name').value,
-    type:e.querySelector('.type').value,
-    url:e.querySelector('.url').value
-  }));
   try{
     const r=await fetch('/api/config',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({provider_url:provider.value, sources:list})
+      body:JSON.stringify({
+        provider_url:provider.value.trim(),
+        provider_enabled:isEnabled(providerToggle),
+        sources:collectSources()
+      })
     });
     const d=await readJson(r);
     if(!r.ok){
@@ -186,6 +242,8 @@ $('save').onclick=async()=>{
     setStatus('保存失败：'+(err.message||err), true);
   }
 };
+
+config().then(state).catch(err=>setStatus('加载失败：'+(err.message||err), true));
 </script>
 </body>
 </html>

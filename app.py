@@ -81,6 +81,7 @@ def get_config():
     provider_default = os.getenv("UPSTREAM_URL", "").strip()
     defaults = {
         "provider_url": provider_default,
+        "provider_enabled": True,
         "v2ray_url": os.getenv("DIRECT_V2RAY_URL", "").strip(),
         "clash_url": os.getenv("DIRECT_CLASH_URL", "").strip(),
         "token": os.getenv("DIRECT_TOKEN", ""),
@@ -89,9 +90,20 @@ def get_config():
     try:
         saved = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
         if isinstance(saved, dict):
-            defaults.update({k: str(saved[k]) for k in defaults if k in saved})
+            for k in ("provider_url", "v2ray_url", "clash_url", "token"):
+                if k in saved:
+                    defaults[k] = str(saved[k])
+            if "provider_enabled" in saved:
+                defaults["provider_enabled"] = bool(saved.get("provider_enabled"))
             if isinstance(saved.get("sources"), list):
-                defaults["sources"] = saved["sources"]
+                clean_sources = []
+                for item in saved["sources"]:
+                    if not isinstance(item, dict):
+                        continue
+                    entry = dict(item)
+                    entry["enabled"] = True if "enabled" not in entry else bool(entry.get("enabled"))
+                    clean_sources.append(entry)
+                defaults["sources"] = clean_sources
             # Migrate configurations saved before provider_url was introduced.
             if not defaults["provider_url"]:
                 candidate = str(saved.get("v2ray_url") or saved.get("clash_url") or "")
@@ -103,6 +115,15 @@ def get_config():
     except (OSError, ValueError):
         pass
     return defaults
+
+
+def _is_enabled(value, default=True):
+    """Treat missing enabled flag as enabled for backward compatibility."""
+    if value is None:
+        return default
+    if isinstance(value, str):
+        return value.strip().lower() not in {"0", "false", "no", "off", ""}
+    return bool(value)
 
 
 def derive_provider_urls(url):
@@ -525,7 +546,14 @@ def _merge_converted_sources(config):
     for source in config.get("sources", []):
         name = source.get("name") or source.get("id") or "source"
         status = {"id": source.get("id"), "name": name, "ok": False,
-                  "clash_added": 0, "v2ray_added": 0, "errors": []}
+                  "clash_added": 0, "v2ray_added": 0, "errors": [],
+                  "enabled": True, "skipped": False}
+        if not _is_enabled(source.get("enabled"), True):
+            status["enabled"] = False
+            status["skipped"] = True
+            status["error"] = "已关闭，跳过聚合"
+            source_results.append(status)
+            continue
         converted_proxies = []
         try:
             if str(source.get("type", "")).lower() == "clash":
@@ -609,9 +637,20 @@ def refresh():
         # Issue variants are GitHub-dependent and are intentionally disabled.
         os.environ.setdefault("GENERATE_ISSUE_VARIANTS", "false")
         config = get_config()
-        if config["provider_url"]:
+        provider_enabled = _is_enabled(config.get("provider_enabled"), True)
+        active_sources = [
+            s for s in (config.get("sources") or [])
+            if isinstance(s, dict)
+            and _is_enabled(s.get("enabled"), True)
+            and str(s.get("url", "")).startswith(("http://", "https://"))
+        ]
+        if config.get("provider_url") and provider_enabled:
             config["v2ray_url"], config["clash_url"] = derive_provider_urls(config["provider_url"])
-        if not config["v2ray_url"] and not config["clash_url"] and not config.get("sources"):
+        else:
+            # Keep URL in saved config, but do not use disabled primary during refresh.
+            config["v2ray_url"] = ""
+            config["clash_url"] = ""
+        if not config["v2ray_url"] and not config["clash_url"] and not active_sources:
             for filename in ("subscribe.txt", "clash.yaml", "nbsh.txt", "singbox.json", "metadata.json", "summary.json"):
                 (DATA_DIR / filename).unlink(missing_ok=True)
             source_results = []
@@ -643,7 +682,7 @@ def refresh():
         missing = [name for name in ("subscribe.txt", "clash.yaml") if not (DATA_DIR / name).is_file()]
         # Free hosts may block some primary domains; still merge extra sources when present.
         if missing:
-            if config.get("sources"):
+            if active_sources:
                 _ensure_empty_outputs()
             else:
                 raise RuntimeError("上游抓取失败，未生成文件: " + ", ".join(missing))
@@ -769,9 +808,14 @@ def config():
     if not CONFIG_FILE.is_file() and _webdav_base_url():
         restore_from_webdav()
     current = get_config()
-    return jsonify(provider_url=current["provider_url"], v2ray_url=current["v2ray_url"],
-                   clash_url=current["clash_url"], token_configured=bool(current["token"]),
-                   sources=current["sources"])
+    return jsonify(
+        provider_url=current["provider_url"],
+        provider_enabled=_is_enabled(current.get("provider_enabled"), True),
+        v2ray_url=current["v2ray_url"],
+        clash_url=current["clash_url"],
+        token_configured=bool(current["token"]),
+        sources=current["sources"],
+    )
 
 
 @app.post("/api/config")
@@ -787,7 +831,9 @@ def update_config():
             if key != "token" and value and not value.startswith(("http://", "https://")):
                 return jsonify(ok=False, error=f"{key} must be an http(s) URL"), 400
             current[key] = value
-    if "provider_url" in payload and payload["provider_url"].strip():
+    if "provider_enabled" in payload:
+        current["provider_enabled"] = _is_enabled(payload.get("provider_enabled"), True)
+    if "provider_url" in payload and str(payload.get("provider_url") or "").strip():
         try:
             current["v2ray_url"], current["clash_url"] = derive_provider_urls(current["provider_url"])
         except ValueError as exc:
@@ -804,8 +850,13 @@ def update_config():
             if not isinstance(item, dict) or not str(item.get("url", "")).startswith(("http://", "https://")):
                 return jsonify(ok=False, error="each source needs an http(s) URL"), 400
             source_id = re.sub(r"[^a-zA-Z0-9_-]", "-", str(item.get("id", "source")))[:48] or "source"
-            clean.append({"id": source_id, "name": str(item.get("name", source_id))[:100],
-                          "type": str(item.get("type", "other"))[:30], "url": str(item["url"])})
+            clean.append({
+                "id": source_id,
+                "name": str(item.get("name", source_id))[:100],
+                "type": str(item.get("type", "other"))[:30],
+                "url": str(item["url"]).strip(),
+                "enabled": _is_enabled(item.get("enabled"), True),
+            })
         current["sources"] = clean
     save_config(current)
     return jsonify(ok=True)
@@ -828,6 +879,93 @@ def source_proxy(source_id):
         return response.content, 200, {"content-type": content_type, "cache-control": "public, max-age=120"}
     except requests.RequestException as exc:
         return jsonify(ok=False, error=str(exc)), 502
+
+
+
+@app.after_request
+def _cors_headers(response):
+    """Allow the GitHub Pages UI to call Render APIs without embedding a PAT."""
+    origin = request.headers.get("Origin", "")
+    allowed = os.getenv("CORS_ORIGINS", "https://c1a200.github.io").split(",")
+    allowed = [x.strip() for x in allowed if x.strip()]
+    if origin and (origin in allowed or origin.endswith(".github.io")):
+        response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type, X-Admin-Token"
+        response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+        response.headers["Vary"] = "Origin"
+    return response
+
+
+@app.route("/api/github/update-token", methods=["OPTIONS"])
+def update_github_token_preflight():
+    return ("", 204)
+
+
+@app.post("/api/github/update-token")
+def update_github_token():
+    """Update GitHub Actions DIRECT_TOKEN and trigger subscription workflow.
+
+    The browser only sends the admin password + upstream token. A one-time
+    GITHUB_PAT (or GH_TOKEN) stays on Render as an environment variable.
+    """
+    unauthorized = _admin_required()
+    if unauthorized:
+        return unauthorized
+
+    import requests
+
+    payload = request.get_json(silent=True) or {}
+    token_val = str(payload.get("token") or payload.get("direct_token") or "").strip()
+    if not token_val:
+        return jsonify(ok=False, error="token is required"), 400
+
+    gh_token = (os.getenv("GITHUB_PAT") or os.getenv("GH_TOKEN") or "").strip()
+    if not gh_token:
+        return jsonify(
+            ok=False,
+            error="Render 未配置 GITHUB_PAT。请在 Render Environment 中设置一次有 repo 权限的 PAT，页面本身不需要再填 PAT。",
+        ), 503
+
+    repo = (os.getenv("GITHUB_REPO") or "c1a200/wv2ray").strip().strip("/")
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {gh_token}",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+
+    # 1) Upsert repository variable DIRECT_TOKEN for scheduled runs
+    var_url = f"https://api.github.com/repos/{repo}/actions/variables/DIRECT_TOKEN"
+    var_body = {"name": "DIRECT_TOKEN", "value": token_val}
+    var_resp = requests.patch(var_url, headers=headers, json=var_body, timeout=30)
+    if var_resp.status_code == 404:
+        var_resp = requests.post(
+            f"https://api.github.com/repos/{repo}/actions/variables",
+            headers=headers,
+            json=var_body,
+            timeout=30,
+        )
+    if not var_resp.ok:
+        return jsonify(
+            ok=False,
+            error=f"更新 GitHub 变量失败: {var_resp.status_code} {var_resp.text[:240]}",
+        ), 502
+
+    # 2) Trigger workflow with the new token for this run
+    dispatch_url = (
+        f"https://api.github.com/repos/{repo}/actions/workflows/update-subscription.yml/dispatches"
+    )
+    dispatch_body = {
+        "ref": os.getenv("GITHUB_DISPATCH_REF", "main"),
+        "inputs": {"direct_token": token_val, "deploy_only": "false"},
+    }
+    dispatch_resp = requests.post(dispatch_url, headers=headers, json=dispatch_body, timeout=30)
+    if dispatch_resp.status_code not in {204, 200}:
+        return jsonify(
+            ok=False,
+            error=f"变量已更新，但触发 Actions 失败: {dispatch_resp.status_code} {dispatch_resp.text[:240]}",
+        ), 502
+
+    return jsonify(ok=True, message="已更新 GitHub Token 并触发 Actions 同步")
 
 
 @app.post("/api/refresh")
