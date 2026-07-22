@@ -1,10 +1,22 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>订阅中心</title>
   <style>
-    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172033;background:#f4f7fb}body{max-width:760px;margin:0 auto;padding:32px 18px}main{background:#fff;border:1px solid #dbe3ef;border-radius:8px;padding:28px;box-shadow:0 8px 30px #17203312}h1{margin:0 0 8px;font-size:28px}h2{margin-top:28px}.row{display:flex;gap:10px;align-items:center;margin:14px 0;flex-wrap:wrap}code{background:#eef3f9;padding:10px 12px;border-radius:5px;word-break:break-all;flex:1}input,select,button{font:inherit;padding:10px;box-sizing:border-box}button{border:0;border-radius:5px;background:#1463d8;color:#fff;cursor:pointer}.danger{background:#b42318}.hint,#status{color:#60708a;font-size:13px}.url{flex:1;min-width:240px}.settings{border-top:1px solid #dbe3ef;margin-top:28px;padding-top:20px}.settings[hidden]{display:none}
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#172033;background:#f4f7fb}
+    body{max-width:760px;margin:0 auto;padding:32px 18px}
+    main{background:#fff;border:1px solid #dbe3ef;border-radius:8px;padding:28px;box-shadow:0 8px 30px #17203312}
+    h1{margin:0 0 8px;font-size:28px}h2{margin-top:28px}
+    .row{display:flex;gap:10px;align-items:center;margin:14px 0;flex-wrap:wrap}
+    code{background:#eef3f9;padding:10px 12px;border-radius:5px;word-break:break-all;flex:1}
+    input,select,button{font:inherit;padding:10px;box-sizing:border-box}
+    button{border:0;border-radius:5px;background:#1463d8;color:#fff;cursor:pointer}
+    .danger{background:#b42318}.hint,#status{color:#60708a;font-size:13px}
+    .url{flex:1;min-width:240px}
+    .settings{border-top:1px solid #dbe3ef;margin-top:28px;padding-top:20px}
+    .settings[hidden]{display:none}
+    .err{color:#b42318}
   </style>
 </head>
 <body><main>
@@ -15,18 +27,161 @@
   <h2>Sing-box</h2><div class="row"><code id="singbox"></code><button data-path="/singbox.json">复制链接</button></div>
   <h2>Shadowrocket / NekoBox</h2><div class="row"><code id="nbsh"></code><button data-path="/nbsh.txt">复制链接</button></div>
   <section id="settings" class="settings" hidden>
-    <h2>管理设置</h2><p class="hint">主订阅地址可填写 clash、v2ray、singbox 或 nbsh 之一。</p>
-    <label>主订阅地址</label><div class="row"><input class="url" id="provider" type="url" placeholder="https://node.example/clash?token=..."></div>
-    <h2>其他订阅源</h2><div id="sources"></div><button id="add" type="button">添加订阅源</button>
-    <div class="row"><button id="save" type="button">保存并刷新</button><button id="refresh" type="button">立即刷新</button><span id="status"></span></div>
+    <h2>管理设置</h2>
+    <p class="hint">主订阅地址可填写 clash、v2ray、singbox 或 nbsh 之一。其他源会转换后聚合到订阅文件。</p>
+    <label>主订阅地址</label>
+    <div class="row"><input class="url" id="provider" type="url" placeholder="https://node.example/clash?token=..."></div>
+    <h2>其他订阅源</h2>
+    <div id="sources"></div>
+    <button id="add" type="button">添加订阅源</button>
+    <div class="row">
+      <button id="save" type="button">保存并刷新</button>
+      <button id="refresh" type="button">立即刷新</button>
+      <span id="status"></span>
+    </div>
   </section>
-</main><script>
-const $=id=>document.getElementById(id),settings=$('settings'),provider=$('provider'),sources=$('sources'),status=$('status');
-async function copyText(text){if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return}const area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();const copied=document.execCommand('copy');area.remove();if(!copied)throw new Error('copy failed')}
-document.querySelectorAll('button[data-path]').forEach(button=>{const url=location.origin+button.dataset.path;button.previousElementSibling.textContent=url;button.onclick=async()=>{try{await copyText(url);button.textContent='已复制';setTimeout(()=>button.textContent='复制链接',1500)}catch{button.textContent='复制失败'}}});
-function row(s={}){const e=document.createElement('div');e.className='row source';e.innerHTML='<input class="name" placeholder="名称"><select class="type"><option>clash</option><option>v2ray</option><option>singbox</option><option>nbsh</option><option>other</option></select><input class="url" type="url" placeholder="外部 URL"><button class="danger" type="button">删除</button>';e.querySelector('.name').value=s.name||'';e.querySelector('.type').value=s.type||'clash';e.querySelector('.url').value=s.url||'';e.querySelector('button').onclick=()=>e.remove();sources.append(e)}
-async function state(){const r=await fetch('/api/status',{cache:'no-store'}),d=await r.json();status.textContent=d.last_refresh?'上次更新：'+d.last_refresh:(d.error||'尚未更新')}
-async function config(){const r=await fetch('/api/config',{cache:'no-store'}),d=await r.json();provider.value=d.provider_url||'';sources.innerHTML='';(d.sources||[]).forEach(row)}
-async function refresh(){status.textContent='刷新中...';const r=await fetch('/api/refresh',{method:'POST'}),d=await r.json();status.textContent=r.ok?'刷新完成':(d.error||'刷新失败');state()}
-$('settings-toggle').onclick=async()=>{settings.hidden=!settings.hidden;if(!settings.hidden){await config();await state()}};$('add').onclick=()=>row();$('refresh').onclick=refresh;$('save').onclick=async()=>{const list=[...document.querySelectorAll('.source')].map((e,i)=>({id:'source-'+(i+1),name:e.querySelector('.name').value,type:e.querySelector('.type').value,url:e.querySelector('.url').value}));const r=await fetch('/api/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider_url:provider.value,sources:list})});if(!r.ok){status.textContent='保存失败';return}await refresh()};
-</script></body></html>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const settings=$('settings'), provider=$('provider'), sources=$('sources'), status=$('status');
+
+async function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const area=document.createElement('textarea');
+  area.value=text;
+  area.style.position='fixed';
+  area.style.opacity='0';
+  document.body.append(area);
+  area.select();
+  const copied=document.execCommand('copy');
+  area.remove();
+  if(!copied) throw new Error('copy failed');
+}
+
+document.querySelectorAll('button[data-path]').forEach(button=>{
+  const url=location.origin + button.dataset.path;
+  button.previousElementSibling.textContent=url;
+  button.onclick=async()=>{
+    try{
+      await copyText(url);
+      button.textContent='已复制';
+      setTimeout(()=>button.textContent='复制链接',1500);
+    }catch{
+      button.textContent='复制失败';
+    }
+  };
+});
+
+function row(s={}){
+  const e=document.createElement('div');
+  e.className='row source';
+  e.innerHTML='<input class="name" placeholder="名称"><select class="type"><option>clash</option><option>v2ray</option><option>singbox</option><option>nbsh</option><option>other</option></select><input class="url" type="url" placeholder="外部 URL"><button class="danger" type="button">删除</button>';
+  e.querySelector('.name').value=s.name||'';
+  e.querySelector('.type').value=s.type||'clash';
+  e.querySelector('.url').value=s.url||'';
+  e.querySelector('button').onclick=()=>e.remove();
+  sources.append(e);
+}
+
+function setStatus(text, isError){
+  status.textContent=text||'';
+  status.className=isError?'err':'';
+}
+
+async function readJson(r){
+  const text=await r.text();
+  try{ return JSON.parse(text); }
+  catch{ throw new Error(text.slice(0,160) || ('HTTP '+r.status)); }
+}
+
+async function state(){
+  const r=await fetch('/api/status',{cache:'no-store'});
+  if(!r.ok){ setStatus('状态读取失败 HTTP '+r.status, true); return null; }
+  const d=await readJson(r);
+  const parts=[];
+  if(d.refresh_status==='running') parts.push('刷新中...');
+  else if(d.message) parts.push(d.message);
+  else if(d.last_refresh) parts.push('上次更新：'+d.last_refresh);
+  else parts.push('尚未更新');
+  if(d.error && d.refresh_status!=='running') parts.push('错误：'+d.error);
+  if(d.webdav_enabled && d.webdav_error) parts.push('WebDAV：'+d.webdav_error);
+  setStatus(parts.join(' | '), !!(d.error && d.refresh_status==='error'));
+  return d;
+}
+
+async function config(){
+  const r=await fetch('/api/config',{cache:'no-store'});
+  const d=await readJson(r);
+  provider.value=d.provider_url||'';
+  sources.innerHTML='';
+  (d.sources||[]).forEach(row);
+}
+
+async function waitRefresh(timeoutMs=180000){
+  const start=Date.now();
+  while(Date.now()-start < timeoutMs){
+    await new Promise(r=>setTimeout(r,1500));
+    const d=await state();
+    if(!d) continue;
+    if(d.refresh_status!=='running'){
+      return d;
+    }
+  }
+  setStatus('刷新超时，请稍后查看状态', true);
+  return null;
+}
+
+async function refresh(){
+  setStatus('正在启动刷新...');
+  try{
+    const r=await fetch('/api/refresh',{method:'POST'});
+    const d=await readJson(r);
+    if(!r.ok){
+      setStatus(d.error || ('刷新失败 HTTP '+r.status), true);
+      return;
+    }
+    setStatus(d.message || (d.busy ? '刷新进行中...' : '刷新中...'));
+    await waitRefresh();
+  }catch(err){
+    setStatus('刷新失败：'+(err.message||err), true);
+  }
+}
+
+$('settings-toggle').onclick=async()=>{
+  settings.hidden=!settings.hidden;
+  if(!settings.hidden){
+    await config();
+    await state();
+  }
+};
+$('add').onclick=()=>row();
+$('refresh').onclick=refresh;
+$('save').onclick=async()=>{
+  const list=[...document.querySelectorAll('.source')].map((e,i)=>({
+    id:'source-'+(i+1),
+    name:e.querySelector('.name').value,
+    type:e.querySelector('.type').value,
+    url:e.querySelector('.url').value
+  }));
+  try{
+    const r=await fetch('/api/config',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({provider_url:provider.value, sources:list})
+    });
+    const d=await readJson(r);
+    if(!r.ok){
+      setStatus(d.error || '保存失败', true);
+      return;
+    }
+    await refresh();
+  }catch(err){
+    setStatus('保存失败：'+(err.message||err), true);
+  }
+};
+</script>
+</body>
+</html>

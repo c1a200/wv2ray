@@ -1,4 +1,4 @@
-services:
+﻿services:
   - type: web
     name: wv2ray
     runtime: python
@@ -9,12 +9,20 @@ services:
         value: 3.11.9
       - key: GENERATE_ISSUE_VARIANTS
         value: "false"
+      - key: SKIP_INITIAL_REFRESH
+        value: "true"
       - key: SUBCONVERTER_TARGET_V2RAY
         value: mixed
       - key: SUBCONVERTER_TARGET_CLASH
         value: clash
       - key: REFRESH_INTERVAL_SECONDS
         value: "86400"
+      - key: HTTP_TIMEOUT_SECONDS
+        value: "25"
+      - key: SUBCONVERTER_TIMEOUT_SECONDS
+        value: "45"
+      - key: WEBDAV_TIMEOUT_SECONDS
+        value: "20"
       - key: DATA_DIR
         value: /tmp/wv2ray
       - key: SECRET_KEY

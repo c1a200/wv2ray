@@ -41,6 +41,8 @@ refresh_lock = threading.Lock()
 last_refresh = None
 last_error = None
 source_results = []
+refresh_status = "idle"  # idle | running | ok | error
+refresh_message = ""
 CONFIG_FILE = DATA_DIR / "upstream.json"
 PERSISTED_FILES = (
     "upstream.json",
@@ -77,8 +79,8 @@ def get_config():
     provider_default = os.getenv("UPSTREAM_URL", "").strip()
     defaults = {
         "provider_url": provider_default,
-        "v2ray_url": os.getenv("DIRECT_V2RAY_URL", "https://node.zyfx6.xyz/v2ray"),
-        "clash_url": os.getenv("DIRECT_CLASH_URL", "https://node.zyfx6.xyz/clash"),
+        "v2ray_url": os.getenv("DIRECT_V2RAY_URL", "").strip(),
+        "clash_url": os.getenv("DIRECT_CLASH_URL", "").strip(),
         "token": os.getenv("DIRECT_TOKEN", ""),
         "sources": [],
     }
@@ -126,7 +128,10 @@ def _webdav_base_url():
 
 
 def _webdav_file_url(filename):
-    return urljoin(_webdav_base_url() + "/", quote(filename))
+    # Avoid urljoin replacing the last path segment; keep files in the configured folder only.
+    base = _webdav_base_url()
+    name = Path(str(filename)).name
+    return f"{base}/{quote(name)}"
 
 
 def _webdav_auth():
@@ -145,7 +150,7 @@ def restore_from_webdav():
     import requests
     try:
         for filename in PERSISTED_FILES:
-            response = requests.get(_webdav_file_url(filename), auth=_webdav_auth(), timeout=10)
+            response = requests.get(_webdav_file_url(filename), auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
             if response.status_code == 404:
                 continue
             response.raise_for_status()
@@ -165,10 +170,10 @@ def sync_to_webdav():
             path = DATA_DIR / filename
             target = _webdav_file_url(filename)
             if path.is_file():
-                response = requests.put(target, data=path.read_bytes(), auth=_webdav_auth(), timeout=20)
+                response = requests.put(target, data=path.read_bytes(), auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
                 response.raise_for_status()
             else:
-                response = requests.delete(target, auth=_webdav_auth(), timeout=10)
+                response = requests.delete(target, auth=_webdav_auth(), timeout=int(os.getenv("WEBDAV_TIMEOUT_SECONDS", "20")))
                 if response.status_code not in {204, 404}:
                     response.raise_for_status()
         _record_webdav_error("")
@@ -186,7 +191,7 @@ def _converter_url(source_url, target):
 
 def _fetch_converted(source_url, target):
     import requests
-    response = requests.get(_converter_url(source_url, target), timeout=90,
+    response = requests.get(_converter_url(source_url, target), timeout=int(os.getenv("SUBCONVERTER_TIMEOUT_SECONDS", "45")),
                             headers={"User-Agent": "wv2ray-subscription-service/1.0"})
     response.raise_for_status()
     content = response.text.strip()
@@ -197,7 +202,7 @@ def _fetch_converted(source_url, target):
 
 def _fetch_source(source_url):
     import requests
-    response = requests.get(source_url, timeout=60,
+    response = requests.get(source_url, timeout=int(os.getenv("HTTP_TIMEOUT_SECONDS", "25")),
                             headers={"User-Agent": "wv2ray-subscription-service/1.0"})
     response.raise_for_status()
     return response.text.strip()
@@ -260,6 +265,68 @@ def _proxy_to_uri(proxy):
             params.append("obfs-password=" + quote(str(value), safe=""))
         query = ("?" + "&".join(params)) if params else ""
         return f"hysteria2://{quote(str(password), safe='')}@{server}:{port}{query}#{name}"
+    if ptype == "trojan":
+        password = proxy.get("password")
+        if password is None:
+            return None
+        params = []
+        sni = proxy.get("sni") or proxy.get("servername")
+        if sni:
+            params.append("sni=" + quote(str(sni), safe=""))
+        if proxy.get("skip-cert-verify") or proxy.get("skip_cert_verify"):
+            params.append("allowInsecure=1")
+        query = ("?" + "&".join(params)) if params else ""
+        return f"trojan://{quote(str(password), safe='')}@{server}:{port}{query}#{name}"
+    if ptype == "vmess":
+        uuid = proxy.get("uuid") or proxy.get("password")
+        if not uuid:
+            return None
+        network = proxy.get("network") or "tcp"
+        tls_flag = "tls" if proxy.get("tls") in (True, "true", "tls") else ""
+        payload = {
+            "v": "2",
+            "ps": str(proxy.get("name", "node")),
+            "add": str(server),
+            "port": str(port),
+            "id": str(uuid),
+            "aid": str(proxy.get("alterId") or proxy.get("alter_id") or 0),
+            "scy": proxy.get("cipher") or "auto",
+            "net": network,
+            "type": "none",
+            "host": proxy.get("servername") or proxy.get("host") or "",
+            "path": proxy.get("path") or "",
+            "tls": tls_flag,
+            "sni": proxy.get("servername") or proxy.get("sni") or "",
+        }
+        encoded = base64.b64encode(json.dumps(payload, ensure_ascii=False).encode()).decode()
+        return f"vmess://{encoded}"
+    if ptype == "vless":
+        uuid = proxy.get("uuid") or proxy.get("password")
+        if not uuid:
+            return None
+        params = ["encryption=" + quote(str(proxy.get("encryption") or "none"), safe="")]
+        reality = proxy.get("reality-opts") or proxy.get("reality_opts") or {}
+        security = "reality" if reality else ("tls" if proxy.get("tls") in (True, "true", "tls") else "none")
+        params.append("security=" + security)
+        if proxy.get("flow"):
+            params.append("flow=" + quote(str(proxy["flow"]), safe=""))
+        sni = proxy.get("servername") or proxy.get("sni")
+        if sni:
+            params.append("sni=" + quote(str(sni), safe=""))
+        fp = proxy.get("client-fingerprint") or proxy.get("client_fingerprint")
+        if fp:
+            params.append("fp=" + quote(str(fp), safe=""))
+        if isinstance(reality, dict):
+            pbk = reality.get("public-key") or reality.get("public_key")
+            sid = reality.get("short-id") or reality.get("short_id")
+            if pbk:
+                params.append("pbk=" + quote(str(pbk), safe=""))
+            if sid is not None and str(sid) != "":
+                params.append("sid=" + quote(str(sid), safe=""))
+        if proxy.get("network"):
+            params.append("type=" + quote(str(proxy["network"]), safe=""))
+        query = "?" + "&".join(params)
+        return f"vless://{quote(str(uuid), safe='')}@{server}:{port}{query}#{name}"
     return None
 
 
@@ -294,6 +361,35 @@ def _proxies_to_singbox(proxies):
             base.update(type="hysteria2", password=proxy.get("password") or proxy.get("auth", ""))
             if proxy.get("sni"):
                 base["tls"] = {"enabled": True, "server_name": proxy["sni"]}
+        elif ptype == "trojan":
+            base.update(type="trojan", password=proxy.get("password", ""))
+            sni = proxy.get("sni") or proxy.get("servername")
+            if sni:
+                base["tls"] = {"enabled": True, "server_name": sni}
+        elif ptype == "vless":
+            base.update(type="vless", uuid=proxy.get("uuid") or proxy.get("password", ""))
+            if proxy.get("flow"):
+                base["flow"] = proxy["flow"]
+            sni = proxy.get("servername") or proxy.get("sni")
+            reality = proxy.get("reality-opts") or proxy.get("reality_opts") or {}
+            if proxy.get("tls") or reality:
+                tls = {"enabled": True}
+                if sni:
+                    tls["server_name"] = sni
+                if isinstance(reality, dict) and (reality.get("public-key") or reality.get("public_key")):
+                    tls["reality"] = {
+                        "enabled": True,
+                        "public_key": reality.get("public-key") or reality.get("public_key"),
+                        "short_id": str(reality.get("short-id") or reality.get("short_id") or ""),
+                    }
+                base["tls"] = tls
+        elif ptype == "vmess":
+            base.update(
+                type="vmess",
+                uuid=proxy.get("uuid") or proxy.get("password", ""),
+                alter_id=int(proxy.get("alterId") or proxy.get("alter_id") or 0),
+                security=proxy.get("cipher") or "auto",
+            )
         else:
             continue
         outbounds.append(base)
@@ -385,10 +481,22 @@ def _merge_converted_sources(config):
     )
 
 
+def _ensure_empty_outputs():
+    (DATA_DIR / "subscribe.txt").write_text("", encoding="utf-8")
+    (DATA_DIR / "clash.yaml").write_text("proxies: []\n", encoding="utf-8")
+    (DATA_DIR / "nbsh.txt").write_text("", encoding="utf-8")
+    (DATA_DIR / "singbox.json").write_text(
+        json.dumps({"outbounds": []}, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
 def refresh():
-    global last_refresh, last_error, source_results
+    global last_refresh, last_error, source_results, refresh_status, refresh_message
     if not refresh_lock.acquire(blocking=False):
+        refresh_message = "刷新进行中，请稍候"
         return False
+    refresh_status = "running"
+    refresh_message = "刷新中..."
     try:
         # Issue variants are GitHub-dependent and are intentionally disabled.
         os.environ.setdefault("GENERATE_ISSUE_VARIANTS", "false")
@@ -402,36 +510,80 @@ def refresh():
             sync_to_webdav()
             last_refresh = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             last_error = None
+            refresh_status = "ok"
+            refresh_message = "已清空订阅（未配置上游）"
             return True
+
+        primary_error = None
         has_primary = bool(config["v2ray_url"] and config["clash_url"])
         if has_primary:
             os.environ["DIRECT_V2RAY_URL"] = config["v2ray_url"]
             os.environ["DIRECT_CLASH_URL"] = config["clash_url"]
             os.environ["DIRECT_TOKEN"] = config["token"]
-            result = save_subscription_files(str(DATA_DIR))
+            try:
+                result = save_subscription_files(str(DATA_DIR))
+                if result is not True:
+                    primary_error = "主订阅抓取返回失败"
+            except Exception as exc:
+                primary_error = _friendly_error(exc)
+                result = False
         else:
             # Sources-only mode starts clean instead of falling back to built-in URLs.
-            (DATA_DIR / "subscribe.txt").write_text("", encoding="utf-8")
-            (DATA_DIR / "clash.yaml").write_text("proxies: []\n", encoding="utf-8")
+            _ensure_empty_outputs()
             result = True
+
         missing = [name for name in ("subscribe.txt", "clash.yaml") if not (DATA_DIR / name).is_file()]
-        if result is not True or missing:
-            raise RuntimeError("上游抓取失败，未生成文件: " + ", ".join(missing))
-        _merge_converted_sources(config)
+        # Free hosts may block some primary domains; still merge extra sources when present.
+        if missing:
+            if config.get("sources"):
+                _ensure_empty_outputs()
+            else:
+                raise RuntimeError("上游抓取失败，未生成文件: " + ", ".join(missing))
+
+        if config.get("sources"):
+            _merge_converted_sources(config)
+
+        missing = [name for name in ("subscribe.txt", "clash.yaml") if not (DATA_DIR / name).is_file()]
+        if missing:
+            raise RuntimeError("刷新后仍缺少文件: " + ", ".join(missing))
+
         sync_to_webdav()
         last_refresh = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        last_error = None
+        if primary_error and not any(item.get("ok") for item in source_results):
+            last_error = primary_error
+            refresh_status = "error"
+            refresh_message = primary_error
+            return False
+        last_error = primary_error
+        refresh_status = "ok"
+        refresh_message = (
+            f"已刷新（主订阅警告: {primary_error}）" if primary_error else "刷新完成"
+        )
         return True
     except Exception as exc:  # keep the HTTP process alive after upstream errors
-        last_error = str(exc)
+        last_error = _friendly_error(exc)
+        refresh_status = "error"
+        refresh_message = last_error
         return False
     finally:
         refresh_lock.release()
 
 
+def schedule_refresh():
+    """Start refresh in background so free-tier reverse proxies do not emit gateway 502."""
+    global refresh_status, refresh_message
+    if refresh_lock.locked() or refresh_status == "running":
+        return {"ok": True, "started": False, "busy": True, "message": "刷新进行中，请稍候"}
+    refresh_status = "running"
+    refresh_message = "刷新中..."
+    threading.Thread(target=refresh, daemon=True).start()
+    return {"ok": True, "started": True, "busy": False, "message": "已开始刷新"}
+
+
 def refresh_loop():
     interval = max(300, int(os.getenv("REFRESH_INTERVAL_SECONDS", "86400")))
-    if os.getenv("SKIP_INITIAL_REFRESH", "false").lower() in {"1", "true", "yes"}:
+    # Default skip initial refresh on cloud hosts; local can set SKIP_INITIAL_REFRESH=false.
+    if os.getenv("SKIP_INITIAL_REFRESH", "true").lower() in {"1", "true", "yes"}:
         time.sleep(interval)
     while True:
         refresh()
@@ -485,10 +637,12 @@ def status():
     unauthorized = _admin_required()
     if unauthorized:
         return unauthorized
-    return jsonify(ok=last_error is None, last_refresh=last_refresh, error=last_error,
-                   data_dir=str(DATA_DIR), files=[p.name for p in DATA_DIR.iterdir()],
-                   webdav_enabled=bool(_webdav_base_url()), webdav_error=webdav_last_error,
-                   sources=source_results)
+    return jsonify(ok=last_error is None or refresh_status == "ok", last_refresh=last_refresh,
+                   error=last_error, refresh_status=refresh_status, message=refresh_message,
+                   data_dir=str(DATA_DIR),
+                   files=[p.name for p in DATA_DIR.iterdir()] if DATA_DIR.is_dir() else [],
+                   webdav_enabled=bool(_webdav_base_url()), webdav_url=_webdav_base_url(),
+                   webdav_error=webdav_last_error, sources=source_results)
 
 
 @app.get("/api/config")
@@ -563,9 +717,8 @@ def manual_refresh():
     unauthorized = _admin_required()
     if unauthorized:
         return unauthorized
-    if refresh():
-        return jsonify(ok=True)
-    return jsonify(ok=False, error=last_error), 502
+    # Background job avoids Render free-tier request/gateway timeouts (true 502).
+    return jsonify(schedule_refresh())
 
 
 @app.get("/<path:filename>")

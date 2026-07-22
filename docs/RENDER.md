@@ -1,18 +1,38 @@
-# Render 部署
+﻿# Render 部署
 
 项目已包含 `render.yaml`，在 Render 中选择 **New > Blueprint** 并连接仓库即可创建服务。
 
-部署后建议在 Environment 中设置：
+## 必填环境变量
 
-- `ADMIN_TOKEN`：管理前端保存上游地址、手动刷新时使用的令牌。建议设置为随机长字符串。
-- `ADMIN_PASSWORD`：管理页面 `/admin` 的登录密码。未设置时默认是 `admin123`，Render 部署后务必覆盖为随机长密码。
-- `SECRET_KEY`：管理登录会话的签名密钥；Blueprint 会自动生成，手动部署时请设置随机长字符串。
-- `DIRECT_V2RAY_URL`：默认 V2Ray 上游地址。
-- `DIRECT_CLASH_URL`：默认 Clash 上游地址。
-- `DIRECT_TOKEN`：上游要求 token 时填写，可留空。
-- `REFRESH_INTERVAL_SECONDS`：刷新间隔，默认 `86400`（每天一次）。
+- `ADMIN_PASSWORD`：管理登录密码（默认 `admin123`，上线后务必改掉）
+- `SECRET_KEY`：Blueprint 会自动生成；手动部署时请设为随机长字符串
+- `WEBDAV_URL`：Cloudreve WebDAV **目录**地址，例如：
+  - 正确：`https://cloudreve.176111.xyz/dav/V2ray`
+  - 错误：`https://cloudreve.176111.xyz/dav/V2ray/V2ray`（会多一层子目录）
+- `WEBDAV_USERNAME` / `WEBDAV_PASSWORD`：WebDAV 账号密码
 
-浏览服务根地址即可打开前端。前端中的“上游配置”可以修改外部订阅地址；保存后点击“立即刷新”。订阅地址为：
+免费 Render 本地磁盘是临时的。配置了 WebDAV 后：
+- 启动时从 WebDAV 恢复配置和上次订阅文件
+- 每次保存配置或刷新成功后同步回 WebDAV
+
+## 可选环境变量
+
+- `SKIP_INITIAL_REFRESH=true`（默认）：避免开机立刻刷新导致长时间占用
+- `HTTP_TIMEOUT_SECONDS=25`
+- `SUBCONVERTER_TIMEOUT_SECONDS=45`
+- `WEBDAV_TIMEOUT_SECONDS=20`
+- `REFRESH_INTERVAL_SECONDS=86400`
+- `SUBCONVERTER_URL`：自定义转换服务
+
+## 使用
+
+1. 打开 `https://<service>.onrender.com/`
+2. 输入管理密码登录
+3. 在「管理设置」填写主订阅地址和其他源
+4. 点击「保存并刷新」——刷新在后台执行，页面会轮询状态（避免网关 502）
+5. 复制 V2Ray / Clash / Sing-box / NekoBox 链接到客户端
+
+公开订阅文件（客户端可直接拉取）：
 
 ```text
 /subscribe.txt
@@ -21,12 +41,20 @@
 /nbsh.txt
 ```
 
-免费 Render 实例的本地目录是临时的。设置 `WEBDAV_URL`、`WEBDAV_USERNAME` 和 `WEBDAV_PASSWORD` 后，服务会在启动时从 WebDAV 恢复配置和上次成功的订阅文件，并在每次保存配置或刷新成功后同步回 WebDAV。请先在 WebDAV 中创建一个专用的空目录，并将 `WEBDAV_URL` 指向该目录。
+前端链接始终使用当前访问域名（`location.origin`），绑定自定义域名后会自动变化，无需手工改域名。
 
-服务启动命令是：
+## WebDAV 目录说明
+
+`WEBDAV_URL` 必须指向**已经存在的空目录或专用目录**，文件会直接写入该目录根下：
 
 ```text
-gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 120
+upstream.json
+subscribe.txt
+clash.yaml
+singbox.json
+nbsh.txt
+metadata.json
+summary.json
 ```
 
-刷新时，主订阅和“其他订阅源”都会经过 `SUBCONVERTER_URL` 转换并聚合：Clash 节点进入 `clash.yaml`，可转换的节点 URI 进入 `subscribe.txt`。可通过 `SUBCONVERTER_URL` 覆盖默认转换服务。
+如果你在网盘里看到 `V2ray/V2ray` 两层，说明环境变量多写了一段路径，改成只保留一层后重新保存配置即可。
