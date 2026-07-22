@@ -2,3 +2,5 @@ requests>=2.31.0
 pyyaml>=6.0
 geoip2>=4.0.0
 telethon>=1.35.0
+flask>=3.0.0
+gunicorn>=22.0.0; platform_system != "Windows"

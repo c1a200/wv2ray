@@ -37,6 +37,9 @@ env/
 # Logs
 *.log
 
+# Local Render-style runtime data
+runtime_data/
+
 # Generated subscription files (keep in docs for tracking)
 # src/subscribe.txt
 # src/metadata.json
