@@ -112,49 +112,12 @@ def _fetch_direct_content(url: str) -> str:
 
 
 def _dedup_proxies(content: str) -> str:
-    """根据核心参数去除重复节点，只保留第一个出现的。
+    """Return upstream Clash content unchanged.
 
-    判断依据：server + port + type + password/uuid 相同即为重复。
+    Deduplicating by server/port/type/password is unsafe for direct Clash
+    subscriptions: proxy-groups reference nodes by name, so removing a duplicate
+    creates dangling references and FlClash reports missing links.
     """
-    try:
-        data = yaml.safe_load(content)
-    except Exception:
-        return content
-
-    if not isinstance(data, dict) or 'proxies' not in data:
-        return content
-
-    proxies = data['proxies']
-    if not proxies:
-        return content
-
-    seen = set()
-    unique = []
-    for proxy in proxies:
-        if not isinstance(proxy, dict):
-            unique.append(proxy)
-            continue
-
-        # 生成指纹：server + port + type + 密钥字段
-        server = str(proxy.get('server', ''))
-        port = str(proxy.get('port', ''))
-        ptype = str(proxy.get('type', ''))
-        # 不同协议用不同字段作为密钥
-        key = proxy.get('uuid') or proxy.get('password') or ''
-        fingerprint = f"{server}:{port}:{ptype}:{key}"
-
-        if fingerprint in seen:
-            continue
-        seen.add(fingerprint)
-        unique.append(proxy)
-
-    removed = len(proxies) - len(unique)
-    if removed > 0:
-        print(f"✓ 去重: 移除 {removed} 个重复节点（保留 {len(unique)} 个）")
-        data['proxies'] = unique
-        return yaml.dump(data, allow_unicode=True, default_flow_style=False,
-                         sort_keys=False, width=1000)
-
     return content
 
 
