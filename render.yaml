@@ -10,7 +10,7 @@
       - key: GENERATE_ISSUE_VARIANTS
         value: "false"
       - key: SKIP_INITIAL_REFRESH
-        value: "true"
+        value: "false"
       - key: SUBCONVERTER_TARGET_V2RAY
         value: mixed
       - key: SUBCONVERTER_TARGET_CLASH
