@@ -525,6 +525,160 @@ def _proxies_to_singbox(proxies):
     return outbounds
 
 
+def _unique_clash_name(name, existing_names, source_name):
+    """Return a unique Clash proxy/group name without mutating base references."""
+    name = str(name or "").strip()
+    if not name:
+        name = "node"
+    if name not in existing_names:
+        return name
+    source = str(source_name or "source").strip() or "source"
+    candidate = f"{name} [{source}]"
+    index = 2
+    while candidate in existing_names:
+        candidate = f"{name} [{source} {index}]"
+        index += 1
+    return candidate
+
+
+def _map_clash_group_ref(ref, proxy_name_map, group_name_map):
+    if isinstance(ref, str):
+        return proxy_name_map.get(ref, group_name_map.get(ref, ref))
+    return ref
+
+
+def _merge_extra_rules(base_rules, extra_rules, group_name_map):
+    """Merge extra-source rules without replacing the primary MATCH fallback."""
+    if not isinstance(base_rules, list) or not isinstance(extra_rules, list):
+        return base_rules
+
+    def _rewrite_rule(rule):
+        if not isinstance(rule, str):
+            return rule
+        parts = rule.rsplit(",", 1)
+        if len(parts) == 2 and parts[1] in group_name_map:
+            return f"{parts[0]},{group_name_map[parts[1]]}"
+        return rule
+
+    extra_rules = [rule for rule in extra_rules if isinstance(rule, str)]
+    extra_rules = [_rewrite_rule(rule) for rule in extra_rules]
+    match_index = next(
+        (index for index, rule in enumerate(base_rules)
+         if isinstance(rule, str) and rule.startswith("MATCH,")),
+        None,
+    )
+    if match_index is None:
+        return base_rules + extra_rules
+
+    insert_rules = [rule for rule in extra_rules if not rule.startswith("MATCH,")]
+    return base_rules[:match_index] + insert_rules + base_rules[match_index:]
+
+
+def _merge_extra_clash_content(base_data, extra_data, source_name):
+    """Merge enabled extra Clash sources into the generated Clash config.
+
+    Node names are kept unique because Clash proxy-groups reference nodes by
+    name. Extra-source groups and rules are merged as well, while the primary
+    subscription's MATCH fallback is preserved.
+    """
+    if not isinstance(base_data, dict):
+        base_data = {"proxies": []}
+    if not isinstance(extra_data, dict):
+        return base_data
+
+    base_data.setdefault("proxies", [])
+    base_data.setdefault("proxy-groups", [])
+
+    existing_proxy_names = {
+        proxy.get("name") for proxy in base_data["proxies"] if isinstance(proxy, dict)
+    }
+    base_proxy_keys = {
+        json.dumps({k: v for k, v in proxy.items() if k != "name"},
+                   sort_keys=True, ensure_ascii=False)
+        for proxy in base_data["proxies"] if isinstance(proxy, dict)
+    }
+
+    proxy_name_map = {}
+    added_proxy_names = []
+    for proxy in extra_data.get("proxies", []):
+        if not isinstance(proxy, dict) or not proxy.get("name"):
+            continue
+        original_name = str(proxy["name"])
+        key = json.dumps({k: v for k, v in proxy.items() if k != "name"},
+                         sort_keys=True, ensure_ascii=False)
+        if original_name in existing_proxy_names and key in base_proxy_keys:
+            proxy_name_map[original_name] = original_name
+            continue
+
+        final_name = _unique_clash_name(original_name, existing_proxy_names, source_name)
+        if final_name != original_name:
+            proxy = dict(proxy)
+            proxy["name"] = final_name
+        base_data["proxies"].append(proxy)
+        existing_proxy_names.add(final_name)
+        base_proxy_keys.add(key)
+        proxy_name_map[original_name] = final_name
+        added_proxy_names.append(final_name)
+
+    extra_groups = [
+        group for group in extra_data.get("proxy-groups", []) if isinstance(group, dict)
+    ]
+    existing_group_names = {
+        group.get("name") for group in base_data["proxy-groups"] if isinstance(group, dict)
+    }
+    group_name_map = {}
+    for group in extra_groups:
+        original_name = str(group.get("name") or "").strip()
+        if not original_name:
+            continue
+        final_name = _unique_clash_name(original_name, existing_group_names, source_name)
+        group_name_map[original_name] = final_name
+        existing_group_names.add(final_name)
+
+    for group in extra_groups:
+        original_name = str(group.get("name") or "").strip()
+        if not original_name or original_name not in group_name_map:
+            continue
+        merged_group = dict(group)
+        merged_group["name"] = group_name_map[original_name]
+        if isinstance(merged_group.get("proxies"), list):
+            merged_group["proxies"] = [
+                _map_clash_group_ref(ref, proxy_name_map, group_name_map)
+                for ref in merged_group["proxies"]
+            ]
+        base_data["proxy-groups"].append(merged_group)
+
+    if extra_data.get("rules"):
+        base_data.setdefault("rules", [])
+        base_data["rules"] = _merge_extra_rules(
+            base_data["rules"], extra_data["rules"], group_name_map
+        )
+
+    source_label = str(source_name or "extra").strip() or "extra"
+    source_group_name = _unique_clash_name(
+        source_label, existing_group_names, "source"
+    )
+    source_group_proxies = ["DIRECT"] + added_proxy_names + list(group_name_map.values())
+    source_group_proxies = list(dict.fromkeys(source_group_proxies))
+    source_group = {
+        "name": source_group_name,
+        "type": "select",
+        "proxies": source_group_proxies,
+    }
+    base_data["proxy-groups"].append(source_group)
+    existing_group_names.add(source_group_name)
+
+    for group in base_data["proxy-groups"]:
+        if isinstance(group, dict) and group.get("name") == "GLOBAL" and isinstance(
+            group.get("proxies"), list
+        ):
+            if source_group_name not in group["proxies"]:
+                group["proxies"].append(source_group_name)
+            break
+
+    return base_data
+
+
 def _merge_converted_sources(config):
     """Convert configured sources to Clash and V2Ray, then merge and deduplicate."""
     global source_results
@@ -539,8 +693,6 @@ def _merge_converted_sources(config):
     clash_data.setdefault("proxies", [])
     base_nodes = [line.strip() for line in _decode_v2ray(v2ray_file.read_text(encoding="utf-8")).splitlines()
                   if line.strip() and "://" in line]
-    clash_keys = {json.dumps({k: v for k, v in proxy.items() if k != "name"}, sort_keys=True, ensure_ascii=False)
-                  for proxy in clash_data["proxies"] if isinstance(proxy, dict)}
     v2_keys = set(base_nodes)
 
     for source in config.get("sources", []):
@@ -561,20 +713,11 @@ def _merge_converted_sources(config):
             else:
                 converted_clash = yaml.safe_load(_fetch_converted(source["url"], "clash")) or {}
             converted_proxies = converted_clash.get("proxies", []) if isinstance(converted_clash, dict) else []
-            added_clash = 0
-            for proxy in converted_proxies:
-                if not isinstance(proxy, dict):
-                    continue
-                key = json.dumps({k: v for k, v in proxy.items() if k != "name"}, sort_keys=True, ensure_ascii=False)
-                if key in clash_keys:
-                    continue
-                if any(item.get("name") == proxy.get("name") for item in clash_data["proxies"] if isinstance(item, dict)):
-                    proxy = dict(proxy)
-                    proxy["name"] = f"{proxy.get('name', 'node')} [{name}]"
-                clash_data["proxies"].append(proxy)
-                clash_keys.add(key)
-                added_clash += 1
-            status["clash_added"] = added_clash
+            before_count = len(clash_data["proxies"])
+            before_group_count = len(clash_data.get("proxy-groups", []))
+            _merge_extra_clash_content(clash_data, converted_clash, name)
+            status["clash_added"] = len(clash_data["proxies"]) - before_count
+            status["clash_groups_added"] = len(clash_data.get("proxy-groups", [])) - before_group_count
         except Exception as exc:
             status["errors"].append("Clash: " + _friendly_error(exc))
 
