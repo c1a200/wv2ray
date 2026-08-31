@@ -213,6 +213,85 @@ rules:
             }
             self.assertNotIn("203.0.113.99", outbound_servers)
 
+    def test_full_clash_profile_keeps_rule_providers_and_rule_set(self):
+        extra_yaml = """
+proxies:
+  - name: extra-http
+    type: http
+    server: 203.0.113.10
+    port: 8080
+proxy-groups:
+  - name: "\u9009\u62e9\u51fa\u53e3"
+    type: select
+    proxies:
+      - DIRECT
+      - extra-http
+rule-providers:
+  category-ads-all:
+    type: http
+    behavior: domain
+  geolocation-!cn:
+    type: http
+    behavior: domain
+rules:
+  - RULE-SET,category-ads-all,REJECT
+  - RULE-SET,geolocation-!cn,\u9009\u62e9\u51fa\u53e3,no-resolve
+  - MATCH,\u9009\u62e9\u51fa\u53e3
+"""
+        primary_clash = """
+proxies:
+  - name: primary-node
+    type: http
+    server: 198.51.100.1
+    port: 8080
+proxy-groups:
+  - name: GLOBAL
+    type: select
+    proxies:
+      - primary-node
+rules:
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - MATCH,primary-node
+"""
+        primary_v2ray = base64.b64encode(
+            "http://user:pass@198.51.100.1:8080#primary-node".encode("utf-8")
+        ).decode("ascii")
+        config = {
+            "sources": [
+                {
+                    "id": "extra-1",
+                    "name": "extra-source",
+                    "type": "clash",
+                    "url": "https://extra.example/full.yaml",
+                    "enabled": True,
+                }
+            ]
+        }
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            data_dir = Path(temp_dir)
+            (data_dir / "clash.yaml").write_text(primary_clash, encoding="utf-8")
+            (data_dir / "subscribe.txt").write_text(primary_v2ray, encoding="utf-8")
+
+            with (
+                patch.object(app, "DATA_DIR", data_dir),
+                patch.object(app, "_fetch_source", return_value=extra_yaml),
+                patch.object(app, "_fetch_converted", side_effect=RuntimeError("not used")),
+            ):
+                app._merge_converted_sources(config)
+
+            clash = yaml.safe_load(
+                (data_dir / "clash.yaml").read_text(encoding="utf-8")
+            )
+            self.assertIn("category-ads-all", clash["rule-providers"])
+            self.assertIn("geolocation-!cn", clash["rule-providers"])
+            rules = clash.get("rules", [])
+            self.assertIn("RULE-SET,category-ads-all,REJECT", rules)
+            self.assertIn(
+                "RULE-SET,geolocation-!cn,\u9009\u62e9\u51fa\u53e3,no-resolve",
+                rules,
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
