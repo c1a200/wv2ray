@@ -547,22 +547,14 @@ def _map_clash_group_ref(ref, proxy_name_map, group_name_map):
     return ref
 
 
-def _merge_extra_rules(base_rules, extra_rules, group_name_map, provider_name_map=None):
+def _merge_extra_rules(base_rules, extra_rules, group_name_map):
     """Merge extra-source rules without replacing the primary MATCH fallback."""
-    provider_name_map = provider_name_map or {}
     if not isinstance(base_rules, list) or not isinstance(extra_rules, list):
         return base_rules
 
     def _rewrite_rule(rule):
         if not isinstance(rule, str):
             return rule
-        if rule.startswith("RULE-SET,"):
-            parts = rule.split(",")
-            if len(parts) >= 2 and parts[1] in provider_name_map:
-                parts[1] = provider_name_map[parts[1]]
-            if len(parts) >= 3 and parts[2] in group_name_map:
-                parts[2] = group_name_map[parts[2]]
-            return ",".join(parts)
         parts = rule.rsplit(",", 1)
         if len(parts) == 2 and parts[1] in group_name_map:
             return f"{parts[0]},{group_name_map[parts[1]]}"
@@ -585,9 +577,8 @@ def _merge_extra_rules(base_rules, extra_rules, group_name_map, provider_name_ma
 def _merge_extra_clash_content(base_data, extra_data, source_name):
     """Merge enabled extra Clash sources into the generated Clash config.
 
-    Node, group, and rule-provider names are kept unique because Clash
-    proxy-groups, rules, and RULE-SET reference them by name. Extra-source
-    groups, rule-providers, and rules are merged as well, while the primary
+    Node names are kept unique because Clash proxy-groups reference nodes by
+    name. Extra-source groups and rules are merged as well, while the primary
     subscription's MATCH fallback is preserved.
     """
     if not isinstance(base_data, dict):
@@ -657,28 +648,10 @@ def _merge_extra_clash_content(base_data, extra_data, source_name):
             ]
         base_data["proxy-groups"].append(merged_group)
 
-    provider_name_map = {}
-    extra_providers = extra_data.get("rule-providers")
-    if isinstance(extra_providers, dict) and extra_providers:
-        base_data.setdefault("rule-providers", {})
-        existing_provider_names = {
-            str(name) for name in base_data["rule-providers"] if isinstance(name, str)
-        }
-        for provider_name, provider in extra_providers.items():
-            final_name = _unique_clash_name(
-                str(provider_name or "provider"), existing_provider_names, source_name
-            )
-            provider_name_map[provider_name] = final_name
-            existing_provider_names.add(final_name)
-            base_data["rule-providers"][final_name] = provider
-
     if extra_data.get("rules"):
         base_data.setdefault("rules", [])
         base_data["rules"] = _merge_extra_rules(
-            base_data["rules"],
-            extra_data["rules"],
-            group_name_map,
-            provider_name_map,
+            base_data["rules"], extra_data["rules"], group_name_map
         )
 
     source_label = str(source_name or "extra").strip() or "extra"
