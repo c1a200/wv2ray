@@ -135,6 +135,38 @@ class MergeExtraClashContentTest(unittest.TestCase):
             ["DOMAIN-SUFFIX,cn,DIRECT", "MATCH,\u9009\u62e9\u51fa\u53e3"],
         )
 
+    def test_drops_rule_set_rules_from_extra_source(self):
+        base = {
+            "proxies": [{"name": "A", "type": "ss"}],
+            "proxy-groups": [
+                {"name": "GLOBAL", "type": "select", "proxies": ["A"]}
+            ],
+            "rules": ["MATCH,\u9501\u6f0f\u4e4b\u9c7c"],
+        }
+        extra = {
+            "proxies": [{"name": "B", "type": "ss"}],
+            "proxy-groups": [
+                {"name": "\u5e7f\u544a\u62e6\u622a", "type": "select", "proxies": ["B"]}
+            ],
+            "rules": [
+                "RULE-SET,category-ads-all,\u5e7f\u544a\u62e6\u622a",
+                "RULE-SET,geolocation-cn,\u56fd\u5185\u670d\u52a1",
+                "DOMAIN-SUFFIX,example.com,DIRECT",
+                "MATCH,\u5e7f\u544a\u62e6\u622a",
+            ],
+        }
+
+        result = _merge_extra_clash_content(base, extra, "test-source")
+
+        rules = result["rules"]
+        self.assertNotIn("RULE-SET,category-ads-all,\u5e7f\u544a\u62e6\u622a", rules)
+        self.assertNotIn("RULE-SET,geolocation-cn,\u56fd\u5185\u670d\u52a1", rules)
+        self.assertIn("DOMAIN-SUFFIX,example.com,DIRECT", rules)
+        group_names = {
+            group["name"] for group in result["proxy-groups"] if isinstance(group, dict)
+        }
+        self.assertIn("test-source", group_names)
+
 
 if __name__ == "__main__":
     unittest.main()

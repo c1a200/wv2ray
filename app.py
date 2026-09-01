@@ -548,7 +548,13 @@ def _map_clash_group_ref(ref, proxy_name_map, group_name_map):
 
 
 def _merge_extra_rules(base_rules, extra_rules, group_name_map):
-    """Merge extra-source rules without replacing the primary MATCH fallback."""
+    """Merge extra-source rules without replacing the primary MATCH fallback.
+
+    Extra-source Clash configs are merged for their nodes/groups/rules only;
+    their ``rule-providers`` are deliberately not carried over.  Rules that
+    reference a rule provider (``RULE-SET``) would therefore dangle and make
+    some clients (e.g. fiClash) fail to parse the output, so they are dropped.
+    """
     if not isinstance(base_rules, list) or not isinstance(extra_rules, list):
         return base_rules
 
@@ -560,7 +566,10 @@ def _merge_extra_rules(base_rules, extra_rules, group_name_map):
             return f"{parts[0]},{group_name_map[parts[1]]}"
         return rule
 
-    extra_rules = [rule for rule in extra_rules if isinstance(rule, str)]
+    extra_rules = [
+        rule for rule in extra_rules
+        if isinstance(rule, str) and not rule.startswith("RULE-SET,")
+    ]
     extra_rules = [_rewrite_rule(rule) for rule in extra_rules]
     match_index = next(
         (index for index, rule in enumerate(base_rules)
